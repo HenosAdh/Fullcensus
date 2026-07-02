@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Website for Adult Family Homes | Full Census</title>
+<meta name="description" content="A real website families judge in the first few seconds. Fast, mobile, with your photos, open beds, and an easy way to call. Built to show up on Google and yours to keep. Book a free Occupancy Audit." />
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url(data:font/woff2;base64,) format('woff2'),local('Space Grotesk')}
+:root{--ink:#000000;--bg:#f4f4f4;--paper:#ffffff;--gold:#c4b139;--text:#141414;--muted:#6f6f6f;--gray:#6f6f6f;--soft:#f4f4f4;--radius:28px;--font:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--paper);line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+header.bar{position:sticky;top:0;z-index:50;padding:14px 16px}
+.nav-in{max-width:1040px;margin:0 auto;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #e2e2e2;box-shadow:0 8px 30px rgba(0,0,0,.1);border-radius:40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 18px;min-height:60px}
+.nav-left{display:flex;gap:24px;align-items:center}
+.nav-left a{font-size:.92rem;font-weight:500;min-height:44px;display:flex;align-items:center}
+.brand{justify-self:center;display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.18rem}
+.brand svg{width:26px;height:26px}
+.nav-right{justify-self:end;display:flex;gap:16px;align-items:center}
+.nav-right .phone{font-size:.92rem;font-weight:600;min-height:44px;display:flex;align-items:center;padding:0 6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;padding:12px 20px;border-radius:40px;min-height:44px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;line-height:1;color:var(--ink)}
+.btn svg{width:15px;height:15px}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.dark svg path{stroke:#fff}
+.btn.coral{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn.coral svg path{stroke:var(--ink)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;justify-self:end;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px}
+.nav-toggle svg{width:24px;height:24px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45)}
+.mobile-menu.open{display:block}
+.mm-panel{position:absolute;top:14px;left:16px;right:16px;background:#fff;border-radius:28px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mm-head{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 12px}
+.mm-panel a{display:flex;align-items:center;min-height:52px;padding:0 12px;border-radius:14px;font-weight:500;font-size:1.05rem}
+.mm-panel a:active{background:var(--soft)}
+.mm-panel .btn{width:100%;justify-content:center;margin-top:8px}
+.mm-close{background:none;border:0;width:44px;height:44px;cursor:pointer}
+.mm-close svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;padding:34px 0 14px}
+.eyebrow{color:var(--gray);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.hero-head{text-align:left;font-weight:700;line-height:.98;letter-spacing:-.02em;font-size:clamp(2.3rem,8vw,4.6rem);max-width:15ch;word-break:break-word;hyphens:auto}
+.hl-lime{display:inline-block;background:var(--gold);color:var(--ink);padding:.02em .26em;border-radius:14px;transform:rotate(-1.5deg);margin:.06em .04em}
+.hero-foot{margin-top:22px;max-width:58ch}
+.hero-foot p{color:var(--text);font-size:1.05rem}
+
+/* BODY SECTIONS */
+.sec{padding:24px 0}
+.block{max-width:760px}
+.block .eyebrow{margin-bottom:10px}
+.block h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:18px;max-width:20ch}
+.block h2 em{font-style:normal;color:#8a7c10}
+.block p{color:var(--text);font-size:1.02rem;margin-bottom:14px;max-width:62ch}
+
+/* GET LIST (dark rounded section) */
+.get-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:46px 0 50px;margin-top:8px}
+.get-shell .eyebrow{color:var(--gold);margin-bottom:10px}
+.get-shell h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;color:#fff;margin-bottom:8px}
+.get-shell .lead{color:#cfcfcf;font-size:1rem;max-width:48ch}
+.sec-rule{height:1px;background:rgba(255,255,255,.18);margin:24px 0 26px}
+.get-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.get-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:#ededed;font-size:1rem}
+.get-list li svg{width:20px;height:20px;flex:0 0 auto;margin-top:3px}
+.get-list li b{color:#fff;font-weight:700}
+
+/* CREDIBILITY NOTE */
+.cred{display:flex;gap:14px;align-items:center;background:var(--bg);border:1px solid #e2e2e2;border-left:4px solid var(--gold);border-radius:18px;padding:18px 20px;margin-top:8px;max-width:760px}
+.cred .av{flex:none;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.cred p{color:var(--text);font-size:.96rem}
+.cred a{font-weight:700;color:#8a7c10;text-decoration:underline}
+
+/* EXPLORE THE REST */
+.explore{margin-top:8px}
+.explore .eyebrow{margin-bottom:14px}
+.explore-links{display:flex;flex-wrap:wrap;gap:10px}
+.explore-links a{display:inline-flex;align-items:center;gap:7px;background:var(--bg);border:1px solid #e2e2e2;border-radius:30px;padding:10px 18px;font-weight:600;font-size:.92rem;color:var(--ink)}
+.explore-links a:hover{border-color:var(--ink)}
+.explore-links a svg{width:14px;height:14px}
+
+/* DARK CTA */
+.cta-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:54px 0;margin-top:8px;overflow:hidden}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:30px 40px;align-items:center}
+.cta-grid .eyebrow{color:var(--gold);margin-bottom:14px}
+.cta-grid h2{font-size:clamp(1.8rem,4.4vw,2.7rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;color:#fff;max-width:18ch}
+.cta-grid h2 em{font-style:normal;color:var(--gold)}
+.cta-grid p{color:#cfcfcf;font-size:1rem;margin-top:14px;max-width:40ch}
+.cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta-actions .phone-line{color:#cfcfcf;font-size:.92rem}
+.cta-actions .phone-line a{color:#fff;font-weight:700}
+
+/* FOOTER */
+.cta-foot-shell{background:var(--ink);color:#cfcfcf;border-radius:var(--radius);padding:46px 0 36px;margin-top:8px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.18)}
+.foot-logo{font-weight:700;font-size:1.4rem;color:#fff;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.foot-logo svg{width:26px;height:26px}
+.foot-blurb{font-size:.9rem;max-width:38ch;color:#cfcfcf}
+.foot-badge{display:inline-block;margin-top:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,177,57,.5);padding:.34rem .7rem;border-radius:30px}
+.foot-col h5{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a{display:block;font-size:.92rem;color:#cfcfcf;margin-bottom:10px}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:24px;font-size:.78rem;color:#8f8f8f}
+
+/* BY THE NUMBERS */
+.stats{margin-top:8px}
+.stats .eyebrow{margin-bottom:18px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.stat-card{background:var(--bg);border:1px solid #e2e2e2;border-radius:22px;padding:26px 22px}
+.stat-num{font-size:clamp(2.4rem,6vw,3.4rem);font-weight:700;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.stat-label{margin-top:12px;font-size:1rem;color:var(--text);max-width:26ch}
+.stat-src{margin-top:14px;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* TEMPLATE SHOWCASE */
+.tpl-wrap{margin-top:18px}
+.tpl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.tpl-card{background:var(--paper);border:1px solid #e6e6e6;border-radius:22px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.10);display:flex;flex-direction:column}
+.tpl-chrome{display:flex;align-items:center;gap:6px;padding:10px 14px;background:#f0f0f0;border-bottom:1px solid #e2e2e2}
+.tpl-chrome i{width:9px;height:9px;border-radius:50%;background:#cfcfcf;display:block}
+.tpl-url{margin-left:8px;font-size:.7rem;color:#8a8a8a;background:#fff;border-radius:20px;padding:3px 12px;flex:1;text-align:center;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tpl-screen{position:relative;aspect-ratio:3/4;overflow:hidden;background:#1a1a1a}
+.tpl-screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tpl-topbar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:12px 14px;z-index:2;color:#fff}
+.tpl-topbar .logo{display:flex;align-items:center;gap:6px;font-size:.74rem;font-weight:700}
+.tpl-topbar .logo .ld{width:13px;height:13px;border-radius:50%;background:var(--ac);border:2px solid rgba(255,255,255,.85)}
+.tpl-topbar .mi{display:flex;gap:9px;font-size:.6rem;font-weight:500;opacity:.9}
+.tpl-screen .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;color:#fff;z-index:1}
+.tpl-screen .ov::before{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8),rgba(0,0,0,.12) 56%,rgba(0,0,0,.34))}
+.tpl-screen .ov>*{position:relative}
+.tpl-avail{display:inline-flex;align-items:center;gap:6px;align-self:flex-start;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.42);border-radius:30px;padding:5px 11px;font-size:.62rem;font-weight:700;letter-spacing:.03em;margin-bottom:10px}
+.tpl-avail .dot{width:7px;height:7px;border-radius:50%;background:#7ddf8f;box-shadow:0 0 0 3px rgba(125,223,143,.3)}
+.tpl-h{font-size:1.04rem;font-weight:700;line-height:1.12;letter-spacing:-.01em;max-width:15ch}
+.tpl-sub{margin-top:6px;font-size:.72rem;color:#ededed;max-width:27ch;line-height:1.35}
+.tpl-cta{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-size:.7rem;font-weight:700;padding:8px 14px;border-radius:30px;background:var(--ac);color:var(--act)}
+.tpl-cap{padding:13px 16px 16px;border-top:1px solid #eee}
+.tpl-cap b{display:block;font-size:.95rem;font-weight:700;color:var(--ink)}
+.tpl-cap span{display:block;margin-top:3px;font-size:.8rem;color:var(--muted)}
+.tpl-foot{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px 16px;margin-top:20px}
+.tpl-note{text-align:center;color:var(--muted);font-size:.95rem;max-width:46ch}
+.tpl-foot .seelink{display:inline-flex;align-items:center;gap:7px;font-weight:700;font-size:.92rem;color:var(--ink);border:1.5px solid var(--ink);border-radius:30px;padding:9px 18px}
+.tpl-foot .seelink svg{width:14px;height:14px}
+/* split-layout template variant */
+.tpl-card.split .tpl-screen{aspect-ratio:auto;display:flex;flex-direction:column;background:var(--panel,#eef1e8)}
+.tpl-photo{position:relative;height:166px;overflow:hidden;flex:0 0 auto}
+.tpl-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tpl-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.34),transparent 42%)}
+.tpl-card.split .tpl-topbar{z-index:3}
+.tpl-panel{padding:14px 16px 18px;color:var(--ptext,#26302a)}
+.tpl-avail2{display:inline-flex;align-items:center;gap:6px;background:var(--availbg,rgba(91,127,91,.14));border:1px solid var(--availbd,rgba(91,127,91,.42));color:var(--availtx,#3c5a3c);border-radius:30px;padding:4px 10px;font-size:.62rem;font-weight:700;letter-spacing:.03em;margin-bottom:10px}
+.tpl-avail2 .dot{width:7px;height:7px;border-radius:50%;background:var(--ac)}
+.tpl-h2{font-size:1.02rem;font-weight:700;line-height:1.14;letter-spacing:-.01em;color:var(--ptext,#26302a);max-width:16ch}
+.tpl-sub2{margin-top:6px;font-size:.72rem;color:var(--ptext2,#5a655c);line-height:1.35;max-width:28ch}
+.tpl-panel .tpl-cta{margin-top:13px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:880px){
+.nav-left,.nav-right{display:none}
+.nav-in{grid-template-columns:auto 1fr auto;min-height:56px}
+.brand{justify-self:start}
+.nav-toggle{display:flex}
+.get-list{grid-template-columns:1fr}
+.cta-grid,.foot-top{grid-template-columns:1fr}
+}
+@media(max-width:900px){
+.tpl-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+.stat-grid{grid-template-columns:1fr}
+.tpl-grid{grid-template-columns:1fr;max-width:380px;margin-left:auto;margin-right:auto}
+}
+@media(max-width:640px){
+.nav-in{background:rgba(255,255,255,.95);-webkit-backdrop-filter:none;backdrop-filter:none}
+.hero{padding:18px 0 10px}
+.hero-head{font-size:clamp(2.1rem,11vw,3.1rem);max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+.reveal{opacity:1;transform:none;transition:none}
+}
+
+.cred .av.avatar{position:relative;overflow:hidden}
+.cred .av.avatar i{font-style:normal}
+.cred .av.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:50%;z-index:2}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#cfcfcf;transition:background .15s ease,color .15s ease}
+.foot-social a:hover{background:var(--gold);color:var(--ink)}
+.foot-social svg{width:17px;height:17px;fill:currentColor}</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="bar">
+<nav class="nav-in" aria-label="Primary">
+<div class="nav-left">
+<a href="index.html">What we do</a>
+<a href="../fullcensus-website-offer.html#case-study">Results</a>
+</div>
+<a href="../fullcensus-website-offer.html" class="brand" aria-label="Full Census home">
+<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>
+Full&nbsp;Census
+</a>
+<div class="nav-right">
+<a href="tel:+14255025648" class="phone">(425) 502-5648</a>
+<a href="../fullcensus-website-offer.html#audit" class="btn coral">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="navToggle">
+<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+</nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+<div class="mm-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="mm-head">
+<span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full&nbsp;Census</span>
+<button class="mm-close" aria-label="Close menu" id="mmClose"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+<a href="index.html">What we do</a>
+<a href="../fullcensus-website-offer.html#case-study">Results</a>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="../fullcensus-website-offer.html#audit" class="btn dark">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero wrap">
+<p class="eyebrow">What we do</p>
+<h1 class="hero-head">A website that fills <span class="hl-lime">beds.</span></h1>
+<div class="hero-foot">
+<p>A real website families judge in the first few seconds. Fast, mobile, with your photos, your open beds, your care types, and an easy way to call or message. Built to show up on Google, and yours to keep.</p>
+</div>
+</section>
+
+<!-- TEMPLATE SHOWCASE -->
+<section class="wrap sec">
+<div class="tpl-wrap reveal">
+<div class="tpl-grid">
+
+<article class="tpl-card" style="--ac:#c4b139;--act:#1a1a1a">
+<div class="tpl-chrome"><i></i><i></i><i></i><span class="tpl-url">brooksideafh.com</span></div>
+<div class="tpl-screen">
+<img src="../assets/photography/afh-common-care.jpg" alt="Preview of a warm, photo-led adult family home website" loading="lazy" />
+<div class="tpl-topbar"><span class="logo"><span class="ld"></span>Brookside</span><span class="mi">About · Care · Contact</span></div>
+<div class="ov">
+<span class="tpl-avail"><span class="dot"></span>Now accepting residents</span>
+<div class="tpl-h">Adult Family Home in Bothell, WA</div>
+<div class="tpl-sub">Around the clock care in a real home, with home cooked meals and a calm, friendly house.</div>
+<span class="tpl-cta">Call (425) 555-0136</span>
+</div>
+</div>
+<div class="tpl-cap"><b>Warm &amp; classic</b><span>Photo-led hero, gold accents</span></div>
+</article>
+
+<article class="tpl-card split" style="--ac:#5b7f5b;--act:#ffffff;--panel:#eef1e8;--ptext:#26302a;--ptext2:#5a655c">
+<div class="tpl-chrome"><i></i><i></i><i></i><span class="tpl-url">cedarbrookafh.com</span></div>
+<div class="tpl-screen">
+<div class="tpl-photo">
+<img src="../assets/photography/afh-living-alt.jpg" alt="Preview of a soft, homely adult family home website" loading="lazy" />
+<div class="tpl-topbar"><span class="logo"><span class="ld"></span>Cedarbrook</span><span class="mi">Home · Rooms · Visit</span></div>
+</div>
+<div class="tpl-panel">
+<span class="tpl-avail2"><span class="dot"></span>2 beds open now</span>
+<div class="tpl-h2">A quiet home for your parent in Everett</div>
+<div class="tpl-sub2">Private rooms, skilled caregivers, and a bright space families love.</div>
+<span class="tpl-cta">Book a tour</span>
+</div>
+</div>
+<div class="tpl-cap"><b>Soft &amp; homely</b><span>Split layout, sage green</span></div>
+</article>
+
+<article class="tpl-card" style="--ac:#c97f5a;--act:#ffffff">
+<div class="tpl-chrome"><i></i><i></i><i></i><span class="tpl-url">maplehouseafh.com</span></div>
+<div class="tpl-screen">
+<img src="../assets/photography/afh-bedroom.jpg" alt="Preview of a cozy, friendly adult family home website" loading="lazy" />
+<div class="tpl-topbar"><span class="logo"><span class="ld"></span>Maple House</span><span class="mi">About · Care · Visit</span></div>
+<div class="ov">
+<span class="tpl-avail"><span class="dot"></span>Now accepting residents</span>
+<div class="tpl-h">Feel at home in Kent, WA</div>
+<div class="tpl-sub">A small, cozy house where your mom or dad is known by name and cared for like family.</div>
+<span class="tpl-cta">Call to visit</span>
+</div>
+</div>
+<div class="tpl-cap"><b>Cozy &amp; friendly</b><span>Soft and welcoming, warm terracotta</span></div>
+</article>
+
+</div>
+<div class="tpl-foot">
+<p class="tpl-note">Every home gets its own site, in a look that fits. Same proven layout, your photos and your city.</p>
+<a class="seelink" href="../afh-website-template.html" target="_blank" rel="noopener">See a full template <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="wrap sec">
+<div class="block reveal">
+<p class="eyebrow">Why it matters for your home</p>
+<h2>Families decide in <em>seconds.</em></h2>
+<p>When an adult daughter is looking for a place for her mother, she opens her phone, taps a few results, and forms an opinion of your home before she ever calls. If your home has no website, or a slow one that does not work on a phone, she moves on to the home that looks ready for her. You lose the tour before you knew it existed.</p>
+<p>A clean, fast site puts your home on equal footing with the larger facilities she is also looking at. It shows your rooms, your care types, and how many beds are open right now, and it makes calling or messaging you take one tap. That is the difference between a bed that sits empty and a bed that gets a tour booked this week.</p>
+<p>Because most families start online and judge a home in seconds, a fast, real website earns their trust right away, so more of them call and book a tour.</p>
+</div>
+</section>
+
+<!-- IS A WEBSITE WORTH IT -->
+<section class="wrap sec">
+<div class="block reveal">
+<p class="eyebrow">Is a website worth it?</p>
+<h2>One filled bed pays for it.</h2>
+<p>One filled bed is worth about $5,000 a month. So the very first family your website brings in more than pays for the site. After that, every family it brings is added income.</p>
+<p>The site is yours. You own it and keep it for as long as you run your home. It keeps working for you year after year.</p>
+<p>If you run two homes, each home needs its own site. Families search by city, and one site cannot show up at the top for two cities at once. A site for each home means each one can be found.</p>
+</div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="wrap sec">
+<div class="stats reveal">
+<p class="eyebrow">By the numbers</p>
+<div class="stat-grid">
+<div class="stat-card">
+<div class="stat-num">81%</div>
+<div class="stat-label">of people research online before choosing a local service.</div>
+<div class="stat-src">Industry research</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">5 seconds</div>
+<div class="stat-label">is all it takes for families to judge a home when they land on it.</div>
+<div class="stat-src">Industry research</div>
+</div>
+<div class="stat-card">
+<div class="stat-num">3 months</div>
+<div class="stat-label">is about how long our clients take to reach a full house.</div>
+<div class="stat-src">Our clients</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="wrap sec">
+<div class="get-shell reveal">
+<div class="wrap">
+<p class="eyebrow">What you get</p>
+<h2>Concrete deliverables</h2>
+<p class="lead">A complete, working website, not a template you have to finish yourself.</p>
+<div class="sec-rule"></div>
+<ul class="get-list">
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A fast, mobile-first site</b> that loads quickly and looks right on every phone.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Your photos and your care types</b> laid out so families see what makes your home a fit.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Open-bed and availability section</b> so families know to reach out now.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>One-tap call and message buttons</b> so an interested family reaches you instantly.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Built to show up on Google</b> with clean structure and the right page titles.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Yours to keep</b>, with your own domain. The site stays yours.</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="wrap sec">
+<div class="cred reveal">
+<a class="av avatar" href="../about.html" aria-label="About Henos Adhana"><i aria-hidden="true">HA</i><img src="../assets/henos-adhana.jpg" alt="Henos Adhana" loading="lazy" onerror="this.style.display='none'"></a>
+<p>We did this for our own family's home, <a href="https://lynnwoodafh.com" target="_blank" rel="noopener">Serene Lynnwood</a>, before offering it to anyone else. <a href="../fullcensus-website-offer.html#case-study">See the proof</a></p>
+</div>
+</section>
+
+<!-- EXPLORE THE REST -->
+<section class="wrap sec">
+<div class="explore reveal">
+<p class="eyebrow">Explore the rest</p>
+<div class="explore-links">
+<a href="google-business.html">Google Business Profile <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="seo.html">Local SEO <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="photography.html">Professional Photography <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="facebook-ads.html">Facebook and Instagram Ads <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="brand-print.html">Brand and Print <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- DARK CTA -->
+<section class="wrap sec" id="audit">
+<div data-audit-form></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap sec">
+<div class="cta-foot-shell">
+<div class="wrap">
+<div class="foot-top">
+<div>
+<div class="foot-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full Census</div>
+<div class="foot-blurb">Full-service marketing for Washington adult family homes. Website, Google, photography, and ads, built to fill your beds.</div>
+<div class="foot-badge">AFHC Affiliate Partner · Seattle, WA</div>
+<div class="foot-social" aria-label="Find Henos online">
+<a href="https://linkedin.com/in/henos" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+<a href="https://facebook.com/henos.adhana" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12z"/></svg></a>
+<a href="https://instagram.com/henos.adhana" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a>
+</div>
+</div>
+<div class="foot-col">
+<h5>What we do</h5>
+<a href="website.html">Website</a><a href="google-business.html">Google Business</a><a href="seo.html">Local SEO</a><a href="photography.html">Photography</a><a href="facebook-ads.html">Facebook and IG ads</a><a href="brand-print.html">Brand and Print</a>
+</div>
+<div class="foot-col">
+<h5>Reach us</h5>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="mailto:hello@fullcensus.agency">hello@fullcensus.agency</a>
+<a href="../fullcensus-website-offer.html">Full Census home</a>
+<a href="../fullcensus-website-offer.html#audit">Book a free Occupancy Audit</a>
+</div>
+</div>
+<div class="foot-bottom">© 2026 Full Census Agency · Adult Family Home Marketing · Washington State · We never sell your information.</div>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+(function(){
+var t=document.getElementById('navToggle'),m=document.getElementById('mobile-menu'),c=document.getElementById('mmClose');
+function open(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function close(){m.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+t.addEventListener('click',open);c.addEventListener('click',close);
+m.addEventListener('click',function(e){if(e.target===m)close()});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if('IntersectionObserver'in window){
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(rm)ro.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+}else{
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}
+})();
+</script>
+<script src="../audit-form.js"></script>
+</body>
+</html>

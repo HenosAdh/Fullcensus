@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Google Business Profile for Adult Family Homes | Full Census</title>
+<meta name="description" content="The listing that shows up on Google Maps when a family searches nearby. We claim it, complete it, add photos and hours, and help you gather reviews so you actually appear. Book a free Occupancy Audit." />
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url(data:font/woff2;base64,) format('woff2'),local('Space Grotesk')}
+:root{--ink:#000000;--bg:#f4f4f4;--paper:#ffffff;--gold:#c4b139;--text:#141414;--muted:#6f6f6f;--gray:#6f6f6f;--soft:#f4f4f4;--radius:28px;--font:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--paper);line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+header.bar{position:sticky;top:0;z-index:50;padding:14px 16px}
+.nav-in{max-width:1040px;margin:0 auto;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #e2e2e2;box-shadow:0 8px 30px rgba(0,0,0,.1);border-radius:40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 18px;min-height:60px}
+.nav-left{display:flex;gap:24px;align-items:center}
+.nav-left a{font-size:.92rem;font-weight:500;min-height:44px;display:flex;align-items:center}
+.brand{justify-self:center;display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.18rem}
+.brand svg{width:26px;height:26px}
+.nav-right{justify-self:end;display:flex;gap:16px;align-items:center}
+.nav-right .phone{font-size:.92rem;font-weight:600;min-height:44px;display:flex;align-items:center;padding:0 6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;padding:12px 20px;border-radius:40px;min-height:44px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;line-height:1;color:var(--ink)}
+.btn svg{width:15px;height:15px}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.dark svg path{stroke:#fff}
+.btn.coral{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn.coral svg path{stroke:var(--ink)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;justify-self:end;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px}
+.nav-toggle svg{width:24px;height:24px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45)}
+.mobile-menu.open{display:block}
+.mm-panel{position:absolute;top:14px;left:16px;right:16px;background:#fff;border-radius:28px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mm-head{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 12px}
+.mm-panel a{display:flex;align-items:center;min-height:52px;padding:0 12px;border-radius:14px;font-weight:500;font-size:1.05rem}
+.mm-panel a:active{background:var(--soft)}
+.mm-panel .btn{width:100%;justify-content:center;margin-top:8px}
+.mm-close{background:none;border:0;width:44px;height:44px;cursor:pointer}
+.mm-close svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;padding:34px 0 14px}
+.eyebrow{color:var(--gray);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.hero-head{text-align:left;font-weight:700;line-height:.98;letter-spacing:-.02em;font-size:clamp(2.3rem,8vw,4.6rem);max-width:15ch;word-break:break-word;hyphens:auto}
+.hl-lime{display:inline-block;background:var(--gold);color:var(--ink);padding:.02em .26em;border-radius:14px;transform:rotate(-1.5deg);margin:.06em .04em}
+.hero-foot{margin-top:22px;max-width:58ch}
+.hero-foot p{color:var(--text);font-size:1.05rem}
+
+/* BODY SECTIONS */
+.sec{padding:24px 0}
+.block{max-width:760px}
+.block .eyebrow{margin-bottom:10px}
+.block h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;color:var(--ink);margin-bottom:18px;max-width:20ch}
+.block h2 em{font-style:normal;color:#8a7c10}
+.block p{color:var(--text);font-size:1.02rem;margin-bottom:14px;max-width:62ch}
+
+/* GET LIST (dark rounded section) */
+.get-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:46px 0 50px;margin-top:8px}
+.get-shell .eyebrow{color:var(--gold);margin-bottom:10px}
+.get-shell h2{font-size:clamp(1.6rem,4vw,2.4rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;color:#fff;margin-bottom:8px}
+.get-shell .lead{color:#cfcfcf;font-size:1rem;max-width:48ch}
+.sec-rule{height:1px;background:rgba(255,255,255,.18);margin:24px 0 26px}
+.get-list{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.get-list li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:#ededed;font-size:1rem}
+.get-list li svg{width:20px;height:20px;flex:0 0 auto;margin-top:3px}
+.get-list li b{color:#fff;font-weight:700}
+
+/* CREDIBILITY NOTE */
+.cred{display:flex;gap:14px;align-items:center;background:var(--bg);border:1px solid #e2e2e2;border-left:4px solid var(--gold);border-radius:18px;padding:18px 20px;margin-top:8px;max-width:760px}
+.cred .av{flex:none;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.cred p{color:var(--text);font-size:.96rem}
+.cred a{font-weight:700;color:#8a7c10;text-decoration:underline}
+
+/* EXPLORE THE REST */
+.explore{margin-top:8px}
+.explore .eyebrow{margin-bottom:14px}
+.explore-links{display:flex;flex-wrap:wrap;gap:10px}
+.explore-links a{display:inline-flex;align-items:center;gap:7px;background:var(--bg);border:1px solid #e2e2e2;border-radius:30px;padding:10px 18px;font-weight:600;font-size:.92rem;color:var(--ink)}
+.explore-links a:hover{border-color:var(--ink)}
+.explore-links a svg{width:14px;height:14px}
+
+/* DARK CTA */
+.cta-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:54px 0;margin-top:8px;overflow:hidden}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:30px 40px;align-items:center}
+.cta-grid .eyebrow{color:var(--gold);margin-bottom:14px}
+.cta-grid h2{font-size:clamp(1.8rem,4.4vw,2.7rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;color:#fff;max-width:18ch}
+.cta-grid h2 em{font-style:normal;color:var(--gold)}
+.cta-grid p{color:#cfcfcf;font-size:1rem;margin-top:14px;max-width:40ch}
+.cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta-actions .phone-line{color:#cfcfcf;font-size:.92rem}
+.cta-actions .phone-line a{color:#fff;font-weight:700}
+
+/* FOOTER */
+.cta-foot-shell{background:var(--ink);color:#cfcfcf;border-radius:var(--radius);padding:46px 0 36px;margin-top:8px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.18)}
+.foot-logo{font-weight:700;font-size:1.4rem;color:#fff;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.foot-logo svg{width:26px;height:26px}
+.foot-blurb{font-size:.9rem;max-width:38ch;color:#cfcfcf}
+.foot-badge{display:inline-block;margin-top:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,177,57,.5);padding:.34rem .7rem;border-radius:30px}
+.foot-col h5{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a{display:block;font-size:.92rem;color:#cfcfcf;margin-bottom:10px}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:24px;font-size:.78rem;color:#8f8f8f}
+
+/* BY THE NUMBERS stat band */
+.stats{margin-top:8px}
+.stats .eyebrow{margin-bottom:16px}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.stat-card{border-radius:22px;padding:26px 22px 22px;display:flex;flex-direction:column;gap:6px}
+.stat-card.gold{background:var(--gold);color:var(--ink)}
+.stat-card.dark{background:var(--ink);color:#fff}
+.stat-card .num{font-size:clamp(2.4rem,6vw,3.4rem);font-weight:700;letter-spacing:-.02em;line-height:1}
+.stat-card .lab{font-size:.98rem;font-weight:500;max-width:24ch}
+.stat-card.gold .lab{color:#141414}
+.stat-card.dark .lab{color:#ededed}
+.stat-card .src{margin-top:auto;padding-top:14px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.stat-card.gold .src{color:#6b5f0e}
+.stat-card.dark .src{color:var(--gold)}
+.stat-note{margin-top:12px;font-size:.82rem;color:var(--muted);max-width:60ch}
+
+/* GOOGLE LOCAL PACK (Maps) MOCKUP */
+.lpack{background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.14);border:1px solid #e6e6e6;padding:18px 18px 20px;font-family:arial,Roboto,system-ui,sans-serif;max-width:560px;width:100%;margin:0 auto}
+.lpack .sbox{display:flex;align-items:center;gap:10px;border:1px solid #dfe1e5;border-radius:24px;padding:9px 16px;box-shadow:0 1px 4px rgba(5,59,65,.08)}
+.lpack .sbox svg{width:17px;height:17px;flex:0 0 auto}
+.lpack .sbox .q{font-size:.95rem;color:#202124;flex:1}
+.lpack .chips{display:flex;gap:8px;margin:12px 0 4px;overflow-x:auto}
+.lpack .chip{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;border:1px solid #dadce0;border-radius:18px;padding:6px 12px;font-size:.78rem;color:#3c4043}
+.lpack .chip svg{width:12px;height:12px}
+.lpack .rows{margin-top:6px}
+.lpack .lrow{display:flex;gap:12px;padding:14px 4px;border-top:1px solid #ececec}
+.lpack .lrow:first-child{border-top:0}
+.lpack .lrow.top{background:#f6f9ff;border-radius:14px;border-top:0;padding:14px 12px;box-shadow:inset 0 0 0 1px #e3ecff}
+.lpack .thumb{width:54px;height:54px;border-radius:12px;flex:0 0 auto;background:linear-gradient(135deg,#cdd8ea,#9fb0cc 60%,#7d6f3a)}
+.lpack .linfo{flex:1;min-width:0}
+.lpack .lname{font-size:.98rem;color:#202124;font-weight:700;line-height:1.25}
+.lpack .lrow.muted .lname{font-weight:400}
+.lpack .lstars{display:flex;align-items:center;gap:5px;font-size:.78rem;color:#70757a;margin:2px 0}
+.lpack .lstars .rate{color:#e7711b;font-weight:600}
+.lpack .lstars svg{width:11px;height:11px}
+.lpack .lmeta{font-size:.8rem;color:#5f6368;line-height:1.4}
+.lpack .lopen{color:#188038;font-weight:600}
+.lpack .lphone{color:#1a73e8}
+.lpack .lbtns{display:flex;gap:8px;margin-top:9px}
+.lpack .lbtn{display:inline-flex;align-items:center;gap:5px;border:1px solid #dadce0;border-radius:18px;padding:5px 13px;font-size:.78rem;color:#1a73e8;font-weight:600}
+.lpack .lbtn svg{width:12px;height:12px}
+.mockwrap{margin-top:26px}
+.mockcap{text-align:center;font-size:.8rem;color:var(--muted);margin-top:14px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:880px){
+.nav-left,.nav-right{display:none}
+.nav-in{grid-template-columns:auto 1fr auto;min-height:56px}
+.brand{justify-self:start}
+.nav-toggle{display:flex}
+.get-list{grid-template-columns:1fr}
+.cta-grid,.foot-top{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+.nav-in{background:rgba(255,255,255,.95);-webkit-backdrop-filter:none;backdrop-filter:none}
+.hero{padding:18px 0 10px}
+.hero-head{font-size:clamp(2.1rem,11vw,3.1rem);max-width:100%}
+.stat-grid{grid-template-columns:1fr}
+.lpack{padding:14px 14px 16px}
+.lpack .thumb{width:46px;height:46px}
+}
+@media(prefers-reduced-motion:reduce){
+.reveal{opacity:1;transform:none;transition:none}
+}
+
+.cred .av.avatar{position:relative;overflow:hidden}
+.cred .av.avatar i{font-style:normal}
+.cred .av.avatar img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;border-radius:50%;z-index:2}
+.addon{background:var(--bg);border:1px solid #e6e6e6;border-left:4px solid var(--gold);border-radius:20px;padding:26px 26px 24px;max-width:780px}
+.addon .eyebrow{margin-bottom:8px}
+.addon h2{font-size:clamp(1.4rem,3.4vw,2rem);font-weight:700;line-height:1.06;letter-spacing:-.01em;color:var(--ink);margin-bottom:14px;max-width:24ch}
+.addon h2 em{font-style:normal;color:#8a7c10}
+.addon p{color:var(--text);font-size:1rem;margin-bottom:12px;max-width:62ch}
+.addon p:last-child{margin-bottom:0}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#cfcfcf;transition:background .15s ease,color .15s ease}
+.foot-social a:hover{background:var(--gold);color:var(--ink)}
+.foot-social svg{width:17px;height:17px;fill:currentColor}</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="bar">
+<nav class="nav-in" aria-label="Primary">
+<div class="nav-left">
+<a href="index.html">What we do</a>
+<a href="../fullcensus-website-offer.html#case-study">Results</a>
+</div>
+<a href="../fullcensus-website-offer.html" class="brand" aria-label="Full Census home">
+<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>
+Full&nbsp;Census
+</a>
+<div class="nav-right">
+<a href="tel:+14255025648" class="phone">(425) 502-5648</a>
+<a href="../fullcensus-website-offer.html#audit" class="btn coral">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="navToggle">
+<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+</nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+<div class="mm-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="mm-head">
+<span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full&nbsp;Census</span>
+<button class="mm-close" aria-label="Close menu" id="mmClose"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+<a href="index.html">What we do</a>
+<a href="../fullcensus-website-offer.html#case-study">Results</a>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="../fullcensus-website-offer.html#audit" class="btn dark">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero wrap">
+<p class="eyebrow">What we do</p>
+<h1 class="hero-head">Show up on the <span class="hl-lime">map.</span></h1>
+<div class="hero-foot">
+<p>The listing that shows up on Google Maps when a family searches nearby. Most homes never claim or fill theirs out. We claim it, complete it, add photos and hours, and help you gather reviews so you actually appear.</p>
+</div>
+
+<!-- GOOGLE LOCAL PACK (Maps) MOCKUP -->
+<div class="mockwrap reveal">
+<div class="lpack" role="img" aria-label="Google Maps local results for 'Adult Family Home Near Me' showing Serene Lynnwood Adult Family Home in the top spot.">
+<div class="sbox">
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="#9aa0a6" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#9aa0a6" stroke-width="2" stroke-linecap="round"/></svg>
+<span class="q">Adult Family Home Near Me</span>
+</div>
+<div class="chips" aria-hidden="true">
+<span class="chip">Rating <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3c4043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<span class="chip">Hours <svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="#3c4043" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<span class="chip">All filters</span>
+</div>
+<div class="rows">
+<div class="lrow top">
+<span class="thumb" aria-hidden="true"></span>
+<div class="linfo">
+<div class="lname">Serene Lynnwood Adult Family Home</div>
+<div class="lstars"><span class="rate">New</span><span>No reviews</span></div>
+<div class="lmeta">Assisted living facility · 3705 134th Pl SW</div>
+<div class="lmeta"><span class="lopen">Open 24 hours</span> · <span class="lphone">(425) 599-9268</span></div>
+<div class="lbtns">
+<span class="lbtn">Website <svg viewBox="0 0 24 24" fill="none"><path d="M10 14L20 4M14 4h6v6" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+<span class="lbtn">Directions <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-7.5 7-12a7 7 0 1 0-14 0c0 4.5 7 12 7 12z" stroke="#1a73e8" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="#1a73e8" stroke-width="2"/></svg></span>
+</div>
+</div>
+</div>
+<div class="lrow muted">
+<span class="thumb" aria-hidden="true" style="background:linear-gradient(135deg,#dfe3ea,#c3c9d4)"></span>
+<div class="linfo">
+<div class="lname">Serene Ridge Adult Family Home</div>
+<div class="lstars"><span class="rate">5.0</span><svg viewBox="0 0 24 24" fill="#e7711b"><path d="M12 2l3 6.5 7 .7-5.2 4.7 1.5 6.9L12 17.8 5.2 20.8l1.5-6.9L1.5 9.2l7-.7L12 2z"/></svg><span>Assisted living facility</span></div>
+<div class="lmeta">Open 24 hours · Lynnwood, WA</div>
+</div>
+</div>
+<div class="lrow muted">
+<span class="thumb" aria-hidden="true" style="background:linear-gradient(135deg,#e2e6dd,#c7cdbb)"></span>
+<div class="linfo">
+<div class="lname">Blue Ridge Adult Family Home</div>
+<div class="lstars"><span class="rate">5.0</span><svg viewBox="0 0 24 24" fill="#e7711b"><path d="M12 2l3 6.5 7 .7-5.2 4.7 1.5 6.9L12 17.8 5.2 20.8l1.5-6.9L1.5 9.2l7-.7L12 2z"/></svg><span>Assisted living facility</span></div>
+<div class="lmeta">Open 24 hours · Lynnwood, WA</div>
+</div>
+</div>
+</div>
+</div>
+<p class="mockcap">The top spot on the map, where most of the tour calls go. This is Serene Lynnwood.</p>
+</div>
+</section>
+
+<!-- BY THE NUMBERS -->
+<section class="wrap sec">
+<div class="stats reveal">
+<p class="eyebrow">By the numbers</p>
+<div class="stat-grid">
+<div class="stat-card gold">
+<span class="num">46%</span>
+<span class="lab">of all Google searches are looking for something local.</span>
+<span class="src">Google</span>
+</div>
+<div class="stat-card dark">
+<span class="num">Top 3</span>
+<span class="lab">map results take most of the local clicks. The rest is rarely seen.</span>
+<span class="src">Industry research</span>
+</div>
+<div class="stat-card gold">
+<span class="num">76%</span>
+<span class="lab">of nearby phone searches lead to a visit within a day.</span>
+<span class="src">Google</span>
+</div>
+</div>
+<p class="stat-note">Our clients reach the top 3 on Maps within 60 days in 91 percent of cases. Figures are rounded and illustrative; the owner can adjust them to fit their own numbers.</p>
+</div>
+</section>
+
+<!-- WHY IT MATTERS -->
+<section class="wrap sec">
+<div class="block reveal">
+<p class="eyebrow">Why it matters for your home</p>
+<h2>The map is where families <em>look first.</em></h2>
+<p>When someone searches "adult family home near me," Google shows a small map with three homes pinned on it before any normal results. Those three spots get most of the calls. If your home is not on that map, or your listing is empty, the family taps one of the homes that is, and you never hear from them.</p>
+<p>Most adult family homes have never claimed their Google listing, or claimed it and left it half blank, with no photos, wrong hours, and no reviews. That is actually good news for you. Filling yours out properly, with real photos and a steady trickle of reviews, is one of the fastest ways to start showing up where families are already looking.</p>
+<p>Here is the plain case. Because families search "adult family home near me" and call the homes at the top of the map, a complete, optimized Google profile puts you in that top 3, so more tour calls reach your phone. The numbers back it up: nearly half of all searches are local, the top 3 take most of the clicks, and most nearby searches turn into a visit within a day.</p>
+</div>
+</section>
+
+<!-- PAID SEARCH -->
+<section class="wrap sec">
+<div class="addon reveal">
+<p class="eyebrow">Want the top spot today</p>
+<h2>Add <em>paid search</em> to show up today.</h2>
+<p>Your Google Business Profile earns the top of the map over time. Paid search gets you there today. With Google Ads we can put your home at the very top of Google and the map for searches like "adult family home in your city," marked as an ad, while your profile builds up underneath.</p>
+<p>You set the monthly budget, and you only pay when a family clicks. We write the ads, choose the right searches, and point them at real local families, so the calls can start this week instead of next quarter.</p>
+</div>
+</section>
+
+<!-- WHAT YOU GET -->
+<section class="wrap sec">
+<div class="get-shell reveal">
+<div class="wrap">
+<p class="eyebrow">What you get</p>
+<h2>Concrete deliverables</h2>
+<p class="lead">A claimed, complete, working Google Business Profile, and the reviews to back it up.</p>
+<div class="sec-rule"></div>
+<ul class="get-list">
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>We claim your listing</b> or recover it if someone set it up long ago.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Every field filled out</b>: services, care types, hours, area served, and description.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Real photos added</b> so your listing looks like a home, not a blank pin.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Correct name, address, and phone</b> that match your website everywhere.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>A simple way to gather reviews</b> from families and staff, the right way.</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span><b>Ongoing upkeep</b> so the listing stays accurate as your beds open and fill.</span></li>
+</ul>
+</div>
+</div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="wrap sec">
+<div class="cred reveal">
+<a class="av avatar" href="../about.html" aria-label="About Henos Adhana"><i aria-hidden="true">HA</i><img src="../assets/henos-adhana.jpg" alt="Henos Adhana" loading="lazy" onerror="this.style.display='none'"></a>
+<p>We did this for our own family's home, <a href="https://lynnwoodafh.com" target="_blank" rel="noopener">Serene Lynnwood</a>, before offering it to anyone else. <a href="../fullcensus-website-offer.html#case-study">See the proof</a></p>
+</div>
+</section>
+
+<!-- EXPLORE THE REST -->
+<section class="wrap sec">
+<div class="explore reveal">
+<p class="eyebrow">Explore the rest</p>
+<div class="explore-links">
+<a href="website.html">Website <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="seo.html">Local SEO <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="photography.html">Professional Photography <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="facebook-ads.html">Facebook and Instagram Ads <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="brand-print.html">Brand and Print <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+</section>
+
+<!-- DARK CTA -->
+<section class="wrap sec" id="audit">
+<div data-audit-form></div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap sec">
+<div class="cta-foot-shell">
+<div class="wrap">
+<div class="foot-top">
+<div>
+<div class="foot-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full Census</div>
+<div class="foot-blurb">Full-service marketing for Washington adult family homes. Website, Google, photography, and ads, built to fill your beds.</div>
+<div class="foot-badge">AFHC Affiliate Partner · Seattle, WA</div>
+<div class="foot-social" aria-label="Find Henos online">
+<a href="https://linkedin.com/in/henos" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+<a href="https://facebook.com/henos.adhana" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12z"/></svg></a>
+<a href="https://instagram.com/henos.adhana" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a>
+</div>
+</div>
+<div class="foot-col">
+<h5>What we do</h5>
+<a href="website.html">Website</a><a href="google-business.html">Google Business</a><a href="seo.html">Local SEO</a><a href="photography.html">Photography</a><a href="facebook-ads.html">Facebook and IG ads</a><a href="brand-print.html">Brand and Print</a>
+</div>
+<div class="foot-col">
+<h5>Reach us</h5>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="mailto:hello@fullcensus.agency">hello@fullcensus.agency</a>
+<a href="../fullcensus-website-offer.html">Full Census home</a>
+<a href="../fullcensus-website-offer.html#audit">Book a free Occupancy Audit</a>
+</div>
+</div>
+<div class="foot-bottom">© 2026 Full Census Agency · Adult Family Home Marketing · Washington State · We never sell your information.</div>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+(function(){
+var t=document.getElementById('navToggle'),m=document.getElementById('mobile-menu'),c=document.getElementById('mmClose');
+function open(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function close(){m.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+t.addEventListener('click',open);c.addEventListener('click',close);
+m.addEventListener('click',function(e){if(e.target===m)close()});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if('IntersectionObserver'in window){
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(rm)ro.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+}else{
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}
+})();
+</script>
+<script src="../audit-form.js"></script>
+</body>
+</html>

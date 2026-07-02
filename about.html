@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About Henos Adhana | Full Census</title>
+<meta name="description" content="Henos Adhana, founder of Full Census. A career marketer and SEO who has worked with names like NASA, a licensed Washington real estate agent, and the marketer behind his own family's adult family home, Serene Lynnwood." />
+<style>
+@font-face{font-family:'Space Grotesk';font-style:normal;font-weight:300 700;font-display:swap;src:url(data:font/woff2;base64,) format('woff2'),local('Space Grotesk')}
+:root{--ink:#000000;--bg:#f4f4f4;--paper:#ffffff;--gold:#c4b139;--golddark:#8a7c10;--text:#141414;--muted:#6f6f6f;--gray:#6f6f6f;--soft:#f4f4f4;--radius:28px;--font:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--paper);line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* NAV */
+header.bar{position:sticky;top:0;z-index:50;padding:14px 16px}
+.nav-in{max-width:1040px;margin:0 auto;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #e2e2e2;box-shadow:0 8px 30px rgba(0,0,0,.1);border-radius:40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 18px;min-height:60px}
+.nav-left{display:flex;gap:24px;align-items:center}
+.nav-left a{font-size:.92rem;font-weight:500;min-height:44px;display:flex;align-items:center}
+.nav-left a.active{border-bottom:2px solid var(--gold)}
+.brand{justify-self:center;display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.18rem}
+.brand svg{width:26px;height:26px}
+.nav-right{justify-self:end;display:flex;gap:16px;align-items:center}
+.nav-right .phone{font-size:.92rem;font-weight:600;min-height:44px;display:flex;align-items:center;padding:0 6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;padding:12px 20px;border-radius:40px;min-height:44px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;line-height:1;color:var(--ink)}
+.btn svg{width:15px;height:15px}
+.btn.coral{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+.btn.coral svg path{stroke:var(--ink)}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.dark svg path{stroke:#fff}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;justify-self:end;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px}
+.nav-toggle svg{width:24px;height:24px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45)}
+.mobile-menu.open{display:block}
+.mm-panel{position:absolute;top:14px;left:16px;right:16px;background:#fff;border-radius:28px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mm-head{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 12px}
+.mm-panel a{display:flex;align-items:center;min-height:52px;padding:0 12px;border-radius:14px;font-weight:500;font-size:1.05rem}
+.mm-panel a:active{background:var(--soft)}
+.mm-panel .btn{width:100%;justify-content:center;margin-top:8px}
+.mm-close{background:none;border:0;width:44px;height:44px;cursor:pointer}
+.mm-close svg{width:22px;height:22px}
+
+/* ABOUT HERO */
+.about{padding:30px 0 10px}
+.about-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:56px;align-items:center}
+.photo-wrap{position:relative;max-width:420px}
+.photo-wrap .accent{position:absolute;right:-16px;bottom:-16px;width:70%;height:70%;background:var(--gold);border-radius:22px;z-index:0}
+.photo-wrap img{position:relative;z-index:1;width:100%;border-radius:22px;box-shadow:0 26px 60px rgba(0,0,0,.18)}
+.about-eyebrow{color:var(--gray);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:16px}
+.hello{font-size:clamp(1.6rem,3.4vw,2.2rem);font-weight:700;color:var(--ink);margin-bottom:14px}
+.about-head{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:700;line-height:1.06;letter-spacing:-.02em;color:var(--ink);max-width:16ch}
+.about-head .g{color:var(--golddark)}
+.about-head .hl{background:var(--gold);color:var(--ink);padding:.02em .18em;border-radius:10px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.about-head .soft{font-style:italic;font-weight:600;color:var(--ink)}
+.bio{margin-top:26px;max-width:52ch}
+.bio p{color:var(--text);font-size:1.02rem;margin-bottom:14px}
+.bio a{color:var(--golddark);font-weight:700;text-decoration:underline}
+.socials{display:flex;gap:12px;margin-top:26px;align-items:center;flex-wrap:wrap}
+.socials .slabel{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-right:2px}
+.socials a{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--bg);border:1px solid #e2e2e2;color:var(--ink);transition:background .15s ease,color .15s ease,border-color .15s ease}
+.socials a:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.socials svg{width:19px;height:19px;fill:currentColor}
+
+/* CREDENTIALS STRIP */
+.creds{margin-top:12px}
+.creds-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cred-box{background:var(--bg);border:1px solid #e6e6e6;border-radius:20px;padding:22px 22px 20px}
+.cred-box h4{font-size:.7rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--golddark);margin-bottom:12px}
+.cred-box ul{list-style:none}
+.cred-box li{display:flex;gap:9px;align-items:flex-start;font-size:.96rem;color:var(--text);margin-bottom:9px}
+.cred-box li:last-child{margin-bottom:0}
+.cred-box li svg{width:16px;height:16px;flex:0 0 auto;margin-top:3px}
+
+/* DARK CTA */
+.cta-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:48px 0;margin-top:14px;overflow:hidden}
+.cta-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:26px 40px;align-items:center}
+.cta-grid .eyebrow{color:var(--gold);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.cta-grid h2{font-size:clamp(1.7rem,4vw,2.5rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;color:#fff;max-width:20ch}
+.cta-grid h2 em{font-style:normal;color:var(--gold)}
+.cta-grid p{color:#cfcfcf;font-size:1rem;margin-top:12px;max-width:42ch}
+.cta-actions{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta-actions .phone-line{color:#cfcfcf;font-size:.92rem}
+.cta-actions .phone-line a{color:#fff;font-weight:700}
+
+/* FOOTER */
+.sec{padding:24px 0}
+.cta-foot-shell{background:var(--ink);color:#cfcfcf;border-radius:var(--radius);padding:46px 0 36px;margin-top:8px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.18)}
+.foot-logo{font-weight:700;font-size:1.4rem;color:#fff;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.foot-logo svg{width:26px;height:26px}
+.foot-blurb{font-size:.9rem;max-width:38ch;color:#cfcfcf}
+.foot-badge{display:inline-block;margin-top:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);border:1px solid rgba(196,177,57,.5);padding:.34rem .7rem;border-radius:30px}
+.foot-social{display:flex;gap:10px;margin-top:18px}
+.foot-social a{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);color:#cfcfcf;transition:background .15s ease,color .15s ease}
+.foot-social a:hover{background:var(--gold);color:var(--ink)}
+.foot-social svg{width:17px;height:17px;fill:currentColor}
+.foot-col h5{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+.foot-col a{display:block;font-size:.92rem;color:#cfcfcf;margin-bottom:10px}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:24px;font-size:.78rem;color:#8f8f8f}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media(max-width:880px){
+.nav-left,.nav-right{display:none}
+.nav-in{grid-template-columns:auto 1fr auto;min-height:56px}
+.brand{justify-self:start}
+.nav-toggle{display:flex}
+.about-grid{grid-template-columns:1fr;gap:34px}
+.photo-wrap{max-width:340px;margin:0 auto}
+.creds-row{grid-template-columns:1fr}
+.cta-grid,.foot-top{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+.nav-in{background:rgba(255,255,255,.95);-webkit-backdrop-filter:none;backdrop-filter:none}
+}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="bar">
+<nav class="nav-in" aria-label="Primary">
+<div class="nav-left">
+<a href="what-we-do/index.html">What we do</a>
+<a href="fullcensus-website-offer.html#case-study">Results</a>
+<a href="about.html" class="active">About</a>
+</div>
+<a href="fullcensus-website-offer.html" class="brand" aria-label="Full Census home">
+<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>
+Full&nbsp;Census
+</a>
+<div class="nav-right">
+<a href="tel:+14255025648" class="phone">(425) 502-5648</a>
+<a href="fullcensus-website-offer.html#audit" class="btn coral">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="navToggle">
+<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+</nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+<div class="mm-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="mm-head">
+<span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full&nbsp;Census</span>
+<button class="mm-close" aria-label="Close menu" id="mmClose"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+<a href="what-we-do/index.html">What we do</a>
+<a href="fullcensus-website-offer.html#case-study">Results</a>
+<a href="about.html">About</a>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="fullcensus-website-offer.html#audit" class="btn dark">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+
+<main>
+
+<!-- ABOUT HERO -->
+<section class="about wrap">
+<div class="about-grid">
+<div class="photo-wrap reveal">
+<span class="accent" aria-hidden="true"></span>
+<img src="assets/henos-adhana.jpg" alt="Henos Adhana, founder of Full Census" />
+</div>
+<div class="reveal">
+<p class="about-eyebrow">About</p>
+<p class="hello">Hello there!</p>
+<h1 class="about-head">My name is Henos, and I do <span class="g">marketing</span> and <span class="hl">real estate</span> <span class="soft">(most days, both).</span></h1>
+<div class="bio">
+<p>I'm Henos Adhana, based here in the Seattle area. I have spent my career in marketing, helping businesses get found online and turn that into real growth. I have done it at agencies in New York and Seattle, for companies of every size, and even on web pages for NASA. If it means getting a business in front of the right people on Google and social, I have done it at a high level for years. I am not new to this.</p>
+<p>Full Census is where I bring all of that home, to Washington adult family homes. And this one is personal. My family runs <a href="https://lynnwoodafh.com" target="_blank" rel="noopener">Serene Lynnwood</a>, an adult family home I built the website and marketing for myself, and I watched it fill its first bed within a week of going live. I also built and run <a href="https://dearcarehome.com" target="_blank" rel="noopener">dearcarehome.com</a>, the directory families use to find licensed adult family homes across Washington, so I know this world from both sides. I am also a licensed <a href="https://henosadhana.com" target="_blank" rel="noopener">real estate agent</a> here in Washington, so I understand property, families, and the weight of choosing where a loved one will live. I do not cut corners, I explain things in plain language, and I stay until it works.</p>
+</div>
+<div class="socials" aria-label="Find Henos online">
+<span class="slabel">Find me</span>
+<a href="https://linkedin.com/in/henos" target="_blank" rel="noopener" aria-label="Henos on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+<a href="https://facebook.com/henos.adhana" target="_blank" rel="noopener" aria-label="Henos on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12z"/></svg></a>
+<a href="https://instagram.com/henos.adhana" target="_blank" rel="noopener" aria-label="Henos on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CREDENTIALS -->
+<section class="wrap sec">
+<div class="creds reveal">
+<div class="creds-row">
+<div class="cred-box">
+<h4>Why you can trust this</h4>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>A full career in marketing and SEO, at agencies in New York and Seattle</li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Worked with businesses of every size, and even on web pages for NASA</li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Years spent getting companies found at the top of Google. That is the whole job.</li>
+</ul>
+</div>
+<div class="cred-box">
+<h4>What I do now</h4>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Founder of Full Census, marketing built only for Washington adult family homes</li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Built and run <a href="https://dearcarehome.com" target="_blank" rel="noopener" style="color:var(--golddark);text-decoration:underline;white-space:nowrap">dearcarehome.com</a>, the Washington adult family home directory</span></li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>A licensed real estate agent, and the marketer behind my family's home, Serene Lynnwood</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- DARK CTA -->
+<section class="wrap sec">
+<div class="cta-shell reveal">
+<div class="wrap">
+<div class="cta-grid">
+<div>
+<p class="eyebrow">Let's talk</p>
+<h2>Want the same for <em>your home?</em></h2>
+<p>Book a free 30-minute Occupancy Audit. I'll look at how families find you today and show you the fastest path to full.</p>
+</div>
+<div class="cta-actions">
+<a class="btn coral" href="fullcensus-website-offer.html#audit">Book my free Occupancy Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<span class="phone-line">Or call and text <a href="tel:+14255025648">(425) 502-5648</a></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap sec">
+<div class="cta-foot-shell">
+<div class="wrap">
+<div class="foot-top">
+<div>
+<div class="foot-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full Census</div>
+<div class="foot-blurb">Full-service marketing for Washington adult family homes. Built by an operator's family, run by a marketer who has done this at scale.</div>
+<div class="foot-badge">AFHC Affiliate Partner · Seattle, WA</div>
+<div class="foot-social" aria-label="Find Henos online">
+<a href="https://linkedin.com/in/henos" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.85V21H9z"/></svg></a>
+<a href="https://facebook.com/henos.adhana" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12a12 12 0 1 0-13.88 11.85v-8.38H7.08V12h3.04V9.36c0-3 1.79-4.67 4.53-4.67 1.31 0 2.69.24 2.69.24v2.96h-1.52c-1.49 0-1.96.93-1.96 1.88V12h3.33l-.53 3.47h-2.8v8.38A12 12 0 0 0 24 12z"/></svg></a>
+<a href="https://instagram.com/henos.adhana" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63c-.79.3-1.46.72-2.12 1.38C1.35 2.68.93 3.35.63 4.14.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.3.79.72 1.46 1.38 2.12.66.66 1.33 1.08 2.12 1.38.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56.79-.3 1.46-.72 2.12-1.38.66-.66 1.08-1.33 1.38-2.12.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91-.3-.79-.72-1.46-1.38-2.12-.66-.66-1.33-1.08-2.12-1.38-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0m0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84M12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4m6.41-10.85a1.44 1.44 0 1 0 1.44 1.44 1.44 1.44 0 0 0-1.44-1.44"/></svg></a>
+</div>
+</div>
+<div class="foot-col">
+<h5>What we do</h5>
+<a href="what-we-do/website.html">Website</a><a href="what-we-do/google-business.html">Google Business</a><a href="what-we-do/seo.html">Local SEO</a><a href="what-we-do/photography.html">Photography</a><a href="what-we-do/facebook-ads.html">Facebook and IG ads</a><a href="what-we-do/brand-print.html">Brand and Print</a>
+</div>
+<div class="foot-col">
+<h5>Full Census</h5>
+<a href="about.html">About Henos</a>
+<a href="fullcensus-website-offer.html#case-study">Results</a>
+<a href="tel:+14255025648">(425) 502-5648</a>
+<a href="mailto:hello@fullcensus.agency">hello@fullcensus.agency</a>
+<a href="fullcensus-website-offer.html#audit">Book a free Occupancy Audit</a>
+</div>
+</div>
+<div class="foot-bottom">© 2026 Full Census Agency · Adult Family Home Marketing · Washington State · We never sell your information.</div>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+(function(){
+var t=document.getElementById('navToggle'),m=document.getElementById('mobile-menu'),c=document.getElementById('mmClose');
+function open(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function close(){m.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+t.addEventListener('click',open);c.addEventListener('click',close);
+m.addEventListener('click',function(e){if(e.target===m)close()});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if('IntersectionObserver'in window){
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(rm)ro.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+}else{
+document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+}
+})();
+</script>
+</body>
+</html>
