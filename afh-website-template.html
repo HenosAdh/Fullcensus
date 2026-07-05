@@ -68,7 +68,7 @@ img{display:block;max-width:100%;height:auto}
 a{color:inherit;text-decoration:none}
 .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
 [data-img]{background:var(--soft);color:#8a8a8a;display:flex;align-items:center;justify-content:center;text-align:center;font-size:.74rem;letter-spacing:.03em;font-weight:600;padding:14px;overflow:hidden;position:relative}
-[data-img] img{width:100%;height:100%;object-fit:cover}
+[data-img] img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .eyebrow{font-size:.74rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem}
 h1,h2,h3{letter-spacing:-.02em}
 
@@ -302,7 +302,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
     </div>
     <div style="position:relative">
       <svg class="hero-mark" viewBox="0 0 32 32" aria-hidden="true"><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#000000"/></svg>
-      <div class="hero-photo" data-img>[ Photo: the home's exterior or a warm common room ]</div>
+      <div class="hero-photo" data-img><img src="assets/photography/family-home.jpg" alt="A caregiver helping a resident in a bright, comfortable living room"></div>
     </div>
   </div>
 </section>
@@ -318,7 +318,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
         <p>We're a family. We cook the meals ourselves, we get to know each resident, and we look after your mom or dad the way we'd want our own parents looked after.</p>
         <div class="quote">"We treat every resident like family, because to us, they are."</div>
       </div>
-      <div class="about-photo reveal" data-img>[ Photo: caregiver with a resident, or a cozy living room ]</div>
+      <div class="about-photo reveal" data-img><img src="assets/photography/afh-common-care.jpg" alt="A caregiver bringing tea to a resident in the common room"></div>
     </div>
   </div>
 </section>
@@ -360,11 +360,11 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
       <h2>Take a look inside.</h2>
     </div>
     <div class="gal-grid reveal">
-      <div class="big" data-img>[ Photo: best room ]</div>
-      <div data-img>[ Bedroom ]</div>
-      <div data-img>[ Living area ]</div>
-      <div data-img>[ Dining ]</div>
-      <div data-img>[ Yard ]</div>
+      <div class="big" data-img><img src="assets/photography/afh-living-room.jpg" alt="The warm, furnished living room at the home"></div>
+      <div data-img><img src="assets/photography/afh-bedroom.jpg" alt="A private, cozy bedroom"></div>
+      <div data-img><img src="assets/photography/afh-living-alt.jpg" alt="A bright, comfortable sitting area"></div>
+      <div data-img><img src="assets/photography/afh-meal-candid.jpg" alt="A home-cooked meal at the dining table"></div>
+      <div data-img><img src="assets/photography/family-warm.jpg" alt="A resident enjoying time outdoors with family"></div>
     </div>
   </div>
 </section>
@@ -411,7 +411,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
         <span class="form-badge" aria-hidden="true">
           <svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="59" fill="#c4b139"/>
           <g class="spin"><path id="cpath" d="M59 18a41 41 0 1 1 0 82 41 41 0 1 1 0-82" fill="none"/>
-          <text fill="#000000" font-size="11" font-weight="700" letter-spacing="2"><textPath href="#cpath" startOffset="0">SCHEDULE A VISIT · SCHEDULE A VISIT · </textPath></text></g>
+          <text fill="#000000" font-size="10.5" font-weight="700"><textPath href="#cpath" startOffset="0" textLength="256" lengthAdjust="spacingAndGlyphs">SCHEDULE A VISIT · SCHEDULE A VISIT · </textPath></text></g>
           <g transform="translate(59 59)"><g fill="#000000"><circle cx="0" cy="-9" r="6.5"/><circle cx="0" cy="9" r="6.5"/><circle cx="-9" cy="0" r="6.5"/><circle cx="9" cy="0" r="6.5"/></g><circle r="4.4" fill="#fff"/></g></svg>
         </span>
         <h3>Ask about availability</h3>
