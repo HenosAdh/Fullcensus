@@ -92,7 +92,7 @@
     + '</div>'
     + '<label class="fcaf-field"><span>Email</span><input name="afemail" type="email" required placeholder="you@email.com"></label>'
     + '<button type="submit">Book my free audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
-    + '<div class="fcaf-note">Or call/text <a href="tel:+14255025648">(425) 502-5648</a></div>'
+    + '<div class="fcaf-note">Or call/text <a href="tel:+12062034944">(206) 203-4944</a></div>'
     + '</form>';
 
   function done(q) {
@@ -100,7 +100,7 @@
       + '<h3>Thank you. Your details are saved.</h3>'
       + '<p>Now pick a time below and we will talk.</p>'
       + '<iframe src="' + CAL + q + '" title="Schedule your free Occupancy Audit" loading="lazy"></iframe>'
-      + '<p class="fcaf-fallback">Cannot see the calendar? <a href="' + CAL + q + '" target="_blank" rel="noopener">Open it in a new tab</a> or call (425) 502-5648.</p>'
+      + '<p class="fcaf-fallback">Cannot see the calendar? <a href="' + CAL + q + '" target="_blank" rel="noopener">Open it in a new tab</a> or call (206) 203-4944.</p>'
       + '</div>';
   }
 
