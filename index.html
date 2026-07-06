@@ -730,6 +730,21 @@ Get <span class="hl-lime">full.</span></h1>
         body: JSON.stringify(payload)
       });
     } catch(err){ /* network hiccup — still send them to scheduling below */ }
+    // Email a copy of the lead to the operator (Formsubmit — free, no server needed).
+    try {
+      await fetch("https://formsubmit.co/ajax/henosadhana@gmail.com", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({
+          _subject: "New Occupancy Audit request — " + (home || "an AFH"),
+          _template: "table", _captcha: "false",
+          Name: payload.family_name, "Adult family home": home, City: city,
+          "Open beds": beds || "—", Phone: payload.phone,
+          "Has website": website || "—", Email: payload.email,
+          Source: (document.title || "fullcensus.org")
+        })
+      });
+    } catch(err){ /* email is best-effort; the lead is already saved above */ }
     // Always show the Calendly scheduling step after submit (so the follow-up never gets skipped).
     var _name = payload.family_name || "", _email = payload.email || "";
     var _cal = "https://calendly.com/henosadhana/free-occupancy-audit";

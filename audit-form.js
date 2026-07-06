@@ -126,6 +126,21 @@
           body: JSON.stringify(payload)
         });
       } catch (err) { /* network hiccup — still send them to scheduling */ }
+      // Email a copy of the lead to the operator (Formsubmit — free, no server needed).
+      try {
+        await fetch("https://formsubmit.co/ajax/henosadhana@gmail.com", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({
+            _subject: "New Occupancy Audit request — " + (home || "an AFH"),
+            _template: "table", _captcha: "false",
+            Name: name, "Adult family home": home, City: city,
+            "Open beds": beds || "—", Phone: phone,
+            "Has website": website || "—", Email: email,
+            Source: (document.title || "fullcensus.org")
+          })
+        });
+      } catch (err) { /* email is best-effort; the lead is already saved above */ }
       var q = "?hide_gdpr_banner=1" + (name ? "&name=" + encodeURIComponent(name) : "") + (email ? "&email=" + encodeURIComponent(email) : "");
       formcol.innerHTML = done(q);
     });
