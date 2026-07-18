@@ -113,6 +113,14 @@ header.bar{position:sticky;top:0;z-index:50;padding:14px 16px}
 .tool .why{font-size:.8rem;color:var(--muted);border-top:1px dashed #d8d8d8;padding:8px 4px 0;margin:0 0 0 0}
 .tool .why b{color:var(--ink);font-weight:700}
 .tool .tag{display:inline-block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);border-radius:20px;padding:.2rem .5rem;vertical-align:middle}
+/* Dear Care Home: real logo + outbound link to the directory */
+.dchlogo{object-fit:contain;border-radius:3px}
+.tviz a{display:flex;width:100%;height:100%;align-items:center;justify-content:center}
+.tool h4 .toollink{color:var(--ink);border-bottom:2px solid #4a6741;padding-bottom:1px}
+.tool h4 .toollink:hover{color:#4a6741}
+.visitline{margin-top:10px;padding:0 4px}
+.visitline a{font-size:.8rem;font-weight:700;color:#4a6741}
+.visitline a:hover{text-decoration:underline}
 
 /* VIZ PRIMITIVES */
 .vz{--a:#c4b139;--b:#141414;--c:#d8d8d8}
@@ -381,10 +389,11 @@ Full&nbsp;Census
 </div>
 
 <div class="tool">
-<div class="tviz"><svg viewBox="0 0 200 96" class="vz" role="img" aria-label="A directory listing handing a family straight to your home"><rect x="16" y="26" width="58" height="44" rx="7" fill="#f4f4f4" stroke="#e2e2e2" stroke-width="1.5"/><rect x="24" y="34" width="42" height="4" rx="2" fill="#d8d8d8"/><rect x="24" y="43" width="42" height="4" rx="2" fill="#d8d8d8"/><rect x="24" y="52" width="26" height="4" rx="2" fill="#c4b139"/><path d="M84 48h30" stroke="#c4b139" stroke-width="2.5" stroke-linecap="round"/><path d="M108 42l7 6-7 6" fill="none" stroke="#c4b139" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="an" style="animation-name:vfloat"/><g transform="translate(128,28) scale(1.9)"><use href="#ic-home"/></g></svg></div>
-<h4><svg class="lg" viewBox="0 0 24 24"><use href="#ic-home"/></svg>Dear Care Home <span class="tag">Free</span></h4>
+<div class="tviz"><a href="https://dearcarehome.com" target="_blank" rel="noopener" aria-label="Visit the Dear Care Home directory"><svg viewBox="0 0 200 96" class="vz" role="img" aria-label="A directory listing handing a family straight to your home"><rect x="16" y="26" width="58" height="44" rx="7" fill="#f4f4f4" stroke="#e2e2e2" stroke-width="1.5"/><rect x="24" y="34" width="42" height="4" rx="2" fill="#d8d8d8"/><rect x="24" y="43" width="42" height="4" rx="2" fill="#d8d8d8"/><rect x="24" y="52" width="26" height="4" rx="2" fill="#4a6741"/><path d="M84 48h30" stroke="#4a6741" stroke-width="2.5" stroke-linecap="round"/><path d="M108 42l7 6-7 6" fill="none" stroke="#4a6741" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="an" style="animation-name:vfloat"/><image href="/assets/dearcarehome-logo.webp" x="126" y="24" width="48" height="48"/></svg></a></div>
+<h4><img class="lg dchlogo" src="/assets/dearcarehome-logo.webp" alt="Dear Care Home logo" width="18" height="18" loading="lazy" decoding="async" /><a class="toollink" href="https://dearcarehome.com" target="_blank" rel="noopener">Dear Care Home</a> <span class="tag">Free</span></h4>
 <p class="does">Our Washington adult family home directory. Your listing is free and stays free.</p>
 <p class="why"><b>Why:</b> families use it at no cost, and when one matches your home I hand them straight to you. I never sell your information.</p>
+<p class="visitline"><a href="https://dearcarehome.com" target="_blank" rel="noopener">dearcarehome.com &rarr;</a></p>
 </div>
 
 </div>
