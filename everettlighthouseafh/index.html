@@ -244,6 +244,9 @@ input:focus,textarea:focus{outline:none;border-color:var(--gold);background:#fff
 .cta p{color:#d2dccd;font-size:17px;margin:0 auto 26px;max-width:540px;position:relative}
 .cta .hrow{position:relative;justify-content:center}
 .fine{font-size:13px;color:#a6b6a0;margin-top:26px;position:relative}
+.maplink{display:inline-flex;align-items:center;gap:8px;color:var(--gold-deep);font-weight:700;font-size:14.5px}
+.maplink:hover{text-decoration:underline}
+.maplink svg{flex:0 0 auto}
 footer{background:#333f31;color:#adbaa7;padding:36px clamp(22px,5vw,64px);font-size:14px}
 .fgrid{display:flex;flex-wrap:wrap;gap:24px;justify-content:space-between}
 footer a{color:#e2e8dd}
@@ -347,11 +350,11 @@ footer a{color:#e2e8dd}
     <div class="sgrid">
       <div class="s"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.5" cy="6.8" r="2.9"/><path d="M4 20v-1.6A5 5 0 0 1 9 13.4h1.2"/><path d="M14.2 16.4 16.6 18.8 21 13.9"/></svg></span><h3>Bathing and dressing</h3><p>Help washing, dressing, and getting around the house safely.</p></div>
       <div class="s"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="2.6" y="8.75" width="18.8" height="6.5" rx="3.25" transform="rotate(-45 12 12)"/><path d="M9.7 9.7 14.3 14.3"/></svg></span><h3>Medications on time</h3><p>Given when they should be, written down, and refilled before they run out.</p></div>
-      <div class="s"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v5a2.5 2.5 0 0 0 5 0V3"/><path d="M8.5 8v13"/><path d="M17.4 3c1.2 2.2 1.7 4.6 1.7 7 0 1.9-.8 3-1.7 3s-1.7-1.1-1.7-3c0-2.4.5-4.8 1.7-7z"/><path d="M17.4 13v8"/></svg></span><h3>Home-cooked meals</h3><p>Three meals a day, cooked in the kitchen, adjusted for your parent's diet.</p></div>
+      <div class="s"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v5a2.5 2.5 0 0 0 5 0V3"/><path d="M8.5 8v13"/><path d="M17.4 3c1.2 2.2 1.7 4.6 1.7 7 0 1.9-.8 3-1.7 3s-1.7-1.1-1.7-3c0-2.4.5-4.8 1.7-7z"/><path d="M17.4 13v8"/></svg></span><h3>Home-cooked meals</h3><p>Three meals a day, cooked in the kitchen, adjusted for your parent’s diet.</p></div>
       <div class="s"><span class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.4V12l3.1 2.1"/></svg></span><h3>Someone here all night</h3><p>Not an alarm or an answering service. A person, awake, in the house.</p></div>
     </div>
 
-    <p style="text-align:center;color:#c3ccbe;font-size:14.5px;margin:34px 0 0">Ask us about:</p><div class="chips"><span class="chip">Dementia and Alzheimer's</span><span class="chip">Hospice and end-of-life care</span><span class="chip">Diabetes care</span><span class="chip">Mental health needs</span><span class="chip">Lifting and transfers</span><span class="chip">Short stays</span><span class="chip">Cost and Medicaid</span><span class="chip">Languages we speak</span></div><p style="text-align:center;color:#c3ccbe;font-size:14.5px;margin:26px 0 0">
+    <p style="text-align:center;color:#c3ccbe;font-size:14.5px;margin:34px 0 0">Ask us about:</p><div class="chips"><span class="chip">Dementia and Alzheimer’s</span><span class="chip">Hospice and end-of-life care</span><span class="chip">Diabetes care</span><span class="chip">Mental health needs</span><span class="chip">Lifting and transfers</span><span class="chip">Short stays</span><span class="chip">Cost and Medicaid</span><span class="chip">Languages we speak</span></div><p style="text-align:center;color:#c3ccbe;font-size:14.5px;margin:26px 0 0">
       Not sure if we are the right fit? <a href="tel:+12064326627" style="color:var(--gold-lt);font-weight:700">Call and we will tell you honestly.</a>
     </p>
   </section>
@@ -376,7 +379,7 @@ footer a{color:#e2e8dd}
     <h2>A day at Everett Lighthouse.</h2>
     <p class="lede" style="margin-top:10px">Steady, unhurried, and built around the person rather than a schedule.</p>
     <div class="day">
-      <div class="d"><div class="dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.6v2.6"/><path d="M5.4 7.4 7.3 9.3"/><path d="M18.6 7.4 16.7 9.3"/><path d="M7.4 16a4.6 4.6 0 0 1 9.2 0"/><path d="M3 16h18"/><path d="M6.2 20h11.6"/></svg></div><div class="t">Morning</div><h3>A gentle start</h3><p>Washing and dressing at your parent's own pace, then breakfast together at the table.</p></div>
+      <div class="d"><div class="dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3.6v2.6"/><path d="M5.4 7.4 7.3 9.3"/><path d="M18.6 7.4 16.7 9.3"/><path d="M7.4 16a4.6 4.6 0 0 1 9.2 0"/><path d="M3 16h18"/><path d="M6.2 20h11.6"/></svg></div><div class="t">Morning</div><h3>A gentle start</h3><p>Washing and dressing at your parent’s own pace, then breakfast together at the table.</p></div>
       <div class="d"><div class="dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 3v5a2.5 2.5 0 0 0 5 0V3"/><path d="M8.5 8v13"/><path d="M17.4 3c1.2 2.2 1.7 4.6 1.7 7 0 1.9-.8 3-1.7 3s-1.7-1.1-1.7-3c0-2.4.5-4.8 1.7-7z"/><path d="M17.4 13v8"/></svg></div><div class="t">Midday</div><h3>A hot lunch</h3><p>A home-cooked meal, medications on schedule, and time to sit in the light of the front room.</p></div>
       <div class="d"><div class="dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="9.2" cy="8" r="2.9"/><path d="M3.6 19.2a5.6 5.6 0 0 1 11.2 0"/><circle cx="17.4" cy="9.2" r="2.2"/><path d="M15.4 14.4a4.7 4.7 0 0 1 5.6 4.8"/></svg></div><div class="t">Afternoon</div><h3>Company and rest</h3><p>Talking, television, a visit from family, or a nap. Whatever the day calls for.</p></div>
       <div class="d"><div class="dot"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M20.2 14.6A8.6 8.6 0 0 1 9.4 3.8a8.6 8.6 0 1 0 10.8 10.8z"/></svg></div><div class="t">Evening</div><h3>Settled for the night</h3><p>Dinner, evening medications, and help getting to bed, with someone awake all night.</p></div>
@@ -418,6 +421,7 @@ footer a{color:#e2e8dd}
         <h2>Come see it for yourself.</h2>
         <p style="margin-top:14px">You cannot tell much from photos. Come walk through the house, meet us, and see how it feels. Call, text, or send a note and we will find a time.</p>
         <p><strong>Everett Lighthouse Adult Family Home</strong><br>2715 Riverview Blvd<br>Everett, WA 98203</p>
+        <p style="margin-top:-8px"><a class="maplink" href="https://www.google.com/maps?q=2715+Riverview+Blvd,+Everett,+WA+98203" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21.2s-6.7-5.7-6.7-10.6a6.7 6.7 0 1 1 13.4 0c0 4.9-6.7 10.6-6.7 10.6z"/><circle cx="12" cy="10.5" r="2.6"/></svg> Get directions</a></p>
         <p><strong>Phone</strong><br><a href="tel:+12064326627">(206) 432-6627</a></p>
         <p><strong>Email</strong><br><a href="mailto:hello@everettlighthouseafh.com">hello@everettlighthouseafh.com</a></p>
         <p class="areas"><strong>Serving:</strong> Everett, Mukilteo, Marysville, Mill Creek, Lake Stevens, Lynnwood, and Snohomish County.</p>
@@ -436,7 +440,7 @@ footer a{color:#e2e8dd}
           <button type="submit" class="btn btn-p" style="width:100%;padding:14px;font-size:17px">Send</button>
         </form>
         <div id="thanksWrap" style="display:none">
-          <h2 style="font-size:21px;margin-bottom:8px">Thank you. <span id="tyName">friend</span>.</h2>
+          <h2 style="font-size:21px;margin-bottom:8px">Thank you, <span id="tyName">friend</span>.</h2>
           <p style="margin:0;color:var(--body)">We got your message and will call you back as soon as we can.</p>
         </div>
       </div>
@@ -461,6 +465,7 @@ footer a{color:#e2e8dd}
         <div>2715 Riverview Blvd, Everett, WA 98203</div>
         <div style="margin-top:6px"><a href="mailto:hello@everettlighthouseafh.com">hello@everettlighthouseafh.com</a> &middot; <a href="tel:+12064326627">(206) 432-6627</a></div>
         <div style="margin-top:10px;font-size:13px;opacity:.85">Adult family home care serving Everett, Mukilteo, Marysville, Mill Creek, Lake Stevens, and Snohomish County.</div>
+        <div style="margin-top:10px;font-size:13px;opacity:.85"><a href="https://dearcarehome.com/wa/snohomish/everett/" target="_blank" rel="noopener">Compare Everett adult family homes on Dear Care Home</a></div>
       </div>
       <div style="font-size:13px;opacity:.85;text-align:right">
         <div>&copy; <span id="tyYear">2026</span> Everett Lighthouse Adult Family Home</div>
