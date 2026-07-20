@@ -90,6 +90,7 @@
   --sage:#dfe6db; --sage-2:#b6c3b0; --sage-deep:#6b7d67;
   --gold:#e0917c; --gold-lt:#f0bfb1; --gold-deep:#b06a55;
   --navy:#3f4d3c; --navy-2:#4c5b47;
+  --tint:#f7f4ed;
   --ink:#2c332b; --body:#5b625a; --muted:#8a9087; --line:#e4e0d6; --line-2:#d2ccbe;
 }
 *{box-sizing:border-box}
@@ -226,6 +227,10 @@ details[open] summary::after{content:"\2212"}
 details p{margin:12px 0 0;color:var(--body);font-size:15.5px}
 
 .loc{background:var(--cream)}
+.mapwrap{margin-top:clamp(30px,4vw,46px);border-radius:24px;overflow:hidden;border:1px solid var(--line);
+  background:var(--sage);box-shadow:0 14px 34px -26px rgba(70,72,58,.55);line-height:0}
+.mapwrap iframe{display:block;width:100%;height:clamp(280px,38vw,420px);border:0;filter:saturate(.9)}
+.maplede{margin:14px 2px 0;font-size:14.5px;color:var(--muted);max-width:760px}
 .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,58px);align-items:start}
 .finfo p{font-size:16px;color:var(--body)}
 .finfo a{color:var(--gold-deep);font-weight:700}
@@ -445,6 +450,16 @@ footer a{color:#e2e8dd}
         </div>
       </div>
     </div>
+
+    <div class="mapwrap">
+      <iframe
+        src="https://maps.google.com/maps?q=2715+Riverview+Blvd,+Everett,+WA+98203&amp;z=15&amp;output=embed"
+        title="Map showing Everett Lighthouse Adult Family Home at 2715 Riverview Blvd, Everett, WA 98203"
+        width="1200" height="420" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        allowfullscreen></iframe>
+    </div>
+    <p class="maplede">We are on Riverview Blvd in south Everett, a few minutes from Highway 526 and Providence
+      Regional Medical Center. <a class="maplink" href="https://www.google.com/maps?q=2715+Riverview+Blvd,+Everett,+WA+98203" target="_blank" rel="noopener">Open in Google Maps</a></p>
   </section>
 
   <section class="pad cta">
