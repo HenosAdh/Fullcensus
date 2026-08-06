@@ -1,37 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--
-  ============================================================================
-  FULLCENSUS · ADULT FAMILY HOME WEBSITE TEMPLATE
-  Modeled on lynnwoodafh.com — the structure that landed a $5k/mo resident in wk 1.
-  Static HTML on purpose: the content must be in the page for local SEO to work.
-
-  TO CLONE FOR A NEW CLIENT — find & replace these (all distinctive on purpose):
-    Candlelight Adult Family Home   → the home's name
-    Mill Creek                        → the city
-    98201                          → the zip
-    DSHS #759123                   → their real DSHS license number
-    (425) 791-5582                 → their phone (appears in 4+ places + schema + tel: links)
-    hello@cedarbrookafh.com        → their email
-    1820 Birch Lane, Mill Creek       → their street address
-    Snohomish                      → their county / "serving" area
-  Then: drop in 6–8 real photos (replace the [data-img] tiles — set a background-image
-  or drop an  inside each), tweak About/Services copy, set the Google Map embed
-  (search their address), and update HOME_SLUG in the <script> so inquiries are tagged
-  to this home in Supabase.
-
-  DESIGN NOTE (FullCensus bold system, toned for elder-care trust):
-    Display font Space Grotesk + system fallback. BLACK / WHITE / GOLD palette:
-    --ink (#000000) black — dark feature sections (white text), logo mark, primary
-    buttons & text on light. --bg (#f4f4f4) off-white light sections; --paper (#fff)
-    pure-white cards/nav. --gold (#7bae5a) is the ONE accent/pop — marker highlight,
-    rotating badge, eyebrows, status pill, CTAs, small accents — and ALWAYS carries
-    black/near-black text (white-on-gold fails contrast). Body text --text (#141414)
-    near-black on off-white/white; --muted (#6f6f6f) gray secondary. White text is
-    used ONLY on black. Warm gold + off-white keep it elegant and care-home friendly.
-    Photo placeholders use [data-img] — drop a real  inside or set background-image.
-  ============================================================================
--->
 <head>
 <meta name="robots" content="noindex, nofollow" />
 <meta charset="UTF-8" />
@@ -50,9 +18,9 @@
   "name":"Candlelight Adult Family Home",
   "description":"Licensed adult family home in Mill Creek, WA providing 24-hour personal care, memory care, and home-cooked meals in a small, family-run setting.",
   "telephone":"(425) 791-5582",
-  "email":"hello@cedarbrookafh.com",
-  "address":{"@type":"PostalAddress","streetAddress":"1820 Birch Lane","addressLocality":"Everett","addressRegion":"WA","postalCode":"98201","addressCountry":"US"},
-  "areaServed":"Mill Creek, Snohomish County, WA",
+  
+  "address":{"@type":"PostalAddress","streetAddress":"13403 25th Ave SE","addressLocality":"Mill Creek","addressRegion":"WA","postalCode":"98012","addressCountry":"US"},
+  "areaServed":"Mill Creek, Snohomish County, WA","numberOfRooms":6,
   "priceRange":"$$",
   "openingHours":"Mo-Su 00:00-23:59"
 }
@@ -300,7 +268,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
     <div>
       <div class="status"><span class="dot"></span> Currently Accepting Residents · Private Pay &amp; Medicaid</div>
       <h1>Adult Family <span class="hl">Home</span> in Mill Creek, WA<svg class="spark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 0c1.5 9 5.5 13 16 16-10.5 3-14.5 7-16 16-1.5-9-5.5-13-16-16 10.5-3 14.5-7 16-16Z" fill="#7bae5a"/></svg></h1>
-      <p class="lead">A warm, candlelit kind of care in Mill Creek. A real home, a few residents, and staff who know your mom or dad by name.</p>
+      <p class="lead">A warm, candlelit kind of care in Mill Creek. A real home, licensed for six residents, and staff who know your mom or dad by name.</p>
       <div class="hero-cta">
         <a class="btn coral" href="tel:+14255550148"><span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z" stroke="#7bae5a" stroke-width="2" stroke-linejoin="round"/></svg></span> Call (425) 791-5582</a>
         <a class="btn ghost" href="#contact">Schedule a Visit <span class="arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#000000" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
@@ -320,7 +288,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
       <div class="reveal">
         <div class="eyebrow">About our home</div>
         <h2>Small, personal, and truly like family.</h2>
-        <p>Candlelight is a licensed adult family home in Mill Creek. We care for just a few residents at a time, so there's always real attention, familiar faces, and a day that moves at a comfortable pace.</p>
+        <p>Candlelight is a licensed adult family home in Mill Creek. We are licensed for six residents, so there is always real attention, familiar faces, and a day that moves at a comfortable pace. Cecilia has cared for people in this home for more than five years.</p>
         <p>We're a family. We cook the meals ourselves, we get to know each resident, and we look after your mom or dad the way we'd want our own parents looked after.</p>
         <div class="quote">"We treat every resident like family, because to us, they are."</div>
       </div>
@@ -409,9 +377,9 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
     <div class="contact-grid">
       <div class="cinfo reveal">
         <div class="row"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.6 3h3l1.5 4-2 1.4a12 12 0 0 0 5.5 5.5l1.4-2 4 1.5v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4.6 5.2 2 2 0 0 1 6.6 3Z" stroke="#000000" stroke-width="2" stroke-linejoin="round"/></svg></div><div><b><a href="tel:+14255550148">(425) 791-5582</a></b><span>Call or text anytime</span></div></div>
-        <div class="row"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b><a href="mailto:hello@cedarbrookafh.com">hello@cedarbrookafh.com</a></b><span>We reply same day</span></div></div>
-        <div class="row"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="#000000" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" stroke="#000000" stroke-width="2"/></svg></div><div><b>1820 Birch Lane, Mill Creek, WA 98201</b><span>Serving Mill Creek &amp; Snohomish County</span></div></div>
-        <div class="map"><iframe title="Map to Candlelight Adult Family Home, Mill Creek WA" src="https://maps.google.com/maps?q=1820%20Birch%20Lane%2C%20Everett%2C%20WA%2098201&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:100%;border:0"></iframe></div>
+        <div class="row"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16v12H4zM4 7l8 6 8-6" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div><b><a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a></b><span>We reply same day</span></div></div>
+        <div class="row"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11Z" stroke="#000000" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" stroke="#000000" stroke-width="2"/></svg></div><div><b>13403 25th Ave SE, Mill Creek, WA 98012</b><span>Serving Mill Creek &amp; Snohomish County</span></div></div>
+        <div class="map"><iframe title="Map to Candlelight Adult Family Home, Mill Creek WA" src="https://maps.google.com/maps?q=13403%2025th%20Ave%20SE%2C%20Mill%20Creek%2C%20WA%2098012&amp;z=15&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" style="width:100%;height:100%;border:0"></iframe></div>
       </div>
       <form id="inquiryForm" class="reveal">
         <span class="form-badge" aria-hidden="true">
@@ -442,13 +410,13 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
       <div>
         <div class="foot-brand"><svg class="mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8 9 5 16 8 24c1.5 3.5 4.4 5.2 8 5.6 3.6-.4 6.5-2.1 8-5.6 3-8 0-15-8-21Z" fill="#7bae5a"/><path d="M16 6.5v20M16 14l5-4M16 19.5l-5-4" stroke="#2e4636" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg>Candlelight Adult Family Home</div>
         <div>Compassionate adult family home care in Mill Creek, WA.</div>
-        <div class="foot-license">DSHS #759123 · Licensed in Washington State</div>
+        <div class="foot-license">DSHS #756881 · Licensed in Washington State</div>
       </div>
       <div>
         <div style="color:#fff;font-weight:700;margin-bottom:.7rem">Reach us</div>
         <a href="tel:+14255550148">(425) 791-5582</a><br>
-        <a href="mailto:hello@cedarbrookafh.com">hello@cedarbrookafh.com</a><br>
-        1820 Birch Lane, Mill Creek, WA 98201
+        <a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a><br>
+        13403 25th Ave SE, Mill Creek, WA 98012
       </div>
     </div>
     <div class="foot-bottom">© Candlelight Adult Family Home · Mill Creek, WA · Adult family home serving Mill Creek &amp; Snohomish County.</div>
@@ -481,7 +449,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
 <script>
   // Inquiry form → Supabase `leads`. Public anon key (RLS allows anon insert,
   // return=minimal). Set HOME_SLUG per client so you know which home each lead is for.
-  const HOME_SLUG = "cedarbrook-everett";              // <-- change per client
+  const HOME_SLUG = "candlelight-mill-creek";              // <-- change per client
   const HOME_NAME = "Candlelight Adult Family Home";    // <-- change per client
   const SUPABASE_URL  = "https://kficcgswkkprnyvuxqsx.supabase.co";
   const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmaWNjZ3N3a2twcm55dnV4cXN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NjU0MjUsImV4cCI6MjA5NjU0MTQyNX0.uMHqNV4IAWv1WVJTmouqG-Oju5d-hK5sC7RmYEdqRDM";
@@ -509,7 +477,7 @@ footer{background:var(--ink);color:rgba(255,255,255,.78);padding:3.2rem 0 2rem}
       if(!res.ok) throw new Error("HTTP "+res.status);
       // The inquiry is saved. Now offer to schedule a visit on this home's calendar.
       var _name = payload.family_name || "", _email = payload.email || "";
-      var _cal = "https://calendly.com/cedarbrook-afh/visit";  /* <-- replace with this home's Calendly visit link */
+      var _cal = "https://calendly.com/henosadhana/free-occupancy-audit";  /* <-- replace with this home's Calendly visit link */
       var _q = "?hide_gdpr_banner=1" + (_name ? "&name=" + encodeURIComponent(_name) : "") + (_email ? "&email=" + encodeURIComponent(_email) : "");
       form.innerHTML =
         '<div style="text-align:center">' +
@@ -539,7 +507,7 @@ body{padding-bottom:44px}
 </style>
 <div class="fc-mark">&#10022; Concept preview for <b>Candlelight Adult Family Home</b> &mdash; designed by
 <a href="https://fullcensus.org">Full Census</a> &middot; (206) 203-4944 &middot;
-design &copy; Full Census until commissioned &middot; photos from your own Room &amp; Care listing &middot; your words replace the rest</div>
+design &copy; Full Census until commissioned &middot; DSHS lic 756881 &middot; 13403 25th Ave SE, Mill Creek &middot; photos from your own Room &amp; Care listing &middot; your words replace the rest</div>
 <style>:root{--gold:#E3A94F}</style>
 </body>
 </html>
