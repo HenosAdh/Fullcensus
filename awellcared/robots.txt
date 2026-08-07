@@ -1,0 +1,10 @@
+# A Wellcared Adult Family Home
+# Written for the LIVE site on her own domain, where this file sits at the root and counts.
+# While the site is previewing at fullcensus.org/awellcared/ this file is ignored by crawlers
+# (robots.txt is only honoured at a domain root) - the preview is protected by the
+# noindex meta tag in index.html instead.
+User-agent: *
+Allow: /
+
+# Uncomment at launch, once the site is live on her domain:
+# Sitemap: https://awellcaredhome.com/sitemap.xml
