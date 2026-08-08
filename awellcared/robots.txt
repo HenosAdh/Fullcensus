@@ -1,4 +1,4 @@
-# A Wellcared Adult Family Home
+# A WellCared Adult Family Home
 # Written for the LIVE site on her own domain, where this file sits at the root and counts.
 # While the site is previewing at fullcensus.org/awellcared/ this file is ignored by crawlers
 # (robots.txt is only honoured at a domain root) - the preview is protected by the
