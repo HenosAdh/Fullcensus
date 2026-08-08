@@ -343,8 +343,11 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   /* header: logo + phone + burger only. The visit CTA lives in the sticky bottom bar. */
   .nav .btn-solid{display:none}
   .nav{gap:10px}
-  .wm{font-size:18px;white-space:nowrap}
-  .wm-k{font-size:8.5px;letter-spacing:.16em;white-space:nowrap}
+  /* the +36% tracked sub-line is wider than the name itself and pushes the phone
+     number off a 375px screen, so on phones the name carries the lockup alone.
+     "Adult family home" is the first thing the H1 says anyway. */
+  .wm{font-size:19px;white-space:nowrap}
+  .wm-rule,.wm-k{display:none}
   .mark{width:30px;height:30px;font-size:17px}
   .brand{gap:9px}
   /* taller hero so the bottom-aligned copy never rides up into the photo note */
