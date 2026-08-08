@@ -85,7 +85,7 @@
 :root{
   --burgundy:#6e1f31; --burgundy-dark:#5a1928;
   --plum:#3a2429;
-  --gold:#e8c98d; --gold-hover:#dfbc79;
+  --gold:#D4AF37; --gold-hover:#c39f2c;   /* vivid gold for accents on dark grounds */
   --gold-antique:#A8894F;   /* antique gold, identity standards */
   --ink:#201E1D;            /* identity standards */
   --ivory:#FBF8F2; --sand:#f5efe4; --white:#ffffff;
@@ -130,11 +130,12 @@ img{display:block;max-width:100%}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.55) 0%,rgba(35,18,22,.2) 45%,rgba(35,18,22,.82) 100%);pointer-events:none}
 .hero-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:0 80px;pointer-events:none}
-.kick{font-size:12px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
-.hero h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:66px;line-height:1.02;color:var(--on-dark);
-  margin:0 0 20px;max-width:840px;text-wrap:balance}
+.kick{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,6.4vw,84px);
+  line-height:1.01;letter-spacing:-.022em;color:var(--on-dark);
+  margin:0 0 22px;max-width:960px;text-wrap:balance}
 .hero h1 i{color:var(--gold);font-weight:500}
-.hero p{font-size:17.5px;line-height:1.6;color:rgba(253,251,247,.88);max-width:620px;margin:0 0 30px}
+.hero p{font-size:18px;line-height:1.6;color:rgba(253,251,247,.9);max-width:640px;margin:0 0 32px}
 .hero-btns{display:flex;gap:14px;pointer-events:auto;flex-wrap:wrap;justify-content:center}
 .btn-gold{background:var(--gold);color:var(--gold-btn-text);padding:15px 30px;font-size:16px;font-weight:800;letter-spacing:.02em}
 .btn-gold:hover{background:#dfbc79}
@@ -146,7 +147,7 @@ img{display:block;max-width:100%}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);background:var(--burgundy);color:#f6efe4}
 .stat{padding:26px 20px;text-align:center;border-right:1px solid rgba(232,201,141,.22)}
 .stat:last-child{border-right:0}
-.stat-v{font-family:'Cormorant Garamond',serif;font-size:34px;line-height:1;color:var(--gold)}
+.stat-v{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.1vw,40px);line-height:1;color:var(--gold);letter-spacing:-.01em}
 .stat-l{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:8px;opacity:.85}
 .ribbon{padding:12px;text-align:center;font-size:13px;color:var(--muted-2);background:var(--sand)}
 .ribbon a{color:var(--burgundy);font-weight:700}
@@ -158,10 +159,11 @@ img{display:block;max-width:100%}
 .split-img>.ph{position:absolute;inset:0}
 .split-copy{padding:60px 52px;display:flex;flex-direction:column;justify-content:center}
 .kick-l{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-antique);margin-bottom:16px}
-h2{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.12;color:var(--head);text-wrap:balance}
-.h2-40{font-size:40px;margin:0 0 20px}
-.h2-38{font-size:38px;margin:0}
-.h2-36{font-size:36px;margin:0 0 16px}
+h2{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;color:var(--head);
+  letter-spacing:-.018em;text-wrap:balance}
+.h2-40{font-size:clamp(30px,3.9vw,48px);margin:0 0 22px}
+.h2-38{font-size:clamp(29px,3.7vw,46px);margin:0}
+.h2-36{font-size:clamp(28px,3.4vw,42px);margin:0 0 18px}
 .body-p{font-size:16px;line-height:1.7;color:var(--body);margin:0 0 18px}
 .txtlink{align-self:flex-start;border-bottom:1.5px solid var(--gold-antique);color:var(--burgundy);font-weight:700;
   font-size:14.5px;letter-spacing:.06em;text-transform:uppercase;padding-bottom:4px;transition:border-color .18s ease}
@@ -215,10 +217,26 @@ h2{font-family:'Cormorant Garamond',serif;font-weight:400;line-height:1.12;color
 .svc-t{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--gold);margin-bottom:8px}
 .svc-b{font-size:14px;line-height:1.6;color:var(--on-dark-body)}
 
-/* ---------- FAQ ---------- */
-.faqs{display:grid;grid-template-columns:1fr 1fr;gap:30px 44px}
-.faq h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--head);margin:0 0 9px}
-.faq p{font-size:15.5px;line-height:1.7;color:var(--body);margin:0}
+/* ---------- FAQ accordion ---------- */
+.faqs{max-width:840px;margin:0 auto;border-top:1px solid var(--line)}
+.faq{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:block;position:relative;
+  padding:24px 54px 24px 0;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;
+  color:var(--head);line-height:1.3;transition:color .18s ease}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--burgundy)}
+.faq summary::after{content:"+";position:absolute;right:10px;top:50%;
+  transform:translateY(-50%) rotate(0deg);font-family:'Mulish',sans-serif;font-size:28px;
+  font-weight:300;line-height:1;color:var(--gold-antique);transition:transform .28s ease,color .18s ease}
+.faq[open] summary{color:var(--burgundy)}
+.faq[open] summary::after{transform:translateY(-50%) rotate(45deg);color:var(--burgundy)}
+.faq .a{padding:0 54px 26px 0;font-size:16.5px;line-height:1.75;color:var(--body);margin:0}
+.faq[open] .a{animation:faqIn .28s ease both}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  .faq[open] .a{animation:none}
+  .faq summary::after{transition:none}
+}
 .tagline{text-align:center;padding:0 52px 56px}
 .tagline span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:26px;
   color:var(--gold-antique);letter-spacing:.01em}
@@ -249,7 +267,8 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 .close-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.35),rgba(35,18,22,.85));pointer-events:none}
 .close-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:0 80px;pointer-events:none}
-.close-in h2{font-size:46px;line-height:1.08;color:var(--on-dark);margin:0 0 16px;max-width:640px}
+.close-in h2{font-size:clamp(30px,4.6vw,56px);line-height:1.04;letter-spacing:-.022em;
+  color:var(--on-dark);margin:0 0 18px;max-width:720px}
 .close-in p{font-size:16.5px;line-height:1.6;color:rgba(253,251,247,.86);max-width:540px;margin:0 0 28px}
 
 /* ---------- footer ---------- */
@@ -269,9 +288,10 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 .ph svg{width:26px;height:26px;stroke:var(--gold-antique);fill:none;stroke-width:1.4;opacity:.9}
 .ph-t{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-antique);font-weight:700}
 .ph-d{font-size:12.5px;line-height:1.5;color:var(--muted-3);max-width:230px}
-/* full-bleed heroes: pin the note to a corner so it never fights the headline */
-.ph-corner{justify-content:flex-start;align-items:flex-start;text-align:left;padding:18px 22px}
-.ph-corner .ph-d{max-width:260px}
+/* full-bleed heroes: drop the note to the bottom-left, clear of the centred headline */
+.ph-corner{justify-content:flex-end;align-items:flex-start;text-align:left;padding:20px 24px}
+.ph-corner .ph-t{font-size:9.5px;opacity:.85}
+.ph-corner .ph-d{max-width:230px;font-size:11.5px;opacity:.85}
 
 /* ---------- mobile call bar ---------- */
 .callbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:40;background:rgba(251,248,242,.97);
@@ -300,8 +320,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   .burger{display:block}
   .hero{height:460px}
   .hero-in{padding:0 34px}
-  .hero h1{font-size:46px}
-  .stat-v{font-size:28px}
   .split,.loc{grid-template-columns:1fr}
   .split-img{min-height:300px;order:-1}
   .split-copy,.loc-copy{padding:44px 30px}
@@ -332,7 +350,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   /* taller hero so the bottom-aligned copy never rides up into the photo note */
   .hero{height:560px}
   .hero-in{justify-content:flex-end;padding:0 22px 40px}
-  .hero h1{font-size:36px}
   .hero p{font-size:16px;margin-bottom:24px}
   .hero-btns{width:100%;flex-direction:column}
   .hero-btns .btn{width:100%;text-align:center}
@@ -341,9 +358,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(232,201,141,.22)}
   .sec,.svc-sec,.form-sec{padding:40px 22px}
   .split-copy,.loc-copy{padding:40px 22px}
-  .h2-40,.h2-38{font-size:30px}
-  .h2-36{font-size:28px}
-  .close-in h2{font-size:32px}
   .close-in{padding:0 22px}
   .feats,.svcs,.gal{grid-template-columns:1fr}
   .quote{padding:32px 24px}
@@ -546,30 +560,30 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
       <h2 class="h2-38">The things people want to know.</h2>
     </div>
     <div class="faqs">
-      <div class="faq rv">
-        <h3>How is an adult family home different from assisted living?</h3>
-        <p>An adult family home is a licensed private residence caring for a small number of people, six in our case, rather than a large facility with dozens of rooms. It means far more one on one attention, and it feels like a house, because it is one.</p>
-      </div>
-      <div class="faq rv">
-        <h3>What areas do you serve?</h3>
-        <p>We are in Algona, and we welcome families from Auburn, Pacific, Federal Way, Kent, and across South King County.</p>
-      </div>
-      <div class="faq rv">
-        <h3>Do you accept Medicaid?</h3>
-        <p>Yes. We welcome both private pay and Medicaid residents, so families have a real choice.</p>
-      </div>
-      <div class="faq rv">
-        <h3>How many residents live here?</h3>
-        <p>We are licensed for up to six. Keeping the home small is exactly what allows us to give each person the attention they deserve.</p>
-      </div>
-      <div class="faq rv">
-        <h3>Who actually provides the care?</h3>
-        <p>Marjorie, the owner, is personally involved in the day to day care, alongside our caregivers. Someone is here around the clock, day and night.</p>
-      </div>
-      <div class="faq rv">
-        <h3>Can we come and see the home first?</h3>
-        <p>Please do. Visits are welcome by appointment. Call us and we will find a time that works for your family.</p>
-      </div>
+      <details class="faq rv" open>
+        <summary>How is an adult family home different from assisted living?</summary>
+        <p class="a">An adult family home is a licensed private residence caring for a small number of people, six in our case, rather than a large facility with dozens of rooms. It means far more one on one attention, and it feels like a house, because it is one.</p>
+      </details>
+      <details class="faq rv">
+        <summary>What areas do you serve?</summary>
+        <p class="a">We are in Algona, and we welcome families from Auburn, Pacific, Federal Way, Kent, and across South King County.</p>
+      </details>
+      <details class="faq rv">
+        <summary>Do you accept Medicaid?</summary>
+        <p class="a">Yes. We welcome both private pay and Medicaid residents, so families have a real choice.</p>
+      </details>
+      <details class="faq rv">
+        <summary>How many residents live here?</summary>
+        <p class="a">We are licensed for up to six. Keeping the home small is exactly what allows us to give each person the attention they deserve.</p>
+      </details>
+      <details class="faq rv">
+        <summary>Who actually provides the care?</summary>
+        <p class="a">Marjorie, the owner, is personally involved in the day to day care, alongside our caregivers. Someone is here around the clock, day and night.</p>
+      </details>
+      <details class="faq rv">
+        <summary>Can we come and see the home first?</summary>
+        <p class="a">Please do. Visits are welcome by appointment. Call us and we will find a time that works for your family.</p>
+      </details>
     </div>
   </section>
 
