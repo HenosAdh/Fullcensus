@@ -11,6 +11,9 @@
        3. og:url         -> https://awellcaredhome.com/
        4. og:image       -> https://awellcaredhome.com/images/og-image.png
        5. fill GA_ID, CLARITY_ID and WEB3FORMS_KEY in the script at the bottom
+       6. send a test email to hello@awellcaredhome.com and confirm it lands in
+          Marjorie's gmail BEFORE launch. The site shows that address in three
+          places, so if the mailbox is not live, family enquiries bounce.
      =================================================================== -->
 <meta name="robots" content="noindex, nofollow">
 
@@ -52,7 +55,7 @@
 "alternateName":"A Wellcared AFH LLC",
 "description":"A licensed adult family home in Algona, Washington providing personalized, compassionate care for up to 6 residents. Private pay and Medicaid accepted.",
 "url":"https://awellcaredhome.com/",
-"email":"awellcared@gmail.com",
+"email":"hello@awellcaredhome.com",
 "telephone":"+12532044590",
 "faxNumber":"+12538020606",
 "address":{"@type":"PostalAddress","streetAddress":"315 Algona Blvd S","addressLocality":"Algona","addressRegion":"WA","postalCode":"98001","addressCountry":"US"},
@@ -604,7 +607,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
           <span style="font-size:15px">Mobile: <a href="tel:+14088215329" style="color:var(--burgundy);font-weight:700" data-cta="call" data-loc="contact_mobile">(408) 821-5329</a></span>
         </p>
         <p class="body-p" style="font-size:15px"><strong style="color:var(--head)">Email</strong><br>
-          <a href="mailto:awellcared@gmail.com" style="color:var(--burgundy);font-weight:700" data-cta="email" data-loc="contact">awellcared@gmail.com</a><br>
+          <a href="mailto:hello@awellcaredhome.com" style="color:var(--burgundy);font-weight:700" data-cta="email" data-loc="contact">hello@awellcaredhome.com</a><br>
           <span style="color:var(--muted-2)">Fax: (253) 802-0606</span></p>
       </div>
 
@@ -676,7 +679,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
         315 Algona Blvd S, Algona, WA 98001<br>
         <a href="tel:+12532044590" data-cta="call" data-loc="footer">(253) 204-4590</a> &middot;
         <a href="tel:+14088215329" data-cta="call" data-loc="footer_mobile">(408) 821-5329</a><br>
-        <a href="mailto:awellcared@gmail.com" data-cta="email" data-loc="footer">awellcared@gmail.com</a>
+        <a href="mailto:hello@awellcaredhome.com" data-cta="email" data-loc="footer">hello@awellcaredhome.com</a>
       </div>
       <div>
         <a href="#story">About</a><br>
@@ -832,7 +835,10 @@ if('IntersectionObserver' in window){
 })();
 
 /* ---- contact form ----
-   TODO(Henos): create a Web3Forms key for awellcared@gmail.com and paste it below.
+   TODO(Henos): create a Web3Forms key and paste it below. Register it to
+   hello@awellcaredhome.com once that mailbox is live and forwarding to her gmail;
+   if you need the form working before the domain is up, register it to her gmail
+   for now and re-point it at launch.
    Until then the form shows the thank-you state but does NOT deliver. ---- */
 var WEB3FORMS_KEY = '';   /* paste the access key here */
 var _started=false, form=document.getElementById('visitForm');
