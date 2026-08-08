@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Wellcared">
+  <!-- Wellcared mark, SMALL CUT. Per the identity standards, at 48px and below the keylines
+       and windows come off, the gable steepens and the heart enlarges so it survives the
+       pixel grid. Burgundy #6E1F31, antique gold #A8894F. Openings are cuts, never strokes. -->
+  <circle cx="50" cy="50" r="49" fill="#6E1F31"/>
+
+  <g fill="#A8894F">
+    <polygon points="50,15 85,52 15,52"/>
+    <rect x="24" y="52" width="52" height="24"/>
+    <rect x="19" y="76" width="62" height="5"/>
+  </g>
+
+  <g fill="#6E1F31">
+    <path transform="translate(32.84,16.0) scale(1.43)"
+          d="M12 21s-7-4.6-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.4-7 10-7 10z"/>
+    <path d="M42.5 76 V63.5 a7.5 7.5 0 0 1 15 0 V76 Z"/>
+  </g>
+</svg>

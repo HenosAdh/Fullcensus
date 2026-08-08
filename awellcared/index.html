@@ -83,8 +83,9 @@
   --burgundy:#6e1f31; --burgundy-dark:#5a1928;
   --plum:#3a2429;
   --gold:#e8c98d; --gold-hover:#dfbc79;
-  --gold-antique:#a8894f;
-  --ivory:#fbf8f2; --sand:#f5efe4; --white:#ffffff;
+  --gold-antique:#A8894F;   /* antique gold, identity standards */
+  --ink:#201E1D;            /* identity standards */
+  --ivory:#FBF8F2; --sand:#f5efe4; --white:#ffffff;
   --head:#3a2429; --body:#6b5c58;
   --muted:#9a8a84; --muted-2:#8a7a74; --muted-3:#7a6a66;
   --on-dark:#fdfbf7; --on-dark-body:#c2b0a8; --on-dark-soft:#efe4d8;
@@ -103,10 +104,14 @@ img{display:block;max-width:100%}
   padding:16px 44px;background:rgba(251,248,242,.94);backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(110,31,49,.14)}
 .brand{display:flex;align-items:center;gap:12px}
-.mark{width:34px;height:34px;border-radius:50%;background:var(--burgundy);display:flex;align-items:center;
-  justify-content:center;color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:19px;flex:none}
-.wm{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:600;color:var(--burgundy);letter-spacing:.01em;line-height:1.05}
-.wm-k{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* lockup per the identity standards: name Cormorant 500 +1.5% tracking burgundy,
+   1px gold hairline, sub-line 600 uppercase +36% tracking in antique gold */
+.mark{width:38px;height:38px;flex:none;display:block}
+.wm{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:500;color:var(--burgundy);
+  letter-spacing:.015em;line-height:1.02}
+.wm-rule{height:1px;background:var(--gold-antique);opacity:.8;margin:4px 0 3px}
+.wm-k{font-size:9px;font-weight:600;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--gold-antique);line-height:1}
 .nav{display:flex;align-items:center;gap:24px;font-size:13px;font-weight:600;color:#6b5c58}
 .nav a.lnk{transition:color .18s ease}
 .nav a.lnk:hover{color:var(--burgundy)}
@@ -306,6 +311,9 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   .foot{padding:28px 30px}
   .quote{padding:38px 34px}
   .tagline{padding:0 30px 46px}
+  /* the shot brief has nowhere to sit once the hero narrows, so show just the label */
+  .ph-corner .ph-d{display:none}
+  .ph-corner{padding:14px 18px}
 }
 @media (max-width:767px){
   body{padding-bottom:74px}
@@ -353,10 +361,11 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 
   <!-- ============ HEADER ============ -->
   <header class="hdr">
-    <a class="brand" href="#top" aria-label="A Wellcared Adult Family Home, home">
-      <div class="mark" aria-hidden="true">A</div>
+    <a class="brand" href="#top" aria-label="Wellcared Adult Family Home, home">
+      <img class="mark" src="images/mark-small.svg" alt="" width="38" height="38">
       <div>
-        <div class="wm">A Wellcared</div>
+        <div class="wm">Wellcared</div>
+        <div class="wm-rule"></div>
         <div class="wm-k">Adult Family Home</div>
       </div>
     </a>
