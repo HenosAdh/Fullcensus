@@ -124,7 +124,18 @@ img{display:block;max-width:100%}
 .btn{border-radius:4px;transition:background .18s ease,transform .18s ease,border-color .18s ease;display:inline-block}
 .btn-solid{background:var(--burgundy);color:var(--ivory);padding:12px 18px;font-weight:700;font-size:13.5px;letter-spacing:.02em}
 .btn-solid:hover{background:var(--burgundy-dark)}
-.tel-top{color:var(--burgundy);font-weight:800;font-size:15px;white-space:nowrap;padding:8px 0}
+/* the phone number used to read as plain text. On a page where three quarters of
+   visitors arrive on a phone, the number IS the primary call to action, so it is
+   styled as something you press. */
+.tel-top{display:inline-flex;align-items:center;gap:8px;color:var(--burgundy);font-weight:800;
+  font-size:15px;white-space:nowrap;padding:9px 15px;border-radius:4px;
+  border:1px solid rgba(110,31,49,.3);background:rgba(110,31,49,.045);
+  transition:background .2s ease,color .2s ease,border-color .2s ease}
+.tel-top:hover{background:var(--burgundy);color:var(--white);border-color:var(--burgundy)}
+.tel-top svg{width:15px;height:15px;flex:none}
+/* every other phone number on the page gets a link underline so it is obviously tappable */
+a[href^="tel:"]:not(.tel-top):not(.btn){text-decoration:underline;
+  text-decoration-color:rgba(110,31,49,.4);text-underline-offset:3px;text-decoration-thickness:1px}
 .burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
 .burger span{display:block;width:22px;height:2px;background:var(--burgundy);margin:4px 0;border-radius:2px}
 
@@ -153,6 +164,7 @@ img{display:block;max-width:100%}
 .stat-v{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(30px,3.1vw,40px);line-height:1;color:var(--gold);letter-spacing:-.01em}
 .stat-l{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-top:8px;opacity:.85}
 .ribbon{padding:12px;text-align:center;font-size:13px;color:var(--muted-2);background:var(--sand)}
+.ribbon-hrs{color:var(--burgundy);font-weight:700}
 .ribbon a{color:var(--burgundy);font-weight:700}
 
 /* ---------- sections ---------- */
@@ -280,14 +292,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 .form-note{font-size:13px;color:var(--muted-2);margin-top:12px;line-height:1.6}
 
 /* ---------- closing ---------- */
-.close-hero{position:relative;height:400px}
-.close-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.55),rgba(35,18,22,.9));pointer-events:none}
-.close-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  text-align:center;padding:0 80px;pointer-events:none}
-.close-in h2{font-size:clamp(30px,4.6vw,56px);line-height:1.04;letter-spacing:-.022em;
-  color:var(--on-dark);margin:0 0 18px;max-width:720px}
-.close-in p{font-size:16.5px;line-height:1.6;color:rgba(253,251,247,.86);max-width:540px;margin:0 0 28px}
-
 /* ---------- footer ---------- */
 .foot{background:var(--ivory);padding:30px 52px;border-top:1px solid rgba(110,31,49,.12)}
 .foot-grid{display:flex;align-items:flex-start;justify-content:space-between;gap:30px;flex-wrap:wrap;
@@ -298,7 +302,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 
 .ph-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .split-img>.ph-img{position:absolute;inset:0}
-.hero>.ph-img,.close-hero>.ph-img{position:absolute;inset:0;object-position:center 34%}
+.hero>.ph-img{position:absolute;inset:0;object-position:center 34%}
 /* ---------- photo placeholders (remaining shots) ---------- */
 .ph{width:100%;height:100%;min-height:inherit;background:
    repeating-linear-gradient(45deg,rgba(110,31,49,.045) 0 12px,rgba(110,31,49,.02) 12px 24px),
@@ -380,14 +384,13 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid rgba(232,201,141,.22)}
   .sec,.svc-sec,.form-sec{padding:40px 22px}
   .split-copy,.loc-copy{padding:40px 22px}
-  .close-in{padding:0 22px}
   .feats{grid-template-columns:1fr}
   .quote{padding:32px 24px}
   .quote p{font-size:15.5px;max-width:none}
   .q-mark{font-size:46px}
   .tagline span{font-size:21px}
   .car-ctrl{gap:16px}
-  .tel-top{font-size:14.5px}
+  .tel-top{font-size:14.5px;padding:8px 12px;gap:6px}
   /* on phones the full shot brief has nowhere to go, so show just the label */
   .ph-corner{padding:12px 16px}
   .ph-corner .ph-d{display:none}
@@ -410,11 +413,10 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
     </a>
     <nav class="nav" aria-label="Main">
       <a class="lnk" href="#story">About</a>
-      <a class="lnk" href="#gallery">Gallery</a>
       <a class="lnk" href="#services">Services</a>
       <a class="lnk" href="#visit">Contact</a>
       <a class="btn btn-solid" href="#visit" data-cta="tour" data-loc="header">Schedule a Visit</a>
-      <a class="tel-top" href="tel:+12532044590" data-cta="call" data-loc="header">(253) 204-4590</a>
+      <a class="tel-top" href="tel:+12532044590" data-cta="call" data-loc="header" aria-label="Call A WellCared at (253) 204-4590"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span>(253) 204-4590</span></a>
       <button class="burger" aria-label="Menu" aria-expanded="false" id="burger"><span></span><span></span><span></span></button>
     </nav>
   </header>
@@ -441,7 +443,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
     <div class="stat"><div class="stat-v">7</div><div class="stat-l">Caregivers &amp; staff</div></div>
     <div class="stat"><div class="stat-v">3</div><div class="stat-l">Ways to pay, including WA Cares</div></div>
   </div>
-  <div class="ribbon">Visits welcome. Call Marjorie &middot; <a href="tel:+12532044590" data-cta="call" data-loc="ribbon">(253) 204-4590</a></div>
+  <div class="ribbon">Visits welcome. Call Marjorie &middot; <a href="tel:+12532044590" data-cta="call" data-loc="ribbon">(253) 204-4590</a> &middot; <span class="ribbon-hrs">evenings and weekends too</span></div>
 
   <!-- ============ STORY ============ -->
   <section class="split" id="story">
@@ -533,21 +535,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
     </div>
   </section>
 
-  <!-- ============ GALLERY ============ -->
-  <section class="sec" style="padding-top:0" id="gallery">
-    <div class="gal-head rv">
-      <div>
-        <div class="kick-l">The family</div>
-        <h2 class="h2-38">The people behind the home.</h2>
-      </div>
-      <a class="txtlink" href="#visit" data-cta="tour" data-loc="gallery">Book a visit &rarr;</a>
-    </div>
-    <div class="gal">
-      <div class="rv"><div class="gal-img zoom"><img class="ph-img" src="images/owners.webp" alt="Marjorie Ocon and her husband, who run the home together" loading="lazy" decoding="async"></div><div class="gal-cap">Marjorie and her husband</div></div>
-      
-      
-    </div>
-  </section>
 
   <!-- ============ SERVICES ============ -->
   <section class="svc-sec" id="services">
@@ -650,6 +637,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
           <a href="tel:+12532044590" style="color:var(--burgundy);font-weight:800;font-size:19px" data-cta="call" data-loc="contact">(253) 204-4590</a><br>
           <span style="font-size:15px">Mobile: <a href="tel:+14088215329" style="color:var(--burgundy);font-weight:700" data-cta="call" data-loc="contact_mobile">(408) 821-5329</a></span>
         </p>
+        <p class="body-p" style="font-size:15px;margin-bottom:8px">Call any time, evenings and weekends included. If we cannot pick up we will call you back the same day. Ask about our current openings.</p>
         <p class="body-p" style="font-size:15px"><strong style="color:var(--head)">Email</strong><br>
           <a href="mailto:hello@awellcaredhome.com" style="color:var(--burgundy);font-weight:700" data-cta="email" data-loc="contact">hello@awellcaredhome.com</a><br>
           <span style="color:var(--muted-2)">Fax: (253) 802-0606</span></p>
@@ -697,20 +685,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
     </div>
   </section>
 
-  <!-- ============ CLOSING CTA ============ -->
-  <section class="close-hero">
-    <img class="ph-img" src="images/front-entrance.webp" alt="The welcoming front porch and entrance of A WellCared Adult Family Home" fetchpriority="high" decoding="async">
-    <div class="close-ov"></div>
-    <div class="close-in">
-      <div class="kick">Visit A WellCared</div>
-      <h2>Your loved one deserves a home, not a facility.</h2>
-      <p>Come and meet Marjorie, see the rooms, and meet the caregivers who would be looking after your loved one. There is no pressure, just a warm welcome and an honest conversation.</p>
-      <div class="hero-btns">
-        <a class="btn btn-gold" href="#visit" data-cta="tour" data-loc="closing">Schedule a Visit</a>
-        <a class="btn btn-ghost" href="tel:+12532044590" data-cta="call" data-loc="closing">Call Marjorie</a>
-      </div>
-    </div>
-  </section>
 
   <!-- ============ FOOTER ============ -->
   <footer class="foot">
@@ -725,7 +699,6 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
       </div>
       <div>
         <a href="#story">About</a><br>
-        <a href="#gallery">Gallery</a><br>
         <a href="#services">Services</a><br>
         <a href="#visit">Schedule a Visit</a>
       </div>
