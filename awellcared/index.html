@@ -170,7 +170,13 @@ a[href^="tel:"]:not(.tel-top):not(.btn){text-decoration:underline;
 /* ---------- sections ---------- */
 .sec{padding:60px 52px}
 .split{display:grid;grid-template-columns:1fr 1.1fr;align-items:stretch}
-.split-img{position:relative;min-height:420px}
+/* the hall photo is a tall portrait in a column that stretches to the height of
+   her copy, so the ceiling ate the top third of it on desktop. The cell keeps its
+   full height as a sand panel and the photo sits centred inside it at a capped
+   height, so the crop bites vertically instead of sideways and nobody loses a
+   shoulder. */
+.split-img{position:relative;min-height:420px;background:var(--sand);
+  display:flex;align-items:center;overflow:hidden}
 .split-img>.ph{position:absolute;inset:0}
 .split-copy{padding:60px 52px;display:flex;flex-direction:column;justify-content:center}
 .kick-l{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-antique);margin-bottom:16px}
@@ -225,7 +231,6 @@ h2{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;color
 .gal-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:22px;gap:20px;flex-wrap:wrap}
 .gal{display:grid;grid-template-columns:1fr;gap:14px;max-width:860px;margin:0 auto}
 .gal-img{height:440px;overflow:hidden}
-.gal-img .ph-img{object-position:center 18%}
 .gal-cap{text-align:center;font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);margin-top:10px}
 
 /* ---------- services (dark) ---------- */
@@ -301,7 +306,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
 
 .ph-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
-.split-img>.ph-img{position:absolute;inset:0}
+.split-img>.ph-img{height:600px;max-height:100%;object-position:center 74%}
 .hero>.ph-img{position:absolute;inset:0;object-position:center 34%}
 /* ---------- photo placeholders (remaining shots) ---------- */
 .ph{width:100%;height:100%;min-height:inherit;background:
@@ -345,7 +350,10 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   .hero{height:460px}
   .hero-in{padding:0 34px}
   .split,.loc{grid-template-columns:1fr}
+  /* at 375px the photo box is exactly as tall as the image wants to be, so nothing
+     crops and the whole ceiling comes back. Shorten it and let cover bite the top. */
   .split-img{min-height:300px;order:-1}
+  .split-img>.ph-img{height:400px;object-position:center 80%}
   .split-copy,.loc-copy{padding:44px 30px}
   .sec,.svc-sec,.form-sec{padding:48px 30px}
   .feats{grid-template-columns:repeat(2,1fr)}
