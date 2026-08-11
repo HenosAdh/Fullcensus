@@ -130,7 +130,7 @@ img{display:block;max-width:100%}
 
 /* ---------- hero ---------- */
 .hero{position:relative;height:500px}
-.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.55) 0%,rgba(35,18,22,.2) 45%,rgba(35,18,22,.82) 100%);pointer-events:none}
+.hero-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.72) 0%,rgba(35,18,22,.52) 45%,rgba(35,18,22,.88) 100%);pointer-events:none}
 .hero-in{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
   text-align:center;padding:0 80px;pointer-events:none}
 .kick{font-size:12px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:22px}
@@ -271,7 +271,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 
 /* ---------- closing ---------- */
 .close-hero{position:relative;height:400px}
-.close-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.35),rgba(35,18,22,.85));pointer-events:none}
+.close-ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,18,22,.55),rgba(35,18,22,.9));pointer-events:none}
 .close-in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;padding:0 80px;pointer-events:none}
 .close-in h2{font-size:clamp(30px,4.6vw,56px);line-height:1.04;letter-spacing:-.022em;
@@ -286,7 +286,10 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 .foot-bot{margin-top:22px;padding-top:16px;border-top:1px solid rgba(110,31,49,.1);display:flex;
   justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--muted)}
 
-/* ---------- photo placeholders (first version only) ---------- */
+.ph-img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.split-img>.ph-img{position:absolute;inset:0}
+.hero>.ph-img,.close-hero>.ph-img{position:absolute;inset:0;object-position:center 34%}
+/* ---------- photo placeholders (remaining shots) ---------- */
 .ph{width:100%;height:100%;min-height:inherit;background:
    repeating-linear-gradient(45deg,rgba(110,31,49,.045) 0 12px,rgba(110,31,49,.02) 12px 24px),
    linear-gradient(160deg,#efe6d8,#e3d6c4);
@@ -409,11 +412,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 
   <!-- ============ HERO ============ -->
   <section class="hero" id="top">
-    <div class="ph ph-corner">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M9 21v-7h6v7"/></svg>
-      <div class="ph-t">Photo 1 · Hero</div>
-      <div class="ph-d">The front of the home from the street, taken in daylight. This is the first thing every family sees.</div>
-    </div>
+    <img class="ph-img" src="images/front-entrance.webp" alt="The front entrance of A WellCared Adult Family Home in Algona, Washington, with flowers on the porch" fetchpriority="high" decoding="async">
     <div class="hero-ov"></div>
     <div class="hero-in">
       <div class="kick">Algona &middot; Auburn &middot; Pacific &middot; South King County</div>
@@ -438,11 +437,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
   <!-- ============ STORY ============ -->
   <section class="split" id="story">
     <div class="split-img zoom">
-      <div class="ph">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg>
-        <div class="ph-t">Photo 2 · Our story</div>
-        <div class="ph-d">Marjorie with a resident, or the caregivers together. A warm, real moment rather than an empty room.</div>
-      </div>
+      <img class="ph-img" src="images/family.webp" alt="Marjorie Ocon with her family, who work together in the home" loading="lazy" decoding="async">
     </div>
     <div class="split-copy rv">
       <div class="kick-l">Meet the owner</div>
@@ -464,17 +459,17 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
     </div>
     <div class="feats">
       <div class="feat rv">
-        <div class="feat-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18v-6a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v6"/><path d="M6 10V7a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3"/><path d="M3 18h18"/></svg><div class="ph-t">Photo 3</div><div class="ph-d">A resident bedroom, bright and made up</div></div></div>
+        <div class="feat-img zoom"><img class="ph-img" src="images/bedroom.webp" alt="A resident bedroom with a window, an armchair and fresh flowers" loading="lazy" decoding="async"></div>
         <h3>A Room of Their Own</h3>
         <p>A comfortable, personal space where your loved one can settle in and feel at home from the first day.</p>
       </div>
       <div class="feat rv">
-        <div class="feat-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg><div class="ph-t">Photo 4</div><div class="ph-d">The living room where everyone gathers</div></div></div>
+        <div class="feat-img zoom"><img class="ph-img" src="images/living-kitchen.webp" alt="The bright open living and kitchen area at A WellCared" loading="lazy" decoding="async"></div>
         <h3>Care Around the Clock</h3>
         <p>Marjorie and her team are here day and night. In a home this size, help arrives in moments, not minutes.</p>
       </div>
       <div class="feat rv">
-        <div class="feat-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4v16"/><path d="M9 4v6a2 2 0 0 1-4 0"/><path d="M16 4c-1.5 2-2 4-2 6s.5 3 2 3 2-1 2-3-.5-4-2-6z"/><path d="M16 13v7"/></svg><div class="ph-t">Photo 5</div><div class="ph-d">The kitchen or a meal at the dining table</div></div></div>
+        <div class="feat-img zoom"><img class="ph-img" src="images/dining.webp" alt="The dining table set for a meal, with fresh flowers" loading="lazy" decoding="async"></div>
         <h3>Home-Cooked Meals</h3>
         <p>Real food made fresh each day, prepared around each resident's tastes and dietary needs.</p>
       </div>
@@ -543,7 +538,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
       <a class="txtlink" href="#visit" data-cta="tour" data-loc="gallery">Book a visit &rarr;</a>
     </div>
     <div class="gal">
-      <div class="rv"><div class="gal-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c0-3.6 3.4-6 7.5-6s7.5 2.4 7.5 6"/></svg><div class="ph-t">Photo 7</div><div class="ph-d">Your caregivers at work, the seven of you</div></div></div><div class="gal-cap">Our Caregivers</div></div>
+      <div class="rv"><div class="gal-img zoom"><img class="ph-img" src="images/owners.webp" alt="Marjorie Ocon and her husband, who run the home together" loading="lazy" decoding="async"></div><div class="gal-cap">The Family Behind the Home</div></div>
       <div class="rv"><div class="gal-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16"/><path d="M6 19V9h12v10"/><circle cx="12" cy="14" r="1.6"/></svg><div class="ph-t">Photo 8</div><div class="ph-d">An everyday moment, a meal or an activity together</div></div></div><div class="gal-cap">Daily Life</div></div>
       <div class="rv"><div class="gal-img zoom"><div class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v4a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3z"/><path d="M7 12V6a2 2 0 0 1 4 0"/></svg><div class="ph-t">Photo 9</div><div class="ph-d">A bathroom or walk-in shower, clean and well lit</div></div></div><div class="gal-cap">Comfort &amp; Safety</div></div>
     </div>
@@ -688,11 +683,7 @@ form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--b
 
   <!-- ============ CLOSING CTA ============ -->
   <section class="close-hero">
-    <div class="ph ph-corner">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5 12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><path d="M10 21v-6h4v6"/></svg>
-      <div class="ph-t">Photo 10 · Closing</div>
-      <div class="ph-d">The front entrance or porch, welcoming and in good light.</div>
-    </div>
+    <img class="ph-img" src="images/front-entrance.webp" alt="The welcoming front porch and entrance of A WellCared Adult Family Home" fetchpriority="high" decoding="async">
     <div class="close-ov"></div>
     <div class="close-in">
       <div class="kick">Visit A WellCared</div>
