@@ -43,6 +43,7 @@
     + ".fcaf .fcaf-sub{color:#6f6f6f;font-size:.9rem;margin:0 0 18px}"
     + ".fcaf .fcaf-field{display:block;margin-bottom:13px}"
     + ".fcaf .fcaf-field span{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#000;margin-bottom:6px}"
+    + ".fcaf .fcaf-field span em{font-style:normal;color:#9a9a9a;font-weight:500}"
     + ".fcaf .fcaf-field input,.fcaf .fcaf-field select{width:100%;padding:.8rem .9rem;border:1.5px solid #d8d8d8;border-radius:14px;font-family:inherit;font-size:.95rem;background:#f4f4f4;color:#141414}"
     + ".fcaf .fcaf-field input:focus,.fcaf .fcaf-field select:focus{outline:none;border-color:#000;background:#fff}"
     + ".fcaf .fcaf-row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}"
@@ -106,7 +107,7 @@
       +   '<label class="fcaf-field"><span>Open beds</span><input name="afbeds" type="number" min="0" placeholder="e.g. 3"></label>'
       + '</div>'
       + '<div class="fcaf-row2">'
-      +   '<label class="fcaf-field"><span>Best number to reach you</span><input name="afphone" type="tel" required placeholder="(425) 555-0142"></label>'
+      +   '<label class="fcaf-field"><span>Phone <em>(optional)</em></span><input name="afphone" type="tel" placeholder="(425) 555-0142"></label>'
       +   '<label class="fcaf-field"><span>Have a website?</span><select name="afweb"><option value="">Select&hellip;</option><option value="no">No website</option><option value="yes">Yes, we have one</option><option value="unsure">Not sure</option></select></label>'
       + '</div>'
       + '<label class="fcaf-field"><span>Email</span><input name="afemail" type="email" required placeholder="you@email.com"></label>'
@@ -135,7 +136,7 @@
       var name = get('afname'), home = get('afhome'), city = get('afcity'), beds = get('afbeds'), phone = get('afphone'), website = get('afweb'), email = get('afemail');
       btn.disabled = true; btn.textContent = "Sending…";
       var payload = {
-        family_name: name, email: email, phone: phone, location_pref: city,
+        family_name: name, email: email, phone: phone || "", location_pref: city,
         notes: "Occupancy Audit request · Home: " + home + (beds ? " · Open beds: " + beds : "") + (website ? " · Website: " + website : "") + " · via " + (document.title || "site"),
         source: "occupancy-audit", route: "fullcensus", status: "new"
       };
