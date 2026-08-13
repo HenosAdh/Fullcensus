@@ -63,6 +63,17 @@
 
   var CHECK = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#c4b139" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 
+
+  // ---- analytics ------------------------------------------------------------
+  // Fires to GA4 (gtag), GTM (dataLayer) and Clarity. Wrapped so a blocked
+  // analytics script can never stop a lead from being saved.
+  function track(name, params) {
+    params = params || {};
+    try { if (window.gtag) window.gtag('event', name, params); } catch (e) {}
+    try { (window.dataLayer = window.dataLayer || []).push(Object.assign({ event: name }, params)); } catch (e) {}
+    try { if (window.clarity) window.clarity('event', name); } catch (e) {}
+  }
+
   function esc(t){ return String(t==null?'':t).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];}); }
 
   // Per-page copy. Set any of these on the [data-audit-form] div:
@@ -129,6 +140,11 @@
     mount.innerHTML = '<div class="fccta"><div class="fcw"><div class="fcg">' + PITCH(mount) + '<div class="fc-formcol">' + FORM(mount) + '</div></div></div></div>';
     var formcol = mount.querySelector('.fc-formcol');
     var form = formcol.querySelector('form');
+    var started = false;
+    form.addEventListener('input', function () {
+      if (started) return; started = true;
+      track('form_start', { form_id: 'occupancy_audit', page_path: location.pathname });
+    }, { once: false });
     var btn = form.querySelector('button');
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
@@ -162,8 +178,28 @@
           })
         });
       } catch (err) { /* email is best-effort; the lead is already saved above */ }
+      // GA4's recommended lead event, so this shows up as a conversion.
+      track('generate_lead', {
+        form_id: 'occupancy_audit',
+        page_path: location.pathname,
+        page_title: document.title,
+        home_city: city,
+        has_website: website || 'unknown',
+        gave_phone: phone ? 'yes' : 'no',
+        currency: 'USD', value: 1
+      });
       var q = "?hide_gdpr_banner=1" + (name ? "&name=" + encodeURIComponent(name) : "") + (email ? "&email=" + encodeURIComponent(email) : "");
       formcol.innerHTML = done(q, mount.getAttribute('data-nophone'));
     });
   });
+  // Any CTA that points at the form (nav button, mid-article link, etc).
+  document.addEventListener('click', function (e) {
+    var a = e.target && e.target.closest && e.target.closest('a[href*="#build"]');
+    if (!a) return;
+    track('cta_click', {
+      cta_text: (a.textContent || '').trim().slice(0, 60),
+      cta_location: a.closest('.midcta') ? 'mid_article' : (a.closest('header') ? 'nav' : 'other'),
+      page_path: location.pathname
+    });
+  }, true);
 })();
