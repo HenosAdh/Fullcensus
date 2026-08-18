@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Client walkthrough · Full Census</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     BRAND TOKENS — matched to fullcensus.org (uiux.pdf):
+     white ground · black type · brass gold accents · pill buttons
+     ============================================================ */
+  :root{
+    --paper:#FFFFFF; --paper-soft:#FAFAF6; --line:#E7E4DA;
+    --ink:#121212; --ink-soft:#6E6E66;
+    --gold:#AD9330; --gold-strong:#8F7A22; --gold-tint:#F6F1DD;
+    --font-ui:'Inter',system-ui,sans-serif;
+    --font-mono:'IBM Plex Mono',ui-monospace,monospace;
+    --r:18px; --pill:999px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  [hidden]{display:none!important}   /* display:grid/flex otherwise beats the hidden attribute */
+  body{font-family:var(--font-ui);background:var(--paper);color:var(--ink);min-height:100vh}
+  .mono{font-family:var(--font-mono);font-variant-numeric:tabular-nums}
+  .wrap{max-width:1220px;margin:0 auto;padding:20px 20px 56px}
+
+  /* ---- ✶ marquee, like the site's top strip ---- */
+  .marquee{color:var(--ink-soft);font-size:11px;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;margin-bottom:26px;overflow:hidden;white-space:nowrap}
+  .marquee .s{color:var(--gold);letter-spacing:0;margin:0 10px}
+
+  /* ---- header / logo lockup (gold clover + black wordmark) ---- */
+  header.top{margin-bottom:22px}
+  .logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+  .logo .mark{width:26px;height:26px;flex:none}
+  .logo .word{font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+  .logo:focus-visible{outline:2px solid var(--gold);outline-offset:4px;border-radius:6px}
+  .eyebrow{color:var(--gold-strong);text-transform:uppercase;letter-spacing:.22em;
+    font-size:11px;font-weight:700;margin-top:20px}
+  h1{color:var(--ink);font-weight:800;font-size:clamp(26px,3.6vw,38px);
+    line-height:1.08;letter-spacing:-.025em;margin-top:8px}
+  h1 em{font-style:italic;font-weight:800}
+  .meta{color:var(--ink-soft);font-size:13.5px;margin-top:10px;font-weight:500}
+  .meta b{color:var(--ink);font-weight:600}
+
+  .grid{display:grid;grid-template-columns:minmax(0,1.9fr) minmax(330px,1fr);gap:22px;align-items:start;margin-top:24px}
+  @media(max-width:940px){.grid{grid-template-columns:1fr}}
+
+  /* ---- player card ---- */
+  .player{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+    overflow:hidden;box-shadow:0 10px 30px rgba(18,18,18,.06)}
+  video{display:block;width:100%;aspect-ratio:16/9;background:#000}
+  video::cue{background:rgba(18,18,18,.8);color:#fff;font-family:var(--font-ui);font-size:.9em}
+
+  /* signature: gold moment pins on the timeline */
+  .moments{position:relative;height:30px;margin:0 16px;border-bottom:2px solid var(--gold-tint)}
+  .moments .dot{position:absolute;top:50%;width:11px;height:11px;transform:translate(-50%,-50%);
+    border-radius:50%;background:var(--gold);border:2px solid var(--paper);cursor:pointer;transition:transform .15s}
+  .moments .dot:hover,.moments .dot:focus-visible{transform:translate(-50%,-50%) scale(1.5)}
+  .moments .dot:focus-visible{outline:2px solid var(--gold-strong);outline-offset:2px}
+  .moments .hint{position:absolute;right:2px;top:6px;font-size:10.5px;color:var(--ink-soft);letter-spacing:.04em}
+
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;flex-wrap:wrap}
+  .bar .left{display:flex;align-items:center;gap:12px;color:var(--ink-soft);font-size:13px}
+  .cc,.speeds button{font-family:var(--font-ui);font-weight:600;font-size:12px;color:var(--ink);
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--pill);padding:6px 13px;cursor:pointer}
+  .cc.on,.speeds button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .speeds{display:flex;gap:6px}
+  .cc:focus-visible,.speeds button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  /* ---- right rail card ---- */
+  .rail{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);
+    display:flex;flex-direction:column;height:640px;overflow:hidden;box-shadow:0 10px 30px rgba(18,18,18,.05)}
+  .tabs{display:flex;border-bottom:1px solid var(--line);flex:none;background:var(--paper-soft)}
+  .tabs button{flex:1;font-family:var(--font-ui);font-weight:700;font-size:12px;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-soft);background:transparent;border:0;padding:15px 0;cursor:pointer;position:relative}
+  .tabs button.on{color:var(--ink)}
+  .tabs button.on::after{content:"";position:absolute;left:24%;right:24%;bottom:-1px;height:2px;background:var(--gold)}
+  .tabs button .n{display:none}
+  .tabs button:focus-visible{outline:2px solid var(--gold);outline-offset:-3px}
+  .pane{flex:1;display:flex;flex-direction:column;min-height:0}
+  .pane[hidden]{display:none}
+
+  /* transcript */
+  .tsearch{flex:none;padding:12px 16px 10px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center}
+  .tsearch input{flex:1;font-family:var(--font-ui);font-size:13px;border:1px solid var(--line);
+    border-radius:var(--pill);padding:8px 14px;background:var(--paper)}
+  .tsearch input:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  .follow{font-family:var(--font-ui);font-size:11px;font-weight:600;color:var(--ink-soft);
+    background:var(--paper);border:1px solid var(--line);border-radius:var(--pill);padding:7px 11px;cursor:pointer;white-space:nowrap}
+  .follow.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .tlist{flex:1;overflow-y:auto;padding:6px 8px 16px}
+  .seg{display:flex;gap:10px;padding:8px 10px;border-radius:10px;cursor:pointer;align-items:baseline}
+  .seg:hover{background:var(--paper-soft)}
+  .seg .t{font-family:var(--font-mono);font-size:11px;color:var(--gold-strong);flex:none;padding-top:1px}
+  .seg .x{font-size:14px;line-height:1.55;color:var(--ink)}
+  .seg.active{background:var(--gold-tint)}
+  .seg.active .x{font-weight:500}
+  .seg.dim{opacity:.3}
+  .seg mark{background:var(--gold-tint);color:var(--ink);border:1px solid var(--gold);border-radius:3px;padding:0 1px}
+
+  /* notes */
+  .list{flex:1;overflow-y:auto;padding:6px 18px}
+  .note{padding:14px 0;border-bottom:1px solid var(--line)}
+  .note:last-child{border-bottom:0}
+  .note .row{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .who{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px}
+  .ava{width:24px;height:24px;border-radius:50%;background:var(--gold-tint);color:var(--gold-strong);
+    border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex:none}
+  .chip{font-family:var(--font-mono);font-size:12px;color:var(--ink);background:var(--paper);
+    border:1px solid var(--line);border-radius:var(--pill);padding:4px 11px;cursor:pointer}
+  .chip:hover{border-color:var(--gold);background:var(--gold-tint)}
+  .chip:focus-visible{outline:2px solid var(--gold);outline-offset:1px}
+  .note p{font-size:14px;color:var(--ink);margin-top:6px;line-height:1.55;padding-left:32px;overflow-wrap:anywhere}
+  .empty{padding:38px 14px;text-align:center;color:var(--ink-soft);font-size:14px;line-height:1.6}
+  .empty b{color:var(--ink)}
+
+  form{border-top:1px solid var(--line);padding:14px 18px;display:grid;gap:8px;flex:none;background:var(--paper-soft)}
+  .atline{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-soft);align-items:center}
+  .atline button{font-family:var(--font-mono);font-size:12px;border:1px solid var(--gold);background:var(--gold-tint);
+    color:var(--ink);border-radius:var(--pill);padding:3px 11px;cursor:pointer;font-weight:500}
+  input,textarea{font-family:var(--font-ui);font-size:14px;border:1px solid var(--line);border-radius:12px;
+    padding:9px 13px;background:var(--paper);width:100%}
+  textarea{resize:vertical;min-height:58px}
+  input:focus,textarea:focus{outline:2px solid var(--gold);border-color:var(--gold)}
+  .send{font-family:var(--font-ui);font-weight:700;background:var(--ink);color:#fff;border:1px solid var(--ink);
+    border-radius:var(--pill);padding:12px;cursor:pointer}
+  .send:hover{background:#000}
+  .send:disabled{opacity:.45;cursor:default}
+  .send:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+
+  .foot{color:var(--ink-soft);font-size:12px;margin-top:28px;text-align:center}
+  .foot a{color:var(--ink);text-decoration:none;font-weight:600}
+  .state{color:var(--ink);padding:80px 20px;text-align:center;font-size:16px;line-height:1.7}
+
+  .demobar{background:var(--gold-tint);border:1px solid var(--gold);border-radius:var(--pill);
+    padding:9px 18px;font-size:12.5px;color:var(--ink);margin-bottom:16px;text-align:center}
+
+  /* ---- promo bubbles under the player ---- */
+  .promos{margin-top:20px}
+  .promos .eyebrow{margin-top:0}
+  .bubbles{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+  .bub{display:inline-block;animation:bfloat 4.6s ease-in-out infinite}
+  @keyframes bfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+  .bubble{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-ui);font-weight:600;
+    font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--pill);padding:9px 16px;cursor:pointer;
+    box-shadow:0 6px 16px rgba(18,18,18,.06);transition:transform .18s,border-color .18s,background .18s}
+  .bubble .s{color:var(--gold);font-size:12px}
+  .bubble:hover{border-color:var(--gold);background:var(--gold-tint);transform:translateY(-2px)}
+  .bubble.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .bubble:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .promo-detail{margin-top:14px;border:1px solid var(--line);border-radius:var(--r);background:var(--paper);
+    box-shadow:0 10px 30px rgba(18,18,18,.05);padding:20px 22px}
+  .pd-title{font-weight:800;font-size:17px;letter-spacing:-.015em}
+  .promo-detail p{color:var(--ink-soft);font-size:14px;line-height:1.6;margin-top:6px;max-width:62ch}
+  .pd-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .pd-cta{font-weight:700;font-size:13px;color:#fff;background:var(--ink);border:1px solid var(--ink);
+    border-radius:var(--pill);padding:10px 18px;text-decoration:none;display:inline-block}
+  .pd-cta:hover{background:#000}
+  .pd-cta:focus-visible,.pd-alt:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  .pd-alt{font-weight:600;font-size:13px;color:var(--ink);background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--pill);padding:10px 18px;text-decoration:none;display:inline-block}
+  .pd-alt:hover{border-color:var(--gold);background:var(--gold-tint)}
+
+  /* ---- password gate ---- */
+  .gate{position:fixed;inset:0;background:var(--paper);display:flex;align-items:center;justify-content:center;z-index:50}
+  .gatecard{width:min(400px,92vw);border:1px solid var(--line);border-radius:var(--r);
+    box-shadow:0 10px 30px rgba(18,18,18,.07);padding:30px 28px;text-align:center}
+  .gatecard .eyebrow{margin-top:16px}
+  .gatecard h2{font-weight:800;font-size:22px;letter-spacing:-.02em;margin-top:8px}
+  .gatecard p{color:var(--ink-soft);font-size:13.5px;margin-top:8px;line-height:1.55}
+  .gatecard form{border:0;background:transparent;padding:18px 0 0;display:grid;gap:8px}
+  .gatecard input{text-align:center;letter-spacing:.06em}
+  .gate-err{color:#A33A2A;font-size:12.5px;min-height:16px}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="gate" id="gate" hidden>
+  <div class="gatecard">
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="6.6" r="5.1" fill="#AD9330"/><circle cx="13" cy="19.4" r="5.1" fill="#AD9330"/><circle cx="6.6" cy="13" r="5.1" fill="#AD9330"/><circle cx="19.4" cy="13" r="5.1" fill="#AD9330"/><circle cx="13" cy="13" r="2.6" fill="#fff"/></svg>
+    <div class="eyebrow">Private walkthrough</div>
+    <h2>This one's for you.</h2>
+    <p>Henos prepared this walkthrough for your home. Enter the passcode from his text or email.</p>
+    <form id="gateform">
+      <input id="gatepw" type="password" placeholder="Passcode" autocomplete="off" required>
+      <div class="gate-err" id="gateerr"></div>
+      <button class="send" type="submit">View my walkthrough</button>
+    </form>
+  </div>
+</div>
+<div class="wrap">
+  <div class="marquee">Websites<span class="s">✶</span>Google Business<span class="s">✶</span>Local SEO<span class="s">✶</span>Photography<span class="s">✶</span>Facebook &amp; Instagram ads<span class="s">✶</span>Full-service AFH marketing<span class="s">✶</span></div>
+
+  <header class="top">
+    <a class="logo" href="https://fullcensus.org" aria-label="Full Census — fullcensus.org">
+      <svg class="mark" viewBox="0 0 26 26" aria-hidden="true">
+        <!-- four-petal gold clover, as on the site -->
+        <circle cx="13" cy="6.6"  r="5.1" fill="#AD9330"/>
+        <circle cx="13" cy="19.4" r="5.1" fill="#AD9330"/>
+        <circle cx="6.6"  cy="13" r="5.1" fill="#AD9330"/>
+        <circle cx="19.4" cy="13" r="5.1" fill="#AD9330"/>
+        <circle cx="13" cy="13" r="2.6" fill="#fff"/>
+      </svg>
+      <span class="word">Full Census</span>
+    </a>
+    <div class="eyebrow">Client walkthrough</div>
+    <h1 id="title">Loading…</h1>
+    <div class="meta" id="meta"></div>
+  </header>
+
+  <div id="app" class="grid" hidden>
+    <div>
+      <div class="player">
+        <video id="vid" controls playsinline preload="metadata" crossorigin="anonymous">
+          <track id="cc" kind="captions" srclang="en" label="English">
+        </video>
+        <div class="moments" id="moments" aria-label="Notes on the timeline"><span class="hint">notes appear here — click a dot to jump</span></div>
+        <div class="bar">
+          <div class="left">
+            <span class="mono" id="clock">00:00 / 00:00</span>
+            <button class="cc" id="ccbtn" hidden aria-pressed="false">CC</button>
+          </div>
+          <div class="speeds" id="speeds"></div>
+        </div>
+      </div>
+
+      <section class="promos" aria-label="More from Full Census">
+        <div class="eyebrow">While you're here</div>
+        <div class="bubbles" id="bubbles"></div>
+        <div class="promo-detail" id="promoDetail" hidden></div>
+      </section>
+    </div>
+
+    <aside class="rail">
+      <div class="tabs" role="tablist">
+        <button id="tabT" class="on" role="tab" aria-selected="true"><span class="n"></span>Transcript</button>
+        <button id="tabN" role="tab" aria-selected="false"><span class="n"></span>Notes <span id="ncount"></span></button>
+      </div>
+
+      <div class="pane" id="paneT" role="tabpanel">
+        <div class="tsearch">
+          <input id="tq" placeholder="Search this walkthrough…" aria-label="Search transcript">
+          <button class="follow on" id="followBtn" aria-pressed="true">Auto-scroll</button>
+        </div>
+        <div class="tlist" id="tlist"></div>
+      </div>
+
+      <div class="pane" id="paneN" role="tabpanel" hidden>
+        <div class="list" id="list">
+          <div class="empty">No notes yet.<br>Pause anywhere and tell me what you think — I read every one.</div>
+        </div>
+        <form id="form">
+          <div class="atline"><span>Your note will be pinned at</span>
+            <button type="button" id="atbtn" title="Set to the current moment">00:00</button></div>
+          <input id="who" placeholder="Your name" maxlength="80" required>
+          <textarea id="body" placeholder="e.g. “Can we swap this photo?” — I’ll reply the same day." maxlength="2000" required></textarea>
+          <button class="send" id="send" type="submit">Send note to Henos</button>
+        </form>
+      </div>
+    </aside>
+  </div>
+
+  <div class="state" id="state">Loading your walkthrough…</div>
+  <div class="foot">Built &amp; hosted by Henos · <a href="https://fullcensus.org">fullcensus.org</a> · one time, you own it</div>
+</div>
+
+<script>
+/* ===== CONFIG — fill these in once ===== */
+const SUPABASE_URL = "https://pvjrrxwocppqevffomvo.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2anJyeHdvY3BwcWV2ZmZvbXZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwODU2MTIsImV4cCI6MjEwMjY2MTYxMn0.LlH_nme2jogLYvSOLDlNZLDZhixJQd_osJxzqakkcAo";   // Settings → API → anon public (safe to publish; RLS is the guard)
+const BUCKET = "client-videos";
+/* Passcode gate — change PASS_HASH by asking Claude or: new pass -> SHA-256 hex.
+   Current passcode: "fullcensus". Note: this is a courtesy gate for a static page
+   (keeps links from being casually opened), not bank-grade security. */
+const PASS_HASH = "6d5c67c61eabecfe26952b2575c76c15cab09af8ae08e9e847613f0317aa615a";
+
+/* Promo bubbles under the player. Edit copy + links freely; set PROMOS = [] to
+   hide the whole strip. "alt"/"altHref" add an optional second (outline) button.
+   Swap any href for a real guide URL once one exists. */
+const PROMOS = [
+  { label:"Want a website like this?",
+    title:"Your home could have this exact setup.",
+    body:"I design, photograph, write, and build websites for Washington adult family homes — one payment, you own it forever. No subscriptions, no monthly bill from me.",
+    cta:"See how I work", href:"https://fullcensus.org",
+    alt:"Text me — (206) 203-4944", altHref:"sms:+12062034944" },
+  { label:"Free guide · Get found on Google",
+    title:"Most families start with a Google search.",
+    body:"A tuned-up Google Business Profile is the cheapest marketing an AFH can do. Ask me for my free 20-minute tune-up checklist — no tech skills needed.",
+    cta:"Ask for the checklist", href:"sms:+12062034944" },
+  { label:"Buying or selling an AFH home?",
+    title:"I'm also a licensed real-estate broker.",
+    body:"Beyond marketing, I help owners buy and sell adult-family-home-ready houses around Seattle (eXp Realty). Browse current AFH listings, or start with my free home-buying guides.",
+    cta:"Browse AFH homes", href:"https://henosadhana.com/adult-family-homes-for-sale/",
+    alt:"Read the guides", altHref:"https://henosadhana.com/guides/" },
+  { label:"How a website gets built",
+    title:"From first call to live site, start to finish.",
+    body:"One planning call, then I handle everything — photos, writing, design, Google setup. You review a private walkthrough just like this one, and we launch when you love it.",
+    cta:"Book a free call", href:"tel:+12062034944" },
+  { label:"Know another AFH owner?",
+    title:"Referrals are how Full Census grows.",
+    body:"If this walkthrough was useful, pass my number along to a fellow provider. I keep my client list small enough to answer my own phone — same day, every time.",
+    cta:"Share fullcensus.org", href:"https://fullcensus.org" }
+];
+/* ======================================= */
+
+async function sha256(s){
+  const b = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+function initGate(){
+  const gate=document.getElementById("gate");
+  if(sessionStorage.getItem("fc_gate")==="1"){ load(); return; }
+  gate.hidden=false;
+  document.getElementById("gateform").addEventListener("submit", async e=>{
+    e.preventDefault();
+    const ok = (await sha256(document.getElementById("gatepw").value.trim())) === PASS_HASH;
+    if(ok){ sessionStorage.setItem("fc_gate","1"); gate.hidden=true; load(); }
+    else document.getElementById("gateerr").textContent="That passcode didn't match — check Henos's message.";
+  });
+}
+
+const qs = new URLSearchParams(location.search);
+const VID = qs.get("v");
+const H = {apikey: SUPABASE_ANON_KEY, Authorization: "Bearer " + SUPABASE_ANON_KEY};
+const $ = id => document.getElementById(id);
+const pub = p => `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${p}`;
+const fmt = s => isNaN(s) ? "00:00" :
+  String(Math.floor(s/60)).padStart(2,"0")+":"+String(Math.floor(s%60)).padStart(2,"0");
+
+const v = $("vid");
+let comments = [], segments = [], activeSeg = -1, follow = true;
+
+async function api(path, opts={}) {
+  const r = await fetch(SUPABASE_URL + path, {...opts, headers:{...H, ...(opts.headers||{})}});
+  if (!r.ok) throw new Error(await r.text());
+  return (r.status===201||r.status===204) ? null : r.json();
+}
+
+/* DEMO MODE: runs with zero setup. Active when Supabase isn't configured yet,
+   or any time the link has ?demo=1. Uses the local files in ./demo/ and keeps
+   notes in memory (they vanish on refresh — real notes need Supabase). */
+const DEMO = qs.get("demo")==="1" || SUPABASE_URL.includes("YOURPROJECT");
+const demoAsset = n => "demo/" + n;
+
+async function load(){
+  let rec;
+  if (DEMO){
+    rec = {title:"A Rose Garden — Site Walkthrough", client_name:"A Rose Garden AFH",
+           storage_path:null, has_transcript:true, created_at:new Date().toISOString()};
+    const b=document.createElement("div"); b.className="demobar";
+    b.innerHTML="<b>Demo mode</b> — sample video and notes. Notes won't save. "+
+      "Add your Supabase URL + anon key in this file to go live.";
+    document.querySelector(".wrap").prepend(b);
+  } else {
+    if (!VID) return fail("This link is missing its video id. Ask Henos to resend it.");
+    let rows;
+    try { rows = await api(`/rest/v1/client_videos?id=eq.${VID}&select=*`); }
+    catch(e){ return fail("Couldn’t reach the video library. Refresh, or text Henos at (206) 203-4944."); }
+    if (!rows.length) return fail("This walkthrough doesn’t exist yet. Double-check the link with Henos.");
+    rec = rows[0];
+  }
+
+  $("title").textContent = rec.title;
+  $("meta").innerHTML = (rec.client_name ? "Prepared for <b>"+esc(rec.client_name)+"</b> · " : "") +
+    new Date(rec.created_at).toLocaleDateString(undefined,{month:"long",day:"numeric",year:"numeric"});
+  document.title = rec.title + " · Full Census";
+  if (DEMO){
+    // let the browser pick: H.264 everywhere real, VP9 as a safety net
+    const mk=(file,type)=>{const s=document.createElement("source");s.src=demoAsset(file);s.type=type;return s;};
+    v.prepend(mk("walkthrough.webm","video/webm"));
+    v.prepend(mk("walkthrough.mp4","video/mp4"));
+    v.load();
+  } else {
+    v.src = pub(rec.storage_path);
+  }
+
+  $("state").hidden = true; $("app").hidden = false;
+  buildSpeeds(); buildPromos();
+  if (rec.has_transcript) loadTranscript(); else noTranscript();
+  await refreshNotes();
+  if (!DEMO) setInterval(refreshNotes, 45000);
+}
+function fail(m){ $("state").textContent = m; $("title").textContent = "Hmm."; }
+function esc(s){ const d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+
+/* ---------- transcript (Loom-style) ---------- */
+async function loadTranscript(){
+  try{
+    const r = await fetch(DEMO ? demoAsset("transcript.json") : pub(`${VID}/transcript.json`));
+    if(!r.ok) throw 0;
+    segments = await r.json();
+  }catch(e){ return noTranscript(); }
+
+  $("cc").src = DEMO ? demoAsset("captions.vtt") : pub(`${VID}/captions.vtt`);
+  $("ccbtn").hidden = false;
+
+  const list = $("tlist"); list.innerHTML = "";
+  segments.forEach((s,i)=>{
+    const row = document.createElement("div"); row.className="seg"; row.dataset.i=i;
+    const t = document.createElement("span"); t.className="t mono"; t.textContent=fmt(s.start);
+    const x = document.createElement("span"); x.className="x"; x.textContent=s.text;
+    row.append(t,x);
+    row.onclick = ()=>{ v.currentTime=s.start; v.play(); };
+    list.append(row);
+  });
+}
+function noTranscript(){
+  $("paneT").innerHTML = '<div class="empty">No transcript for this one.<br>'+
+    'Switch to <b>Notes</b> to leave timestamped feedback.</div>';
+  showTab("N");
+}
+
+function syncTranscript(){
+  if(!segments.length) return;
+  let lo=0, hi=segments.length-1, idx=-1, t=v.currentTime;
+  while(lo<=hi){ const m=(lo+hi)>>1;
+    if(segments[m].start<=t){ idx=m; lo=m+1; } else hi=m-1; }
+  if(idx===activeSeg) return;
+  const list=$("tlist");
+  if(activeSeg>=0) list.children[activeSeg]?.classList.remove("active");
+  activeSeg=idx;
+  const el=list.children[idx];
+  if(el){ el.classList.add("active");
+    if(follow){ const top=el.offsetTop-list.clientHeight/2+el.clientHeight/2;
+      list.scrollTo({top, behavior:"smooth"}); } }
+}
+
+$("tq").addEventListener("input", e=>{
+  const q=e.target.value.trim().toLowerCase();
+  const rows=$("tlist").children;
+  segments.forEach((s,i)=>{
+    const row=rows[i], x=row.querySelector(".x");
+    if(!q){ row.classList.remove("dim"); x.textContent=s.text; return; }
+    const hit=s.text.toLowerCase().includes(q);
+    row.classList.toggle("dim", !hit);
+    x.innerHTML = hit ? esc(s.text).replace(new RegExp("("+q.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")+")","ig"),"<mark>$1</mark>") : esc(s.text);
+  });
+});
+$("followBtn").onclick = e=>{ follow=!follow;
+  e.target.classList.toggle("on",follow); e.target.setAttribute("aria-pressed",follow);
+  if(follow) activeSeg=-1, syncTranscript(); };
+$("tlist").addEventListener("wheel", ()=>{ if(follow){ follow=false;
+  $("followBtn").classList.remove("on"); $("followBtn").setAttribute("aria-pressed","false"); }});
+
+/* CC toggle */
+$("ccbtn").onclick = e=>{
+  const tr=v.textTracks[0]; if(!tr) return;
+  const on = tr.mode!=="showing"; tr.mode = on?"showing":"hidden";
+  e.target.classList.toggle("on",on); e.target.setAttribute("aria-pressed",on);
+};
+
+/* ---------- notes ---------- */
+let demoNotes = [{author:"Rita", ts_seconds:11, body:"Love the homepage. Can the phone number be bigger on mobile?"}];
+async function refreshNotes(){
+  if(DEMO){ comments = [...demoNotes].sort((a,b)=>a.ts_seconds-b.ts_seconds); }
+  else {
+    try{ comments = await api(`/rest/v1/video_comments?video_id=eq.${VID}&select=*&order=ts_seconds.asc,created_at.asc`); }
+    catch(e){ return; }
+  }
+  $("ncount").textContent = comments.length ? "· "+comments.length : "";
+  renderNotes(); renderMoments();
+}
+function renderNotes(){
+  const list=$("list"); if(!comments.length) return;
+  list.innerHTML="";
+  for(const c of comments){
+    const d=document.createElement("div"); d.className="note";
+    const row=document.createElement("div"); row.className="row";
+    const who=document.createElement("span"); who.className="who";
+    who.innerHTML='<span class="ava">'+esc((c.author[0]||"?").toUpperCase())+'</span>'+esc(c.author);
+    const chip=document.createElement("button"); chip.type="button"; chip.className="chip mono";
+    chip.textContent="▶ "+fmt(c.ts_seconds); chip.onclick=()=>{ v.currentTime=c.ts_seconds; v.play(); };
+    row.append(who,chip);
+    const p=document.createElement("p"); p.textContent=c.body;
+    d.append(row,p); list.append(d);
+  }
+}
+function renderMoments(){
+  const m=$("moments"), dur=v.duration;
+  m.querySelectorAll(".dot").forEach(x=>x.remove());
+  if(!dur||!comments.length) return;
+  m.querySelector(".hint").style.display="none";
+  for(const c of comments){
+    const dot=document.createElement("button"); dot.type="button"; dot.className="dot";
+    dot.style.left=Math.min(99,(c.ts_seconds/dur)*100)+"%";
+    dot.setAttribute("aria-label","Jump to "+fmt(c.ts_seconds)+" — "+c.author);
+    dot.title=fmt(c.ts_seconds)+" — "+c.author;
+    dot.onclick=()=>{ v.currentTime=c.ts_seconds; v.play(); };
+    m.append(dot);
+  }
+}
+
+/* ---------- promo bubbles ---------- */
+let openPromo = -1;
+function buildPromos(){
+  const wrap = $("bubbles");
+  if (!PROMOS.length || wrap.children.length) { wrap.closest(".promos").hidden = !PROMOS.length; return; }
+  PROMOS.forEach((p,i)=>{
+    const w = document.createElement("span"); w.className="bub"; w.style.animationDelay = (i*0.8)+"s";
+    const b = document.createElement("button"); b.type="button"; b.className="bubble";
+    b.setAttribute("aria-expanded","false"); b.setAttribute("aria-controls","promoDetail");
+    const s = document.createElement("span"); s.className="s"; s.textContent="✶";
+    b.append(s, document.createTextNode(p.label));
+    b.onclick = ()=>togglePromo(i);
+    w.append(b); wrap.append(w);
+  });
+}
+function togglePromo(i){
+  const detail = $("promoDetail");
+  const btns = [...document.querySelectorAll(".bubble")];
+  btns.forEach(b=>{ b.classList.remove("on"); b.setAttribute("aria-expanded","false"); });
+  if (openPromo === i){ openPromo = -1; detail.hidden = true; return; }
+  openPromo = i;
+  const p = PROMOS[i];
+  btns[i].classList.add("on"); btns[i].setAttribute("aria-expanded","true");
+  detail.innerHTML = "";
+  const t = document.createElement("div"); t.className="pd-title"; t.textContent = p.title;
+  const body = document.createElement("p"); body.textContent = p.body;
+  const ctas = document.createElement("div"); ctas.className="pd-ctas";
+  const mkLink = (cls,text,href)=>{ const a=document.createElement("a"); a.className=cls; a.textContent=text;
+    a.href=href; if(/^https?:/.test(href)){ a.target="_blank"; a.rel="noopener"; } return a; };
+  ctas.append(mkLink("pd-cta", p.cta, p.href));
+  if (p.alt) ctas.append(mkLink("pd-alt", p.alt, p.altHref));
+  detail.append(t, body, ctas);
+  detail.hidden = false;
+}
+
+/* ---------- player + tabs ---------- */
+function buildSpeeds(){
+  [1,1.25,1.5,2].forEach(sp=>{
+    const b=document.createElement("button"); b.textContent=sp+"×"; if(sp===1)b.classList.add("on");
+    b.onclick=()=>{ v.playbackRate=sp;
+      $("speeds").querySelectorAll("button").forEach(x=>x.classList.remove("on")); b.classList.add("on"); };
+    $("speeds").append(b);
+  });
+}
+v.addEventListener("timeupdate", ()=>{ $("clock").textContent=fmt(v.currentTime)+" / "+fmt(v.duration); syncTranscript(); });
+v.addEventListener("loadedmetadata", renderMoments);
+v.addEventListener("error", ()=>{
+  const b=document.querySelector(".player");
+  if(b && !b.dataset.err){ b.dataset.err=1;
+    b.insertAdjacentHTML("afterbegin",
+      '<div style="padding:18px;font-size:14px">This video didn\'t load. '+
+      'Try refreshing — if it keeps happening, text Henos at (206) 203-4944.</div>'); }
+});
+
+function showTab(which){
+  const T=which==="T";
+  $("tabT").classList.toggle("on",T); $("tabN").classList.toggle("on",!T);
+  $("tabT").setAttribute("aria-selected",T); $("tabN").setAttribute("aria-selected",!T);
+  $("paneT").hidden=!T; $("paneN").hidden=T;
+}
+$("tabT").onclick=()=>showTab("T"); $("tabN").onclick=()=>showTab("N");
+
+/* note composer */
+let pinned=0;
+$("body").addEventListener("focus", ()=>{ if(!$("body").value) setPin(v.currentTime); }, true);
+$("atbtn").onclick=()=>setPin(v.currentTime);
+function setPin(t){ pinned=Math.floor(t||0); $("atbtn").textContent=fmt(pinned); }
+$("form").addEventListener("submit", async e=>{
+  e.preventDefault(); const btn=$("send"); btn.disabled=true; btn.textContent="Sending…";
+  try{
+    const note={video_id:VID, author:$("who").value.trim(), ts_seconds:pinned, body:$("body").value.trim()};
+    if(DEMO) demoNotes.push(note);
+    else await api("/rest/v1/video_comments",{ method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(note)});
+    $("body").value=""; setPin(v.currentTime); btn.textContent="Sent ✓"; await refreshNotes();
+    setTimeout(()=>{ btn.textContent="Send note to Henos"; btn.disabled=false; },1200);
+  }catch(err){ btn.textContent="Didn’t send — try again"; btn.disabled=false; }
+});
+
+initGate();
+</script>
+</body>
+</html>
