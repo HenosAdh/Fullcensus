@@ -274,10 +274,10 @@
 const SUPABASE_URL = "https://pvjrrxwocppqevffomvo.supabase.co";
 const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InB2anJyeHdvY3BwcWV2ZmZvbXZvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcwODU2MTIsImV4cCI6MjEwMjY2MTYxMn0.LlH_nme2jogLYvSOLDlNZLDZhixJQd_osJxzqakkcAo";   // Settings → API → anon public (safe to publish; RLS is the guard)
 const BUCKET = "client-videos";
-/* Passcode gate — change PASS_HASH by asking Claude or: new pass -> SHA-256 hex.
-   Current passcode: "fullcensus". Note: this is a courtesy gate for a static page
-   (keeps links from being casually opened), not bank-grade security. */
-const PASS_HASH = "6d5c67c61eabecfe26952b2575c76c15cab09af8ae08e9e847613f0317aa615a";
+/* Passcode gate — PASS_HASH is the SHA-256 hex of the passcode (never put the
+   passcode itself in this file: the page source is public). Courtesy gate for
+   a static page, not bank-grade security. */
+const PASS_HASH = "a395d6d035d64b9c02f4b88cce405d11048bb8da533289e2409c7b3f2281d210";
 
 /* Promo bubbles under the player — two sets, picked automatically:
      PROMOS_PROSPECT · demo mode (?demo=1) — the viewer is a lead you're pitching
