@@ -279,10 +279,13 @@ const BUCKET = "client-videos";
    (keeps links from being casually opened), not bank-grade security. */
 const PASS_HASH = "6d5c67c61eabecfe26952b2575c76c15cab09af8ae08e9e847613f0317aa615a";
 
-/* Promo bubbles under the player. Edit copy + links freely; set PROMOS = [] to
-   hide the whole strip. "alt"/"altHref" add an optional second (outline) button.
-   Swap any href for a real guide URL once one exists. */
-const PROMOS = [
+/* Promo bubbles under the player — two sets, picked automatically:
+     PROMOS_PROSPECT · demo mode (?demo=1) — the viewer is a lead you're pitching
+     PROMOS_CLIENT   · real videos — the viewer is already your client
+   Edit copy + links freely; set a list to [] to hide its strip.
+   "alt"/"altHref" add a second (outline) button. action:"notes" makes the
+   button open the Notes tab instead of following a link. */
+const PROMOS_PROSPECT = [
   { label:"Want a website like this?",
     title:"Your home could have this exact setup.",
     body:"I design, photograph, write, and build websites for Washington adult family homes — one payment, you own it forever. No subscriptions, no monthly bill from me.",
@@ -306,6 +309,26 @@ const PROMOS = [
     body:"If this walkthrough was useful, pass my number along to a fellow provider. I keep my client list small enough to answer my own phone — same day, every time.",
     cta:"Share fullcensus.org", href:"https://fullcensus.org" }
 ];
+const PROMOS_CLIENT = [
+  { label:"Want something changed?",
+    title:"Tell me right on the video.",
+    body:"Pause where you want a change and leave a note with your name — it pins to that exact second and I'll reply the same day. No email chains needed.",
+    cta:"Leave a note", action:"notes" },
+  { label:"Free tune-up · Get found on Google",
+    title:"Next step: your Google Business Profile.",
+    body:"Now that your site is ready, a tuned-up Google listing is what puts it in front of families searching nearby. Text me and we'll do it together — 20 minutes, free.",
+    cta:"Text me — (206) 203-4944", href:"sms:+12062034944" },
+  { label:"Buying or selling an AFH home?",
+    title:"I'm also a licensed real-estate broker.",
+    body:"Thinking about a second home, or selling one? I help owners buy and sell adult-family-home-ready houses around Seattle (eXp Realty). Browse listings or start with my guides.",
+    cta:"Browse AFH homes", href:"https://henosadhana.com/adult-family-homes-for-sale/",
+    alt:"Read the guides", altHref:"https://henosadhana.com/guides/" },
+  { label:"Know another AFH owner?",
+    title:"Referrals are how Full Census grows.",
+    body:"If you're happy with how this turned out, pass my number along to a fellow provider. I keep my client list small enough to answer my own phone — same day, every time.",
+    cta:"Share fullcensus.org", href:"https://fullcensus.org" }
+];
+let PROMOS = PROMOS_PROSPECT;
 /* ======================================= */
 
 async function sha256(s){
@@ -346,6 +369,7 @@ async function api(path, opts={}) {
    notes in memory (they vanish on refresh — real notes need Supabase). */
 const DEMO = qs.get("demo")==="1" || SUPABASE_URL.includes("YOURPROJECT");
 const demoAsset = n => "demo/" + n;
+PROMOS = DEMO ? PROMOS_PROSPECT : PROMOS_CLIENT;
 
 async function load(){
   let rec;
@@ -524,7 +548,11 @@ function togglePromo(i){
   const ctas = document.createElement("div"); ctas.className="pd-ctas";
   const mkLink = (cls,text,href)=>{ const a=document.createElement("a"); a.className=cls; a.textContent=text;
     a.href=href; if(/^https?:/.test(href)){ a.target="_blank"; a.rel="noopener"; } return a; };
-  ctas.append(mkLink("pd-cta", p.cta, p.href));
+  if (p.action === "notes"){
+    const a=document.createElement("a"); a.className="pd-cta"; a.href="#"; a.textContent=p.cta;
+    a.onclick=e=>{ e.preventDefault(); showTab("N"); $("who").focus(); };
+    ctas.append(a);
+  } else ctas.append(mkLink("pd-cta", p.cta, p.href));
   if (p.alt) ctas.append(mkLink("pd-alt", p.alt, p.altHref));
   detail.append(t, body, ctas);
   detail.hidden = false;
