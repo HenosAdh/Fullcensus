@@ -534,6 +534,7 @@ function togglePromo(i){
   btns.forEach(b=>{ b.classList.remove("on"); b.setAttribute("aria-expanded","false"); });
   if (openPromo === i){ openPromo = -1; detail.hidden = true; return; }
   openPromo = i;
+  promoClicks++; trackStart();
   const p = PROMOS[i];
   btns[i].classList.add("on"); btns[i].setAttribute("aria-expanded","true");
   detail.innerHTML = "";
@@ -551,6 +552,38 @@ function togglePromo(i){
   detail.append(t, body, ctas);
   detail.hidden = false;
 }
+
+/* ---------- view tracking (real videos only; must never break playback) ----------
+   One row per viewing session in video_views: when they opened it, furthest
+   second reached, bubbles clicked, device. Nothing is asked of the viewer. */
+let viewId = null, maxWatched = 0, promoClicks = 0;
+async function trackStart(){
+  if (DEMO || !VID || viewId) return;
+  const id = crypto.randomUUID();
+  try{
+    await api("/rest/v1/video_views", { method:"POST",
+      headers:{"Content-Type":"application/json","Prefer":"return=minimal"},
+      body: JSON.stringify({ id, video_id: VID,
+        video_duration: Math.round(v.duration||0) || null,
+        user_agent: navigator.userAgent.slice(0,180) }) });
+    viewId = id;
+  }catch(e){}
+}
+function trackBeat(final){
+  if (!viewId) return;
+  fetch(`${SUPABASE_URL}/rest/v1/video_views?id=eq.${viewId}`, {
+    method:"PATCH", keepalive: !!final,
+    headers:{...H, "Content-Type":"application/json", "Prefer":"return=minimal"},
+    body: JSON.stringify({ watched_seconds: Math.floor(maxWatched),
+      promo_clicks: promoClicks, last_seen_at: new Date().toISOString() })
+  }).catch(()=>{});
+}
+v.addEventListener("play", trackStart);
+v.addEventListener("timeupdate", ()=>{ if (v.currentTime > maxWatched) maxWatched = v.currentTime; });
+v.addEventListener("pause", ()=>trackBeat(false));
+v.addEventListener("ended", ()=>trackBeat(true));
+setInterval(()=>{ if (viewId && !v.paused) trackBeat(false); }, 15000);
+addEventListener("pagehide", ()=>trackBeat(true));
 
 /* ---------- player + tabs ---------- */
 function buildSpeeds(){
