@@ -84,75 +84,59 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* One ink on white, the way gonetothedogs.co does it: a single saturated blue
-     carries every piece of text, and the photographs supply all the other color.
-     Green is the only accent. Blue + green + white, which is what Mel asked for. */
-  --ink:#33477E;
-  --ink-soft:#5D6E9C;
-  --ink-faint:#8794B7;
-  --green:#4C7A57;
-  --green-soft:#EDF3EE;
-  --blush:#C2748C;          /* one warm touch, on the family letters only */
-  --white:#fff;
-  --mist:#F4F7FB;           /* faintest blue-grey band */
-  --line:#DDE3EF;
-  --maxw:1240px;
-  --gut:clamp(22px,5.2vw,80px);
+  /* One ink on white, per gonetothedogs.co: a single blue carries every word and the
+     photographs supply the colour. Green is the only accent. Blue + green + white. */
+  --ink:#33477E; --ink-deep:#20305C; --ink-soft:#5D6E9C; --ink-faint:#8794B7;
+  --green:#4C7A57; --blush:#C2748C;
+  --white:#fff; --mist:#F4F7FB; --line:#DDE3EF; --line-d:rgba(255,255,255,.22);
+  --maxw:1240px; --gut:clamp(22px,5.2vw,80px);
 }
 html{scroll-behavior:smooth}
 body{font-family:'Figtree',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);
-  font-size:17px;line-height:1.72;-webkit-font-smoothing:antialiased}
+  font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{overflow-x:clip}
-
 /* Poppins 200 is the reference's signature, but extra-light is unreadable small and this
-   audience is mostly 45-70. So: 200 only at display sizes, 400 everywhere else. */
+   audience is largely 45-70. So 200 at display sizes only, 400 for anything you must read. */
 h1,h2,h3{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);line-height:1.14;text-wrap:balance}
-h1,.d1{font-weight:200;letter-spacing:-.005em}
-h2,.d2{font-weight:200;letter-spacing:-.005em}
+h1,h2{font-weight:200;letter-spacing:-.005em}
 h3{font-weight:400}
-
-.sec{padding:clamp(62px,7.5vw,116px) var(--gut)}
+.sec{padding:clamp(64px,7.5vw,118px) var(--gut)}
 .in{max-width:var(--maxw);margin-inline:auto}
-.narrow{max-width:760px}
 .center{text-align:center;margin-inline:auto}
 .kick{font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--green);margin-bottom:18px}
-.h2{font-size:clamp(31px,4.3vw,54px);margin:0 0 22px}
-.h3{font-size:clamp(22px,2.4vw,30px);font-weight:300;margin:0 0 14px}
-.p{font-size:17px;line-height:1.78;color:var(--ink-soft);margin:0 0 18px;max-width:64ch}
-.p.lead{font-size:clamp(18px,1.35vw,20.5px);color:var(--ink)}
+  text-transform:uppercase;color:var(--green);margin-bottom:16px}
+.h2{font-size:clamp(31px,4.3vw,54px);margin:0 0 20px}
+.h3{font-size:clamp(21px,2.3vw,29px);font-weight:300;margin:0 0 12px}
+.p{font-size:17px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;max-width:58ch}
+.p.lead{font-size:clamp(17.5px,1.3vw,20px);color:var(--ink)}
 .center .p{margin-inline:auto}
-.small{font-size:14.5px;color:var(--ink-faint);line-height:1.65}
+.small{font-size:14px;color:var(--ink-faint);line-height:1.6}
 strong{font-weight:600;color:var(--ink)}
-
-/* square, understated buttons — the reference has zero border radius anywhere */
 .btn{display:inline-block;font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;
-  letter-spacing:.06em;text-transform:uppercase;padding:17px 34px;border:1.5px solid transparent;
+  letter-spacing:.06em;text-transform:uppercase;padding:17px 32px;border:1.5px solid transparent;cursor:pointer;
   transition:background .2s ease,color .2s ease,border-color .2s ease}
 .btn-fill{background:var(--ink);color:#fff}
-.btn-fill:hover{background:#25376A}
-.btn-line{border-color:currentColor;color:var(--ink)}
-.btn-line:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
-.btn-ghost{border-color:rgba(255,255,255,.75);color:#fff}
-.btn-ghost:hover{background:#fff;color:var(--ink);border-color:#fff}
+.btn-fill:hover{background:var(--ink-deep)}
+.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
+.btn-line:hover{background:var(--ink);color:#fff}
+.btn-lt{border-color:rgba(255,255,255,.6);color:#fff;background:transparent}
+.btn-lt:hover{background:#fff;color:var(--ink-deep);border-color:#fff}
 
 /* ---------- header ---------- */
 .hdr{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
-  gap:18px;padding:15px var(--gut);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--line)}
+  gap:18px;padding:15px var(--gut);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 .brand{display:flex;align-items:center;gap:11px;flex:none}
 .brand svg{width:38px;height:38px;flex:none}
 .wm{font-family:'Poppins',sans-serif;font-size:21px;font-weight:300;letter-spacing:.02em;line-height:1}
 .wm-k{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-top:5px}
 .nav{display:flex;align-items:center;gap:26px}
 .navlinks{display:contents}
-.lnk{font-size:14px;font-weight:500;letter-spacing:.04em;color:var(--ink-soft);padding:5px 0;position:relative}
+.lnk{font-size:14px;font-weight:500;color:var(--ink-soft);padding:5px 0;position:relative}
 .lnk::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--green);
   transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
-.lnk:hover{color:var(--ink)}
-.lnk:hover::after{transform:scaleX(1)}
+.lnk:hover{color:var(--ink)} .lnk:hover::after{transform:scaleX(1)}
 .tel{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;white-space:nowrap;flex:none}
 .tel svg{width:14px;height:14px;color:var(--green)}
 .burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
@@ -161,92 +145,117 @@ strong{font-weight:600;color:var(--ink)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* ---------- hero: photo band with an overlapping credential card ----------
-   Deliberately not the centred-text-over-a-dark-photo hero that every other AFH
-   site uses, awellcaredhome.com included. Putting the H1 on white rather than on
-   the photograph also makes it markedly easier to read for a 45-70 audience, and
-   the card absorbs the trust strip so the first screen carries the proof too. */
-.hero{position:relative;padding-bottom:clamp(46px,6vw,84px)}
+/* ---------- hero: photo band + overlapping credential card ---------- */
+.hero{position:relative;padding-bottom:clamp(44px,5vw,72px)}
 .hero-media{position:relative;height:clamp(280px,40vh,460px);background:var(--mist)}
 .hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
 .hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,rgba(20,32,64,.26) 0%,rgba(20,32,64,.04) 38%,rgba(20,32,64,.20) 100%)}
 .hcard-wrap{position:relative;z-index:2;padding:0 var(--gut);margin-top:clamp(-150px,-11vw,-60px)}
 .hcard{max-width:1080px;margin-inline:auto;background:var(--white);
-  padding:clamp(30px,4vw,58px) clamp(24px,4vw,60px) 0;
-  box-shadow:0 26px 64px rgba(51,71,126,.15)}
-.hcard h1{font-size:clamp(33px,5.1vw,62px);margin:0 0 20px;max-width:15ch;color:var(--ink)}
-.hcard .sub{font-size:clamp(16.5px,1.25vw,19.5px);line-height:1.7;color:var(--ink-soft);max-width:56ch;margin:0 0 30px}
-.hcta{display:flex;gap:13px;flex-wrap:wrap;padding-bottom:clamp(30px,3.6vw,46px)}
-.hsvc{border-top:1px solid var(--line);margin:0 clamp(-60px,-4vw,-24px);
-  padding:clamp(24px,2.8vw,34px) clamp(24px,4vw,60px) clamp(26px,3vw,36px)}
-.hsvc-l{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
+  padding:clamp(30px,4vw,56px) clamp(24px,4vw,58px) 0;box-shadow:0 26px 64px rgba(51,71,126,.15)}
+.hcard h1{font-size:clamp(33px,5.1vw,62px);margin:0 0 18px;max-width:15ch;color:var(--ink)}
+.hcard .sub{font-size:clamp(16.5px,1.25vw,19.5px);line-height:1.65;color:var(--ink-soft);max-width:48ch;margin:0 0 28px}
+.hcta{display:flex;gap:13px;flex-wrap:wrap;padding-bottom:clamp(28px,3.4vw,42px)}
+.hsvc{border-top:1px solid var(--line);margin:0 clamp(-58px,-4vw,-24px);
+  padding:clamp(22px,2.6vw,32px) clamp(24px,4vw,58px) clamp(24px,2.8vw,34px)}
+.hsvc-l{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:15px}
 .hsvc-row{display:flex;flex-wrap:wrap;gap:9px}
-.hpill{font-family:'Figtree',sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.02em;
-  padding:11px 20px;border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);
-  cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease}
+.hpill{font-family:'Figtree',sans-serif;font-size:14.5px;font-weight:600;padding:11px 20px;
+  border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);cursor:pointer;
+  transition:border-color .2s ease,color .2s ease,background .2s ease}
 .hpill:hover,.hpill:focus-visible{border-color:var(--ink);background:var(--ink);color:#fff}
-.hstats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
-  margin:0 clamp(-60px,-4vw,-24px)}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:0 clamp(-58px,-4vw,-24px)}
 .hs{padding:22px 16px;text-align:center;border-right:1px solid var(--line)}
 .hs:last-child{border-right:0}
-.hs-v{font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(24px,2.6vw,34px);line-height:1.05;color:var(--ink)}
+.hs-v{font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(24px,2.6vw,34px);line-height:1.05}
 .hs-l{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-top:9px}
 
+/* ---------- dark band (breaks the white run right after the hero) ---------- */
+.dark{background:var(--ink-deep)}
+.dark h2,.dark h3{color:#fff}
+.dark .kick{color:#9FB0D8}
+.dark .p{color:rgba(255,255,255,.74)}
+.dark .bub{background:transparent;border-color:var(--line-d);color:rgba(255,255,255,.86)}
+.dark .bub:hover{border-color:#fff;color:#fff}
+.dark .bub[aria-selected="true"]{background:#fff;border-color:#fff;color:var(--ink-deep)}
+.dark .bpanel{border-top-color:var(--line-d)}
+.dark .bpanel p{color:rgba(255,255,255,.78)}
+.bubs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:32px 0 0}
+.bub{font-family:'Figtree',sans-serif;font-size:15px;font-weight:600;padding:14px 26px;
+  border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;
+  transition:border-color .2s ease,color .2s ease,background .2s ease}
+.bpanel{border-top:1px solid var(--line);margin-top:-1.5px;padding:clamp(32px,3.6vw,48px) 0 0;max-width:660px;margin-inline:auto;text-align:center}
+.bpanel[hidden]{display:none}
+.bpanel h3{font-size:clamp(22px,2.4vw,29px);font-weight:300;margin-bottom:14px}
+.bpanel p{font-size:17px;line-height:1.72;margin:0}
+
 /* ---------- full-bleed alternating splits ----------
-   Deliberately NOT the contained rounded photo cards used on awellcaredhome.com.
-   Here the photograph runs to the edge of the viewport with square corners and the
-   copy sits in open white space, which is the gonetothedogs.co feel. */
+   Not the contained rounded photo cards used on awellcaredhome.com: the photograph
+   runs to the edge of the viewport, square, and the copy sits in open white. */
 .split{display:grid;grid-template-columns:1fr 1fr;align-items:center}
 .split>.ph{position:relative;aspect-ratio:5/4;background:var(--mist)}
 .split>.ph img{width:100%;height:100%;object-fit:cover}
-.split>.tx{padding:clamp(46px,6vw,104px) clamp(28px,5.5vw,92px)}
-.split.rev>.ph{order:2}
-.split.rev>.tx{order:1}
+.split>.tx{padding:clamp(42px,5.5vw,96px) clamp(26px,5vw,86px)}
+.split.rev>.ph{order:2} .split.rev>.tx{order:1}
 
-/* ---------- service tabs ("bubbles") ---------- */
-.bubs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:34px 0 0}
-.bub{font-family:'Figtree',sans-serif;font-size:15px;font-weight:600;letter-spacing:.03em;
-  padding:14px 26px;border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);
-  cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease}
-.bub:hover{border-color:var(--ink);color:var(--ink)}
-.bub[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
-.bpanel{border-top:1px solid var(--line);margin-top:-1.5px;padding:clamp(34px,4vw,54px) 0 0;max-width:760px;margin-inline:auto;text-align:center}
-.bpanel[hidden]{display:none}
-.bpanel h3{font-size:clamp(23px,2.5vw,31px);font-weight:300;margin-bottom:16px}
-.bpanel p{font-size:17.5px;line-height:1.78;color:var(--ink-soft);margin:0}
+/* ---------- quote over photo ---------- */
+.qband{position:relative;min-height:clamp(340px,50vh,500px);display:flex;align-items:center;justify-content:center;text-align:center}
+.qband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.qband::after{content:"";position:absolute;inset:0;background:rgba(20,32,64,.66)}
+.qband blockquote{position:relative;z-index:2;padding:0 var(--gut);max-width:19ch;
+  font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(27px,4.4vw,54px);color:#fff;line-height:1.2}
+
+/* ---------- mosaic: three uneven images, near-zero copy ---------- */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,22px);align-items:start}
+.mo{margin:0}
+.mo .f{aspect-ratio:4/5;background:var(--mist);overflow:hidden}
+.mo .f img{width:100%;height:100%;object-fit:cover}
+.mo:nth-child(2){margin-top:clamp(22px,4.5vw,64px)}
+.mo figcaption{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:14px}
+
+/* ---------- Mel: asymmetric, not another centred stack ---------- */
+.melgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(32px,5vw,84px);align-items:start}
+.melcard{border:1px solid var(--line);padding:clamp(26px,2.6vw,36px)}
+.melcard dt{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
+.melcard dd{font-size:16.5px;font-weight:600;margin:0 0 20px}
+.melcard dd:last-child{margin-bottom:0}
 
 /* ---------- letters ---------- */
 .lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.letter{background:var(--white);padding:38px 32px;display:flex;flex-direction:column}
-.letter .qm{font-family:'Poppins',sans-serif;font-size:44px;font-weight:200;line-height:.6;color:var(--blush);margin-bottom:22px}
-.letter p{font-size:16.5px;line-height:1.74;color:var(--ink-soft);margin:0 0 22px;flex:1}
+.letter{background:var(--white);padding:36px 30px;display:flex;flex-direction:column}
+.letter .qm{font-family:'Poppins',sans-serif;font-size:42px;font-weight:200;line-height:.6;color:var(--blush);margin-bottom:20px}
+.letter p{font-size:16.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 20px;flex:1}
 .letter .who{font-weight:700;font-size:14.5px}
-.letter .when{font-size:13px;color:var(--ink-faint);letter-spacing:.05em}
+.letter .when{font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em}
 
-/* ---------- areas ---------- */
-.areas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
-.areas span{font-size:14.5px;font-weight:600;letter-spacing:.04em;padding:11px 20px;border:1px solid var(--line);color:var(--ink-soft)}
+/* ---------- paying: three columns, one line each ---------- */
+.pay3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.pay{background:#fff;padding:clamp(28px,2.8vw,38px)}
+.pay h3{font-size:18.5px;font-weight:500;margin-bottom:9px}
+.pay p{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin:0}
 
 /* ---------- faq ---------- */
-.faqs{max-width:900px;margin-inline:auto;border-top:1px solid var(--line)}
+.faqs{max-width:880px;margin-inline:auto;border-top:1px solid var(--line)}
 .faq{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:block;position:relative;padding:26px 54px 26px 0;
-  font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(18px,1.65vw,22px);color:var(--ink)}
+.faq summary{list-style:none;cursor:pointer;display:block;position:relative;padding:25px 54px 25px 0;
+  font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(17.5px,1.6vw,21px);color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary:hover{color:var(--green)}
-.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:13px;height:13px;
+.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:12px;height:12px;
   border-right:1.5px solid var(--green);border-bottom:1.5px solid var(--green);
   transform:translateY(-70%) rotate(45deg);transition:transform .26s ease}
 .faq[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.faq .a{padding:0 54px 28px 0;font-size:16.5px;line-height:1.78;color:var(--ink-soft);margin:0}
-.faq .a+.a{margin-top:-10px}
+.faq .a{padding:0 54px 26px 0;font-size:16.5px;line-height:1.75;color:var(--ink-soft);margin:0}
+.faq .a+.a{margin-top:-8px}
 
 /* ---------- location ---------- */
 .loc{display:grid;grid-template-columns:1fr 1.12fr;min-height:min(58vh,540px)}
 .loc-tx{padding:clamp(52px,6vw,96px) var(--gut);display:flex;flex-direction:column;justify-content:center}
 .loc-map{position:relative;min-height:340px;background:var(--mist)}
 .loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.areas{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 26px}
+.areas span{font-size:13.5px;font-weight:600;padding:9px 16px;border:1px solid var(--line);color:var(--ink-soft)}
 
 /* ---------- form ---------- */
 .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,76px);align-items:start;max-width:1120px;margin-inline:auto}
@@ -257,10 +266,10 @@ textarea{min-height:112px;resize:vertical}
 input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:-1px;border-color:transparent}
 .submit{width:100%;background:var(--ink);color:#fff;padding:18px;font-family:'Figtree',sans-serif;
   font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;border:0;cursor:pointer;margin-top:26px}
-.submit:hover{background:#25376A}
+.submit:hover{background:var(--ink-deep)}
 
 /* ---------- footer ---------- */
-.foot{background:var(--ink);color:rgba(255,255,255,.76);padding:58px var(--gut) 34px;font-size:14.5px;line-height:1.9}
+.foot{background:var(--ink-deep);color:rgba(255,255,255,.74);padding:56px var(--gut) 32px;font-size:14.5px;line-height:1.9}
 .fgrid2{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:38px;max-width:var(--maxw);margin-inline:auto}
 .foot a:hover{color:#fff}
 .foot .fn{font-family:'Poppins',sans-serif;font-weight:300;font-size:22px;color:#fff;margin-bottom:4px}
@@ -269,14 +278,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 .fbot{max-width:var(--maxw);margin:34px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
   display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#9FB0D8}
 
-/* ---------- mobile call bar ---------- */
 .cbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);
   backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:11px 12px;gap:10px}
-.cbar a{flex:1 1 0;min-width:0;text-align:center;padding:16px 8px;font-weight:700;font-size:14px;
-  letter-spacing:.06em;text-transform:uppercase}
+.cbar a{flex:1 1 0;min-width:0;text-align:center;padding:16px 8px;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
 .cb1{background:var(--ink);color:#fff}
 .cb2{border:1.5px solid var(--ink);color:var(--ink)}
-
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 
@@ -290,13 +296,11 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   .navlinks .lnk{display:block;padding:16px 0;font-size:16px;border-bottom:1px solid var(--line);color:var(--ink)}
   .navlinks .lnk:last-child{border-bottom:0}
   .navlinks .lnk::after{display:none}
-  .split,.loc{grid-template-columns:1fr;min-height:0}
-  .split.rev>.ph{order:0}
-  .split.rev>.tx{order:0}
+  .split,.loc,.melgrid{grid-template-columns:1fr;min-height:0}
+  .split.rev>.ph,.split.rev>.tx{order:0}
   .split>.ph{aspect-ratio:16/10}
-  .lgrid{grid-template-columns:1fr}
-  .fgrid,.fgrid2{grid-template-columns:1fr}
-  .sec{padding:56px 24px}
+  .lgrid,.pay3,.fgrid,.fgrid2{grid-template-columns:1fr}
+  .sec{padding:58px 24px}
   .loc-tx{padding:52px 24px}
 }
 @media (max-width:767px){
@@ -313,14 +317,15 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   .hpill{font-size:13px;padding:12px 8px;text-align:center}
   .hsvc{padding-top:22px;padding-bottom:24px}
   .hsvc-l{margin-bottom:13px}
-  .sec{padding:50px 22px}
-  .split>.tx{padding:40px 22px}
+  .mosaic{grid-template-columns:1fr 1fr}
+  .mo:nth-child(3){grid-column:1/-1}
+  .mo:nth-child(3) .f{aspect-ratio:16/10}
+  .sec{padding:52px 22px}
+  .split>.tx{padding:38px 22px}
 }
-@media (prefers-reduced-motion:reduce){
-  .rv{opacity:1;transform:none;transition:none}
-  html{scroll-behavior:auto}
-}
+@media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
 </style>
+
 </head>
 <body>
 <div class="wrap">
@@ -340,6 +345,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
       <a class="lnk" href="#mel">Meet Mel</a>
       <a class="lnk" href="#cost">Paying</a>
       <a class="lnk" href="#faq">Questions</a>
+      <a class="lnk" href="#visit">Visit</a>
     </div>
     <a class="tel" href="tel:+12537400890" data-cta="call" data-loc="header">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
@@ -357,7 +363,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
     <div class="hcard">
       <div class="kick">Licensed adult family home &middot; East Hill, Kent</div>
       <h1>Adult Family Home in Kent, WA</h1>
-      <p class="sub">A licensed home for six residents, specializing in memory loss and dementia. Caring for families on East Hill since 2007.</p>
+      <p class="sub">Six residents, memory loss and dementia, on East Hill since 2007.</p>
       <div class="hcta">
         <a class="btn btn-fill" href="tel:+12537400890" data-cta="call" data-loc="hero">Call Mel &middot; (253) 740-0890</a>
         <a class="btn btn-line" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
@@ -375,64 +381,63 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
       </div>
       <div class="hstats">
         <div class="hs"><div class="hs-v">6</div><div class="hs-l">Residents, by license</div></div>
-        <div class="hs"><div class="hs-v">2007</div><div class="hs-l">Caring for families since</div></div>
-        <div class="hs"><div class="hs-v">24/7</div><div class="hs-l">Someone here always</div></div>
+        <div class="hs"><div class="hs-v">2007</div><div class="hs-l">Caring since</div></div>
+        <div class="hs"><div class="hs-v">24/7</div><div class="hs-l">Someone here</div></div>
         <div class="hs"><div class="hs-v">3</div><div class="hs-l">Ways to pay</div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ================= OUR CARE ================= -->
-<section class="sec" id="care" style="background:var(--mist)">
+<!-- ================= OUR CARE — dark band ================= -->
+<section class="sec dark" id="care">
   <div class="in">
-    <div class="center rv" style="max-width:700px">
+    <div class="center rv" style="max-width:640px">
       <div class="kick">Our care</div>
       <h2 class="h2">Memory care and dementia care in Kent</h2>
-      <p class="p">Birdsong is the home we set up for memory loss. Choose any of these to see how we handle it.</p>
     </div>
     <div class="bubs rv" role="tablist" aria-label="What we provide">
       <button class="bub" role="tab" id="b1" aria-controls="p1" aria-selected="true">Memory care</button>
       <button class="bub" role="tab" id="b2" aria-controls="p2" aria-selected="false">Dementia care</button>
       <button class="bub" role="tab" id="b3" aria-controls="p3" aria-selected="false">Behavioral support</button>
-      <button class="bub" role="tab" id="b4" aria-controls="p4" aria-selected="false">Respite &amp; short stays</button>
+      <button class="bub" role="tab" id="b4" aria-controls="p4" aria-selected="false">Respite care</button>
       <button class="bub" role="tab" id="b5" aria-controls="p5" aria-selected="false">Medications</button>
       <button class="bub" role="tab" id="b6" aria-controls="p6" aria-selected="false">Daily living</button>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p1" aria-labelledby="b1">
       <h3>Memory care</h3>
-      <p>The day runs the same way every day, on purpose. The same faces, the same rhythm, meals at the same table. When someone cannot hold on to what happened an hour ago, a predictable day is the thing that makes them feel safe. We do not correct or argue. We redirect gently and move on.</p>
+      <p>The same day, every day, on purpose. Same faces, same rhythm, meals at the same table. When someone cannot hold on to the last hour, a predictable day is what keeps them calm.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p2" aria-labelledby="b2" hidden>
       <h3>Dementia care</h3>
-      <p>Birdsong is our dementia home and the house is set up for it. Six residents, low noise, nothing startling. We watch for the small changes that come before the big ones, and we tell families early rather than waiting for something to go wrong.</p>
+      <p>Six residents, low noise, nothing startling. We watch for the small changes that come before the big ones, and we tell families early.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p3" aria-labelledby="b3" hidden>
       <h3>Behavioral support</h3>
-      <p>A calm, low-stimulation household, and a team who look for what sits behind a behavior before responding to it. Most agitation has a reason: pain, noise, tiredness, a change in routine. We look for the reason first.</p>
+      <p>Most agitation has a reason: pain, noise, tiredness, a change in routine. We look for the reason before we respond to the behavior.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p4" aria-labelledby="b4" hidden>
       <h3>Respite care and short stays</h3>
-      <p>Short stays are welcome. If you care for someone at home and you need a week for surgery, for a trip, or simply to rest, call and we will talk through what is possible. Families come back to us for this again and again.</p>
+      <p>Surgery, a trip, or simply a week of rest. Call and we will work it out. Families come back to us for this again and again.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p5" aria-labelledby="b5" hidden>
-      <h3>Medications and health</h3>
-      <p>Every dose given on time and recorded, refills handled, and appointments coordinated with each resident's own doctors. We work alongside the visiting nurse and the wider care team so nothing falls between people.</p>
+      <h3>Medications</h3>
+      <p>Every dose on time and written down. Refills handled, appointments coordinated with each resident's own doctors.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p6" aria-labelledby="b6" hidden>
       <h3>Everyday living</h3>
-      <p>Gentle help with bathing, dressing, grooming and getting around safely. Home-cooked meals shared at the table. Clean rooms, laundry taken care of, and company through the day, which matters as much as any of the rest of it.</p>
+      <p>Bathing, dressing, grooming, getting around safely. Home-cooked meals, clean rooms, laundry done, and company through the day.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= THE HOME — full-bleed alternating ================= -->
+<!-- ================= THE HOME ================= -->
 <section id="home">
-  <div class="sec" style="padding-bottom:0">
-    <div class="in narrow center rv">
+  <div class="sec" style="padding-bottom:clamp(34px,4vw,54px)">
+    <div class="in center rv" style="max-width:640px">
       <div class="kick">The home</div>
       <h2 class="h2">A log house, not a facility</h2>
-      <p class="p lead">Birdsong is a real log home on a quiet residential street on East Hill. Warm wood walls in every room, six bedrooms, and a garden path that flowers every spring. Families notice it the moment they walk in.</p>
+      <p class="p lead">Warm wood in every room. Six bedrooms. A garden path that flowers every spring.</p>
     </div>
   </div>
 
@@ -441,7 +446,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
     <div class="tx">
       <div class="kick">The approach</div>
       <h3 class="h3">You arrive through a garden</h3>
-      <p class="p">The path to the door is lined with dogwood and roses. It is a small thing, but it is the first thing a family sees, and it tells them what sort of place this is before anybody says a word.</p>
+      <p class="p">Dogwood and roses all the way to the door. It is the first thing a family sees.</p>
     </div>
   </div>
 
@@ -449,91 +454,99 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
     <div class="ph"><img src="images/dining.webp" alt="The dining table and log walls inside Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/dining-480.webp 480w, images/dining-768.webp 768w, images/dining.webp 1600w" sizes="(max-width:1023px) 100vw, 50vw"></div>
     <div class="tx">
       <div class="kick">Where the day happens</div>
-      <h3 class="h3">Everyone eats at the same table</h3>
-      <p class="p">Meals are made fresh in the kitchen and eaten together. The clock, the calendar and the day's date are on the wall where everyone can see them, because for someone with memory loss those small anchors do real work.</p>
-    </div>
-  </div>
-
-  <div class="split rv">
-    <div class="ph"><img src="images/bedroom-1.webp" alt="A resident bedroom with warm log walls at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-1-480.webp 480w, images/bedroom-1-768.webp 768w, images/bedroom-1.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div>
-    <div class="tx">
-      <div class="kick">Their own room</div>
-      <h3 class="h3">A room to settle into</h3>
-      <p class="p">Each resident has their own space, and we encourage families to bring whatever makes it theirs. Photographs, a favorite chair, the blanket from home. It helps more than people expect it to.</p>
-    </div>
-  </div>
-
-  <div class="split rev rv">
-    <div class="ph"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div>
-    <div class="tx">
-      <div class="kick">Built for safety</div>
-      <h3 class="h3">A bathroom that works for the people using it</h3>
-      <p class="p">Step-free shower, grab rails, a raised seat, and room to help someone without crowding them. This is usually the first thing a case manager asks about, and the first thing we show them.</p>
+      <h3 class="h3">Everyone eats at one table</h3>
+      <p class="p">Cooked in the kitchen, eaten together. The clock and the day's date on the wall, where everyone can see them.</p>
     </div>
   </div>
 </section>
 
-<!-- ================= MEET MEL =================
-     Google weights experience and accountability heavily on health and care topics.
-     A named, licensed, long-serving owner is the strongest trust signal this site has. -->
-<section class="sec" id="mel">
-  <div class="in narrow center rv">
-    <div class="kick">The provider</div>
-    <h2 class="h2">Meet Mel</h2>
-    <p class="p lead">Birdsong is owned and run by Imeeh Ballan-Magsanoc &mdash; everybody calls her Mel. She has been caring for families in Kent since 2007, and she is the person who will answer when you call.</p>
-    <p class="p">She is not a manager at a head office. She is the licensed provider, she knows every resident by name, and she is the one who notices when something is different. If you have questions about whether Birdsong is right for someone in your family, you will be talking to her, not to a call centre.</p>
-    <p class="p"><strong>Licensed by Washington State DSHS &middot; License #755160</strong></p>
-    <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="mel">Call Mel &middot; (253) 740-0890</a>
+<!-- ================= QUOTE OVER PHOTO ================= -->
+<section class="qband">
+  <img src="images/bedroom-1.webp" alt="A resident bedroom with warm log walls at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-1-480.webp 480w, images/bedroom-1-768.webp 768w, images/bedroom-1.webp 1320w" sizes="100vw">
+  <blockquote>Six people, and the same faces every day. That is the whole idea.</blockquote>
+</section>
+
+<!-- ================= MOSAIC ================= -->
+<section class="sec">
+  <div class="in">
+    <div class="mosaic rv">
+      <figure class="mo">
+        <div class="f"><img src="images/kitchen.webp" alt="The kitchen at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/kitchen-480.webp 480w, images/kitchen-768.webp 768w, images/kitchen.webp 1320w" sizes="(max-width:767px) 50vw, 33vw"></div>
+        <figcaption>The kitchen</figcaption>
+      </figure>
+      <figure class="mo">
+        <div class="f"><img src="images/bedroom-2.webp" alt="A second resident bedroom at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-2-480.webp 480w, images/bedroom-2-768.webp 768w, images/bedroom-2.webp 1320w" sizes="(max-width:767px) 50vw, 33vw"></div>
+        <figcaption>A room of their own</figcaption>
+      </figure>
+      <figure class="mo">
+        <div class="f"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:767px) 100vw, 33vw"></div>
+        <figcaption>Step-free, grab rails</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEET MEL — asymmetric ================= -->
+<section class="sec" id="mel" style="background:var(--mist)">
+  <div class="in melgrid rv">
+    <div>
+      <div class="kick">The provider</div>
+      <h2 class="h2">Meet Mel</h2>
+      <p class="p lead">Mel owns Birdsong and runs it. She has since 2007.</p>
+      <p class="p">Call, and she answers. Not a call center, not a manager on a rota. She knows every resident by name, and she is the one who notices when something is different.</p>
+      <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="mel">Call Mel</a>
+    </div>
+    <dl class="melcard">
+      <dt>Provider</dt><dd>Imeeh &ldquo;Mel&rdquo; Ballan-Magsanoc</dd>
+      <dt>Licensed by</dt><dd>Washington State DSHS</dd>
+      <dt>License</dt><dd>#755160</dd>
+      <dt>Caring since</dt><dd>2007</dd>
+    </dl>
   </div>
 </section>
 
 <!-- ================= LETTERS ================= -->
-<section class="sec" id="letters" style="background:var(--mist)">
+<section class="sec" id="letters">
   <div class="in">
-    <div class="center rv" style="max-width:680px">
+    <div class="center rv" style="max-width:600px">
       <div class="kick">Families</div>
-      <h2 class="h2">Letters families have written us since 2007</h2>
-      <p class="p">These are handwritten notes we have kept. Some are from families whose parent was with us for years, some from a single short stay.</p>
+      <h2 class="h2">Letters families have written us</h2>
+      <p class="p">Handwritten notes we have kept since 2007.</p>
     </div>
-    <div class="lgrid" style="margin-top:46px">
+    <div class="lgrid" style="margin-top:44px">
       <div class="letter rv"><div class="qm" aria-hidden="true">&ldquo;</div>
-        <p>&ldquo;Please accept our deepest appreciation of your staff for the wonderful care for our father during his stay at Birdsong. The caregivers provided exceptional personal care for him, and he had often expressed thanks beyond words.&rdquo;</p>
+        <p>&ldquo;The caregivers provided exceptional personal care for our father, and he had often expressed thanks beyond words.&rdquo;</p>
         <div class="who">The Chiu family</div><div class="when">2017</div></div>
       <div class="letter rv"><div class="qm" aria-hidden="true">&ldquo;</div>
-        <p>&ldquo;It is indeed my great pleasure to document my findings of your establishment to be of the finest I have ever encountered any place. It is good to know he is being taken care of by such loving, caring and highly qualified people.&rdquo;</p>
+        <p>&ldquo;Your establishment is of the finest I have ever encountered any place. It is good to know he is being taken care of by such loving, caring and highly qualified people.&rdquo;</p>
         <div class="who">Gordon, brother of a resident</div><div class="when">2013</div></div>
       <div class="letter rv"><div class="qm" aria-hidden="true">&ldquo;</div>
-        <p>&ldquo;I want you to know you are one in a million, and you will always be a special person to our family for taking care of our mother. Thank you again.&rdquo;</p>
+        <p>&ldquo;You are one in a million, and you will always be a special person to our family for taking care of our mother.&rdquo;</p>
         <div class="who">Bob F., son of a resident</div><div class="when">2021</div></div>
     </div>
-    <p class="small center rv" style="margin-top:26px">The original handwritten letters are on the wall at Birdsong.</p>
+    <p class="small center rv" style="margin-top:24px">The originals are on the wall at Birdsong.</p>
   </div>
 </section>
 
-<!-- ================= PAYING ================= -->
-<section class="sec" id="cost">
-  <div class="in narrow center rv">
-    <div class="kick">Paying for care</div>
-    <h2 class="h2">Private pay, Medicaid, and Expanded Community Services</h2>
-    <p class="p lead">Birdsong accepts private pay and Medicaid, and we hold an Expanded Community Services contract for residents whose needs are higher than a standard placement.</p>
-    <p class="p">What it costs depends on the level of care someone needs and whether the room is private or shared, so we would rather tell you straight than put a number on a website that turns out not to apply to you. Call Mel and she will give you a real answer for your situation.</p>
-    <p class="p">If you are working with a DSHS case manager or a hospital discharge planner, they are welcome to call directly.</p>
-    <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="cost">Ask about cost and openings</a>
-  </div>
-</section>
-
-<!-- ================= AREAS SERVED ================= -->
-<section class="sec" id="areas" style="background:var(--mist);padding-top:clamp(48px,5vw,72px);padding-bottom:clamp(48px,5vw,72px)">
-  <div class="in narrow center rv">
-    <div class="kick">Where families come from</div>
-    <h2 class="h2" style="font-size:clamp(25px,2.9vw,36px)">Serving south King County</h2>
-    <p class="p">Birdsong sits on East Hill in Kent, a few minutes from Highway 167 and Kent-Kangley Road, so families visiting from across south King County can get here easily.</p>
-    <div class="areas">
-      <span>Kent</span><span>East Hill</span><span>Renton</span><span>Auburn</span>
-      <span>Covington</span><span>Federal Way</span><span>Des Moines</span><span>Tukwila</span><span>Maple Valley</span>
+<!-- ================= PAYING — three columns ================= -->
+<section class="sec" id="cost" style="background:var(--mist)">
+  <div class="in">
+    <div class="center rv" style="max-width:640px">
+      <div class="kick">Paying for care</div>
+      <h2 class="h2">Three ways to pay</h2>
+    </div>
+    <div class="pay3 rv" style="margin-top:42px">
+      <div class="pay"><h3>Private pay</h3><p>A monthly rate set by the level of care someone needs.</p></div>
+      <div class="pay"><h3>Medicaid</h3><p>Accepted. If you have a DSHS case manager, they can call Mel directly.</p></div>
+      <div class="pay"><h3>Expanded Community Services</h3><p>Contracted, for residents whose needs run higher than a standard placement.</p></div>
+    </div>
+    <div class="center rv" style="margin-top:38px">
+      <p class="p">Cost depends on care level and whether the room is private. Call and Mel will tell you straight.</p>
+      <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="cost">Ask about cost and openings</a>
     </div>
   </div>
 </section>
+
 
 <!-- ================= FAQ ================= -->
 <section class="sec" id="faq">
@@ -566,13 +579,17 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   </div>
 </section>
 
-<!-- ================= LOCATION ================= -->
-<section class="loc">
+<!-- ================= LOCATION + AREAS ================= -->
+<section class="loc" id="areas">
   <div class="loc-tx rv">
     <div class="kick">Find us</div>
     <h2 class="h2" style="font-size:clamp(27px,3.1vw,40px)">On East Hill, in Kent</h2>
     <p class="p">11701 SE 233rd Pl<br>Kent, WA 98031</p>
-    <p class="p" style="font-size:16px">A few minutes from Highway 167 and Kent-Kangley Road, with easy visiting from Renton, Auburn, Covington and Federal Way.</p>
+    <p class="small" style="margin-bottom:6px">Families come to us from</p>
+    <div class="areas">
+      <span>Kent</span><span>Renton</span><span>Auburn</span><span>Covington</span>
+      <span>Federal Way</span><span>Des Moines</span><span>Tukwila</span><span>Maple Valley</span>
+    </div>
     <a class="btn btn-line" style="align-self:flex-start" href="https://www.google.com/maps/dir/?api=1&destination=11701+SE+233rd+Pl%2C+Kent%2C+WA+98031" target="_blank" rel="noopener" data-cta="directions" data-loc="location">Get directions</a>
   </div>
   <div class="loc-map">
@@ -583,22 +600,22 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 
 <!-- ================= VISIT ================= -->
 <section class="sec" id="visit" style="background:var(--mist)">
-  <div class="center rv" style="max-width:600px;margin:0 auto clamp(38px,4vw,58px)">
+  <div class="center rv" style="max-width:560px;margin:0 auto clamp(36px,4vw,54px)">
     <div class="kick">Arrange a visit</div>
-    <h2 class="h2">Come and see it for yourself</h2>
+    <h2 class="h2">Come and see it</h2>
   </div>
   <div class="fgrid">
     <div class="rv">
-      <p class="p lead">Choosing a home for someone you love is a hard decision, and it is not one to make from a website. Come and walk through the house, meet Mel, and ask whatever you want to ask.</p>
-      <p class="p" style="margin-bottom:6px"><strong>Call Mel</strong></p>
+      <p class="p lead">This is not a decision to make from a website. Walk through the house, meet Mel, ask whatever you want to ask.</p>
+      <p class="p" style="margin-bottom:4px"><strong>Call Mel</strong></p>
       <p class="p"><a href="tel:+12537400890" style="font-family:'Poppins',sans-serif;font-weight:300;font-size:30px;color:var(--ink)" data-cta="call" data-loc="contact">(253) 740-0890</a></p>
-      <p class="p" style="font-size:16px">If we cannot pick up, leave a message and we will call you back the same day. Ask about our current openings.</p>
-      <p class="small"><strong>Licensed by Washington State DSHS</strong><br>License #755160 &middot; Birdsong AFHs, LLC<br>11701 SE 233rd Pl, Kent, WA 98031</p>
+      <p class="p" style="font-size:16px">No answer? Leave a message and we call back the same day.</p>
+      <p class="small">Licensed by Washington State DSHS &middot; License #755160<br>Birdsong AFHs, LLC &middot; 11701 SE 233rd Pl, Kent, WA 98031</p>
     </div>
     <div>
       <form id="visitForm" novalidate>
         <div id="formErr" style="display:none;border:1px solid var(--blush);padding:14px 16px;margin-bottom:12px;font-size:15px"></div>
-        <div id="formOk" style="display:none;border:1px solid var(--green);background:var(--green-soft);padding:20px;font-size:16.5px">
+        <div id="formOk" style="display:none;border:1px solid var(--green);background:#EDF3EE;padding:20px;font-size:16.5px">
           <strong>Thank you<span id="tyName"></span>.</strong><br>We have your message and will get back to you as soon as we can. If you would rather talk sooner, call Mel on (253) 740-0890.
         </div>
         <div id="formFields">
@@ -619,7 +636,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
           <label for="f-msg">Anything you would like us to know</label>
           <textarea id="f-msg" name="message"></textarea>
           <button class="submit" type="submit">Send to Mel</button>
-          <p class="small" style="margin-top:12px">We will only use this to reply to you. Nothing is shared with anyone else.</p>
+          <p class="small" style="margin-top:12px">We only use this to reply to you.</p>
         </div>
       </form>
     </div>
@@ -636,9 +653,9 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
       <a href="tel:+12537400890" data-cta="call" data-loc="footer">(253) 740-0890</a>
     </div>
     <div><div class="fh">Explore</div>
-<a href="#care">Our care</a><br>
-      <a href="#home">The home</a><br><a href="#mel">Meet Mel</a><br>
-      <a href="#cost">Paying for care</a><br><a href="#visit">Arrange a visit</a>
+      <a href="#care">Our care</a><br><a href="#home">The home</a><br>
+      <a href="#mel">Meet Mel</a><br><a href="#cost">Paying for care</a><br>
+      <a href="#faq">Questions</a><br><a href="#visit">Arrange a visit</a>
     </div>
     <div><div class="fh">Serving</div>
       Kent &middot; East Hill &middot; Renton<br>Auburn &middot; Covington &middot; Federal Way<br>
@@ -725,7 +742,7 @@ document.querySelectorAll('[data-cta]').forEach(function(el){
   });
 });
 
-/* ---- service tabs ---- */
+/* ---- service tabs, driven by both the hero pills and the tabs themselves ---- */
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.bub'));
   var panels=tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
