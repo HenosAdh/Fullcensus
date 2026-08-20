@@ -10,7 +10,7 @@
      statewide. "memory care kent wa" is only 20/mo, so it is a supporting term, not the lead. -->
 <title>Adult Family Home in Kent, WA | Birdsong Memory Care</title>
 <meta name="description" content="A licensed adult family home in Kent, WA caring for six residents with memory loss and dementia since 2007. Private pay, Medicaid, ECS. Visits welcome.">
-<meta name="theme-color" content="#33477E">
+<meta name="theme-color" content="#FDF7EE">
 <meta name="geo.region" content="US-WA">
 <meta name="geo.placename" content="Kent, Washington">
 
@@ -22,8 +22,8 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Figtree:wght@400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500&family=Figtree:wght@400;500;600;700&display=swap"></noscript>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Nunito:wght@400;600;700;800&display=swap"></noscript>
 
 <script type="application/ld+json">
 {"@context":"https://schema.org",
@@ -84,246 +84,293 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 :root{
-  /* One ink on white, per gonetothedogs.co: a single blue carries every word and the
-     photographs supply the color. Green is the only accent. Blue + green + white. */
-  --ink:#33477E; --ink-deep:#20305C; --ink-soft:#5D6E9C; --ink-faint:#8794B7;
-  --green:#4C7A57; --blush:#C2748C;
-  --white:#fff; --mist:#F4F7FB; --line:#DDE3EF; --line-d:rgba(255,255,255,.22);
-  --maxw:1240px; --gut:clamp(22px,5.2vw,80px);
+  /* Warm and friendly, but still Mel's blue / green / white brief.
+     The warm accent is dogwood rose, taken from the flowering tree at her own
+     front door, rather than an imported coral. Cream carries the friendliness. */
+  --cream:#FDF7EE; --cream-2:#F8EFE1; --white:#fff;
+  --ink:#264A6E; --ink-2:#1B3A57; --body:#5E6E80; --faint:#93A2B2;
+  --rose:#C25D63; --rose-soft:#FBEDEB;
+  --sage:#5C8A63; --sage-soft:#EAF2E9;
+  --gold:#D9A441; --gold-soft:#FBF1DC;
+  --line:#EADFD0;
+  --r-pill:999px; --r-card:22px; --r-photo:24px;
+  --sh:0 18px 44px rgba(38,74,110,.11);
+  --sh-lg:0 26px 60px rgba(38,74,110,.15);
+  --maxw:1200px; --gut:clamp(20px,5vw,72px);
 }
 html{scroll-behavior:smooth}
-body{font-family:'Figtree',system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--white);
-  font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body{font-family:'Nunito',system-ui,-apple-system,sans-serif;color:var(--body);background:var(--cream);
+  font-size:17px;line-height:1.75;-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 .wrap{overflow-x:clip}
-/* Poppins 200 is the reference's signature, but extra-light is unreadable small and this
-   audience is largely 45-70. So 200 at display sizes only, 400 for anything you must read. */
-h1,h2,h3{font-family:'Poppins',system-ui,sans-serif;color:var(--ink);line-height:1.14;text-wrap:balance}
-h1,h2{font-weight:200;letter-spacing:-.005em}
-h3{font-weight:400}
-.sec{padding:clamp(64px,7.5vw,118px) var(--gut)}
+h1,h2,h3{font-family:'Newsreader',Georgia,serif;color:var(--ink);line-height:1.14;font-weight:500;text-wrap:balance}
+/* the two-tone headline: dark first line, rose italic second line */
+.tone{display:block;color:var(--rose);font-style:italic;font-size:.82em}
+.sec{padding:clamp(58px,7vw,108px) var(--gut);position:relative}
 .in{max-width:var(--maxw);margin-inline:auto}
 .center{text-align:center;margin-inline:auto}
-.kick{font-family:'Figtree',sans-serif;font-size:11px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--green);margin-bottom:16px}
-.h2{font-size:clamp(31px,4.3vw,54px);margin:0 0 20px}
-.h3{font-size:clamp(21px,2.3vw,29px);font-weight:300;margin:0 0 12px}
-.p{font-size:17px;line-height:1.75;color:var(--ink-soft);margin:0 0 16px;max-width:58ch}
-.p.lead{font-size:clamp(17.5px,1.3vw,20px);color:var(--ink)}
+.kick{font-family:'Nunito',sans-serif;font-size:11.5px;font-weight:800;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.kick.rose{color:var(--rose)}
+.kick::before{content:"\25C6";font-size:7px;vertical-align:middle;margin-right:9px;opacity:.75}
+.h2{font-size:clamp(30px,4.2vw,52px);margin:0 0 20px}
+.h3{font-size:clamp(21px,2.3vw,30px);margin:0 0 12px}
+.p{font-size:17px;line-height:1.8;color:var(--body);margin:0 0 16px;max-width:58ch}
+.p.lead{font-size:clamp(17.5px,1.3vw,19.5px)}
 .center .p{margin-inline:auto}
-.small{font-size:14px;color:var(--ink-faint);line-height:1.6}
-strong{font-weight:600;color:var(--ink)}
-.btn{display:inline-block;font-family:'Figtree',sans-serif;font-weight:600;font-size:15px;
-  letter-spacing:.06em;text-transform:uppercase;padding:17px 32px;border:1.5px solid transparent;cursor:pointer;
-  transition:background .2s ease,color .2s ease,border-color .2s ease}
-.btn-fill{background:var(--ink);color:#fff}
-.btn-fill:hover{background:var(--ink-deep)}
-.btn-line{border-color:var(--ink);color:var(--ink);background:transparent}
-.btn-line:hover{background:var(--ink);color:#fff}
-.btn-lt{border-color:rgba(255,255,255,.6);color:#fff;background:transparent}
-.btn-lt:hover{background:#fff;color:var(--ink-deep);border-color:#fff}
+.small{font-size:14px;color:var(--faint);line-height:1.65}
+strong{font-weight:800;color:var(--ink)}
 
-/* ---------- header ---------- */
-.hdr{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;
-  gap:18px;padding:15px var(--gut);background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-.brand{display:flex;align-items:center;gap:11px;flex:none}
-.brand svg{width:38px;height:38px;flex:none}
-.wm{font-family:'Poppins',sans-serif;font-size:21px;font-weight:300;letter-spacing:.02em;line-height:1}
-.wm-k{font-size:8.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--green);margin-top:5px}
-.nav{display:flex;align-items:center;gap:26px}
+/* rounded, friendly buttons */
+.btn{display:inline-block;font-family:'Nunito',sans-serif;font-weight:800;font-size:15.5px;
+  padding:15px 30px;border-radius:var(--r-pill);border:2px solid transparent;cursor:pointer;
+  transition:transform .18s ease,background .2s ease,color .2s ease,box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-rose{background:var(--rose);color:#fff;box-shadow:0 10px 24px rgba(194,93,99,.28)}
+.btn-rose:hover{background:#AC4E54}
+.btn-ink{background:var(--ink);color:#fff;box-shadow:0 10px 24px rgba(38,74,110,.24)}
+.btn-ink:hover{background:var(--ink-2)}
+.btn-out{background:var(--white);border-color:var(--line);color:var(--ink)}
+.btn-out:hover{border-color:var(--ink)}
+
+/* ---------- floating pill header ---------- */
+.hdr{position:sticky;top:0;z-index:40;padding:14px var(--gut) 0}
+.hdr-in{max-width:var(--maxw);margin-inline:auto;display:flex;align-items:center;justify-content:space-between;
+  gap:16px;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border:1px solid var(--line);
+  border-radius:var(--r-pill);padding:9px 9px 9px 18px;box-shadow:0 8px 26px rgba(38,74,110,.07)}
+.brand{display:flex;align-items:center;gap:10px;flex:none}
+.brand svg{width:36px;height:36px;flex:none}
+.wm{font-family:'Newsreader',Georgia,serif;font-size:20px;font-weight:600;line-height:1;color:var(--ink)}
+.wm-k{font-size:8px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--sage);margin-top:4px}
+.nav{display:flex;align-items:center;gap:22px}
 .navlinks{display:contents}
-.lnk{font-size:14px;font-weight:500;color:var(--ink-soft);padding:5px 0;position:relative}
-.lnk::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:var(--green);
-  transform:scaleX(0);transform-origin:left;transition:transform .22s ease}
-.lnk:hover{color:var(--ink)} .lnk:hover::after{transform:scaleX(1)}
-.tel{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;white-space:nowrap;flex:none}
-.tel svg{width:14px;height:14px;color:var(--green)}
+.lnk{font-size:14px;font-weight:700;color:var(--body);padding:4px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.lnk:hover{color:var(--ink);border-color:var(--rose)}
+.tel{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:#fff;font-weight:800;
+  font-size:14.5px;padding:11px 20px;border-radius:var(--r-pill);white-space:nowrap;flex:none;transition:background .2s}
+.tel:hover{background:#AC4E54}
+.tel svg{width:14px;height:14px}
 .burger{display:none;background:none;border:0;padding:10px;cursor:pointer}
-.burger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:5px 0;transition:transform .24s ease,opacity .2s ease}
-.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.burger span{display:block;width:21px;height:2px;background:var(--ink);margin:5px 0;border-radius:2px;transition:transform .24s ease,opacity .2s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ---------- hero: photo band + overlapping credential card ---------- */
-.hero{position:relative;padding-bottom:clamp(44px,5vw,72px)}
-.hero-media{position:relative;height:clamp(280px,40vh,460px);background:var(--mist)}
-.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
-.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(20,32,64,.26) 0%,rgba(20,32,64,.04) 38%,rgba(20,32,64,.20) 100%)}
-.hcard-wrap{position:relative;z-index:2;padding:0 var(--gut);margin-top:clamp(-150px,-11vw,-60px)}
-.hcard{max-width:1080px;margin-inline:auto;background:var(--white);
-  padding:clamp(30px,4vw,56px) clamp(24px,4vw,58px) 0;box-shadow:0 26px 64px rgba(51,71,126,.15)}
-.hcard h1{font-size:clamp(33px,5.1vw,62px);margin:0 0 18px;max-width:15ch;color:var(--ink)}
-.hcard .sub{font-size:clamp(16.5px,1.25vw,19.5px);line-height:1.65;color:var(--ink-soft);max-width:48ch;margin:0 0 28px}
-.hcta{display:flex;gap:13px;flex-wrap:wrap;padding-bottom:clamp(28px,3.4vw,42px)}
-.hsvc{border-top:1px solid var(--line);margin:0 clamp(-58px,-4vw,-24px);
-  padding:clamp(22px,2.6vw,32px) clamp(24px,4vw,58px) clamp(24px,2.8vw,34px)}
-.hsvc-l{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:15px}
-.hsvc-row{display:flex;flex-wrap:wrap;gap:9px}
-.hpill{font-family:'Figtree',sans-serif;font-size:14.5px;font-weight:600;padding:11px 20px;
-  border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);cursor:pointer;
-  transition:border-color .2s ease,color .2s ease,background .2s ease}
-.hpill:hover,.hpill:focus-visible{border-color:var(--ink);background:var(--ink);color:#fff}
-.hstats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin:0 clamp(-58px,-4vw,-24px)}
-.hs{padding:22px 16px;text-align:center;border-right:1px solid var(--line)}
-.hs:last-child{border-right:0}
-.hs-v{font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(24px,2.6vw,34px);line-height:1.05}
-.hs-l{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-top:9px}
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(44px,6vw,80px) var(--gut) 0;text-align:center;overflow:hidden}
+.hero-in{max-width:1120px;margin-inline:auto;position:relative;z-index:2}
+.hero h1{font-size:clamp(33px,5.2vw,62px);margin:0 auto 20px;max-width:21ch}
+.hero .sub{font-size:clamp(16.5px,1.3vw,19.5px);color:var(--body);max-width:44ch;margin:0 auto 30px}
+.hcta{display:flex;gap:13px;flex-wrap:wrap;justify-content:center;margin-bottom:26px}
+/* Mel asked for the service buttons on the landing screen */
+.hsvc{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:clamp(34px,4.5vw,56px)}
+.hpill{font-family:'Nunito',sans-serif;font-size:14px;font-weight:700;padding:10px 19px;border-radius:var(--r-pill);
+  border:1.5px solid var(--line);background:var(--white);color:var(--body);cursor:pointer;
+  transition:transform .16s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.hpill:hover,.hpill:focus-visible{background:var(--ink);border-color:var(--ink);color:#fff;transform:translateY(-2px)}
 
-/* ---------- dark band (breaks the white run right after the hero) ---------- */
-.dark{background:var(--ink-deep)}
-.dark h2,.dark h3{color:#fff}
-.dark .kick{color:#9FB0D8}
-.dark .p{color:rgba(255,255,255,.74)}
-.dark .bub{background:transparent;border-color:var(--line-d);color:rgba(255,255,255,.86)}
-.dark .bub:hover{border-color:#fff;color:#fff}
-.dark .bub[aria-selected="true"]{background:#fff;border-color:#fff;color:var(--ink-deep)}
-.dark .bpanel{border-top-color:var(--line-d)}
-.dark .bpanel p{color:rgba(255,255,255,.78)}
-.bubs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:32px 0 0}
-.bub{font-family:'Figtree',sans-serif;font-size:15px;font-weight:600;padding:14px 26px;
-  border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;
-  transition:border-color .2s ease,color .2s ease,background .2s ease}
-.bpanel{border-top:1px solid var(--line);margin-top:-1.5px;padding:clamp(32px,3.6vw,48px) 0 0;max-width:660px;margin-inline:auto;text-align:center}
+/* tilted, white-bordered photo cluster */
+.cluster{display:flex;align-items:center;justify-content:center;gap:clamp(-30px,-2vw,0px);position:relative;z-index:2}
+.cl{background:#fff;padding:8px;border-radius:var(--r-photo);box-shadow:var(--sh-lg);overflow:hidden}
+.cl img{border-radius:calc(var(--r-photo) - 8px);width:100%;height:100%;object-fit:cover}
+.cl-a{width:clamp(140px,22vw,300px);aspect-ratio:3/4;transform:rotate(-5deg);margin-right:-22px}
+.cl-b{width:clamp(210px,36vw,500px);aspect-ratio:16/10;position:relative;z-index:3}
+.cl-b img{object-position:center 68%}
+.cl-c{width:clamp(140px,22vw,300px);aspect-ratio:3/4;transform:rotate(5deg);margin-left:-22px}
+
+/* floating feature cards, overlapping the cluster */
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.6vw,20px);
+  max-width:1000px;margin:clamp(-56px,-4vw,-34px) auto 0;position:relative;z-index:4;padding:0 4px}
+.feat{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:20px 20px;
+  display:flex;align-items:center;gap:14px;box-shadow:var(--sh);text-align:left}
+.fico{width:40px;height:40px;border-radius:var(--r-pill);flex:none;display:grid;place-items:center}
+.fico svg{width:19px;height:19px}
+.fi-sage{background:var(--sage-soft);color:var(--sage)}
+.fi-rose{background:var(--rose-soft);color:var(--rose)}
+.fi-gold{background:var(--gold-soft);color:#B07F22}
+.feat b{display:block;font-family:'Newsreader',serif;font-size:17px;font-weight:600;color:var(--ink);line-height:1.25}
+.feat span{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)}
+
+/* soft illustrated accents — birds and dogwood, because the home is called Birdsong */
+.deco{position:absolute;pointer-events:none;z-index:1;opacity:.85}
+.deco-birds{top:clamp(30px,6vw,80px);left:clamp(-10px,3vw,70px);width:clamp(80px,11vw,150px);color:var(--ink);opacity:.35}
+.deco-bloom{top:clamp(10px,3vw,40px);right:clamp(-20px,1vw,30px);width:clamp(110px,15vw,210px)}
+.deco-bloom-2{bottom:-30px;left:-40px;width:clamp(120px,14vw,190px);opacity:.6;transform:rotate(20deg)}
+
+/* ---------- section bands ---------- */
+.band-cream{background:var(--cream-2)}
+.band-ink{background:var(--ink)}
+.band-ink h2,.band-ink h3{color:#fff}
+.band-ink .kick{color:#9FC4A6}
+.band-ink .p{color:rgba(255,255,255,.80)}
+.band-ink .bub{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.24);color:rgba(255,255,255,.9)}
+.band-ink .bub:hover{border-color:#fff;color:#fff}
+.band-ink .bub[aria-selected="true"]{background:#fff;border-color:#fff;color:var(--ink)}
+.band-ink .bpanel{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.16)}
+.band-ink .bpanel p{color:rgba(255,255,255,.84)}
+
+/* service tabs */
+.bubs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 26px}
+.bub{font-family:'Nunito',sans-serif;font-size:14.5px;font-weight:700;padding:12px 24px;border-radius:var(--r-pill);
+  border:1.5px solid var(--line);background:#fff;color:var(--body);cursor:pointer;
+  transition:transform .16s ease,background .2s ease,color .2s ease,border-color .2s ease}
+.bub:hover{transform:translateY(-2px)}
+.bpanel{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(28px,3.4vw,44px);
+  max-width:700px;margin-inline:auto;text-align:center}
 .bpanel[hidden]{display:none}
-.bpanel h3{font-size:clamp(22px,2.4vw,29px);font-weight:300;margin-bottom:14px}
-.bpanel p{font-size:17px;line-height:1.72;margin:0}
+.bpanel h3{font-size:clamp(21px,2.3vw,28px);margin-bottom:12px}
+.bpanel p{font-size:16.5px;line-height:1.8;margin:0}
 
-/* ---------- full-bleed alternating splits ----------
-   Not the contained rounded photo cards used on awellcaredhome.com: the photograph
-   runs to the edge of the viewport, square, and the copy sits in open white. */
-.split{display:grid;grid-template-columns:1fr 1fr;align-items:center}
-.split>.ph{position:relative;aspect-ratio:5/4;background:var(--mist)}
-.split>.ph img{width:100%;height:100%;object-fit:cover}
-.split>.tx{padding:clamp(42px,5.5vw,96px) clamp(26px,5vw,86px)}
-.split.rev>.ph{order:2} .split.rev>.tx{order:1}
+/* ---------- alternating splits: rounded photo + illustration, not full bleed ---------- */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,80px);align-items:center;
+  max-width:var(--maxw);margin-inline:auto}
+.split+.split{margin-top:clamp(48px,6vw,90px)}
+.split .ph{position:relative}
+.split .ph .f{aspect-ratio:4/3;border-radius:var(--r-photo);overflow:hidden;background:#fff;
+  box-shadow:var(--sh-lg);border:8px solid #fff}
+.split .ph .f img{width:100%;height:100%;object-fit:cover;border-radius:calc(var(--r-photo) - 8px)}
+.split.rev .tx{order:-1}
+.split .ph.tilt .f{transform:rotate(-2.5deg)}
+.split.rev .ph.tilt .f{transform:rotate(2.5deg)}
 
 /* ---------- quote over photo ---------- */
-.qband{position:relative;min-height:clamp(340px,50vh,500px);display:flex;align-items:center;justify-content:center;text-align:center}
+.qband{position:relative;margin:0 var(--gut);border-radius:clamp(20px,3vw,34px);overflow:hidden;
+  min-height:clamp(320px,46vh,460px);display:flex;align-items:center;justify-content:center;text-align:center}
 .qband img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%}
-.qband::after{content:"";position:absolute;inset:0;background:rgba(20,32,64,.66)}
-.qband blockquote{position:relative;z-index:2;padding:0 var(--gut);max-width:19ch;
-  font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(27px,4.4vw,54px);color:#fff;line-height:1.2}
+.qband::after{content:"";position:absolute;inset:0;background:rgba(27,58,87,.66)}
+.qband blockquote{position:relative;z-index:2;padding:0 clamp(24px,5vw,60px);max-width:20ch;
+  font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(25px,4.1vw,50px);color:#fff;line-height:1.24}
+.qband blockquote em{font-style:italic;color:#F2C0B6}
 
-/* ---------- mosaic: three uneven images, near-zero copy ---------- */
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(10px,1.6vw,22px);align-items:start}
+/* ---------- mosaic ---------- */
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,24px);align-items:start}
 .mo{margin:0}
-.mo .f{aspect-ratio:4/5;background:var(--mist);overflow:hidden}
-.mo .f img{width:100%;height:100%;object-fit:cover}
-.mo:nth-child(2){margin-top:clamp(22px,4.5vw,64px)}
-.mo figcaption{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:14px}
+.mo .f{aspect-ratio:4/5;border-radius:var(--r-photo);overflow:hidden;background:#fff;border:7px solid #fff;box-shadow:var(--sh)}
+.mo .f img{width:100%;height:100%;object-fit:cover;border-radius:calc(var(--r-photo) - 7px)}
+.mo:nth-child(1) .f{transform:rotate(-2deg)}
+.mo:nth-child(2){margin-top:clamp(20px,4vw,56px)}
+.mo:nth-child(3) .f{transform:rotate(2deg)}
+.mo figcaption{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:16px;text-align:center}
 
-/* ---------- Mel: asymmetric, not another centred stack ---------- */
-.melgrid{display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(32px,5vw,84px);align-items:start}
-.melcard{border:1px solid var(--line);padding:clamp(26px,2.6vw,36px)}
-.melcard dt{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:5px}
-.melcard dd{font-size:16.5px;font-weight:600;margin:0 0 20px}
+/* ---------- Mel ---------- */
+.melgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(30px,5vw,76px);align-items:center}
+.melcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(26px,2.6vw,34px);box-shadow:var(--sh)}
+.melcard dt{font-size:10.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.melcard dd{font-family:'Newsreader',serif;font-size:18px;font-weight:600;color:var(--ink);margin:0 0 18px}
 .melcard dd:last-child{margin-bottom:0}
 
 /* ---------- letters ---------- */
-.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.letter{background:var(--white);padding:36px 30px;display:flex;flex-direction:column}
-.letter .qm{font-family:'Poppins',sans-serif;font-size:42px;font-weight:200;line-height:.6;color:var(--blush);margin-bottom:20px}
-.letter p{font-size:16.5px;line-height:1.7;color:var(--ink-soft);margin:0 0 20px;flex:1}
-.letter .who{font-weight:700;font-size:14.5px}
-.letter .when{font-size:12.5px;color:var(--ink-faint);letter-spacing:.05em}
+.lgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,24px)}
+.letter{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:30px 28px;
+  display:flex;flex-direction:column;box-shadow:var(--sh)}
+.letter .qm{font-family:'Newsreader',serif;font-size:52px;line-height:.7;color:var(--rose);opacity:.5;margin-bottom:14px}
+.letter p{font-size:16px;line-height:1.75;margin:0 0 18px;flex:1}
+.letter .who{font-family:'Newsreader',serif;font-weight:600;font-size:16px;color:var(--ink)}
+.letter .when{font-size:12.5px;color:var(--faint);font-weight:700}
 
-/* ---------- paying: three columns, one line each ---------- */
-.pay3{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-.pay{background:#fff;padding:clamp(28px,2.8vw,38px)}
-.pay h3{font-size:18.5px;font-weight:500;margin-bottom:9px}
-.pay p{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin:0}
+/* ---------- paying ---------- */
+.pay3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,1.8vw,22px)}
+.pay{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(26px,2.6vw,34px);box-shadow:var(--sh)}
+.pay .pico{width:42px;height:42px;border-radius:var(--r-pill);display:grid;place-items:center;margin-bottom:16px}
+.pay .pico svg{width:20px;height:20px}
+.pay h3{font-size:19px;margin-bottom:8px}
+.pay p{font-size:15.5px;line-height:1.7;margin:0}
 
 /* ---------- faq ---------- */
-.faqs{max-width:880px;margin-inline:auto;border-top:1px solid var(--line)}
-.faq{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:block;position:relative;padding:25px 54px 25px 0;
-  font-family:'Poppins',sans-serif;font-weight:400;font-size:clamp(17.5px,1.6vw,21px);color:var(--ink)}
+.faqs{max-width:860px;margin-inline:auto}
+.faq{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);margin-bottom:12px;overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;display:block;position:relative;padding:22px 56px 22px 26px;
+  font-family:'Newsreader',Georgia,serif;font-weight:500;font-size:clamp(17.5px,1.6vw,21px);color:var(--ink)}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--green)}
-.faq summary::after{content:"";position:absolute;right:12px;top:50%;width:12px;height:12px;
-  border-right:1.5px solid var(--green);border-bottom:1.5px solid var(--green);
+.faq summary:hover{color:var(--rose)}
+.faq summary::after{content:"";position:absolute;right:24px;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--rose);border-bottom:2px solid var(--rose);
   transform:translateY(-70%) rotate(45deg);transition:transform .26s ease}
 .faq[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.faq .a{padding:0 54px 26px 0;font-size:16.5px;line-height:1.75;color:var(--ink-soft);margin:0}
+.faq .a{padding:0 32px 24px 26px;font-size:16.5px;line-height:1.8;margin:0}
 .faq .a+.a{margin-top:-8px}
 
 /* ---------- location ---------- */
-.loc{display:grid;grid-template-columns:1fr 1.12fr;min-height:min(58vh,540px)}
-.loc-tx{padding:clamp(52px,6vw,96px) var(--gut);display:flex;flex-direction:column;justify-content:center}
-.loc-map{position:relative;min-height:340px;background:var(--mist)}
+.loc{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(30px,4.5vw,70px);align-items:center;
+  max-width:var(--maxw);margin-inline:auto}
+.loc-map{position:relative;aspect-ratio:4/3;border-radius:var(--r-photo);overflow:hidden;
+  border:8px solid #fff;box-shadow:var(--sh-lg)}
 .loc-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .areas{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 26px}
-.areas span{font-size:13.5px;font-weight:600;padding:9px 16px;border:1px solid var(--line);color:var(--ink-soft)}
+.areas span{font-size:13.5px;font-weight:700;padding:9px 17px;border-radius:var(--r-pill);
+  background:#fff;border:1px solid var(--line);color:var(--body)}
 
 /* ---------- form ---------- */
-.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,76px);align-items:start;max-width:1120px;margin-inline:auto}
-label{display:block;font-size:11.5px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin:20px 0 8px}
-input,select,textarea{width:100%;min-width:0;padding:15px 16px;border:1px solid var(--line);background:var(--white);
-  font-family:'Figtree',sans-serif;font-size:16px;color:var(--ink);border-radius:0}
-textarea{min-height:112px;resize:vertical}
-input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-offset:-1px;border-color:transparent}
-.submit{width:100%;background:var(--ink);color:#fff;padding:18px;font-family:'Figtree',sans-serif;
-  font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase;border:0;cursor:pointer;margin-top:26px}
-.submit:hover{background:var(--ink-deep)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4.5vw,66px);align-items:start;max-width:1080px;margin-inline:auto}
+.fcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(26px,3vw,38px);box-shadow:var(--sh)}
+label{display:block;font-size:11.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--faint);margin:18px 0 7px}
+input,select,textarea{width:100%;min-width:0;padding:14px 16px;border:1.5px solid var(--line);background:var(--cream);
+  font-family:'Nunito',sans-serif;font-size:16px;color:var(--ink);border-radius:14px}
+textarea{min-height:108px;resize:vertical}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);background:#fff}
+.submit{width:100%;background:var(--rose);color:#fff;padding:17px;font-family:'Nunito',sans-serif;
+  font-weight:800;font-size:16px;border:0;border-radius:var(--r-pill);cursor:pointer;margin-top:24px;
+  box-shadow:0 10px 24px rgba(194,93,99,.28);transition:background .2s}
+.submit:hover{background:#AC4E54}
 
 /* ---------- footer ---------- */
-.foot{background:var(--ink-deep);color:rgba(255,255,255,.74);padding:56px var(--gut) 32px;font-size:14.5px;line-height:1.9}
-.fgrid2{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:38px;max-width:var(--maxw);margin-inline:auto}
+.foot{background:var(--ink);color:rgba(255,255,255,.76);padding:54px var(--gut) 30px;font-size:14.5px;line-height:1.95;
+  border-radius:clamp(24px,3vw,40px) clamp(24px,3vw,40px) 0 0;margin-top:clamp(40px,5vw,70px)}
+.fgrid2{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px;max-width:var(--maxw);margin-inline:auto}
 .foot a:hover{color:#fff}
-.foot .fn{font-family:'Poppins',sans-serif;font-weight:300;font-size:22px;color:#fff;margin-bottom:4px}
-.foot .fk{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#9FB0D8;margin-bottom:14px}
-.fh{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#9FB0D8;margin-bottom:10px}
-.fbot{max-width:var(--maxw);margin:34px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);
-  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#9FB0D8}
+.foot .fn{font-family:'Newsreader',serif;font-size:23px;font-weight:600;color:#fff;margin-bottom:3px}
+.foot .fk{font-size:10.5px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:#9FC4A6;margin-bottom:13px}
+.fh{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#9FC4A6;margin-bottom:9px}
+.fbot{max-width:var(--maxw);margin:32px auto 0;padding-top:19px;border-top:1px solid rgba(255,255,255,.16);
+  display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12.5px;color:#8FA6BD}
 
-.cbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(255,255,255,.97);
-  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:11px 12px;gap:10px}
-.cbar a{flex:1 1 0;min-width:0;text-align:center;padding:16px 8px;font-weight:700;font-size:14px;letter-spacing:.06em;text-transform:uppercase}
-.cb1{background:var(--ink);color:#fff}
-.cb2{border:1.5px solid var(--ink);color:var(--ink)}
+.cbar{display:none;position:fixed;left:0;right:0;bottom:0;z-index:50;background:rgba(253,247,238,.97);
+  backdrop-filter:blur(12px);border-top:1px solid var(--line);padding:10px 12px;gap:10px}
+.cbar a{flex:1 1 0;min-width:0;text-align:center;padding:15px 8px;font-weight:800;font-size:15px;border-radius:var(--r-pill)}
+.cb1{background:var(--rose);color:#fff}
+.cb2{background:#fff;border:1.5px solid var(--ink);color:var(--ink)}
 .rv{opacity:0;transform:translateY(16px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 
 @media (max-width:1023px){
-  .hdr{padding:13px 22px}
+  .hdr{padding:12px 18px 0}
+  .hdr-in{padding:8px 8px 8px 14px}
   .lnk{display:none}
   .burger{display:block}
-  .navlinks{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
-    background:#fff;border-bottom:1px solid var(--line);box-shadow:0 16px 30px rgba(51,71,126,.10);padding:2px 24px 14px}
+  .navlinks{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;flex-direction:column;
+    background:#fff;border:1px solid var(--line);border-radius:var(--r-card);box-shadow:var(--sh);padding:8px 22px}
   .navlinks.open{display:flex}
-  .navlinks .lnk{display:block;padding:16px 0;font-size:16px;border-bottom:1px solid var(--line);color:var(--ink)}
+  .navlinks .lnk{display:block;padding:14px 0;font-size:16px;border-bottom:1px solid var(--line);color:var(--ink)}
   .navlinks .lnk:last-child{border-bottom:0}
-  .navlinks .lnk::after{display:none}
-  .split,.loc,.melgrid{grid-template-columns:1fr;min-height:0}
-  .split.rev>.ph,.split.rev>.tx{order:0}
-  .split>.ph{aspect-ratio:16/10}
+  .split,.loc,.melgrid{grid-template-columns:1fr}
+  .split.rev .tx{order:0}
+  .split .ph .f,.split.rev .ph .f{transform:none}
   .lgrid,.pay3,.fgrid,.fgrid2{grid-template-columns:1fr}
-  .sec{padding:58px 24px}
-  .loc-tx{padding:52px 24px}
+  .feats{grid-template-columns:1fr;max-width:440px;margin-top:-26px}
+  .sec{padding:54px 22px}
+  .deco-birds,.deco-bloom-2{display:none}
 }
 @media (max-width:767px){
-  body{padding-bottom:76px}
+  body{padding-bottom:74px}
   .cbar{display:flex}
-  .tel{display:none}
-  .hstats{grid-template-columns:1fr 1fr}
-  .hs:nth-child(2){border-right:0}
-  .hs:nth-child(1),.hs:nth-child(2){border-bottom:1px solid var(--line)}
+  .tel span{display:none}
+  .tel{padding:11px 13px}
   .hcta{flex-direction:column}
-  .hcta .btn{width:100%;text-align:center}
-  /* uniform 2-up grid beats ragged wrapping: six pills land in exactly three rows */
-  .hsvc-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .hpill{font-size:13px;padding:12px 8px;text-align:center}
-  .hsvc{padding-top:22px;padding-bottom:24px}
-  .hsvc-l{margin-bottom:13px}
+  .hcta .btn{width:100%}
+  .hsvc{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hpill{font-size:12.5px;padding:11px 6px;text-align:center}
+  .cl-a,.cl-c{display:none}
+  .cl-b{width:min(88vw,360px)}
   .mosaic{grid-template-columns:1fr 1fr}
   .mo:nth-child(3){grid-column:1/-1}
-  .mo:nth-child(3) .f{aspect-ratio:16/10}
-  .sec{padding:52px 22px}
-  .split>.tx{padding:38px 22px}
+  .mo:nth-child(3) .f{aspect-ratio:16/10;transform:none}
+  .sec{padding:48px 20px}
+  .qband{margin:0 20px}
+  .deco-bloom{display:none}   /* collided with the eyebrow once it wrapped to two lines */
 }
-@media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} html{scroll-behavior:auto} }
+@media (prefers-reduced-motion:reduce){ .rv{opacity:1;transform:none;transition:none} html{scroll-behavior:auto}
+  .btn:hover,.bub:hover,.hpill:hover{transform:none} }
 </style>
 
 </head>
@@ -331,70 +378,97 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 <div class="wrap">
 
 <header class="hdr">
-  <a class="brand" href="#top" aria-label="Birdsong Adult Family Home, Kent WA — home">
-    <svg viewBox="0 0 100 100" role="img" aria-label=""><circle cx="50" cy="50" r="50" fill="#33477E"/>
-      <path d="M26,58 C26,44 37,33 50,33 C63,33 74,44 74,58" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/>
-      <path d="M50,33 C50,26 55,21 62,21 C60,27 56,31 50,33 Z" fill="#8FC49B"/>
-      <circle cx="50" cy="63" r="6.5" fill="#8FC49B"/></svg>
-    <div><div class="wm">Birdsong</div><div class="wm-k">Adult Family Home</div></div>
-  </a>
-  <nav class="nav" aria-label="Main">
-    <div class="navlinks" id="navlinks">
-      <a class="lnk" href="#care">Our care</a>
-      <a class="lnk" href="#home">The home</a>
-      <a class="lnk" href="#mel">Meet Mel</a>
-      <a class="lnk" href="#cost">Paying</a>
-      <a class="lnk" href="#faq">Questions</a>
-      <a class="lnk" href="#visit">Visit</a>
-    </div>
-    <a class="tel" href="tel:+12537400890" data-cta="call" data-loc="header">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      <span>(253) 740-0890</span></a>
-    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
-  </nav>
+  <div class="hdr-in">
+    <a class="brand" href="#top" aria-label="Birdsong Adult Family Home, Kent WA — home">
+      <svg viewBox="0 0 100 100" role="img" aria-label=""><circle cx="50" cy="50" r="50" fill="#264A6E"/>
+        <path d="M26,58 C26,44 37,33 50,33 C63,33 74,44 74,58" fill="none" stroke="#fff" stroke-width="5.5" stroke-linecap="round"/>
+        <path d="M50,33 C50,26 55,21 62,21 C60,27 56,31 50,33 Z" fill="#8FC49B"/>
+        <circle cx="50" cy="63" r="6.5" fill="#8FC49B"/></svg>
+      <div><div class="wm">Birdsong</div><div class="wm-k">Adult Family Home</div></div>
+    </a>
+    <nav class="nav" aria-label="Main">
+      <div class="navlinks" id="navlinks">
+        <a class="lnk" href="#care">Our care</a>
+        <a class="lnk" href="#home">The home</a>
+        <a class="lnk" href="#mel">Meet Mel</a>
+        <a class="lnk" href="#cost">Paying</a>
+        <a class="lnk" href="#faq">Questions</a>
+        <a class="lnk" href="#visit">Visit</a>
+      </div>
+      <a class="tel" href="tel:+12537400890" data-cta="call" data-loc="header">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.1 9.9a16 16 0 0 0 6 6l1.26-1.26a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <span>(253) 740-0890</span></a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </nav>
+  </div>
 </header>
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
-  <div class="hero-media">
-    <img src="images/exterior.webp" alt="Birdsong Adult Family Home in Kent, WA, with flowering dogwood along the front walkway" fetchpriority="high" decoding="async" srcset="images/exterior-480.webp 480w, images/exterior-768.webp 768w, images/exterior.webp 1600w" sizes="100vw">
+
+  <!-- birds and dogwood, because the home is called Birdsong and the tree is at her door -->
+  <svg class="deco deco-birds" viewBox="0 0 200 90" fill="none" stroke="currentColor" stroke-width="3.4" stroke-linecap="round" aria-hidden="true">
+    <path d="M12 40c8-9 16-9 23 0 7-9 15-9 23 0"/>
+    <path d="M74 18c6-7 12-7 17 0 5-7 11-7 17 0"/>
+    <path d="M120 55c7-8 14-8 20 0 6-8 13-8 19 0"/>
+  </svg>
+  <svg class="deco deco-bloom" viewBox="0 0 200 200" fill="none" aria-hidden="true">
+    <path d="M186 16c-30 6-52 20-70 40" stroke="#8FA98F" stroke-width="4" stroke-linecap="round"/>
+    <path d="M150 46c-16 2-28 10-38 22" stroke="#8FA98F" stroke-width="3.4" stroke-linecap="round"/>
+    <g opacity=".95">
+      <circle cx="150" cy="34" r="11" fill="#F3CBD1"/><circle cx="169" cy="30" r="9" fill="#EEBAC3"/>
+      <circle cx="158" cy="49" r="8.5" fill="#F7DDE0"/><circle cx="160" cy="36" r="5" fill="#D9A441"/>
+      <circle cx="110" cy="72" r="10" fill="#F3CBD1"/><circle cx="126" cy="66" r="8" fill="#F7DDE0"/>
+      <circle cx="117" cy="84" r="7.5" fill="#EEBAC3"/><circle cx="118" cy="74" r="4.5" fill="#D9A441"/>
+    </g>
+  </svg>
+
+  <div class="hero-in">
+    <div class="kick rose">Licensed adult family home &middot; East Hill, Kent</div>
+    <h1>Adult Family Home in Kent, WA <span class="tone">A small home, a familiar face.</span></h1>
+    <p class="sub">Six residents. Memory loss and dementia. On East Hill in Kent since 2007.</p>
+    <div class="hcta">
+      <a class="btn btn-rose" href="tel:+12537400890" data-cta="call" data-loc="hero">Call Mel &middot; (253) 740-0890</a>
+      <a class="btn btn-out" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
+    </div>
+    <div class="hsvc">
+      <button class="hpill" data-svc="0">Memory care</button>
+      <button class="hpill" data-svc="1">Dementia care</button>
+      <button class="hpill" data-svc="2">Behavioral support</button>
+      <button class="hpill" data-svc="3">Respite care</button>
+      <button class="hpill" data-svc="4">Medications</button>
+      <button class="hpill" data-svc="5">Daily living</button>
+    </div>
+
+    <div class="cluster">
+      <div class="cl cl-a"><img src="images/walkway.webp" alt="Flowering dogwood along the front walkway at Birdsong Adult Family Home in Kent, WA" loading="lazy" decoding="async" srcset="images/walkway-480.webp 480w, images/walkway-768.webp 768w" sizes="300px"></div>
+      <div class="cl cl-b"><img src="images/exterior.webp" alt="Birdsong Adult Family Home, a log house on East Hill in Kent, WA" fetchpriority="high" decoding="async" srcset="images/exterior-480.webp 480w, images/exterior-768.webp 768w, images/exterior.webp 1600w" sizes="(max-width:767px) 88vw, 400px"></div>
+      <div class="cl cl-c"><img src="images/dining.webp" alt="The dining table and log walls inside Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/dining-480.webp 480w, images/dining-768.webp 768w" sizes="300px"></div>
+    </div>
   </div>
-  <div class="hcard-wrap">
-    <div class="hcard">
-      <div class="kick">Licensed adult family home &middot; East Hill, Kent</div>
-      <h1>Adult Family Home in Kent, WA</h1>
-      <p class="sub">Six residents, memory loss and dementia, on East Hill since 2007.</p>
-      <div class="hcta">
-        <a class="btn btn-fill" href="tel:+12537400890" data-cta="call" data-loc="hero">Call Mel &middot; (253) 740-0890</a>
-        <a class="btn btn-line" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
-      </div>
-      <div class="hsvc">
-        <div class="hsvc-l">What we care for</div>
-        <div class="hsvc-row">
-          <button class="hpill" data-svc="0">Memory care</button>
-          <button class="hpill" data-svc="1">Dementia care</button>
-          <button class="hpill" data-svc="2">Behavioral support</button>
-          <button class="hpill" data-svc="3">Respite care</button>
-          <button class="hpill" data-svc="4">Medications</button>
-          <button class="hpill" data-svc="5">Daily living</button>
-        </div>
-      </div>
-      <div class="hstats">
-        <div class="hs"><div class="hs-v">6</div><div class="hs-l">Residents, by license</div></div>
-        <div class="hs"><div class="hs-v">2007</div><div class="hs-l">Caring since</div></div>
-        <div class="hs"><div class="hs-v">24/7</div><div class="hs-l">Someone here</div></div>
-        <div class="hs"><div class="hs-v">3</div><div class="hs-l">Ways to pay</div></div>
-      </div>
+
+  <div class="feats">
+    <div class="feat">
+      <div class="fico fi-sage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div><b>Licensed for six</b><span>WA DSHS #755160</span></div>
+    </div>
+    <div class="feat">
+      <div class="fico fi-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l8.8 8.8 8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+      <div><b>Memory &amp; dementia</b><span>Our specialty since 2007</span></div>
+    </div>
+    <div class="feat">
+      <div class="fico fi-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2.5"/><path d="M2 10h20"/></svg></div>
+      <div><b>Three ways to pay</b><span>Private &middot; Medicaid &middot; ECS</span></div>
     </div>
   </div>
 </section>
 
-<!-- ================= OUR CARE — dark band ================= -->
-<section class="sec dark" id="care">
+<!-- ================= OUR CARE ================= -->
+<section class="sec band-ink" id="care">
   <div class="in">
     <div class="center rv" style="max-width:640px">
       <div class="kick">Our care</div>
-      <h2 class="h2">Memory care and dementia care in Kent</h2>
+      <h2 class="h2">Memory care and dementia care <span class="tone" style="color:#F2C0B6">in Kent.</span></h2>
     </div>
     <div class="bubs rv" role="tablist" aria-label="What we provide">
       <button class="bub" role="tab" id="b1" aria-controls="p1" aria-selected="true">Memory care</button>
@@ -432,26 +506,24 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 </section>
 
 <!-- ================= THE HOME ================= -->
-<section id="home">
-  <div class="sec" style="padding-bottom:clamp(34px,4vw,54px)">
-    <div class="in center rv" style="max-width:640px">
-      <div class="kick">The home</div>
-      <h2 class="h2">A log house, not a facility</h2>
-      <p class="p lead">Warm wood in every room. Six bedrooms. A garden path that flowers every spring.</p>
-    </div>
+<section class="sec" id="home">
+  <div class="in center rv" style="max-width:640px;margin-bottom:clamp(40px,5vw,64px)">
+    <div class="kick">The home</div>
+    <h2 class="h2">A log house, <span class="tone">not a facility.</span></h2>
+    <p class="p lead">Warm wood in every room. Six bedrooms. A garden path that flowers every spring.</p>
   </div>
 
   <div class="split rv">
-    <div class="ph"><img src="images/walkway.webp" alt="Flowering dogwood and roses along the front walkway of Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/walkway-480.webp 480w, images/walkway-768.webp 768w, images/walkway.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div>
+    <div class="ph tilt"><div class="f"><img src="images/bedroom-1.webp" alt="A resident bedroom with warm log walls at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-1-480.webp 480w, images/bedroom-1-768.webp 768w, images/bedroom-1.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div></div>
     <div class="tx">
-      <div class="kick">The approach</div>
-      <h3 class="h3">You arrive through a garden</h3>
-      <p class="p">Dogwood and roses all the way to the door. It is the first thing a family sees.</p>
+      <div class="kick">Their own room</div>
+      <h3 class="h3">A room to settle into</h3>
+      <p class="p">Bring the photographs, the chair, the blanket from home. It helps more than people expect.</p>
     </div>
   </div>
 
   <div class="split rev rv">
-    <div class="ph"><img src="images/dining.webp" alt="The dining table and log walls inside Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/dining-480.webp 480w, images/dining-768.webp 768w, images/dining.webp 1600w" sizes="(max-width:1023px) 100vw, 50vw"></div>
+    <div class="ph tilt"><div class="f"><img src="images/kitchen.webp" alt="The kitchen at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/kitchen-480.webp 480w, images/kitchen-768.webp 768w, images/kitchen.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div></div>
     <div class="tx">
       <div class="kick">Where the day happens</div>
       <h3 class="h3">Everyone eats at one table</h3>
@@ -460,41 +532,21 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   </div>
 </section>
 
-<!-- ================= QUOTE OVER PHOTO ================= -->
+<!-- ================= QUOTE ================= -->
 <section class="qband">
-  <img src="images/bedroom-1.webp" alt="A resident bedroom with warm log walls at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-1-480.webp 480w, images/bedroom-1-768.webp 768w, images/bedroom-1.webp 1320w" sizes="100vw">
-  <blockquote>Six people, and the same faces every day. That is the whole idea.</blockquote>
+  <img src="images/bedroom-2.webp" alt="A second resident bedroom at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-2-480.webp 480w, images/bedroom-2-768.webp 768w, images/bedroom-2.webp 1320w" sizes="100vw">
+  <blockquote>Six people, and <em>the same faces every day.</em> That is the whole idea.</blockquote>
 </section>
 
-<!-- ================= MOSAIC ================= -->
-<section class="sec">
-  <div class="in">
-    <div class="mosaic rv">
-      <figure class="mo">
-        <div class="f"><img src="images/kitchen.webp" alt="The kitchen at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/kitchen-480.webp 480w, images/kitchen-768.webp 768w, images/kitchen.webp 1320w" sizes="(max-width:767px) 50vw, 33vw"></div>
-        <figcaption>The kitchen</figcaption>
-      </figure>
-      <figure class="mo">
-        <div class="f"><img src="images/bedroom-2.webp" alt="A second resident bedroom at Birdsong Adult Family Home in Kent" loading="lazy" decoding="async" srcset="images/bedroom-2-480.webp 480w, images/bedroom-2-768.webp 768w, images/bedroom-2.webp 1320w" sizes="(max-width:767px) 50vw, 33vw"></div>
-        <figcaption>A room of their own</figcaption>
-      </figure>
-      <figure class="mo">
-        <div class="f"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:767px) 100vw, 33vw"></div>
-        <figcaption>Step-free, grab rails</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<!-- ================= MEET MEL — asymmetric ================= -->
-<section class="sec" id="mel" style="background:var(--mist)">
+<!-- ================= MEET MEL ================= -->
+<section class="sec" id="mel">
   <div class="in melgrid rv">
     <div>
       <div class="kick">The provider</div>
       <h2 class="h2">Meet Mel</h2>
       <p class="p lead">Mel owns Birdsong and runs it. She has since 2007.</p>
       <p class="p">Call, and she answers. Not a call center, not a manager on a rota. She knows every resident by name, and she is the one who notices when something is different.</p>
-      <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="mel">Call Mel</a>
+      <a class="btn btn-ink" href="tel:+12537400890" data-cta="call" data-loc="mel">Call Mel</a>
     </div>
     <dl class="melcard">
       <dt>Provider</dt><dd>Imeeh &ldquo;Mel&rdquo; Ballan-Magsanoc</dd>
@@ -506,14 +558,14 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 </section>
 
 <!-- ================= LETTERS ================= -->
-<section class="sec" id="letters">
+<section class="sec band-cream" id="letters">
   <div class="in">
-    <div class="center rv" style="max-width:600px">
-      <div class="kick">Families</div>
-      <h2 class="h2">Letters families have written us</h2>
+    <div class="center rv" style="max-width:620px;margin-bottom:clamp(36px,4vw,52px)">
+      <div class="kick rose">Families</div>
+      <h2 class="h2">Letters families <span class="tone">have written us.</span></h2>
       <p class="p">Handwritten notes we have kept since 2007.</p>
     </div>
-    <div class="lgrid" style="margin-top:44px">
+    <div class="lgrid">
       <div class="letter rv"><div class="qm" aria-hidden="true">&ldquo;</div>
         <p>&ldquo;The caregivers provided exceptional personal care for our father, and he had often expressed thanks beyond words.&rdquo;</p>
         <div class="who">The Chiu family</div><div class="when">2017</div></div>
@@ -528,21 +580,47 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   </div>
 </section>
 
-<!-- ================= PAYING — three columns ================= -->
-<section class="sec" id="cost" style="background:var(--mist)">
+<!-- ================= MOSAIC ================= -->
+<section class="sec" style="padding-top:clamp(40px,4.5vw,68px)">
   <div class="in">
-    <div class="center rv" style="max-width:640px">
+    <div class="mosaic rv">
+      <figure class="mo">
+        <div class="f"><img src="images/walkway.webp" alt="The flowering front walkway at Birdsong Adult Family Home in Kent, WA" loading="lazy" decoding="async" srcset="images/walkway-480.webp 480w, images/walkway-768.webp 768w" sizes="(max-width:767px) 50vw, 33vw"></div>
+        <figcaption>The garden path</figcaption>
+      </figure>
+      <figure class="mo">
+        <div class="f"><img src="images/dining.webp" alt="The dining room with log walls at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/dining-480.webp 480w, images/dining-768.webp 768w" sizes="(max-width:767px) 50vw, 33vw"></div>
+        <figcaption>One table, together</figcaption>
+      </figure>
+      <figure class="mo">
+        <div class="f"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:767px) 100vw, 33vw"></div>
+        <figcaption>Step-free, grab rails</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAYING ================= -->
+<section class="sec band-cream" id="cost">
+  <div class="in">
+    <div class="center rv" style="max-width:640px;margin-bottom:clamp(36px,4vw,52px)">
       <div class="kick">Paying for care</div>
-      <h2 class="h2">Three ways to pay</h2>
+      <h2 class="h2">Three ways <span class="tone">to pay.</span></h2>
     </div>
-    <div class="pay3 rv" style="margin-top:42px">
-      <div class="pay"><h3>Private pay</h3><p>A monthly rate set by the level of care someone needs.</p></div>
-      <div class="pay"><h3>Medicaid</h3><p>Accepted. If you have a DSHS case manager, they can call Mel directly.</p></div>
-      <div class="pay"><h3>Expanded Community Services</h3><p>Contracted, for residents whose needs run higher than a standard placement.</p></div>
+    <div class="pay3 rv">
+      <div class="pay">
+        <div class="pico fi-sage"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.8h4a1.7 1.7 0 0 1 0 3.4h-3a1.7 1.7 0 0 0 0 3.4h4"/></svg></div>
+        <h3>Private pay</h3><p>A monthly rate set by the level of care someone needs.</p></div>
+      <div class="pay">
+        <div class="pico fi-rose"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8.5v6M9 11.5h6"/></svg></div>
+        <h3>Medicaid</h3><p>Accepted. If you have a DSHS case manager, they can call Mel directly.</p></div>
+      <div class="pay">
+        <div class="pico fi-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg></div>
+        <h3>Expanded Community Services</h3><p>Contracted, for residents whose needs run higher than a standard placement.</p></div>
     </div>
-    <div class="center rv" style="margin-top:38px">
+    <div class="center rv" style="margin-top:36px">
       <p class="p">Cost depends on care level and whether the room is private. Call and Mel will tell you straight.</p>
-      <a class="btn btn-line" href="tel:+12537400890" data-cta="call" data-loc="cost">Ask about cost and openings</a>
+      <a class="btn btn-ink" href="tel:+12537400890" data-cta="call" data-loc="cost">Ask about cost and openings</a>
     </div>
   </div>
 </section>
@@ -579,43 +657,45 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   </div>
 </section>
 
-<!-- ================= LOCATION + AREAS ================= -->
-<section class="loc" id="areas">
-  <div class="loc-tx rv">
-    <div class="kick">Find us</div>
-    <h2 class="h2" style="font-size:clamp(27px,3.1vw,40px)">On East Hill, in Kent</h2>
-    <p class="p">11701 SE 233rd Pl<br>Kent, WA 98031</p>
-    <p class="small" style="margin-bottom:6px">Families come to us from</p>
-    <div class="areas">
-      <span>Kent</span><span>Renton</span><span>Auburn</span><span>Covington</span>
-      <span>Federal Way</span><span>Des Moines</span><span>Tukwila</span><span>Maple Valley</span>
+<!-- ================= LOCATION ================= -->
+<section class="sec" id="areas">
+  <div class="in loc">
+    <div class="rv">
+      <div class="kick">Find us</div>
+      <h2 class="h2" style="font-size:clamp(27px,3.2vw,42px)">On East Hill, <span class="tone">in Kent.</span></h2>
+      <p class="p">11701 SE 233rd Pl<br>Kent, WA 98031</p>
+      <p class="small" style="margin-bottom:8px">Families come to us from</p>
+      <div class="areas">
+        <span>Kent</span><span>Renton</span><span>Auburn</span><span>Covington</span>
+        <span>Federal Way</span><span>Des Moines</span><span>Tukwila</span><span>Maple Valley</span>
+      </div>
+      <a class="btn btn-out" href="https://www.google.com/maps/dir/?api=1&destination=11701+SE+233rd+Pl%2C+Kent%2C+WA+98031" target="_blank" rel="noopener" data-cta="directions" data-loc="location">Get directions</a>
     </div>
-    <a class="btn btn-line" style="align-self:flex-start" href="https://www.google.com/maps/dir/?api=1&destination=11701+SE+233rd+Pl%2C+Kent%2C+WA+98031" target="_blank" rel="noopener" data-cta="directions" data-loc="location">Get directions</a>
-  </div>
-  <div class="loc-map">
-    <iframe title="Map showing Birdsong Adult Family Home, 11701 SE 233rd Pl, Kent, WA 98031" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-      src="https://maps.google.com/maps?q=11701+SE+233rd+Pl,+Kent,+WA+98031&z=15&output=embed"></iframe>
+    <div class="loc-map rv">
+      <iframe title="Map showing Birdsong Adult Family Home, 11701 SE 233rd Pl, Kent, WA 98031" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+        src="https://maps.google.com/maps?q=11701+SE+233rd+Pl,+Kent,+WA+98031&z=15&output=embed"></iframe>
+    </div>
   </div>
 </section>
 
 <!-- ================= VISIT ================= -->
-<section class="sec" id="visit" style="background:var(--mist)">
-  <div class="center rv" style="max-width:560px;margin:0 auto clamp(36px,4vw,54px)">
-    <div class="kick">Arrange a visit</div>
-    <h2 class="h2">Come and see it</h2>
+<section class="sec band-cream" id="visit">
+  <div class="center rv" style="max-width:580px;margin:0 auto clamp(34px,4vw,52px)">
+    <div class="kick rose">Arrange a visit</div>
+    <h2 class="h2">Come and <span class="tone">see it.</span></h2>
   </div>
   <div class="fgrid">
     <div class="rv">
       <p class="p lead">This is not a decision to make from a website. Walk through the house, meet Mel, ask whatever you want to ask.</p>
-      <p class="p" style="margin-bottom:4px"><strong>Call Mel</strong></p>
-      <p class="p"><a href="tel:+12537400890" style="font-family:'Poppins',sans-serif;font-weight:300;font-size:30px;color:var(--ink)" data-cta="call" data-loc="contact">(253) 740-0890</a></p>
+      <p class="p" style="margin-bottom:2px"><strong>Call Mel</strong></p>
+      <p class="p"><a href="tel:+12537400890" style="font-family:'Newsreader',serif;font-weight:600;font-size:34px;color:var(--rose)" data-cta="call" data-loc="contact">(253) 740-0890</a></p>
       <p class="p" style="font-size:16px">No answer? Leave a message and we call back the same day.</p>
       <p class="small">Licensed by Washington State DSHS &middot; License #755160<br>Birdsong AFHs, LLC &middot; 11701 SE 233rd Pl, Kent, WA 98031</p>
     </div>
-    <div>
+    <div class="fcard rv">
       <form id="visitForm" novalidate>
-        <div id="formErr" style="display:none;border:1px solid var(--blush);padding:14px 16px;margin-bottom:12px;font-size:15px"></div>
-        <div id="formOk" style="display:none;border:1px solid var(--green);background:#EDF3EE;padding:20px;font-size:16.5px">
+        <div id="formErr" style="display:none;border:1.5px solid var(--rose);background:var(--rose-soft);border-radius:14px;padding:14px 16px;margin-bottom:12px;font-size:15px;color:var(--ink)"></div>
+        <div id="formOk" style="display:none;border:1.5px solid var(--sage);background:var(--sage-soft);border-radius:14px;padding:20px;font-size:16.5px;color:var(--ink)">
           <strong>Thank you<span id="tyName"></span>.</strong><br>We have your message and will get back to you as soon as we can. If you would rather talk sooner, call Mel on (253) 740-0890.
         </div>
         <div id="formFields">
@@ -660,7 +740,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
     <div><div class="fh">Serving</div>
       Kent &middot; East Hill &middot; Renton<br>Auburn &middot; Covington &middot; Federal Way<br>
       Des Moines &middot; Tukwila &middot; Maple Valley<br>
-      <span style="color:#9FB0D8">Private pay &middot; Medicaid &middot; ECS</span>
+      <span style="color:#8FA6BD">Private pay &middot; Medicaid &middot; ECS</span>
     </div>
   </div>
   <div class="fbot">
@@ -742,7 +822,7 @@ document.querySelectorAll('[data-cta]').forEach(function(el){
   });
 });
 
-/* ---- service tabs, driven by both the hero pills and the tabs themselves ---- */
+/* ---- service tabs, driven by the hero pills and by the tabs themselves ---- */
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.bub'));
   var panels=tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
