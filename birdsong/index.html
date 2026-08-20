@@ -161,23 +161,37 @@ strong{font-weight:600;color:var(--ink)}
 .burger[aria-expanded="true"] span:nth-child(2){opacity:0}
 .burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-/* ---------- hero ---------- */
-.hero{position:relative;min-height:clamp(560px,72vh,760px);display:flex;align-items:center}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
-.hero::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(20,32,64,.60) 0%,rgba(20,32,64,.42) 45%,rgba(20,32,64,.78) 100%)}
-.hero-in{position:relative;z-index:2;padding:70px var(--gut);max-width:var(--maxw);margin-inline:auto;width:100%;text-align:center}
-.hero .eyebrow{font-size:11px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#fff;opacity:.85;margin-bottom:24px}
-.hero h1{font-size:clamp(36px,6vw,74px);color:#fff;margin:0 auto 24px;max-width:17ch;font-weight:200}
-.hero .sub{font-size:clamp(17px,1.4vw,21px);color:rgba(255,255,255,.94);max-width:62ch;margin:0 auto 34px;line-height:1.65;font-weight:400}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-
-/* ---------- trust strip ---------- */
-.trust{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}
-.tr{padding:30px 20px;text-align:center;border-right:1px solid var(--line)}
-.tr:last-child{border-right:0}
-.tr-v{font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(28px,3.1vw,40px);line-height:1;color:var(--ink)}
-.tr-l{font-size:11px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-top:11px}
+/* ---------- hero: photo band with an overlapping credential card ----------
+   Deliberately not the centred-text-over-a-dark-photo hero that every other AFH
+   site uses, awellcaredhome.com included. Putting the H1 on white rather than on
+   the photograph also makes it markedly easier to read for a 45-70 audience, and
+   the card absorbs the trust strip so the first screen carries the proof too. */
+.hero{position:relative;padding-bottom:clamp(46px,6vw,84px)}
+.hero-media{position:relative;height:clamp(280px,40vh,460px);background:var(--mist)}
+.hero-media img{width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.hero-media::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,rgba(20,32,64,.26) 0%,rgba(20,32,64,.04) 38%,rgba(20,32,64,.20) 100%)}
+.hcard-wrap{position:relative;z-index:2;padding:0 var(--gut);margin-top:clamp(-150px,-11vw,-60px)}
+.hcard{max-width:1080px;margin-inline:auto;background:var(--white);
+  padding:clamp(30px,4vw,58px) clamp(24px,4vw,60px) 0;
+  box-shadow:0 26px 64px rgba(51,71,126,.15)}
+.hcard h1{font-size:clamp(33px,5.1vw,62px);margin:0 0 20px;max-width:15ch;color:var(--ink)}
+.hcard .sub{font-size:clamp(16.5px,1.25vw,19.5px);line-height:1.7;color:var(--ink-soft);max-width:56ch;margin:0 0 30px}
+.hcta{display:flex;gap:13px;flex-wrap:wrap;padding-bottom:clamp(30px,3.6vw,46px)}
+.hsvc{border-top:1px solid var(--line);margin:0 clamp(-60px,-4vw,-24px);
+  padding:clamp(24px,2.8vw,34px) clamp(24px,4vw,60px) clamp(26px,3vw,36px)}
+.hsvc-l{font-size:10.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px}
+.hsvc-row{display:flex;flex-wrap:wrap;gap:9px}
+.hpill{font-family:'Figtree',sans-serif;font-size:14.5px;font-weight:600;letter-spacing:.02em;
+  padding:11px 20px;border:1.5px solid var(--line);background:var(--white);color:var(--ink-soft);
+  cursor:pointer;transition:border-color .2s ease,color .2s ease,background .2s ease}
+.hpill:hover,.hpill:focus-visible{border-color:var(--ink);background:var(--ink);color:#fff}
+.hstats{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);
+  margin:0 clamp(-60px,-4vw,-24px)}
+.hs{padding:22px 16px;text-align:center;border-right:1px solid var(--line)}
+.hs:last-child{border-right:0}
+.hs-v{font-family:'Poppins',sans-serif;font-weight:200;font-size:clamp(24px,2.6vw,34px);line-height:1.05;color:var(--ink)}
+.hs-l{font-size:10.5px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-faint);margin-top:9px}
 
 /* ---------- full-bleed alternating splits ----------
    Deliberately NOT the contained rounded photo cards used on awellcaredhome.com.
@@ -289,11 +303,16 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   body{padding-bottom:76px}
   .cbar{display:flex}
   .tel{display:none}
-  .trust{grid-template-columns:1fr 1fr}
-  .tr:nth-child(2){border-right:0}
-  .tr:nth-child(1),.tr:nth-child(2){border-bottom:1px solid var(--line)}
-  .hero-btns{flex-direction:column;width:100%}
-  .hero-btns .btn{width:100%;text-align:center}
+  .hstats{grid-template-columns:1fr 1fr}
+  .hs:nth-child(2){border-right:0}
+  .hs:nth-child(1),.hs:nth-child(2){border-bottom:1px solid var(--line)}
+  .hcta{flex-direction:column}
+  .hcta .btn{width:100%;text-align:center}
+  /* uniform 2-up grid beats ragged wrapping: six pills land in exactly three rows */
+  .hsvc-row{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .hpill{font-size:13px;padding:12px 8px;text-align:center}
+  .hsvc{padding-top:22px;padding-bottom:24px}
+  .hsvc-l{margin-bottom:13px}
   .sec{padding:50px 22px}
   .split>.tx{padding:40px 22px}
 }
@@ -316,7 +335,6 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
   </a>
   <nav class="nav" aria-label="Main">
     <div class="navlinks" id="navlinks">
-      <a class="lnk" href="#about">What is an AFH?</a>
       <a class="lnk" href="#care">Our care</a>
       <a class="lnk" href="#home">The home</a>
       <a class="lnk" href="#mel">Meet Mel</a>
@@ -332,36 +350,36 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
 
 <!-- ================= HERO ================= -->
 <section class="hero" id="top">
-  <img src="images/exterior.webp" alt="Birdsong Adult Family Home in Kent, WA, with flowering dogwood along the front walkway" fetchpriority="high" decoding="async" srcset="images/exterior-480.webp 480w, images/exterior-768.webp 768w, images/exterior.webp 1600w" sizes="100vw">
-  <div class="hero-in">
-    <div class="eyebrow">East Hill &middot; Kent &middot; South King County</div>
-    <h1>Adult Family Home in Kent, WA</h1>
-    <p class="sub">A licensed home for six residents, specializing in memory loss and dementia. Caring for families on East Hill since 2007.</p>
-    <div class="hero-btns">
-      <a class="btn btn-ghost" href="tel:+12537400890" data-cta="call" data-loc="hero">Call Mel &middot; (253) 740-0890</a>
-      <a class="btn btn-ghost" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
-    </div>
+  <div class="hero-media">
+    <img src="images/exterior.webp" alt="Birdsong Adult Family Home in Kent, WA, with flowering dogwood along the front walkway" fetchpriority="high" decoding="async" srcset="images/exterior-480.webp 480w, images/exterior-768.webp 768w, images/exterior.webp 1600w" sizes="100vw">
   </div>
-</section>
-
-<div class="trust">
-  <div class="tr"><div class="tr-v">6</div><div class="tr-l">Residents, by license</div></div>
-  <div class="tr"><div class="tr-v">2007</div><div class="tr-l">Caring for families since</div></div>
-  <div class="tr"><div class="tr-v">24/7</div><div class="tr-l">Someone here always</div></div>
-  <div class="tr"><div class="tr-v">3</div><div class="tr-l">Ways to pay</div></div>
-</div>
-
-<!-- ================= WHAT IS AN AFH =================
-     Targets "what is an adult family home in washington state" and
-     "adult family home vs assisted living", both live People Also Ask questions. -->
-<section class="sec" id="about">
-  <div class="in narrow center rv">
-    <div class="kick">Start here</div>
-    <h2 class="h2">What is an adult family home?</h2>
-    <p class="p lead">An adult family home is an ordinary house, licensed by Washington State DSHS, where up to six residents live and are cared for. Not a wing of a building. An actual home, on an actual street.</p>
-    <p class="p">Because the number is capped at six, an adult family home can give a kind of attention a large facility cannot. The same caregivers every day. Meals cooked in the kitchen and eaten at one table. Someone who notices when a person is quieter than usual.</p>
-    <p class="p">People often compare adult family homes with assisted living. Assisted living is usually a large building of private apartments with staff on call. An AFH is a house with six people in it. For someone living with dementia, that difference &mdash; familiar faces, a small quiet space, an unchanging routine &mdash; tends to matter more than amenities do.</p>
-    <p class="p"><strong>Birdsong is licensed for six, and we have been doing this on East Hill in Kent since 2007.</strong></p>
+  <div class="hcard-wrap">
+    <div class="hcard">
+      <div class="kick">Licensed adult family home &middot; East Hill, Kent</div>
+      <h1>Adult Family Home in Kent, WA</h1>
+      <p class="sub">A licensed home for six residents, specializing in memory loss and dementia. Caring for families on East Hill since 2007.</p>
+      <div class="hcta">
+        <a class="btn btn-fill" href="tel:+12537400890" data-cta="call" data-loc="hero">Call Mel &middot; (253) 740-0890</a>
+        <a class="btn btn-line" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
+      </div>
+      <div class="hsvc">
+        <div class="hsvc-l">What we care for</div>
+        <div class="hsvc-row">
+          <button class="hpill" data-svc="0">Memory care</button>
+          <button class="hpill" data-svc="1">Dementia care</button>
+          <button class="hpill" data-svc="2">Behavioral support</button>
+          <button class="hpill" data-svc="3">Respite care</button>
+          <button class="hpill" data-svc="4">Medications</button>
+          <button class="hpill" data-svc="5">Daily living</button>
+        </div>
+      </div>
+      <div class="hstats">
+        <div class="hs"><div class="hs-v">6</div><div class="hs-l">Residents, by license</div></div>
+        <div class="hs"><div class="hs-v">2007</div><div class="hs-l">Caring for families since</div></div>
+        <div class="hs"><div class="hs-v">24/7</div><div class="hs-l">Someone here always</div></div>
+        <div class="hs"><div class="hs-v">3</div><div class="hs-l">Ways to pay</div></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -618,7 +636,7 @@ input:focus,select:focus,textarea:focus{outline:2px solid var(--ink);outline-off
       <a href="tel:+12537400890" data-cta="call" data-loc="footer">(253) 740-0890</a>
     </div>
     <div><div class="fh">Explore</div>
-      <a href="#about">What is an AFH?</a><br><a href="#care">Our care</a><br>
+<a href="#care">Our care</a><br>
       <a href="#home">The home</a><br><a href="#mel">Meet Mel</a><br>
       <a href="#cost">Paying for care</a><br><a href="#visit">Arrange a visit</a>
     </div>
@@ -727,6 +745,15 @@ document.querySelectorAll('[data-cta]').forEach(function(el){
       if(e.key==='ArrowRight') n=(i+1)%tabs.length;
       if(e.key==='ArrowLeft')  n=(i-1+tabs.length)%tabs.length;
       if(n!==null){ e.preventDefault(); select(n); tabs[n].focus(); }
+    });
+  });
+  document.querySelectorAll('[data-svc]').forEach(function(el){
+    el.addEventListener('click',function(){
+      var i=parseInt(el.getAttribute('data-svc'),10);
+      select(i);
+      var c=document.getElementById('care');
+      if(c) c.scrollIntoView({behavior:'smooth',block:'start'});
+      track('hero_service_click',{service:el.textContent.trim()});
     });
   });
 })();
