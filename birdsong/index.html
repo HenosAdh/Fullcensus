@@ -251,16 +251,6 @@ strong{font-weight:800;color:var(--ink)}
   font-family:'Newsreader',Georgia,serif;font-weight:400;font-size:clamp(25px,4.1vw,50px);color:#fff;line-height:1.24}
 .qband blockquote em{font-style:italic;color:#F2C0B6}
 
-/* ---------- mosaic ---------- */
-.mosaic{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.8vw,24px);align-items:start}
-.mo{margin:0}
-.mo .f{aspect-ratio:4/5;border-radius:var(--r-photo);overflow:hidden;background:#fff;border:7px solid #fff;box-shadow:var(--sh)}
-.mo .f img{width:100%;height:100%;object-fit:cover;border-radius:calc(var(--r-photo) - 7px)}
-.mo:nth-child(1) .f{transform:rotate(-2deg)}
-.mo:nth-child(2){margin-top:clamp(20px,4vw,56px)}
-.mo:nth-child(3) .f{transform:rotate(2deg)}
-.mo figcaption{font-size:12.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-top:16px;text-align:center}
-
 /* ---------- Mel ---------- */
 .melgrid{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(30px,5vw,76px);align-items:center}
 .melcard{background:#fff;border:1px solid var(--line);border-radius:var(--r-card);padding:clamp(26px,2.6vw,34px);box-shadow:var(--sh)}
@@ -374,9 +364,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--ink);bac
   .hpill{font-size:12.5px;padding:11px 6px;text-align:center}
   .cl-a,.cl-c{display:none}
   .cl-b{width:min(88vw,360px)}
-  .mosaic{grid-template-columns:1fr 1fr}
-  .mo:nth-child(3){grid-column:1/-1}
-  .mo:nth-child(3) .f{aspect-ratio:16/10;transform:none}
   .sec{padding:48px 20px}
   .qband{margin:0 20px}
   .deco-bloom{display:none}   /* collided with the eyebrow once it wrapped to two lines */
@@ -583,6 +570,15 @@ section[id]{scroll-margin-top:96px}
       <p class="p">Home cooking, three times a day, for six people. Nothing arrives frozen on a truck.</p>
     </div>
   </div>
+
+  <div class="split rv">
+    <div class="ph tilt"><div class="f"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div></div>
+    <div class="tx">
+      <div class="kick">Built for safety</div>
+      <h3 class="h3">A bathroom that works for the people using it</h3>
+      <p class="p">Step-free shower, grab rails, room to help someone without crowding them. It is the first thing a case manager asks about.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ================= QUOTE ================= -->
@@ -630,26 +626,6 @@ section[id]{scroll-margin-top:96px}
         <div class="who">Bob F., son of a resident</div><div class="when">2021</div></div>
     </div>
     <p class="small center rv" style="margin-top:24px">The originals are on the wall at Birdsong.</p>
-  </div>
-</section>
-
-<!-- ================= MOSAIC ================= -->
-<section class="sec" style="padding-top:clamp(40px,4.5vw,68px)">
-  <div class="in">
-    <div class="mosaic rv">
-      <figure class="mo">
-        <div class="f"><img src="images/walkway.webp" alt="The flowering front walkway at Birdsong Adult Family Home in Kent, WA" loading="lazy" decoding="async" srcset="images/walkway-480.webp 480w, images/walkway-768.webp 768w" sizes="(max-width:767px) 50vw, 33vw"></div>
-        <figcaption>The garden path</figcaption>
-      </figure>
-      <figure class="mo">
-        <div class="f"><img src="images/exterior.webp" alt="The front of Birdsong Adult Family Home on East Hill in Kent, WA" loading="lazy" decoding="async" srcset="images/exterior-480.webp 480w, images/exterior-768.webp 768w" sizes="(max-width:767px) 50vw, 33vw"></div>
-        <figcaption>The house on East Hill</figcaption>
-      </figure>
-      <figure class="mo">
-        <div class="f"><img src="images/bathroom.webp" alt="Step-free shower with grab rails in the accessible bathroom at Birdsong Adult Family Home, Kent WA" loading="lazy" decoding="async" srcset="images/bathroom-480.webp 480w, images/bathroom-768.webp 768w, images/bathroom.webp 1320w" sizes="(max-width:767px) 100vw, 33vw"></div>
-        <figcaption>Step-free, grab rails</figcaption>
-      </figure>
-    </div>
   </div>
 </section>
 
