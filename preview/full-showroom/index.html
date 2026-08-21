@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Analytics intentionally not installed yet: create fresh GTM/GA4/Clarity properties
+     for the Full Showroom brand before launch (don't reuse the Full Census IDs). -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fill Your Showroom | Marketing for Lab-Grown Diamond Jewelers, Tint Shops &amp; High-Ticket Local Retail | Full Showroom</title>
+<meta name="description" content="Full Showroom is the full-service marketing agency for high-ticket local shops: lab-grown diamond jewelers, window tint and PPF shops, med spas, and big-ticket home upgrade showrooms. Website, Google Business Profile, local SEO, photography, and Meta ads, built to fill your bays and your cases. Book a free Showroom Audit." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%230a0a0a'/%3E%3Cpolygon points='9,12.8 12.5,8.5 19.5,8.5 23,12.8' fill='%23cdeef6'/%3E%3Cpolygon points='9.4,13.8 22.6,13.8 16,24.5' fill='%238fd6e6'/%3E%3C/svg%3E" type="image/svg+xml" />
+<!-- Update canonical + og:url once fullshowroom.com is registered and live -->
+<link rel="canonical" href="https://fullshowroom.com/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Full Showroom" />
+<meta property="og:title" content="Full Showroom — Marketing for High-Ticket Local Shops" />
+<meta property="og:description" content="We build the website, Google profile, local SEO, photography, and ads that fill tint bays, diamond cases, and big-ticket showrooms." />
+<meta property="og:url" content="https://fullshowroom.com/" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Organization","name":"Full Showroom","url":"https://fullshowroom.com","description":"Full-service marketing for high-ticket local shops: lab-grown diamond jewelers, window tint and PPF shops, and big-ticket showrooms.","telephone":"+1-206-203-4944","areaServed":"United States","founder":{"@type":"Person","name":"Henos Adhana"},"parentOrganization":{"@type":"Organization","name":"Full Census","url":"https://fullcensus.org"}}
+</script>
+<style>
+:root{--ink:#0a0a0a;--bg:#f4f4f4;--paper:#ffffff;--ice:#8fd6e6;--ice-soft:#cdeef6;--text:#141414;--muted:#6f6f6f;--gray:#6f6f6f;--soft:#f4f4f4;--radius:28px;--font:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--text);background:var(--paper);line-height:1.45;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* MARQUEE */
+.marquee{background:var(--ink);color:#fff;overflow:hidden;white-space:nowrap}
+.marquee__track{display:inline-block;padding:.6rem 0;font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;animation:scroll 30s linear infinite}
+.marquee__track span{margin:0 1rem;color:var(--ice)}
+.marquee__track b{font-weight:700;color:#fff}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* NAV */
+header.bar{position:sticky;top:0;z-index:50;padding:14px 16px}
+.nav-in{max-width:1040px;margin:0 auto;background:rgba(255,255,255,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid #e2e2e2;box-shadow:0 8px 30px rgba(0,0,0,.1);border-radius:40px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:10px 18px;min-height:60px}
+.nav-left{display:flex;gap:24px;align-items:center}
+.nav-left a{font-size:.92rem;font-weight:500;min-height:44px;display:flex;align-items:center}
+.brand{justify-self:center;display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.18rem}
+.brand svg{width:26px;height:26px}
+.nav-right{justify-self:end;display:flex;gap:16px;align-items:center}
+.nav-right .phone{font-size:.92rem;font-weight:600;min-height:44px;display:flex;align-items:center;padding:0 6px}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;padding:12px 20px;border-radius:40px;min-height:44px;border:1.5px solid var(--ink);background:transparent;cursor:pointer;line-height:1;color:var(--ink)}
+.btn svg{width:15px;height:15px}
+.btn.dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn.dark svg path{stroke:#fff}
+.btn.ice{background:var(--ice);color:var(--ink);border-color:var(--ice)}
+.btn.ice svg path{stroke:var(--ink)}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;justify-self:end;width:46px;height:46px;align-items:center;justify-content:center;border-radius:14px}
+.nav-toggle svg{width:24px;height:24px}
+.mobile-menu{display:none;position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.45)}
+.mobile-menu.open{display:block}
+.mm-panel{position:absolute;top:14px;left:16px;right:16px;background:#fff;border-radius:28px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.mm-head{display:flex;justify-content:space-between;align-items:center;padding:6px 8px 12px}
+.mm-panel a{display:flex;align-items:center;min-height:52px;padding:0 12px;border-radius:14px;font-weight:500;font-size:1.05rem}
+.mm-panel a:active{background:var(--soft)}
+.mm-panel .btn{width:100%;justify-content:center;margin-top:8px}
+.mm-close{background:none;border:0;width:44px;height:44px;cursor:pointer}
+.mm-close svg{width:22px;height:22px}
+
+/* HERO */
+.hero{position:relative;padding:34px 0 44px}
+.eyebrow{color:var(--gray);font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;padding-left:clamp(0px,8vw,130px)}
+.hero-head{text-align:left;font-weight:700;line-height:.96;letter-spacing:-.02em;font-size:clamp(2.3rem,9vw,5.4rem);max-width:15ch;word-break:break-word;hyphens:auto;padding-left:clamp(0px,8vw,130px)}
+.markwrap{display:inline-flex;vertical-align:middle;width:.92em;height:.92em;margin:0 .06em;border-radius:50%;background:var(--ink);align-items:center;justify-content:center}
+.markwrap svg{width:64%;height:64%}
+.hl-ice{display:inline-block;background:var(--ice);color:var(--ink);padding:.02em .26em;border-radius:14px;transform:rotate(-1.5deg);margin:.06em .04em}
+.chips{position:absolute;top:24px;right:0;display:flex;flex-direction:column;gap:8px;align-items:flex-end;z-index:3}
+.chip{background:var(--ink);color:#fff;font-weight:600;font-size:.82rem;padding:8px 16px;border-radius:30px;white-space:nowrap}
+.hero-foot{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;margin-top:30px;padding-left:clamp(0px,8vw,130px)}
+.hero-foot p{max-width:46ch;color:var(--text);font-size:.98rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+.hero-trust{margin-top:18px;padding-left:clamp(0px,8vw,130px);font-size:.74rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+
+/* SECTION SHELL */
+.sec{padding:24px 0}
+.shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:46px 0 50px;margin-top:8px}
+.shell.light{background:var(--bg);color:var(--text)}
+.sec-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-end}
+.sec-top .eyebrow{padding-left:0;margin-bottom:8px}
+.shell .sec-top .eyebrow{color:var(--ice)}
+.shell.light .sec-top .eyebrow{color:var(--muted)}
+.sec-top h2{font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:700;line-height:1.02;letter-spacing:-.01em;max-width:20ch}
+.sec-top h2 em{font-style:normal;color:var(--ice)}
+.shell.light .sec-top h2 em{color:var(--ink)}
+.sec-top .lead{color:#cfcfcf;max-width:34ch;font-size:.95rem}
+.shell.light .sec-top .lead{color:var(--muted)}
+.sec-rule{height:1px;background:rgba(255,255,255,.18);margin:22px 0 26px}
+.shell.light .sec-rule{background:#dcdcdc}
+.arrow-circ{width:46px;height:46px;border-radius:50%;background:var(--ice);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.arrow-circ svg{width:18px;height:18px}
+
+/* STATS */
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.stat-card{background:rgba(255,255,255,.08);border-radius:22px;padding:24px 20px 22px;display:flex;flex-direction:column}
+.stat-card .big{font-size:clamp(2.4rem,6vw,3.6rem);font-weight:700;line-height:1;color:var(--ice);letter-spacing:-.03em;margin-bottom:14px}
+.stat-card .big span{font-size:1.2rem;color:#fff}
+.stat-card h3{font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:8px}
+.stat-card p{color:#cfcfcf;font-size:.88rem}
+
+/* SERVICES */
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.ocard{background:rgba(255,255,255,.08);border-radius:22px;padding:24px 20px;display:flex;flex-direction:column;min-height:170px;transition:transform .15s ease,box-shadow .18s ease}
+.ocard:hover{transform:translateY(-3px);box-shadow:0 18px 44px rgba(0,0,0,.32)}
+.ocard:nth-child(3n+2){background:var(--ice)}
+.ocard .ohd{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.ocard .lbl{font-size:.66rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--ice);margin-bottom:8px}
+.ocard:nth-child(3n+2) .lbl{color:var(--ink)}
+.ocard h3{font-size:1.4rem;line-height:1.05;font-weight:700;color:#fff}
+.ocard:nth-child(3n+2) h3{color:var(--ink)}
+.ocard p{color:#cfcfcf;font-size:.86rem;margin-top:10px;max-width:44ch}
+.ocard:nth-child(3n+2) p{color:#123a44}
+.circ{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.ocard:nth-child(3n+2) .circ{background:rgba(0,0,0,.16)}
+.circ svg{width:18px;height:18px}
+.ocard:nth-child(3n+2) .circ svg path{stroke:var(--ink)}
+.ocard .tag{margin-top:14px;align-self:flex-start;background:var(--ice);color:var(--ink);font-size:.64rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.42rem .8rem;border-radius:8px;white-space:nowrap}
+.ocard:nth-child(3n+2) .tag{background:var(--ink);color:#fff}
+
+/* STATEMENT */
+.statement{background:var(--ink);color:#fff;border-radius:var(--radius);padding:54px 0;margin-top:8px;overflow:hidden}
+.stmt-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:34px 40px;align-items:center}
+.stmt-head{color:var(--ice);text-transform:uppercase;font-weight:700;line-height:.98;letter-spacing:-.01em;font-size:clamp(1.9rem,5.4vw,3.4rem);max-width:18ch;word-break:break-word;hyphens:auto}
+.stmt-side{display:flex;flex-direction:column;align-items:flex-start;gap:26px}
+.stmt-stat .num{font-size:clamp(2.4rem,6vw,3.4rem);font-weight:700;line-height:1;color:#fff}
+.stmt-stat .lbl{color:#cfcfcf;font-size:.95rem;margin-top:6px}
+.stmt-badge{width:clamp(120px,16vw,158px);height:clamp(120px,16vw,158px);flex:0 0 auto}
+.stmt-badge .spin{transform-origin:center;animation:spin 14s linear infinite}
+
+/* MARKET / SERP MOCKUP */
+.casestudy{background:var(--bg);border-radius:var(--radius);padding:40px 0 46px;margin-top:8px;overflow:hidden;position:relative}
+.cs-eyebrow{color:#0f6e85;font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
+.cs-head{font-size:clamp(1.7rem,4.4vw,2.7rem);font-weight:700;line-height:1.04;letter-spacing:-.01em;max-width:22ch;color:var(--ink)}
+.cs-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:34px 40px;align-items:center;margin-top:28px}
+.cs-story p{color:var(--text);font-size:1.02rem;margin-bottom:14px;max-width:52ch}
+.cs-story .credit{display:flex;gap:12px;align-items:flex-start;margin:18px 0 4px;padding:16px 18px;background:#fff;border:1px solid #e2e2e2;border-radius:18px}
+.cs-story .credit .av{flex:none;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.cs-story .credit b{color:var(--ink)}
+.cs-story .credit small{color:var(--muted);display:block;font-size:.86rem;margin-top:2px}
+.cs-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.serp{background:#fff;border-radius:18px;box-shadow:0 18px 50px rgba(0,0,0,.14);border:1px solid #e6e6e6;padding:20px 22px 24px;font-family:arial,Roboto,system-ui,sans-serif;max-width:560px;width:100%;margin:0 auto}
+.serp .gword{font-size:1.7rem;font-weight:700;letter-spacing:-1px;margin-bottom:12px}
+.serp .sbox{display:flex;align-items:center;gap:10px;border:1px solid #dfe1e5;border-radius:24px;padding:9px 16px;box-shadow:0 1px 4px rgba(5,59,65,.08)}
+.serp .sbox svg{width:17px;height:17px;flex:0 0 auto}
+.serp .sbox .q{font-size:.95rem;color:#202124;flex:1}
+.serp .sbox .mic{width:16px;height:16px;flex:0 0 auto}
+.serp .tabs{display:flex;gap:18px;font-size:.78rem;color:#5f6368;margin:14px 2px 4px;border-bottom:1px solid #ebebeb;padding-bottom:0;overflow-x:auto}
+.serp .tabs span{padding:6px 0 10px;white-space:nowrap}
+.serp .tabs span.active{color:#1a73e8;border-bottom:3px solid #1a73e8;font-weight:600}
+.serp .result{margin-top:18px}
+.serp .rsite{display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.serp .rsite .fav{width:26px;height:26px;border-radius:50%;background:#f1f3f4;display:flex;align-items:center;justify-content:center;flex:0 0 auto;overflow:hidden}
+.serp .rsite .fav svg{width:15px;height:15px}
+.serp .rsite .meta b{display:block;font-size:.82rem;color:#202124;line-height:1.2;font-weight:400}
+.serp .rsite .meta .url{font-size:.76rem;color:#0a6e2e}
+.serp .rtitle{font-size:1.25rem;line-height:1.3;color:#1a0dab;margin:2px 0 3px;font-weight:400}
+.serp .rdesc{font-size:.86rem;color:#4d5156;line-height:1.45}
+.flashpop{opacity:0;transform:scale(.965)}
+.flashpop.in{animation:flashIn .85s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes flashIn{0%{opacity:0;transform:scale(.965);box-shadow:0 0 0 0 rgba(143,214,230,0)}45%{opacity:1;box-shadow:0 0 0 14px rgba(143,214,230,.35)}100%{opacity:1;transform:scale(1);box-shadow:0 0 0 0 rgba(143,214,230,0)}}
+
+/* NICHE LIST */
+.niches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.ncard{background:#fff;border:1px solid #e2e2e2;border-left:4px solid var(--ice);border-radius:18px;padding:16px 18px}
+.ncard b{display:block;color:var(--ink);font-size:1rem;line-height:1.2}
+.ncard .ndata{display:block;margin-top:8px;font-size:.86rem;color:var(--muted)}
+.ncard .ndata strong{color:var(--ink);font-weight:700}
+.nfoot{margin-top:16px;font-size:.78rem;color:var(--muted)}
+
+/* STEPS */
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.step{border-top:1px solid rgba(255,255,255,.18);padding-top:16px}
+.step .num{font-size:.78rem;font-weight:700;letter-spacing:.1em;color:var(--ice);margin-bottom:20px}
+.step h3{color:#fff;font-size:1.1rem;font-weight:700;margin-bottom:8px}
+.step p{color:#cfcfcf;font-size:.9rem}
+
+/* AUDIT FORM */
+.audit-shell{background:var(--ink);color:#fff;border-radius:var(--radius);padding:48px 0;margin-top:8px}
+.quote-wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}
+.qp .eyebrow{color:var(--ice);padding-left:0;margin-bottom:14px}
+.qp h2{font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:700;color:#fff;line-height:1.04;letter-spacing:-.01em;margin-bottom:16px}
+.qp h2 .hl{background:var(--ice);color:var(--ink);padding:0 .14em;border-radius:8px}
+.qp p{color:#cfcfcf;margin-bottom:16px;font-size:1.02rem}
+.qp ul{list-style:none;margin:18px 0}
+.qp li{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;color:#ededed;font-size:.97rem}
+.qp li svg{width:18px;height:18px;flex:0 0 auto;margin-top:3px}
+.qp li em{font-style:italic;color:var(--ice)}
+.peer{display:flex;gap:14px;align-items:center;margin-top:22px;padding:16px 18px;background:rgba(255,255,255,.08);border-radius:22px}
+.peer .av{flex:none;width:46px;height:46px;border-radius:50%;background:var(--ice);color:var(--ink);display:flex;align-items:center;justify-content:center;font-weight:700}
+.peer b{color:#fff} .peer{color:#cfcfcf;font-size:.9rem} .peer small{color:#a8a8a8}
+form{background:#fff;color:var(--text);border-radius:24px;padding:30px;box-shadow:0 18px 50px rgba(0,0,0,.28)}
+form h3{font-size:1.4rem;font-weight:700;margin-bottom:4px;color:var(--ink)}
+form .sub{color:var(--muted);font-size:.9rem;margin-bottom:20px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink);margin-bottom:6px}
+.field input,.field select{width:100%;padding:.82rem .9rem;border:1.5px solid #d8d8d8;border-radius:14px;font-family:inherit;font-size:.95rem;background:var(--soft);color:var(--text)}
+.field input:focus,.field select:focus{outline:none;border-color:var(--ink);background:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+form .btn{width:100%;justify-content:center;margin-top:8px;padding:1rem;font-size:.98rem}
+.form-note{text-align:center;font-size:.78rem;color:var(--muted);margin-top:14px}
+.form-msg{display:none;padding:1rem;border-radius:14px;font-size:.92rem;margin-top:14px}
+.form-msg.ok{display:block;background:#e2f4f9;color:#0c5468;border:1px solid #a8dcea}
+.form-msg.err{display:block;background:#f3e3e0;color:#7a2a18;border:1px solid #e0b6ad}
+
+/* FOOTER */
+.cta-foot-shell{background:var(--ink);color:#cfcfcf;border-radius:var(--radius);padding:46px 0 36px;margin-top:8px}
+.foot-top{display:grid;grid-template-columns:1.5fr 1fr 1.3fr;gap:32px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.18)}
+.foot-logo{font-weight:700;font-size:1.4rem;color:#fff;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.foot-logo svg{width:26px;height:26px}
+.foot-blurb{font-size:.9rem;max-width:38ch;color:#cfcfcf}
+.foot-badge{display:inline-block;margin-top:14px;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ice);border:1px solid rgba(143,214,230,.5);padding:.34rem .7rem;border-radius:30px}
+.foot-col h5{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ice);margin-bottom:16px}
+.foot-col a{display:block;font-size:.92rem;color:#cfcfcf;margin-bottom:10px}
+.foot-col a:hover{color:#fff}
+.foot-bottom{padding-top:24px;font-size:.78rem;color:#8f8f8f}
+
+@keyframes spin{to{transform:rotate(360deg)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+.paused{animation-play-state:paused!important}
+
+/* RESPONSIVE */
+@media(max-width:880px){
+.nav-left,.nav-right{display:none}
+.nav-in{grid-template-columns:auto 1fr auto;min-height:56px}
+.brand{justify-self:start}
+.nav-toggle{display:flex}
+.grid-3,.grid-2,.grid-4,.quote-wrap,.foot-top,.cs-grid{grid-template-columns:1fr}
+.niches{grid-template-columns:1fr 1fr}
+.sec-top{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:640px){
+.nav-in{background:rgba(255,255,255,.95);-webkit-backdrop-filter:none;backdrop-filter:none}
+.hero{padding:18px 0 30px}
+.chips{position:static;flex-direction:row;justify-content:flex-start;margin:0 0 16px;align-items:center;flex-wrap:wrap}
+.hero-head{font-size:clamp(2.1rem,11vw,3.1rem);max-width:100%;padding-left:0}
+.eyebrow,.hero-foot,.hero-trust{padding-left:0}
+.hero-foot{gap:16px;margin-top:22px}
+.niches{grid-template-columns:1fr}
+.row2{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <b>Websites</b><span>✶</span><b>Google Business</b><span>✶</span><b>Local SEO</b><span>✶</span><b>Photography</b><span>✶</span><b>Meta ads</b><span>✶</span><b>Full-service showroom marketing</b><span>✶</span>
+    <b>Websites</b><span>✶</span><b>Google Business</b><span>✶</span><b>Local SEO</b><span>✶</span><b>Photography</b><span>✶</span><b>Meta ads</b><span>✶</span><b>Full-service showroom marketing</b><span>✶</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<header class="bar">
+<nav class="nav-in" aria-label="Primary">
+<div class="nav-left">
+<a href="#market">The market</a>
+<a href="#services">What we do</a>
+<a href="#how">How it works</a>
+</div>
+<a href="#" class="brand" aria-label="Full Showroom home">
+<svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0a0a0a"/><polygon points="9,12.8 12.5,8.5 19.5,8.5 23,12.8" fill="#cdeef6"/><polygon points="9.4,13.8 22.6,13.8 16,24.5" fill="#8fd6e6"/></svg>
+Full&nbsp;Showroom
+</a>
+<div class="nav-right">
+<a href="tel:+12062034944" class="phone">(206) 203-4944</a>
+<a href="#audit" class="btn dark">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu" id="navToggle">
+<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+</nav>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobile-menu">
+<div class="mm-panel" role="dialog" aria-modal="true" aria-label="Menu">
+<div class="mm-head">
+<span class="brand"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0a0a0a"/><polygon points="9,12.8 12.5,8.5 19.5,8.5 23,12.8" fill="#cdeef6"/><polygon points="9.4,13.8 22.6,13.8 16,24.5" fill="#8fd6e6"/></svg>Full&nbsp;Showroom</span>
+<button class="mm-close" aria-label="Close menu" id="mmClose"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round"/></svg></button>
+</div>
+<a href="#market">The market</a>
+<a href="#services">What we do</a>
+<a href="#niches">Who we fill</a>
+<a href="#how">How it works</a>
+<a href="tel:+12062034944">(206) 203-4944</a>
+<a href="#audit" class="btn dark">Book Free Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+
+<main>
+<!-- HERO -->
+<section class="hero wrap">
+<div class="chips">
+<span class="chip">Lab-Grown Diamond Jewelers</span>
+<span class="chip">Tint &amp; PPF Shops</span>
+<span class="chip">High-Ticket Showrooms</span>
+</div>
+
+<p class="eyebrow">Full-service marketing for high-ticket local shops</p>
+<h1 class="hero-head">Get found. Get booked.
+<span class="markwrap" aria-hidden="true"><svg viewBox="0 0 32 32"><polygon points="9,12.8 12.5,8.5 19.5,8.5 23,12.8" fill="#cdeef6"/><polygon points="9.4,13.8 22.6,13.8 16,24.5" fill="#8fd6e6"/></svg></span>
+Get <span class="hl-ice">full.</span></h1>
+
+<div class="hero-foot">
+<p>One customer is worth $600 in a tint bay and $6,000 at a diamond counter — and 368,000 people search <em>"window tinting near me"</em> every single month. We build and run the website, Google Business profile, local SEO, photography, and Meta ads that make those buyers walk into <em>your</em> showroom instead of the one across town.</p>
+<div class="hero-cta">
+<a class="btn dark" href="#audit">Get my free Showroom Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="btn" href="tel:+12062034944">Call (206) 203-4944</a>
+</div>
+</div>
+<div class="hero-trust">From the team behind Full Census · Built for shops where one sale pays the month</div>
+</section>
+
+<!-- MARKET / SERP -->
+<section class="wrap sec" id="market">
+<div class="casestudy flashpop" data-flash>
+<div class="wrap">
+<p class="cs-eyebrow">The market, measured</p>
+<h2 class="cs-head">The buyers are already searching. The only question is whose showroom they find.</h2>
+<div class="cs-grid">
+
+<!-- Google search mockup (inline HTML/CSS, not an image) -->
+<div class="serp" role="img" aria-label="Google search results for 'window tinting near me' showing the number one spot, labeled: your shop here.">
+<div class="gword" aria-hidden="true"><span style="color:#4285F4">G</span><span style="color:#EA4335">o</span><span style="color:#FBBC05">o</span><span style="color:#4285F4">g</span><span style="color:#34A853">l</span><span style="color:#EA4335">e</span></div>
+<div class="sbox">
+<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="#9aa0a6" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="#9aa0a6" stroke-width="2" stroke-linecap="round"/></svg>
+<span class="q">window tinting near me</span>
+<svg class="mic" viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3" fill="#4285F4"/><path d="M6 11a6 6 0 0 0 12 0M12 17v3" stroke="#34A853" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+</div>
+<div class="tabs" aria-hidden="true">
+<span class="active">All</span><span>Images</span><span>Videos</span><span>News</span><span>Maps</span><span>More</span>
+</div>
+<div class="result">
+<div class="rsite">
+<span class="fav"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0a0a0a"/><polygon points="9,12.8 12.5,8.5 19.5,8.5 23,12.8" fill="#cdeef6"/><polygon points="9.4,13.8 22.6,13.8 16,24.5" fill="#8fd6e6"/></svg></span>
+<span class="meta">
+<b>yourshop.com</b>
+<span class="url">https://yourshop.com</span>
+</span>
+</div>
+<div class="rtitle">Your Shop — Ceramic Tint &amp; PPF | Your City</div>
+<div class="rdesc">This spot gets the call. 368,000 searches a month ride on this phrase, and your competitors pay Google $5.21 every time someone clicks their ad instead. Ranking here organically costs you nothing per click — and it compounds.</div>
+</div>
+</div>
+
+<!-- Story + credibility -->
+<div class="cs-story">
+<p>This is exactly how Full Census fills care homes in Washington: rank the shop for the searches buyers actually type, and the calendar fills itself. A family found our first site in week one — that one customer has been worth <strong>$5,000 a month ever since</strong>.</p>
+<p>High-ticket shops are the same math with bigger tickets: your buyer is worth hundreds to thousands per sale, your competitors pay <strong>$5 to $47 per click</strong> to reach them, and most shops in your city still have no real website and an unclaimed Google profile. That gap is the opportunity.</p>
+<div class="credit">
+<span class="av" aria-hidden="true">HA</span>
+<div><b>Henos Adhana</b>, Founder — Full Census &amp; Full Showroom
+<small>"I did this for my own family's business first. It filled. Then I made it a system."</small></div>
+</div>
+<div class="cs-cta">
+<a class="btn" href="https://fullcensus.org" target="_blank" rel="noopener">See the Full Census playbook <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="btn ice" href="#audit">Book my free Showroom Audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#0a0a0a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATS -->
+<section class="wrap sec" id="results">
+<div class="shell reveal">
+<div class="wrap">
+<div class="sec-top">
+<div>
+<p class="eyebrow">The demand, in numbers</p>
+<h2>We don't sell websites. We fill showrooms.</h2>
+</div>
+<span class="arrow-circ" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M7 17L17 7M9 7h8v8" stroke="#0a0a0a" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+</div>
+<div class="sec-rule"></div>
+<div class="grid-3">
+<article class="stat-card"><div class="big">368K<span>/mo</span></div><h3>"window tinting near me"</h3><p>US Google searches every month. Add "tint shop near me" and it's another 90,500. Those people want a bay this week.</p></article>
+<article class="stat-card"><div class="big">$12.56<span>/click</span></div><h3>"lab grown diamond engagement rings"</h3><p>What jewelers pay Google Ads for a single click on this phrase, 90,500 times a month. Ranking under the ads is free.</p></article>
+<article class="stat-card"><div class="big">1<span> wk</span></div><h3>kickoff to live</h3><p>From the first call to a live, indexed, booking-ready website. Same build system Full Census runs. One week.</p></article>
+</div>
+</div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section class="wrap sec" id="services">
+<div class="shell reveal">
+<div class="wrap">
+<div class="sec-top">
+<div>
+<p class="eyebrow">What we do</p>
+<h2>Everything that fills a showroom, under one roof.</h2>
+</div>
+</div>
+<div class="sec-rule"></div>
+<div class="grid-2">
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">The home base</div><h3>Website</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>A clean, fast site that makes a four-figure purchase feel safe before they ever walk in. Built once, yours forever.</p>
+<span class="tag">Foundation</span>
+</a>
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">The map pack</div><h3>Google Business Profile</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>Claimed, optimized, and managed, so you show up when someone searches "tint shop near me" at a red light. Most shops never set this up right.</p>
+<span class="tag">Setup + manage</span>
+</a>
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">Staying found</div><h3>Local SEO &amp; Maps</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>Ongoing ranking work that keeps you above the shop two exits down for every "near me" search that matters in your city.</p>
+<span class="tag">Monthly</span>
+</a>
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">The trust lever</div><h3>Professional Photography</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>We shoot your work: the flawless install, the stone under the light, the before-and-after. Real photos are why buyers pick you over the stock-photo shop.</p>
+<span class="tag">On-site</span>
+</a>
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">Reaching buyers first</div><h3>Facebook &amp; Instagram Ads</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>Reach the couple ring-shopping at 11pm and the new-car owner before the dealership upsells them. Ads reach buyers the website can't reach on its own yet.</p>
+<span class="tag">Managed</span>
+</a>
+
+<a class="ocard" href="#audit">
+<div class="ohd"><div><div class="lbl">The closer</div><h3>Reviews &amp; Reputation</h3></div><span class="circ"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+<p>A steady system that turns happy customers into five-star reviews, because that's the first thing every big-ticket buyer reads before choosing a shop.</p>
+<span class="tag">Ongoing</span>
+</a>
+
+</div>
+</div>
+</div>
+</section>
+
+<!-- STATEMENT -->
+<section class="wrap sec">
+<div class="statement reveal">
+<div class="wrap">
+<div class="stmt-grid">
+<h2 class="stmt-head">We don't sell websites. We fill showrooms.</h2>
+<div class="stmt-side">
+<div class="stmt-stat">
+<div class="num">Book your<br>free audit</div>
+<div class="lbl">30 minutes · no pressure, no jargon</div>
+</div>
+<span class="stmt-badge" aria-hidden="true">
+<svg viewBox="0 0 118 118"><circle cx="59" cy="59" r="59" fill="#8fd6e6"/>
+<g class="spin"><path id="cpath2" d="M59 18a41 41 0 1 1 0 82 41 41 0 1 1 0-82" fill="none"/>
+<text fill="#0a0a0a" font-size="10" font-weight="700"><textPath href="#cpath2" startOffset="0" textLength="256" lengthAdjust="spacingAndGlyphs">BOOK YOUR FREE AUDIT • BOOK YOUR FREE AUDIT • </textPath></text></g>
+<g transform="translate(59 59)"><polygon points="-8,-3.5 -4,-8.5 4,-8.5 8,-3.5" fill="#0a0a0a"/><polygon points="-7.5,-2.3 7.5,-2.3 0,9.5" fill="#0a0a0a"/></g></svg>
+</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- NICHES -->
+<section class="wrap sec" id="niches">
+<div class="shell light reveal">
+<div class="wrap">
+<div class="sec-top">
+<div>
+<p class="eyebrow">Who we fill</p>
+<h2>Built for shops where one sale <em>pays the month.</em></h2>
+</div>
+<p class="lead">Every niche below has buyers searching "near me" right now, and competitors paying Google by the click to catch them.</p>
+</div>
+<div class="sec-rule"></div>
+<div class="niches">
+<div class="ncard"><b>Lab-grown diamond jewelers</b><span class="ndata"><strong>135,000</strong> searches/mo · <strong>$7.37</strong> a click</span></div>
+<div class="ncard"><b>Window tint &amp; PPF shops</b><span class="ndata"><strong>368,000</strong> searches/mo · <strong>$5.21</strong> a click</span></div>
+<div class="ncard"><b>Car wrap &amp; ceramic coating studios</b><span class="ndata"><strong>90,500</strong> searches/mo · <strong>$4.53</strong> a click</span></div>
+<div class="ncard"><b>Med spas &amp; laser clinics</b><span class="ndata"><strong>110,000</strong> searches/mo · <strong>$16.45</strong> a click</span></div>
+<div class="ncard"><b>Custom closet builders</b><span class="ndata"><strong>60,500</strong> searches/mo · up to <strong>$47.41</strong> a click</span></div>
+<div class="ncard"><b>Epoxy &amp; garage floor coaters</b><span class="ndata"><strong>49,500</strong> searches/mo · <strong>$10.14</strong> a click</span></div>
+<div class="ncard"><b>Kitchen &amp; bath remodelers</b><span class="ndata"><strong>90,500</strong> searches/mo · <strong>$29.84</strong> a click</span></div>
+<div class="ncard"><b>Pool, hot tub &amp; sauna dealers</b><span class="ndata"><strong>49,500</strong> searches/mo · <strong>$10.92</strong> a click</span></div>
+<div class="ncard"><b>Home wellness: golf sims &amp; cold plunges</b><span class="ndata"><strong>27,100</strong> searches/mo · <strong>$6.37</strong> a click</span></div>
+<div class="ncard"><b>Turf, hardscape &amp; fence installers</b><span class="ndata"><strong>27,100</strong> searches/mo · <strong>$14.76</strong> a click</span></div>
+<div class="ncard"><b>Custom &amp; permanent jewelry studios</b><span class="ndata"><strong>40,500</strong> searches/mo · <strong>$4.17</strong> a click</span></div>
+<div class="ncard"><b>Mattress &amp; furniture showrooms</b><span class="ndata"><strong>301,000</strong> searches/mo · <strong>$11.33</strong> a click</span></div>
+</div>
+<p class="nfoot">US Google search data for each niche's top "buyer" keyword, August 2026 · pulled via DataForSEO. Sell something big-ticket that isn't listed? The system still fits — book the audit.</p>
+</div>
+</div>
+</section>
+
+<!-- STEPS -->
+<section class="wrap sec" id="how">
+<div class="shell reveal">
+<div class="wrap">
+<div class="sec-top">
+<div>
+<p class="eyebrow">How it works</p>
+<h2>From audit to sold out.</h2>
+</div>
+</div>
+<div class="sec-rule"></div>
+<div class="grid-4">
+<div class="step"><div class="num">01 / AUDIT</div><h3>Free Showroom Audit</h3><p>A 30-minute call where we show you exactly where buyers in your city are going instead of your shop, and what to fix.</p></div>
+<div class="step"><div class="num">02 / BUILD</div><h3>Build &amp; photograph</h3><p>Website, Google profile, and a real on-site shoot of your work and your space. Live in about a week.</p></div>
+<div class="step"><div class="num">03 / LAUNCH</div><h3>Rank &amp; advertise</h3><p>Local SEO climbs you up Google and Maps; Meta ads reach buyers before they ever search.</p></div>
+<div class="step"><div class="num">04 / FILL</div><h3>Track &amp; fill</h3><p>Calls, bookings, and walk-ins come in, we track every one, and we keep the system tuned until you're booked out.</p></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- AUDIT -->
+<section class="wrap sec" id="audit">
+<div class="audit-shell reveal">
+<div class="wrap">
+<div class="quote-wrap">
+<div class="qp">
+<p class="eyebrow">Free Showroom Audit</p>
+<h2>See exactly why buyers drive <span class="hl">past you.</span></h2>
+<p>A free 30-minute call. We'll look at your shop's current online presence and your local market, then show you the path to booked out. No pressure, no jargon.</p>
+<ul>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#8fd6e6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Where buyers can (and can't) find you today</li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#8fd6e6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>What the shop across town is doing to rank</li>
+<li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke="#8fd6e6" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>The fastest path to booked installs and consults for <em>your</em> shop</li>
+</ul>
+<div class="peer">
+<span class="av" aria-hidden="true">HA</span>
+<div><b>Henos Adhana.</b> Founder of <a href="https://fullcensus.org" target="_blank" rel="noopener" style="text-decoration:underline">Full Census</a>.<br><small>I filled my own family's business from page one of Google first. Full Showroom brings that same system to high-ticket shops.</small></div>
+</div>
+</div>
+
+<form id="quoteForm">
+<h3>Book my free audit</h3>
+<div class="sub">We'll reach out within one business day to schedule.</div>
+<div class="field"><label for="name">Your name</label><input id="name" type="text" required placeholder="First and last" /></div>
+<div class="field"><label for="shop">Shop name</label><input id="shop" type="text" required placeholder="e.g. Apex Tint &amp; PPF" /></div>
+<div class="row2">
+<div class="field"><label for="city">City</label><input id="city" type="text" required placeholder="Seattle" /></div>
+<div class="field"><label for="sells">What you sell</label>
+<select id="sells"><option value="">Select…</option><option>Lab-grown diamonds &amp; jewelry</option><option>Window tint &amp; PPF</option><option>Wraps, coating &amp; detailing</option><option>Med spa &amp; aesthetics</option><option>Home upgrades (closets, floors, pools…)</option><option>Other high-ticket</option></select>
+</div>
+</div>
+<div class="row2">
+<div class="field"><label for="phone">Phone</label><input id="phone" type="tel" required placeholder="(206) 555-0142" /></div>
+<div class="field"><label for="website">Have a website?</label>
+<select id="website"><option value="">Select…</option><option value="no">No website</option><option value="yes">Yes, we have one</option><option value="unsure">Not sure</option></select>
+</div>
+</div>
+<div class="field"><label for="email">Email</label><input id="email" type="email" required placeholder="you@email.com" /></div>
+<button class="btn dark" type="submit" id="submitBtn">Book my free audit <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="form-note">Or call/text <a href="tel:+12062034944" style="color:var(--ink);font-weight:700">(206) 203-4944</a></div>
+<div class="form-msg" id="formMsg"></div>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="wrap sec">
+<div class="cta-foot-shell">
+<div class="wrap">
+<div class="foot-top">
+<div>
+<div class="foot-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#0a0a0a"/><polygon points="9,12.8 12.5,8.5 19.5,8.5 23,12.8" fill="#cdeef6"/><polygon points="9.4,13.8 22.6,13.8 16,24.5" fill="#8fd6e6"/></svg>Full Showroom</div>
+<div class="foot-blurb">Full-service marketing for high-ticket local shops. Website, Google, photography, and ads, built to fill your bays, your cases, and your calendar.</div>
+<div class="foot-badge">From the Full Census team · Seattle, WA</div>
+</div>
+<div class="foot-col">
+<h5>What we do</h5>
+<a href="#services">Websites</a><a href="#services">Google Business</a><a href="#services">Local SEO</a><a href="#services">Photography</a><a href="#services">Meta ads</a><a href="#services">Reviews</a>
+</div>
+<div class="foot-col">
+<h5>Reach us</h5>
+<a href="https://fullcensus.org" target="_blank" rel="noopener">Full Census (our first agency) →</a>
+<a href="tel:+12062034944">(206) 203-4944</a>
+<a href="#audit">Book a free Showroom Audit</a>
+</div>
+</div>
+<div class="foot-bottom">© 2026 Full Showroom · High-Ticket Showroom Marketing · A Full Census company · We never sell your information.</div>
+</div>
+</div>
+</footer>
+</main>
+
+<script>
+  // Audit request → Supabase `leads` (source='showroom-audit'). Same public anon
+  // key + table as fullcensus.org (RLS allows anon INSERT; never read back).
+  const SUPABASE_URL  = "https://kficcgswkkprnyvuxqsx.supabase.co";
+  const SUPABASE_ANON = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmaWNjZ3N3a2twcm55dnV4cXN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NjU0MjUsImV4cCI6MjA5NjU0MTQyNX0.uMHqNV4IAWv1WVJTmouqG-Oju5d-hK5sC7RmYEdqRDM";
+  const form = document.getElementById("quoteForm");
+  const msg = document.getElementById("formMsg");
+  const btn = document.getElementById("submitBtn");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    btn.disabled = true; btn.textContent = "Booking…";
+    msg.className = "form-msg";
+    const v = (id) => document.getElementById(id).value.trim();
+    const shop = v("shop"), city = v("city"), sells = v("sells"), website = v("website");
+    const payload = {
+      family_name: v("name"), email: v("email"), phone: v("phone"),
+      location_pref: city,
+      notes: `Showroom Audit request · Shop: ${shop}` + (sells ? ` · Sells: ${sells}` : "") + (website ? ` · Website: ${website}` : ""),
+      source: "showroom-audit", route: "fullshowroom", status: "new"
+    };
+    // Save the lead first (best effort) so you capture them even if they never book.
+    try {
+      await fetch(`${SUPABASE_URL}/rest/v1/leads`, {
+        method:"POST",
+        headers:{ "apikey":SUPABASE_ANON, "Authorization":"Bearer "+SUPABASE_ANON, "Content-Type":"application/json", "Prefer":"return=minimal" },
+        body: JSON.stringify(payload)
+      });
+    } catch(err){ /* network hiccup — still send them to scheduling below */ }
+    // Email a copy of the lead to the operator (FormSubmit — free, no server needed).
+    try {
+      await fetch("https://formsubmit.co/ajax/henosadhana@gmail.com", {
+        method:"POST",
+        headers:{ "Content-Type":"application/json", "Accept":"application/json" },
+        body: JSON.stringify({
+          _subject: "New Showroom Audit request — " + (shop || "a shop"),
+          _template: "table", _captcha: "false",
+          Name: payload.family_name, "Shop": shop, City: city,
+          "Sells": sells || "—", Phone: payload.phone,
+          "Has website": website || "—", Email: payload.email,
+          Source: (document.title || "fullshowroom.com")
+        })
+      });
+    } catch(err){ /* email is best-effort; the lead is already saved above */ }
+    // Always show the Calendly scheduling step after submit.
+    // TODO: create a dedicated "Free Showroom Audit" Calendly event type; reusing the audit link until then.
+    var _name = payload.family_name || "", _email = payload.email || "";
+    var _cal = "https://calendly.com/henosadhana/free-occupancy-audit";
+    var _q = "?hide_gdpr_banner=1" + (_name ? "&name=" + encodeURIComponent(_name) : "") + (_email ? "&email=" + encodeURIComponent(_email) : "");
+    form.innerHTML =
+      '<div style="text-align:center">' +
+      '<h3 style="font-size:1.45rem;font-weight:800;margin-bottom:6px">Thank you. Your details are saved.</h3>' +
+      '<p style="color:var(--muted);margin-bottom:12px">Now let\'s get you scheduled. Pick a time below and we will talk.</p>' +
+      '<iframe src="' + _cal + _q + '" title="Schedule your free Showroom Audit" loading="lazy" style="width:100%;min-height:640px;border:0;border-radius:14px;background:#fff"></iframe>' +
+      '<p style="font-size:.82rem;color:var(--muted);margin-top:10px">Cannot see the calendar? <a href="' + _cal + _q + '" target="_blank" rel="noopener" style="color:var(--ink);font-weight:700;text-decoration:underline">Open it in a new tab</a> or call (206) 203-4944.</p></div>';
+  });
+</script>
+
+<script>
+(function(){
+var t=document.getElementById('navToggle'),m=document.getElementById('mobile-menu'),c=document.getElementById('mmClose');
+function open(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+function close(){m.classList.remove('open');t.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+t.addEventListener('click',open);c.addEventListener('click',close);
+m.addEventListener('click',function(e){if(e.target===m)close()});
+m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close)});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('open'))close()});
+
+var rm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+if('IntersectionObserver'in window){
+var ro=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');if(rm)ro.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+var anim=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('paused',!e.isIntersecting)})},{threshold:0});
+document.querySelectorAll('.spin').forEach(function(el){anim.observe(el)});
+var flash=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');flash.unobserve(e.target)}})},{threshold:.2});
+document.querySelectorAll('[data-flash]').forEach(function(el){flash.observe(el)});
+}else{
+document.querySelectorAll('.reveal,[data-flash]').forEach(function(el){el.classList.add('in')});
+}
+})();
+</script>
+</body>
+</html>
