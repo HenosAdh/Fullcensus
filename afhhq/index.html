@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>AFH HQ — eMAR for Adult Family Homes</title>
+<meta name="description" content="AFH HQ is a simple electronic medication administration record (eMAR) for Washington adult family homes. Record every dose, print a clean MAR, stay inspection-ready." />
+<meta name="robots" content="noindex" />
+<link rel="canonical" href="https://fullcensus.org/afhhq/" />
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+<meta name="theme-color" content="#000000" />
+<!-- No analytics or session replay on this page: it handles resident and medication data. -->
+<style>
+:root{--ink:#000;--bg:#f4f4f4;--paper:#fff;--gold:#c4b139;--text:#141414;--muted:#6f6f6f;--line:#e2e2e2;--soft:#f4f4f4;
+--ok:#1d7a3e;--okbg:#e7f3ec;--bad:#b3261e;--badbg:#faebea;--warn:#9a6a00;--warnbg:#faf3e0;
+--radius:20px;--font:'Space Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--font);color:var(--text);background:var(--bg);line-height:1.45;min-height:100vh}
+img{display:block;max-width:100%}
+a{color:inherit}
+button{font-family:var(--font)}
+.wrap{max-width:1080px;margin:0 auto;padding:0 14px}
+
+/* ===== header ===== */
+header.top{position:sticky;top:0;z-index:40;background:rgba(244,244,244,.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top-in{max-width:1080px;margin:0 auto;padding:10px 14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:9px;font-weight:700;font-size:1.06rem;letter-spacing:-.01em}
+.brand .mark{width:30px;height:30px;border-radius:9px;background:var(--ink);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.brand .mark svg{width:16px;height:16px}
+.brand .tag{font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:.25rem .5rem;border-radius:6px}
+.facility{font-size:.82rem;color:var(--muted);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-right{margin-left:auto;display:flex;align-items:center;gap:8px}
+.cg-pick{display:flex;align-items:center;gap:6px;font-size:.8rem;color:var(--muted)}
+.cg-pick select{font-family:var(--font);font-size:.86rem;font-weight:600;padding:9px 10px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper);max-width:170px;min-height:40px}
+.tabs{max-width:1080px;margin:0 auto;padding:0 14px 10px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tab{border:1.5px solid transparent;background:transparent;color:var(--text);font-weight:600;font-size:.88rem;padding:9px 15px;border-radius:30px;cursor:pointer;white-space:nowrap;min-height:40px}
+.tab:hover{border-color:#cfcfcf}
+.tab.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab .n{display:inline-block;min-width:19px;text-align:center;background:var(--gold);color:var(--ink);border-radius:20px;font-size:.7rem;padding:1px 5px;margin-left:5px;vertical-align:1px}
+
+/* ===== main ===== */
+main{max-width:1080px;margin:0 auto;padding:16px 14px calc(40px + env(safe-area-inset-bottom))}
+.hd{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:4px 0 14px}
+.hd h1{font-size:clamp(1.35rem,4vw,1.8rem);font-weight:700;letter-spacing:-.01em;line-height:1.05}
+.hd .sub{color:var(--muted);font-size:.86rem;margin-top:3px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.stack{display:flex;flex-direction:column;gap:10px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-weight:600;font-size:.88rem;padding:10px 18px;border-radius:30px;min-height:42px;border:1.5px solid var(--ink);background:var(--paper);color:var(--ink);cursor:pointer;text-decoration:none}
+.btn.dark{background:var(--ink);color:#fff}
+.btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.btn.sm{min-height:34px;padding:6px 13px;font-size:.8rem}
+.btn.ghost{border-color:#cfcfcf;color:var(--muted)}
+.btn.danger{border-color:var(--bad);color:var(--bad)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+
+/* ===== med pass ===== */
+.slot-h{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
+.slot-h .t{font-weight:700;font-size:1.02rem}
+.slot-h .line{flex:1;height:1px;background:#dcdcdc}
+.slot-h .st{font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.slot-h .st.late{color:var(--bad)}
+.dose{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:13px 14px;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.dose.late{border-color:#e6b8b5;background:#fffbfb}
+.dose .who{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:var(--soft);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.82rem;color:var(--muted)}
+.dose .what{flex:1 1 200px;min-width:0}
+.dose .rname{font-weight:700;font-size:.94rem}
+.dose .mname{font-size:.9rem;margin-top:1px}
+.dose .mname b{font-weight:600}
+.dose .mi{color:var(--muted);font-size:.78rem;margin-top:2px}
+.dose .acts{display:flex;gap:6px;flex-wrap:wrap}
+.abtn{border:1.5px solid var(--line);background:var(--paper);border-radius:12px;padding:9px 13px;font-weight:600;font-size:.82rem;cursor:pointer;min-height:40px}
+.abtn.g{border-color:var(--ok);color:var(--ok)}
+.abtn.g:hover{background:var(--okbg)}
+.abtn.r{border-color:var(--bad);color:var(--bad)}
+.abtn.r:hover{background:var(--badbg)}
+.abtn.h{border-color:var(--warn);color:var(--warn)}
+.abtn.h:hover{background:var(--warnbg)}
+.chip{display:inline-flex;align-items:center;gap:7px;border-radius:12px;padding:8px 13px;font-weight:600;font-size:.82rem;cursor:pointer;border:1px solid transparent;min-height:40px}
+.chip.given{background:var(--okbg);color:var(--ok);border-color:#bcdcc8}
+.chip.refused{background:var(--badbg);color:var(--bad);border-color:#eec4c1}
+.chip.held{background:var(--warnbg);color:var(--warn);border-color:#e8d49a}
+.chip small{font-weight:500;opacity:.85}
+.summary{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px}
+.pill{background:var(--paper);border:1px solid var(--line);border-radius:30px;padding:7px 14px;font-size:.8rem;font-weight:600}
+.pill b{color:var(--ok)}
+.pill.warn b{color:var(--bad)}
+.prn-note{color:var(--muted);font-size:.8rem}
+
+/* ===== residents ===== */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.rcard{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;cursor:pointer;transition:transform .12s ease,box-shadow .15s ease}
+.rcard:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+.rcard h3{font-size:1.05rem;font-weight:700}
+.rcard .meta{color:var(--muted);font-size:.82rem;margin-top:2px}
+.rcard .al{margin-top:9px;display:flex;gap:5px;flex-wrap:wrap}
+.altag{background:var(--badbg);color:var(--bad);font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px}
+.altag.none{background:var(--soft);color:var(--muted);font-weight:600}
+.rcard .cnt{margin-top:10px;font-size:.78rem;color:var(--muted)}
+.rcard.out{opacity:.55}
+.back{background:none;border:0;color:var(--muted);font-weight:600;font-size:.84rem;cursor:pointer;padding:6px 0;display:inline-flex;gap:6px;align-items:center;font-family:var(--font)}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:4px 12px;font-size:.88rem}
+.kv dt{color:var(--muted)}
+.medrow{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--soft);flex-wrap:wrap}
+.medrow:first-child{border-top:0}
+.medrow .m{flex:1 1 220px;min-width:0}
+.medrow .nm{font-weight:700;font-size:.93rem}
+.medrow .dd{font-size:.83rem;margin-top:1px}
+.medrow .ins{color:var(--muted);font-size:.78rem;margin-top:2px}
+.medrow .tt{display:flex;gap:5px;flex-wrap:wrap;margin-top:6px}
+.ttag{background:var(--soft);border-radius:8px;font-size:.72rem;font-weight:700;padding:3px 8px}
+.ttag.prn{background:var(--gold);color:var(--ink)}
+.ttag.dc{background:var(--badbg);color:var(--bad)}
+.sec-label{font-size:.68rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin:18px 0 6px}
+
+/* ===== MAR ===== */
+.mar-controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+.mar-controls select,.mar-controls input{font-family:var(--font);font-size:.88rem;font-weight:600;padding:9px 12px;border:1.5px solid var(--ink);border-radius:12px;background:var(--paper);min-height:42px}
+.mar-sheet{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:18px;overflow-x:auto}
+.mar-head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:10px}
+.mar-head h2{font-size:1.05rem}
+.mar-head .fx{font-size:.8rem;color:var(--muted)}
+.mar-res{font-size:.82rem;display:flex;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.mar-res b{font-weight:700}
+table.mar{border-collapse:collapse;font-size:.72rem;min-width:100%}
+table.mar th,table.mar td{border:1px solid #c9c9c9;padding:3px 4px;text-align:center;vertical-align:middle}
+table.mar th{background:var(--soft);font-weight:700}
+table.mar td.medcell{text-align:left;min-width:170px;max-width:220px;background:#fbfbfb}
+table.mar td.medcell .nm{font-weight:700;font-size:.76rem}
+table.mar td.medcell .dd{font-size:.7rem}
+table.mar td.medcell .ins{color:var(--muted);font-size:.66rem}
+table.mar td.hr{font-weight:700;white-space:nowrap}
+table.mar td.c{width:24px;min-width:24px;height:26px;font-weight:600}
+table.mar td.c.exc span{display:inline-flex;align-items:center;justify-content:center;width:19px;height:19px;border:1.6px solid var(--bad);border-radius:50%;color:var(--bad);font-weight:700}
+table.mar td.c.na{background:repeating-linear-gradient(45deg,#f1f1f1,#f1f1f1 3px,#e3e3e3 3px,#e3e3e3 6px)}
+table.mar td.c.miss{background:#fdf3f2}
+table.mar th.wkend{background:#ececec}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:.74rem;color:var(--muted);margin-top:10px}
+.legend b{color:var(--text)}
+.sig{margin-top:14px;font-size:.78rem}
+.sig table{border-collapse:collapse}
+.sig td,.sig th{border:1px solid #c9c9c9;padding:4px 12px;font-size:.75rem;text-align:left}
+.mar-prn h3{font-size:.9rem;margin:16px 0 6px}
+.mar-prn table{border-collapse:collapse;width:100%;font-size:.75rem}
+.mar-prn th,.mar-prn td{border:1px solid #c9c9c9;padding:4px 6px;text-align:left}
+.mar-prn th{background:var(--soft)}
+
+/* ===== log ===== */
+.logrow{display:flex;gap:10px;align-items:baseline;padding:11px 2px;border-top:1px solid var(--soft);font-size:.85rem;flex-wrap:wrap}
+.logrow:first-child{border-top:0}
+.logrow .dt{color:var(--muted);font-size:.76rem;flex:0 0 128px}
+.logrow .desc{flex:1 1 240px;min-width:0}
+.logrow .desc small{display:block;color:var(--muted)}
+.logrow.voided .desc,.logrow.voided .st{text-decoration:line-through;opacity:.55}
+.st{font-size:.7rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:8px}
+.st.given{background:var(--okbg);color:var(--ok)}
+.st.refused{background:var(--badbg);color:var(--bad)}
+.st.held{background:var(--warnbg);color:var(--warn)}
+.st.prn{background:var(--gold);color:var(--ink)}
+
+/* ===== settings / forms ===== */
+.set-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;align-items:start}
+label.f{display:block;font-size:.78rem;font-weight:700;margin:10px 0 4px}
+input.f,select.f,textarea.f{width:100%;font-family:var(--font);font-size:.92rem;padding:10px 12px;border:1.5px solid #cfcfcf;border-radius:12px;background:var(--paper);min-height:42px}
+input.f:focus,select.f:focus,textarea.f:focus{outline:2px solid var(--gold);border-color:var(--ink)}
+textarea.f{min-height:70px;resize:vertical}
+.frow{display:flex;gap:10px}
+.frow>*{flex:1}
+.cgrow{display:flex;align-items:center;gap:10px;padding:9px 0;border-top:1px solid var(--soft)}
+.cgrow:first-child{border-top:0}
+.cgrow .ini{width:38px;height:38px;border-radius:50%;background:var(--ink);color:var(--gold);font-weight:700;font-size:.8rem;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.cgrow .nm{flex:1;font-weight:600;font-size:.9rem}
+.muted{color:var(--muted);font-size:.83rem}
+.note{background:var(--warnbg);border:1px solid #e8d49a;border-radius:14px;padding:12px 14px;font-size:.82rem;margin-top:12px}
+
+/* ===== dialogs ===== */
+dialog{border:0;border-radius:var(--radius);padding:0;max-width:min(480px,calc(100vw - 28px));width:100%;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+dialog::backdrop{background:rgba(0,0,0,.45)}
+.dlg{padding:20px}
+.dlg h2{font-size:1.1rem;margin-bottom:4px}
+.dlg .sub{color:var(--muted);font-size:.83rem}
+.dlg .acts{display:flex;gap:8px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+.timerow{display:flex;gap:8px;margin-top:6px}
+.timerow input{flex:1}
+.timerow button{flex:0 0 auto}
+.pickcg{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+.pickcg button{text-align:left;display:flex;align-items:center;gap:10px}
+
+/* ===== empty / onboarding ===== */
+.onb{background:var(--ink);color:#fff;border-radius:var(--radius);padding:26px 20px}
+.onb h2{font-size:1.4rem;line-height:1.1;letter-spacing:-.01em}
+.onb h2 em{font-style:normal;color:var(--gold)}
+.onb p{color:#cfcfcf;font-size:.9rem;margin:10px 0 16px;max-width:52ch}
+.onb ol{margin:0 0 18px 18px;color:#cfcfcf;font-size:.88rem;display:flex;flex-direction:column;gap:6px}
+.onb .acts{display:flex;gap:10px;flex-wrap:wrap}
+.onb .btn{border-color:#fff;color:#fff;background:transparent}
+.onb .btn.gold{background:var(--gold);border-color:var(--gold);color:var(--ink)}
+.empty{color:var(--muted);font-size:.88rem;padding:14px 2px}
+
+footer.ft{max-width:1080px;margin:0 auto;padding:8px 14px 30px;color:var(--muted);font-size:.76rem;display:flex;gap:6px 18px;flex-wrap:wrap}
+footer.ft a{font-weight:600}
+
+@media (max-width:560px){
+ .dose .acts{width:100%;justify-content:flex-end}
+ .kv{grid-template-columns:92px 1fr}
+ .logrow .dt{flex-basis:100%}
+}
+
+/* ===== print: MAR sheet only ===== */
+@media print{
+ body{background:#fff}
+ header.top,.tabs,.mar-controls,footer.ft,.no-print{display:none !important}
+ main{padding:0;max-width:none}
+ .mar-sheet{border:0;border-radius:0;padding:0;overflow:visible}
+ table.mar{font-size:.6rem}
+ table.mar td.c{height:20px}
+ @page{size:landscape;margin:10mm}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 4v16M4 12h16" stroke="#c4b139" stroke-width="3.4" stroke-linecap="round"/></svg></span>
+      AFH&nbsp;HQ <span class="tag">eMAR</span>
+    </div>
+    <div class="facility" id="facName"></div>
+    <div class="top-right">
+      <label class="cg-pick">Signing&nbsp;as
+        <select id="cgSelect" aria-label="Signing caregiver"></select>
+      </label>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+</header>
+
+<main id="view"></main>
+
+<footer class="ft">
+  <span>AFH HQ eMAR — a <a href="https://fullcensus.org/">Full Census</a> project</span>
+  <span>Prototype · all data stays in this browser</span>
+  <span><a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a></span>
+</footer>
+
+<!-- ============ dialogs ============ -->
+<dialog id="dlgResident"><form method="dialog" class="dlg" id="frmResident">
+  <h2 id="dlgResidentTitle">Add resident</h2>
+  <input type="hidden" id="resId" />
+  <label class="f" for="resName">Full name *</label>
+  <input class="f" id="resName" required autocomplete="off" />
+  <div class="frow">
+    <div><label class="f" for="resRoom">Room</label><input class="f" id="resRoom" autocomplete="off" /></div>
+    <div><label class="f" for="resDob">Date of birth</label><input class="f" id="resDob" type="date" /></div>
+  </div>
+  <label class="f" for="resAllergies">Allergies <span class="muted">(comma separated, or leave blank for NKA)</span></label>
+  <input class="f" id="resAllergies" autocomplete="off" placeholder="e.g. Penicillin, Sulfa" />
+  <label class="f" for="resNotes">Notes</label>
+  <textarea class="f" id="resNotes"></textarea>
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgResident.close()">Cancel</button>
+    <button type="submit" class="btn dark">Save resident</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgMed"><form method="dialog" class="dlg" id="frmMed">
+  <h2 id="dlgMedTitle">Add medication</h2>
+  <p class="sub" id="dlgMedSub"></p>
+  <input type="hidden" id="medId" /><input type="hidden" id="medResId" />
+  <label class="f" for="medName">Medication &amp; strength *</label>
+  <input class="f" id="medName" required autocomplete="off" placeholder="e.g. Metformin 500 mg" />
+  <div class="frow">
+    <div><label class="f" for="medDose">Dose *</label><input class="f" id="medDose" required autocomplete="off" placeholder="e.g. 1 tablet" /></div>
+    <div><label class="f" for="medRoute">Route</label>
+      <select class="f" id="medRoute"><option>Oral</option><option>Topical</option><option>Inhaled</option><option>Eye drops</option><option>Ear drops</option><option>Nasal</option><option>Injection</option><option>Patch</option><option>Rectal</option><option>Other</option></select></div>
+  </div>
+  <label class="f" style="display:flex;align-items:center;gap:8px;margin-top:14px">
+    <input type="checkbox" id="medPrn" style="width:18px;height:18px" /> PRN — as needed, no fixed schedule
+  </label>
+  <div id="medTimesWrap">
+    <label class="f">Scheduled times *</label>
+    <div id="medTimes"></div>
+    <button type="button" class="btn sm ghost" style="margin-top:8px" onclick="addTimeRow('')">+ add time</button>
+  </div>
+  <label class="f" for="medIns">Directions / instructions</label>
+  <input class="f" id="medIns" autocomplete="off" placeholder="e.g. with food · for blood pressure" />
+  <div class="frow">
+    <div><label class="f" for="medPrescriber">Prescriber</label><input class="f" id="medPrescriber" autocomplete="off" /></div>
+    <div><label class="f" for="medStart">Start date</label><input class="f" id="medStart" type="date" /></div>
+  </div>
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgMed.close()">Cancel</button>
+    <button type="submit" class="btn dark">Save medication</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgCg"><form method="dialog" class="dlg" id="frmCg">
+  <h2 id="dlgCgTitle">Add caregiver</h2>
+  <p class="sub">Everyone who passes medications signs with their initials.</p>
+  <input type="hidden" id="cgId" />
+  <label class="f" for="cgName">Full name *</label>
+  <input class="f" id="cgName" required autocomplete="off" />
+  <label class="f" for="cgIni">Initials * <span class="muted">(2–3 letters, shown on the MAR)</span></label>
+  <input class="f" id="cgIni" required autocomplete="off" maxlength="3" style="text-transform:uppercase;max-width:120px" />
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgCg.close()">Cancel</button>
+    <button type="submit" class="btn dark">Save caregiver</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgExc"><form method="dialog" class="dlg" id="frmExc">
+  <h2 id="dlgExcTitle">Record exception</h2>
+  <p class="sub" id="dlgExcSub"></p>
+  <input type="hidden" id="excMedId" /><input type="hidden" id="excSlot" /><input type="hidden" id="excStatus" />
+  <label class="f" for="excNote">Reason / note *</label>
+  <textarea class="f" id="excNote" required placeholder="e.g. resident refused, will re-offer in 30 min"></textarea>
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgExc.close()">Cancel</button>
+    <button type="submit" class="btn dark" id="excSubmit">Record</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgPrn"><form method="dialog" class="dlg" id="frmPrn">
+  <h2>Record PRN dose</h2>
+  <p class="sub" id="dlgPrnSub"></p>
+  <input type="hidden" id="prnMedId" />
+  <label class="f" for="prnReason">Reason given *</label>
+  <input class="f" id="prnReason" required autocomplete="off" placeholder="e.g. c/o headache 6/10" />
+  <label class="f" for="prnResult">Result / follow-up <span class="muted">(can be added later from the Log)</span></label>
+  <input class="f" id="prnResult" autocomplete="off" placeholder="e.g. relief reported after 45 min" />
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgPrn.close()">Cancel</button>
+    <button type="submit" class="btn dark">Record dose</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgVoid"><form method="dialog" class="dlg" id="frmVoid">
+  <h2>Void this entry?</h2>
+  <p class="sub" id="dlgVoidSub"></p>
+  <input type="hidden" id="voidRecId" />
+  <label class="f" for="voidNote">Why is it being voided? *</label>
+  <input class="f" id="voidNote" required autocomplete="off" placeholder="e.g. signed on the wrong resident" />
+  <div class="acts">
+    <button type="button" class="btn ghost" onclick="dlgVoid.close()">Cancel</button>
+    <button type="submit" class="btn danger">Void entry</button>
+  </div>
+</form></dialog>
+
+<dialog id="dlgPick"><div class="dlg">
+  <h2>Who is signing?</h2>
+  <p class="sub">Pick yourself before recording. Your initials go on the MAR.</p>
+  <div class="pickcg" id="pickList"></div>
+  <div class="acts"><button type="button" class="btn ghost" onclick="dlgPick.close()">Cancel</button></div>
+</div></dialog>
+
+<script>
+'use strict';
+/* ================= storage ================= */
+const KEY='afhhq.emar.v1';
+const $=s=>document.querySelector(s);
+function uid(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():'id-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10)}
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function blank(){return {version:1,facility:{name:''},caregivers:[],residents:[],meds:[],records:[],session:{caregiverId:null}}}
+let db=loadDb();
+function loadDb(){try{const raw=localStorage.getItem(KEY);if(raw){const d=JSON.parse(raw);if(d&&d.version===1&&Array.isArray(d.residents))return Object.assign(blank(),d)}}catch(e){}return blank()}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(db))}catch(e){alert('Could not save — browser storage is unavailable or full. Export a backup from Settings.')}}
+
+/* ================= dates ================= */
+const pad=n=>String(n).padStart(2,'0');
+function dstr(d){return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+function todayStr(){return dstr(new Date())}
+function nowHM(){const n=new Date();return pad(n.getHours())+':'+pad(n.getMinutes())}
+function fmtTime(t){const[h,m]=t.split(':').map(Number);return (((h+11)%12)+1)+':'+pad(m)+' '+(h>=12?'PM':'AM')}
+function fmtDateLong(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric',year:'numeric'})}
+function fmtDateShort(s){const[y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d).toLocaleDateString(undefined,{month:'short',day:'numeric',year:'numeric'})}
+function fmtStamp(iso){const d=new Date(iso);return d.toLocaleDateString(undefined,{month:'short',day:'numeric'})+' '+d.toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function fmtClock(iso){return new Date(iso).toLocaleTimeString(undefined,{hour:'numeric',minute:'2-digit'})}
+function ymNow(){const n=new Date();return n.getFullYear()+'-'+pad(n.getMonth()+1)}
+function minsOf(t){const[h,m]=t.split(':').map(Number);return h*60+m}
+
+/* ================= lookups ================= */
+const resById=id=>db.residents.find(r=>r.id===id);
+const medById=id=>db.meds.find(m=>m.id===id);
+const cgById=id=>db.caregivers.find(c=>c.id===id);
+function currentCg(){return cgById(db.session.caregiverId)||null}
+function medActiveOn(m,date){return m.startDate<=date&&(!m.endDate||m.endDate>=date)}
+function scheduledMedsFor(rid,date){return db.meds.filter(m=>m.residentId===rid&&!m.prn&&m.times.length&&medActiveOn(m,date))}
+function prnMedsFor(rid,date){return db.meds.filter(m=>m.residentId===rid&&m.prn&&medActiveOn(m,date))}
+function findRecord(medId,date,slot){return db.records.find(r=>!r.voided&&r.medId===medId&&r.date===date&&r.slot===slot)}
+function initialsOf(name){return name.trim().split(/\s+/).map(w=>w[0]).join('').toUpperCase().slice(0,3)}
+
+/* ================= ui state ================= */
+const ui={tab:'today',resident:null,marResident:null,marMonth:ymNow(),logFilter:'all',logResident:'all'};
+const TABS=[['today','Med pass'],['residents','Residents'],['mar','MAR'],['log','Log'],['settings','Settings']];
+
+function render(){
+  $('#facName').textContent=db.facility.name||'';
+  renderCgSelect();renderTabs();
+  const v={today:viewToday,residents:viewResidents,mar:viewMar,log:viewLog,settings:viewSettings}[ui.tab];
+  $('#view').innerHTML=v();
+  document.title='AFH HQ — eMAR'+(db.facility.name?' — '+db.facility.name:'');
+}
+function go(tab){ui.tab=tab;if(tab!=='residents')ui.resident=null;render();window.scrollTo(0,0)}
+
+function renderTabs(){
+  const due=dueCountToday();
+  $('#tabs').innerHTML=TABS.map(([id,label])=>{
+    const n=(id==='today'&&due>0)?'<span class="n">'+due+'</span>':'';
+    return '<button class="tab'+(ui.tab===id?' on':'')+'" onclick="go(\''+id+'\')">'+label+n+'</button>';
+  }).join('');
+}
+function renderCgSelect(){
+  const sel=$('#cgSelect');
+  sel.innerHTML='<option value="">— pick —</option>'+db.caregivers.map(c=>'<option value="'+c.id+'"'+(db.session.caregiverId===c.id?' selected':'')+'>'+esc(c.initials)+' · '+esc(c.name)+'</option>').join('');
+  sel.onchange=()=>{db.session.caregiverId=sel.value||null;save();render()};
+}
+function dueCountToday(){
+  const date=todayStr(),now=nowHM();let n=0;
+  for(const r of db.residents.filter(r=>r.active!==false))
+    for(const m of scheduledMedsFor(r.id,date))
+      for(const t of m.times) if(t<=now&&!findRecord(m.id,date,t))n++;
+  return n;
+}
+
+/* ================= today / med pass ================= */
+function viewToday(){
+  const date=todayStr();
+  if(!db.residents.length&&!db.caregivers.length)return onboarding();
+  const items=[];
+  for(const r of db.residents.filter(r=>r.active!==false))
+    for(const m of scheduledMedsFor(r.id,date))
+      for(const t of m.times) items.push({slot:t,med:m,res:r,rec:findRecord(m.id,date,t)});
+  items.sort((a,b)=>a.slot===b.slot?(a.res.name<b.res.name?-1:1):(a.slot<b.slot?-1:1));
+  const total=items.length,done=items.filter(i=>i.rec).length;
+  const exc=db.records.filter(r=>!r.voided&&r.date===date&&r.status!=='given').length;
+  const now=nowHM(),nowM=minsOf(now);
+
+  let html='<div class="hd"><div><h1>Med pass</h1><div class="sub">'+fmtDateLong(date)+'</div></div>'+
+    '<div class="summary"><span class="pill"><b>'+done+'</b> of '+total+' doses recorded</span>'+
+    (exc?'<span class="pill warn"><b>'+exc+'</b> exception'+(exc>1?'s':'')+'</span>':'')+'</div></div>';
+
+  if(!total)html+='<div class="card empty">No scheduled medications for today. Add residents and their medications under <b>Residents</b>.</div>';
+
+  const slots=[...new Set(items.map(i=>i.slot))];
+  for(const slot of slots){
+    const group=items.filter(i=>i.slot===slot);
+    const allDone=group.every(i=>i.rec);
+    const late=!allDone&&nowM>minsOf(slot)+60;
+    const status=allDone?'<span class="st given">done</span>':late?'<span class="st late" style="background:var(--badbg);color:var(--bad)">overdue</span>':(slot<=now?'<span class="st" style="background:var(--soft)">due now</span>':'');
+    html+='<div class="slot-h"><span class="t">'+fmtTime(slot)+'</span>'+status+'<span class="line"></span></div><div class="stack">';
+    for(const it of group)html+=doseCard(it,late&&!it.rec);
+    html+='</div>';
+  }
+  html+=prnSection(date);
+  return html;
+}
+function doseCard(it,late){
+  const {med,res,rec,slot}=it;
+  let right;
+  if(rec){
+    right='<button class="chip '+rec.status+'" onclick="openVoid(\''+rec.id+'\')" title="Tap to void">'+
+      (rec.status==='given'?'✓ '+esc(rec.by):rec.status==='refused'?'R refused':'H held')+
+      ' <small>'+fmtClock(rec.at)+'</small></button>';
+  }else{
+    right='<div class="acts">'+
+      '<button class="abtn g" onclick="recGiven(\''+med.id+'\',\''+slot+'\')">✓ Given</button>'+
+      '<button class="abtn r" onclick="openExc(\''+med.id+'\',\''+slot+'\',\'refused\')">Refused</button>'+
+      '<button class="abtn h" onclick="openExc(\''+med.id+'\',\''+slot+'\',\'held\')">Held</button></div>';
+  }
+  return '<div class="dose'+(late?' late':'')+'"><div class="who">'+esc(initialsOf(res.name))+'</div>'+
+    '<div class="what"><div class="rname">'+esc(res.name)+(res.room?' <span class="muted">· Rm '+esc(res.room)+'</span>':'')+'</div>'+
+    '<div class="mname"><b>'+esc(med.name)+'</b> — '+esc(med.dose)+', '+esc(med.route)+'</div>'+
+    (med.instructions?'<div class="mi">'+esc(med.instructions)+'</div>':'')+'</div>'+right+'</div>';
+}
+function prnSection(date){
+  const rows=[];
+  for(const r of db.residents.filter(r=>r.active!==false))
+    for(const m of prnMedsFor(r.id,date)){
+      const last=db.records.filter(x=>!x.voided&&x.medId===m.id&&x.slot===null).sort((a,b)=>a.at<b.at?1:-1)[0];
+      rows.push({r,m,last});
+    }
+  if(!rows.length)return '';
+  let html='<div class="slot-h" style="margin-top:30px"><span class="t">PRN — as needed</span><span class="line"></span></div><div class="stack">';
+  for(const {r,m,last} of rows){
+    html+='<div class="dose"><div class="who">'+esc(initialsOf(r.name))+'</div>'+
+      '<div class="what"><div class="rname">'+esc(r.name)+'</div>'+
+      '<div class="mname"><b>'+esc(m.name)+'</b> — '+esc(m.dose)+', '+esc(m.route)+'</div>'+
+      (m.instructions?'<div class="mi">'+esc(m.instructions)+'</div>':'')+
+      (last?'<div class="prn-note">Last given '+fmtStamp(last.at)+' by '+esc(last.by)+(last.reason?' — '+esc(last.reason):'')+'</div>':'')+
+      '</div><div class="acts"><button class="abtn g" onclick="openPrn(\''+m.id+'\')">Record dose</button></div></div>';
+  }
+  return html+'</div>';
+}
+function onboarding(){
+  return '<div class="onb"><h2>Welcome to <em>AFH HQ</em> eMAR</h2>'+
+  '<p>An electronic medication administration record built for adult family homes. Every dose gets a timestamp and initials, exceptions get a note, and the MAR prints clean for licensors.</p>'+
+  '<ol><li>Add the caregivers who pass medications (Settings)</li><li>Add your residents and their medications (Residents)</li><li>Work the med pass from this screen every shift</li></ol>'+
+  '<div class="acts"><button class="btn gold" onclick="openCg()">Add first caregiver</button>'+
+  '<button class="btn" onclick="loadSample()">Explore with a sample home</button></div></div>'+
+  '<div class="note no-print"><b>Prototype.</b> Data lives only in this browser on this device — nothing is uploaded. Export backups from Settings, and keep your existing MAR process until you have validated this one.</div>';
+}
+
+/* ================= record actions ================= */
+function needCg(cb){
+  const cg=currentCg();
+  if(cg)return cb(cg);
+  if(!db.caregivers.length){alert('Add a caregiver first (Settings → Caregivers).');return}
+  $('#pickList').innerHTML=db.caregivers.map(c=>'<button class="btn" onclick="pickCg(\''+c.id+'\')"><span class="ini" style="width:30px;height:30px;border-radius:50%;background:#000;color:#c4b139;display:inline-flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700">'+esc(c.initials)+'</span>'+esc(c.name)+'</button>').join('');
+  window.__afterPick=cb;dlgPick.showModal();
+}
+function pickCg(id){db.session.caregiverId=id;save();dlgPick.close();const cb=window.__afterPick;window.__afterPick=null;if(cb)cb(currentCg());renderCgSelect()}
+function pushRecord(o){db.records.push(Object.assign({id:uid(),voided:false,note:'',at:new Date().toISOString()},o));save();render()}
+function recGiven(medId,slot){needCg(cg=>{const m=medById(medId);pushRecord({medId,residentId:m.residentId,date:todayStr(),slot,status:'given',byId:cg.id,by:cg.initials,byName:cg.name})})}
+function openExc(medId,slot,status){needCg(()=>{
+  const m=medById(medId),r=resById(m.residentId);
+  $('#excMedId').value=medId;$('#excSlot').value=slot;$('#excStatus').value=status;$('#excNote').value='';
+  $('#dlgExcTitle').textContent=status==='refused'?'Record refusal':'Record held dose';
+  $('#dlgExcSub').textContent=r.name+' — '+m.name+' at '+fmtTime(slot);
+  $('#excSubmit').textContent=status==='refused'?'Record refusal':'Record held';
+  dlgExc.showModal();
+})}
+$('#frmExc').addEventListener('submit',()=>{
+  const cg=currentCg();if(!cg)return;
+  const m=medById($('#excMedId').value);
+  pushRecord({medId:m.id,residentId:m.residentId,date:todayStr(),slot:$('#excSlot').value,status:$('#excStatus').value,byId:cg.id,by:cg.initials,byName:cg.name,note:$('#excNote').value.trim()});
+});
+function openPrn(medId){needCg(()=>{
+  const m=medById(medId),r=resById(m.residentId);
+  $('#prnMedId').value=medId;$('#prnReason').value='';$('#prnResult').value='';
+  $('#dlgPrnSub').textContent=r.name+' — '+m.name+' ('+m.dose+', '+m.route+')';
+  dlgPrn.showModal();
+})}
+$('#frmPrn').addEventListener('submit',()=>{
+  const cg=currentCg();if(!cg)return;
+  const m=medById($('#prnMedId').value);
+  pushRecord({medId:m.id,residentId:m.residentId,date:todayStr(),slot:null,status:'given',byId:cg.id,by:cg.initials,byName:cg.name,reason:$('#prnReason').value.trim(),note:$('#prnResult').value.trim()});
+});
+function openVoid(recId){
+  const rec=db.records.find(r=>r.id===recId);if(!rec)return;
+  const m=medById(rec.medId),r=resById(rec.residentId);
+  $('#voidRecId').value=recId;$('#voidNote').value='';
+  $('#dlgVoidSub').textContent=(r?r.name:'')+' — '+(m?m.name:'')+' · recorded '+fmtStamp(rec.at)+' by '+rec.by+'. Voiding keeps it in the log but removes it from the MAR.';
+  dlgVoid.showModal();
+}
+$('#frmVoid').addEventListener('submit',()=>{
+  const rec=db.records.find(r=>r.id===$('#voidRecId').value);if(!rec)return;
+  const cg=currentCg();
+  rec.voided=true;rec.voidNote=$('#voidNote').value.trim();rec.voidedAt=new Date().toISOString();rec.voidedBy=cg?cg.initials:'';
+  save();render();
+});
+
+/* ================= residents ================= */
+function viewResidents(){
+  if(ui.resident)return residentDetail(ui.resident);
+  let html='<div class="hd"><div><h1>Residents</h1><div class="sub">'+db.residents.filter(r=>r.active!==false).length+' in the home</div></div>'+
+    '<button class="btn dark" onclick="openResident()">+ Add resident</button></div>';
+  if(!db.residents.length)return html+'<div class="card empty">No residents yet. Add your first resident to start building their medication list.</div>';
+  html+='<div class="rgrid">';
+  for(const r of db.residents){
+    const meds=db.meds.filter(m=>m.residentId===r.id&&medActiveOn(m,todayStr()));
+    const al=(r.allergies||'').split(',').map(s=>s.trim()).filter(Boolean);
+    html+='<div class="rcard'+(r.active===false?' out':'')+'" onclick="openResDetail(\''+r.id+'\')">'+
+      '<h3>'+esc(r.name)+(r.active===false?' <span class="muted">(moved out)</span>':'')+'</h3>'+
+      '<div class="meta">'+(r.room?'Room '+esc(r.room):'')+(r.room&&r.dob?' · ':'')+(r.dob?'DOB '+fmtDateShort(r.dob):'')+'</div>'+
+      '<div class="al">'+(al.length?al.map(a=>'<span class="altag">'+esc(a)+'</span>').join(''):'<span class="altag none">NKA</span>')+'</div>'+
+      '<div class="cnt">'+meds.filter(m=>!m.prn).length+' scheduled · '+meds.filter(m=>m.prn).length+' PRN</div></div>';
+  }
+  return html+'</div>';
+}
+function openResDetail(id){ui.resident=id;render();window.scrollTo(0,0)}
+function residentDetail(id){
+  const r=resById(id);if(!r){ui.resident=null;return viewResidents()}
+  const date=todayStr();
+  const sched=db.meds.filter(m=>m.residentId===id&&!m.prn).sort((a,b)=>(a.times[0]||'')<(b.times[0]||'')?-1:1);
+  const prn=db.meds.filter(m=>m.residentId===id&&m.prn);
+  const al=(r.allergies||'').trim()||'NKA — no known allergies';
+  let html='<button class="back" onclick="ui.resident=null;render()">← All residents</button>'+
+    '<div class="hd"><div><h1>'+esc(r.name)+'</h1><div class="sub">'+(r.room?'Room '+esc(r.room):'')+(r.active===false?' · moved out':'')+'</div></div>'+
+    '<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn sm" onclick="openResident(\''+r.id+'\')">Edit</button>'+
+    (r.active!==false?'<button class="btn sm ghost" onclick="moveOut(\''+r.id+'\')">Move out</button>':'<button class="btn sm ghost" onclick="moveIn(\''+r.id+'\')">Move back in</button>')+'</div></div>'+
+    '<div class="card"><dl class="kv">'+
+    (r.dob?'<dt>Date of birth</dt><dd>'+fmtDateShort(r.dob)+'</dd>':'')+
+    '<dt>Allergies</dt><dd>'+esc(al)+'</dd>'+
+    (r.notes?'<dt>Notes</dt><dd>'+esc(r.notes)+'</dd>':'')+
+    '</dl></div>';
+  html+='<div class="sec-label">Scheduled medications</div><div class="card">';
+  html+=sched.length?sched.map(medRow).join(''):'<div class="empty">No scheduled medications.</div>';
+  html+='</div><div class="sec-label">PRN — as needed</div><div class="card">';
+  html+=prn.length?prn.map(medRow).join(''):'<div class="empty">No PRN medications.</div>';
+  html+='</div><div style="margin-top:14px"><button class="btn dark" onclick="openMed(null,\''+r.id+'\')">+ Add medication</button></div>';
+  return html;
+}
+function medRow(m){
+  const dc=m.endDate&&m.endDate<todayStr();
+  const hasRecs=db.records.some(r=>r.medId===m.id);
+  return '<div class="medrow"><div class="m"><div class="nm">'+esc(m.name)+'</div>'+
+    '<div class="dd">'+esc(m.dose)+' · '+esc(m.route)+(m.prescriber?' · Dr. '+esc(m.prescriber):'')+'</div>'+
+    (m.instructions?'<div class="ins">'+esc(m.instructions)+'</div>':'')+
+    '<div class="tt">'+(m.prn?'<span class="ttag prn">PRN</span>':m.times.map(t=>'<span class="ttag">'+fmtTime(t)+'</span>').join(''))+
+    '<span class="ttag" style="background:transparent;color:var(--muted)">from '+fmtDateShort(m.startDate)+'</span>'+
+    (m.endDate?'<span class="ttag dc">DC’d '+fmtDateShort(m.endDate)+'</span>':'')+'</div></div>'+
+    '<div style="display:flex;gap:6px;flex-wrap:wrap">'+
+    '<button class="btn sm ghost" onclick="openMed(\''+m.id+'\')">Edit</button>'+
+    (!m.endDate?'<button class="btn sm ghost" onclick="dcMed(\''+m.id+'\')">Discontinue</button>':'')+
+    (!hasRecs?'<button class="btn sm danger" onclick="delMed(\''+m.id+'\')">Delete</button>':'')+
+    '</div></div>';
+}
+function moveOut(id){if(confirm('Mark this resident as moved out? Their history and MAR stay available.')){const r=resById(id);r.active=false;r.moveOutDate=todayStr();save();render()}}
+function moveIn(id){const r=resById(id);r.active=true;delete r.moveOutDate;save();render()}
+function dcMed(id){if(confirm('Discontinue this medication as of today? It stays on past MARs.')){medById(id).endDate=todayStr();save();render()}}
+function delMed(id){if(confirm('Delete this medication? (Only possible because it has no records.)')){db.meds=db.meds.filter(m=>m.id!==id);save();render()}}
+
+/* resident form */
+function openResident(id){
+  const r=id?resById(id):null;
+  $('#dlgResidentTitle').textContent=r?'Edit resident':'Add resident';
+  $('#resId').value=r?r.id:'';$('#resName').value=r?r.name:'';$('#resRoom').value=r?(r.room||''):'';
+  $('#resDob').value=r?(r.dob||''):'';$('#resAllergies').value=r?(r.allergies||''):'';$('#resNotes').value=r?(r.notes||''):'';
+  dlgResident.showModal();
+}
+$('#frmResident').addEventListener('submit',()=>{
+  const id=$('#resId').value;
+  const data={name:$('#resName').value.trim(),room:$('#resRoom').value.trim(),dob:$('#resDob').value,allergies:$('#resAllergies').value.trim(),notes:$('#resNotes').value.trim()};
+  if(!data.name)return;
+  if(id){Object.assign(resById(id),data)}else{db.residents.push(Object.assign({id:uid(),active:true},data));ui.tab='residents'}
+  save();render();
+});
+
+/* med form */
+function addTimeRow(val){
+  const row=document.createElement('div');row.className='timerow';
+  row.innerHTML='<input class="f" type="time" value="'+esc(val)+'" /><button type="button" class="btn sm ghost" onclick="this.parentNode.remove()">✕</button>';
+  $('#medTimes').appendChild(row);
+}
+function openMed(id,residentId){
+  const m=id?medById(id):null;
+  const rid=m?m.residentId:residentId;
+  const r=resById(rid);
+  $('#dlgMedTitle').textContent=m?'Edit medication':'Add medication';
+  $('#dlgMedSub').textContent='for '+(r?r.name:'');
+  $('#medId').value=m?m.id:'';$('#medResId').value=rid;
+  $('#medName').value=m?m.name:'';$('#medDose').value=m?m.dose:'';$('#medRoute').value=m?m.route:'Oral';
+  $('#medPrn').checked=m?!!m.prn:false;
+  $('#medIns').value=m?(m.instructions||''):'';$('#medPrescriber').value=m?(m.prescriber||''):'';
+  $('#medStart').value=m?m.startDate:todayStr();
+  $('#medTimes').innerHTML='';
+  const times=m&&m.times.length?m.times:['08:00'];
+  times.forEach(t=>addTimeRow(t));
+  toggleTimes();
+  dlgMed.showModal();
+}
+function toggleTimes(){$('#medTimesWrap').style.display=$('#medPrn').checked?'none':''}
+$('#medPrn').addEventListener('change',toggleTimes);
+$('#frmMed').addEventListener('submit',e=>{
+  const prn=$('#medPrn').checked;
+  let times=[];
+  if(!prn){
+    times=[...document.querySelectorAll('#medTimes input')].map(i=>i.value).filter(Boolean);
+    times=[...new Set(times)].sort();
+    if(!times.length){e.preventDefault();alert('Add at least one scheduled time, or mark the medication PRN.');return}
+  }
+  const id=$('#medId').value;
+  const data={residentId:$('#medResId').value,name:$('#medName').value.trim(),dose:$('#medDose').value.trim(),route:$('#medRoute').value,
+    prn,times,instructions:$('#medIns').value.trim(),prescriber:$('#medPrescriber').value.trim(),startDate:$('#medStart').value||todayStr()};
+  if(!data.name||!data.dose)return;
+  if(id){Object.assign(medById(id),data)}else{db.meds.push(Object.assign({id:uid(),endDate:null},data))}
+  save();render();
+});
+
+/* ================= MAR ================= */
+function viewMar(){
+  const residents=db.residents.slice().sort((a,b)=>a.name<b.name?-1:1);
+  if(!residents.length)return '<div class="hd"><h1>MAR</h1></div><div class="card empty">Add a resident first — their MAR builds itself from the med pass.</div>';
+  if(!ui.marResident||!resById(ui.marResident))ui.marResident=residents[0].id;
+  const r=resById(ui.marResident);
+  let html='<div class="hd no-print"><div><h1>MAR</h1><div class="sub">Medication administration record — one resident, one month</div></div></div>'+
+    '<div class="mar-controls no-print">'+
+    '<select onchange="ui.marResident=this.value;render()">'+residents.map(x=>'<option value="'+x.id+'"'+(x.id===ui.marResident?' selected':'')+'>'+esc(x.name)+'</option>').join('')+'</select>'+
+    '<input type="month" value="'+ui.marMonth+'" onchange="ui.marMonth=this.value||ui.marMonth;render()" />'+
+    '<button class="btn dark" onclick="window.print()">Print MAR</button></div>'+
+    marSheet(r,ui.marMonth);
+  return html;
+}
+function marSheet(r,ym){
+  const [y,mo]=ym.split('-').map(Number);
+  const days=new Date(y,mo,0).getDate();
+  const monthStart=ym+'-01',monthEnd=ym+'-'+pad(days);
+  const monthName=new Date(y,mo-1,1).toLocaleDateString(undefined,{month:'long',year:'numeric'});
+  const meds=db.meds.filter(m=>m.residentId===r.id&&!m.prn&&m.times.length&&m.startDate<=monthEnd&&(!m.endDate||m.endDate>=monthStart))
+    .sort((a,b)=>(a.times[0]||'')<(b.times[0]||'')?-1:1);
+  const tstr=todayStr();
+  let html='<div class="mar-sheet"><div class="mar-head"><h2>Medication Administration Record — '+esc(monthName)+'</h2>'+
+    '<span class="fx">'+esc(db.facility.name||'')+'</span></div>'+
+    '<div class="mar-res"><span><b>Resident:</b> '+esc(r.name)+'</span>'+(r.dob?'<span><b>DOB:</b> '+fmtDateShort(r.dob)+'</span>':'')+
+    (r.room?'<span><b>Room:</b> '+esc(r.room)+'</span>':'')+
+    '<span><b>Allergies:</b> '+esc((r.allergies||'').trim()||'NKA')+'</span></div>';
+  if(!meds.length){html+='<div class="empty">No scheduled medications in this month.</div></div>';return html}
+  html+='<table class="mar"><thead><tr><th style="text-align:left">Medication / directions</th><th>Hour</th>';
+  for(let d=1;d<=days;d++){const wd=new Date(y,mo-1,d).getDay();html+='<th class="'+((wd===0||wd===6)?'wkend':'')+'">'+d+'</th>'}
+  html+='</tr></thead><tbody>';
+  for(const m of meds){
+    m.times.forEach((slot,ti)=>{
+      html+='<tr>';
+      if(ti===0)html+='<td class="medcell" rowspan="'+m.times.length+'"><div class="nm">'+esc(m.name)+'</div><div class="dd">'+esc(m.dose)+' · '+esc(m.route)+'</div>'+(m.instructions?'<div class="ins">'+esc(m.instructions)+'</div>':'')+(m.prescriber?'<div class="ins">Dr. '+esc(m.prescriber)+'</div>':'')+'</td>';
+      html+='<td class="hr">'+fmtTime(slot)+'</td>';
+      for(let d=1;d<=days;d++){
+        const date=ym+'-'+pad(d);
+        if(!medActiveOn(m,date)){html+='<td class="c na"></td>';continue}
+        if(date>tstr){html+='<td class="c"></td>';continue}
+        const rec=findRecord(m.id,date,slot);
+        if(!rec){html+='<td class="c'+(date<tstr?' miss':'')+'"></td>'}
+        else if(rec.status==='given'){html+='<td class="c" title="'+esc(rec.byName||rec.by)+' '+fmtStamp(rec.at)+'">'+esc(rec.by)+'</td>'}
+        else{const code=rec.status==='refused'?'R':'H';html+='<td class="c exc" title="'+esc((rec.note||'')+' — '+rec.by)+'"><span>'+code+'</span></td>'}
+      }
+      html+='</tr>';
+    });
+  }
+  html+='</tbody></table>'+
+  '<div class="legend"><span><b>Initials</b> = given as scheduled</span><span><b>R</b> = refused</span><span><b>H</b> = held</span><span><b>Circled</b> = exception, see note</span><span><b>Shaded pink</b> = no record</span><span><b>Hatched</b> = not active</span></div>';
+  /* exceptions list */
+  const excs=db.records.filter(x=>!x.voided&&x.residentId===r.id&&x.slot!==null&&x.date>=monthStart&&x.date<=monthEnd&&x.status!=='given').sort((a,b)=>a.date<b.date?-1:1);
+  if(excs.length){
+    html+='<div class="mar-prn"><h3>Exception notes</h3><table><thead><tr><th>Date</th><th>Hour</th><th>Medication</th><th>Code</th><th>Note</th><th>Init.</th></tr></thead><tbody>';
+    for(const x of excs){const m=medById(x.medId);html+='<tr><td>'+fmtDateShort(x.date)+'</td><td>'+fmtTime(x.slot)+'</td><td>'+esc(m?m.name:'')+'</td><td>'+(x.status==='refused'?'R':'H')+'</td><td>'+esc(x.note||'')+'</td><td>'+esc(x.by)+'</td></tr>'}
+    html+='</tbody></table></div>';
+  }
+  /* PRN log */
+  const prns=db.records.filter(x=>!x.voided&&x.residentId===r.id&&x.slot===null&&x.date>=monthStart&&x.date<=monthEnd).sort((a,b)=>a.at<b.at?-1:1);
+  if(prns.length){
+    html+='<div class="mar-prn"><h3>PRN log</h3><table><thead><tr><th>Date / time</th><th>Medication</th><th>Reason</th><th>Result</th><th>Init.</th></tr></thead><tbody>';
+    for(const x of prns){const m=medById(x.medId);html+='<tr><td>'+fmtStamp(x.at)+'</td><td>'+esc(m?m.name+' — '+m.dose:'')+'</td><td>'+esc(x.reason||'')+'</td><td>'+esc(x.note||'')+'</td><td>'+esc(x.by)+'</td></tr>'}
+    html+='</tbody></table></div>';
+  }
+  /* signature key */
+  const inis=new Map();
+  for(const x of db.records)if(!x.voided&&x.residentId===r.id&&x.date>=monthStart&&x.date<=monthEnd)inis.set(x.by,x.byName||'');
+  if(inis.size){
+    html+='<div class="sig"><b>Signature key</b><table><thead><tr><th>Initials</th><th>Caregiver</th></tr></thead><tbody>';
+    for(const [ini,name] of inis)html+='<tr><td>'+esc(ini)+'</td><td>'+esc(name)+'</td></tr>';
+    html+='</tbody></table></div>';
+  }
+  return html+'</div>';
+}
+
+/* ================= log ================= */
+function viewLog(){
+  let recs=db.records.slice().sort((a,b)=>a.at<b.at?1:-1);
+  if(ui.logResident!=='all')recs=recs.filter(x=>x.residentId===ui.logResident);
+  if(ui.logFilter==='exc')recs=recs.filter(x=>!x.voided&&x.status!=='given');
+  if(ui.logFilter==='prn')recs=recs.filter(x=>!x.voided&&x.slot===null);
+  if(ui.logFilter==='void')recs=recs.filter(x=>x.voided);
+  let html='<div class="hd"><div><h1>Log</h1><div class="sub">Every entry, newest first — voids stay visible</div></div></div>'+
+    '<div class="mar-controls">'+
+    '<select onchange="ui.logResident=this.value;render()"><option value="all">All residents</option>'+db.residents.map(x=>'<option value="'+x.id+'"'+(ui.logResident===x.id?' selected':'')+'>'+esc(x.name)+'</option>').join('')+'</select>'+
+    '<select onchange="ui.logFilter=this.value;render()">'+[['all','Everything'],['exc','Exceptions only'],['prn','PRN only'],['void','Voided only']].map(([v,l])=>'<option value="'+v+'"'+(ui.logFilter===v?' selected':'')+'>'+l+'</option>').join('')+'</select></div>';
+  if(!recs.length)return html+'<div class="card empty">Nothing here yet.</div>';
+  html+='<div class="card">';
+  for(const x of recs.slice(0,400)){
+    const m=medById(x.medId),r=resById(x.residentId);
+    const kind=x.slot===null?'prn':x.status;
+    const label=x.slot===null?'PRN':x.status;
+    html+='<div class="logrow'+(x.voided?' voided':'')+'"><span class="dt">'+fmtStamp(x.at)+'</span>'+
+      '<span class="st '+kind+'">'+label+'</span>'+
+      '<span class="desc"><b>'+esc(r?r.name:'?')+'</b> — '+esc(m?m.name:'?')+(m?' '+esc(m.dose):'')+
+      (x.slot?' · scheduled '+fmtTime(x.slot):'')+' · by '+esc(x.by)+
+      ((x.reason||x.note)?'<small>'+esc([x.reason,x.note].filter(Boolean).join(' — '))+'</small>':'')+
+      (x.voided?'<small>VOIDED '+(x.voidedAt?fmtStamp(x.voidedAt):'')+(x.voidedBy?' by '+esc(x.voidedBy):'')+(x.voidNote?' — '+esc(x.voidNote):'')+'</small>':'')+
+      '</span></div>';
+  }
+  if(recs.length>400)html+='<div class="empty">Showing latest 400 entries.</div>';
+  return html+'</div>';
+}
+
+/* ================= settings ================= */
+function viewSettings(){
+  let html='<div class="hd"><h1>Settings</h1></div><div class="set-grid">';
+  html+='<div class="card"><div class="sec-label" style="margin-top:0">Home</div>'+
+    '<label class="f" for="setFac">Home name (shown on printed MARs)</label>'+
+    '<input class="f" id="setFac" value="'+esc(db.facility.name)+'" onchange="db.facility.name=this.value.trim();save();render()" placeholder="e.g. Birdsong Adult Family Home" /></div>';
+  html+='<div class="card"><div class="sec-label" style="margin-top:0">Caregivers</div>';
+  html+=db.caregivers.length?db.caregivers.map(c=>'<div class="cgrow"><span class="ini">'+esc(c.initials)+'</span><span class="nm">'+esc(c.name)+'</span>'+
+      '<button class="btn sm ghost" onclick="openCg(\''+c.id+'\')">Edit</button>'+
+      '<button class="btn sm danger" onclick="delCg(\''+c.id+'\')">Remove</button></div>').join('')
+    :'<div class="empty">No caregivers yet.</div>';
+  html+='<div style="margin-top:10px"><button class="btn dark sm" onclick="openCg()">+ Add caregiver</button></div></div>';
+  html+='<div class="card"><div class="sec-label" style="margin-top:0">Data</div>'+
+    '<p class="muted">Everything lives in this browser on this device. Nothing is uploaded anywhere. Export a backup regularly and keep it somewhere safe.</p>'+
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">'+
+    '<button class="btn" onclick="exportData()">Export backup</button>'+
+    '<button class="btn" onclick="importFile.click()">Import backup</button>'+
+    (!db.residents.length?'<button class="btn" onclick="loadSample()">Load sample home</button>':'')+
+    '<button class="btn danger" onclick="eraseAll()">Erase everything</button></div>'+
+    '<input type="file" id="importFile" accept="application/json" style="display:none" onchange="importData(this)" /></div>';
+  html+='<div class="card"><div class="sec-label" style="margin-top:0">About</div>'+
+    '<p class="muted"><b>AFH HQ eMAR</b> is a prototype by <a href="https://fullcensus.org/">Full Census</a>. It is not certified medical-records software: validate it against your own process, export backups, and keep whatever record-keeping your licensor requires until you trust it. Feedback: <a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a>.</p></div>';
+  return html+'</div>';
+}
+function openCg(id){
+  const c=id?cgById(id):null;
+  $('#dlgCgTitle').textContent=c?'Edit caregiver':'Add caregiver';
+  $('#cgId').value=c?c.id:'';$('#cgName').value=c?c.name:'';$('#cgIni').value=c?c.initials:'';
+  dlgCg.showModal();
+}
+$('#frmCg').addEventListener('submit',e=>{
+  const name=$('#cgName').value.trim();
+  const ini=$('#cgIni').value.trim().toUpperCase()||initialsOf(name);
+  if(!name)return;
+  const id=$('#cgId').value;
+  if(db.caregivers.some(c=>c.initials===ini&&c.id!==id)){e.preventDefault();alert('Those initials are already in use — pick a unique set (add a middle initial).');return}
+  if(id){const c=cgById(id);c.name=name;c.initials=ini}
+  else{const c={id:uid(),name,initials:ini};db.caregivers.push(c);if(!db.session.caregiverId)db.session.caregiverId=c.id}
+  save();render();
+});
+function delCg(id){
+  if(!confirm('Remove this caregiver? Past MAR entries keep their initials.'))return;
+  db.caregivers=db.caregivers.filter(c=>c.id!==id);
+  if(db.session.caregiverId===id)db.session.caregiverId=null;
+  save();render();
+}
+function exportData(){
+  const blob=new Blob([JSON.stringify(db,null,1)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);
+  a.download='afhhq-backup-'+todayStr()+'.json';a.click();URL.revokeObjectURL(a.href);
+}
+function importData(input){
+  const f=input.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{try{
+    const d=JSON.parse(rd.result);
+    if(!d||d.version!==1||!Array.isArray(d.residents)||!Array.isArray(d.records))throw 0;
+    if(!confirm('Replace everything on this device with the backup "'+f.name+'"?'))return;
+    db=Object.assign(blank(),d);save();render();
+  }catch(e){alert('That file is not a valid AFH HQ backup.')}};
+  rd.readAsText(f);input.value='';
+}
+function eraseAll(){
+  if(!confirm('Erase ALL residents, medications and records from this device?'))return;
+  if(!confirm('Last chance — this cannot be undone. Have you exported a backup?'))return;
+  db=blank();save();render();
+}
+
+/* ================= sample data ================= */
+function loadSample(){
+  if(db.residents.length&&!confirm('Replace current data with the sample home?'))return;
+  const d=blank();
+  d.facility.name='Sample Adult Family Home';
+  const c1={id:uid(),name:'Sana Demo',initials:'SD'},c2={id:uid(),name:'Marcus Demo',initials:'MD'};
+  d.caregivers=[c1,c2];d.session.caregiverId=c1.id;
+  const now=new Date();
+  const mStart=new Date(now.getFullYear(),now.getMonth(),1);
+  const prevStart=dstr(new Date(now.getFullYear(),now.getMonth()-1,1));
+  const r1={id:uid(),name:'Dorothy Sample',room:'2',dob:'1938-04-12',allergies:'Penicillin',notes:'Prefers medications with applesauce.',active:true};
+  const r2={id:uid(),name:'Frank Sample',room:'3',dob:'1942-09-30',allergies:'',notes:'',active:true};
+  d.residents=[r1,r2];
+  const mk=(res,name,dose,route,times,ins,prn)=>({id:uid(),residentId:res.id,name,dose,route,times:times||[],prn:!!prn,instructions:ins||'',prescriber:'Nguyen',startDate:prevStart,endDate:null});
+  const m1=mk(r1,'Metformin 500 mg','1 tablet','Oral',['08:00','18:00'],'with food — diabetes');
+  const m2=mk(r1,'Lisinopril 10 mg','1 tablet','Oral',['08:00'],'blood pressure');
+  const m3=mk(r1,'Acetaminophen 325 mg','2 tablets','Oral',null,'for pain, max 6 tablets/24 h',true);
+  const m4=mk(r2,'Donepezil 10 mg','1 tablet','Oral',['20:00'],'memory — give at bedtime');
+  const m5=mk(r2,'Vitamin D3 2000 IU','1 capsule','Oral',['08:00'],'');
+  const m6=mk(r2,'Milk of Magnesia','30 mL','Oral',null,'for constipation, if no BM ×2 days',true);
+  d.meds=[m1,m2,m3,m4,m5,m6];
+  /* fill this month up to yesterday */
+  const yesterday=new Date(now.getFullYear(),now.getMonth(),now.getDate()-1);
+  for(let day=new Date(mStart);day<=yesterday;day.setDate(day.getDate()+1)){
+    const date=dstr(day);
+    const by=day.getDate()%2?c1:c2;
+    for(const m of [m1,m2,m4,m5]){
+      for(const t of m.times){
+        let status='given',note='';
+        if(m===m1&&t==='18:00'&&day.getDate()===7){status='refused';note='Refused after dinner, re-offered once — still declined. Family notified.'}
+        if(m===m4&&day.getDate()===12){status='held';note='Held per Dr. Nguyen — nausea, resume tomorrow.'}
+        const[hh,mm]=t.split(':');
+        d.records.push({id:uid(),medId:m.id,residentId:m.residentId,date,slot:t,status,by:by.initials,byId:by.id,byName:by.name,note,voided:false,
+          at:new Date(day.getFullYear(),day.getMonth(),day.getDate(),+hh,+mm+((day.getDate()*7)%18)).toISOString()});
+      }
+    }
+    if(day.getDate()===9)d.records.push({id:uid(),medId:m3.id,residentId:r1.id,date,slot:null,status:'given',by:c1.initials,byId:c1.id,byName:c1.name,reason:'c/o headache 5/10',note:'Relief reported after 40 min.',voided:false,at:new Date(day.getFullYear(),day.getMonth(),day.getDate(),14,10).toISOString()});
+  }
+  db=d;save();render();
+}
+
+/* ================= boot ================= */
+window.addEventListener('storage',e=>{if(e.key===KEY){db=loadDb();render()}});
+render();
+</script>
+</body>
+</html>
