@@ -164,6 +164,25 @@ warm it 2 weeks; 20–40 sends/day max; plain text, one link, no attachments.
 Direct mail variant: the rack-card play from the Full Census kit aimed at shop
 counters ("Google shows [competitor] first. Want to see why? Scan this.").
 
+## Status (2026-08-21)
+
+Built and in the repo:
+- [x] Landing page (`index.html`) — with Guides in the nav
+- [x] Pitch & pricing page (`pitch.html`)
+- [x] Guides library (`guides/`) — owner playbook + 3 keyword-validated
+      sample ranking guides (14.8k/12.1k/9.9k/22.2k searches/mo topics)
+- [x] Outreach kit (`outreach/outreach-kit.md`) — send-ready 3-touch email
+      sequence, call/VM/SMS scripts, compliance rules
+- [x] Prospect list v1 — 40 Puget Sound tint/PPF shops, wedge-ranked
+      (4 with no website, 1 unclaimed GBP); CSV delivered off-repo,
+      regenerate via DataForSEO Business Listings
+
+Waiting on Henos (accounts/payment needed):
+- [ ] Register fullshowroom.com + .org + sending domain
+- [ ] Calendly "Free Showroom Audit" event type
+- [ ] GTM / GA4 / Clarity properties for the new brand
+- [ ] Warm the sending domain (2 weeks) → start the sequence
+
 ## Next steps
 1. Register fullshowroom.com (+ .org) and a separate sending domain for
    outreach. Update canonical/OG URLs in the page.
