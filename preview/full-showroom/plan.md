@@ -164,6 +164,38 @@ warm it 2 weeks; 20–40 sends/day max; plain text, one link, no attachments.
 Direct mail variant: the rack-card play from the Full Census kit aimed at shop
 counters ("Google shows [competitor] first. Want to see why? Scan this.").
 
+## Niche radar v2 — scoring for the actual Full Census pattern (2026-08-21)
+
+The first laundry list scored consumer spend. The real Full Census pattern is
+narrower and stronger — five tests:
+(1) buyers search "near me" with money in hand, (2) almost NO agencies pitch
+the owners ("[niche] marketing" search volume ≈ 0 = open water; compare
+"dental marketing" 1,900/mo at $58/click = shark tank), (3) the operator has
+FIXED CAPACITY that bleeds money while empty, (4) one fill = months or years
+of recurring revenue, (5) owners sit on a public license roster (free outbound
+list) and already pay a lead middleman they resent.
+
+US Google data, 2026-08-21, DataForSEO:
+
+| Niche | Buyer demand | Agencies fishing the owners | Census-pattern fit |
+|---|---|---|---|
+| **Child care: daycares, preschools, in-home** | "daycare near me" **450,000/mo · $9.07** (+ preschool 135k, montessori 74k) | "daycare marketing" **90/mo**, "child care marketing" **0** | **Perfect.** Licensed slots = capacity; one enrollment ≈ $12–24k/yr recurring; state rosters public (WA DCYF); middleman tax = Care.com/Winnie. The AFH archetype with kids. |
+| **Small assisted living / care homes, other states** | "assisted living near me" 165,000/mo · $12.91 | "assisted living marketing" 390/mo | **It's literally Full Census** in TX (residential care homes), CA (RCFE), GA/PA (personal care homes), OR/MI (adult foster care). Zero new playbook. |
+| **Dog boarding / dog daycare / pet resorts** | 201,000 + 74,000 + 27,100 (cat)/mo · $4–6 | "pet boarding marketing" **10/mo** | Strong. Kennel capacity, weekly recurring daycare, county licenses, middleman = Rover. Lower ticket than childcare. |
+| **Sober living / recovery residences** | 22,200/mo · **$13.76** (+ halfway house 9.9k) | "sober living marketing" **10/mo** | Beds again ($600–1,200/bed/mo). NARR registries. Caution: work only with certified residences; paid ads restricted (LegitScript) — which makes organic SEO the unlock. |
+| **CDL / driving schools** | 301,000/mo (driving) + 49,500 (CDL) | "driving school marketing" **0** | Dark horse. $3–8k CDL tickets, state-licensed rosters, seat/truck capacity. |
+| **Adult day care** | 22,200/mo · $5.23 | ~0 | Not a new brand — bolt onto Full Census itself (same families, same referrers). |
+| RV parks / campgrounds | 301k + 450k/mo but $0.83–1.32 CPC | 50/mo | Big traffic, weak economics, OTA-dominated. Hold. |
+| Funeral homes | 201,000/mo · $4.49 | 110/mo | Real but slow, sensitive sales cycle. Hold. |
+| Therapists | 368,000/mo · $22.90 | 480/mo · **$27.55** | Demand is titanic but the pond is already fished, and Headway/Alma are eating it. Pass for retainers. |
+| Dentists / med spas / law / HVAC / roofing | huge | $58–112 per click on the AGENCY side | Shark tanks. Pass. |
+
+**Read:** child care is the crown jewel new vertical — it beats tint/jewelry on
+every Census-pattern axis (recurring revenue per fill, license rosters,
+middleman resentment, zero agency competition) and Henos's care-sector story
+ports straight across. Multi-state Full Census is the highest-confidence
+compounding move. Pet boarding is the clean #2 new vertical.
+
 ## Status (2026-08-21)
 
 Built and in the repo:
