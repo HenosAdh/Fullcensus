@@ -52,13 +52,13 @@
 "openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"00:00","closes":"23:59"},
 "paymentAccepted":"Private pay, Medicaid, Expanded Community Services",
 "currenciesAccepted":"USD",
-"knowsAbout":["Adult family home","Memory care","Dementia care","Cognitive support","Behavioral support","Respite care","Medication management","Expanded Community Services"],
+"knowsAbout":["Adult family home","Memory care","Dementia care","Alzheimer's disease care","Mental health care","Behavioral health management","Assisted living","Independent living","Retirement living","Respite care","Adult day care","Medication management","Expanded Community Services"],
 "makesOffer":[
- {"@type":"Offer","itemOffered":{"@type":"Service","name":"Memory care in a licensed adult family home","areaServed":"Kent, WA"}},
- {"@type":"Offer","itemOffered":{"@type":"Service","name":"Dementia care","areaServed":"Kent, WA"}},
- {"@type":"Offer","itemOffered":{"@type":"Service","name":"Respite care and short stays","areaServed":"Kent, WA"}},
- {"@type":"Offer","itemOffered":{"@type":"Service","name":"Behavioral support","areaServed":"Kent, WA"}},
- {"@type":"Offer","itemOffered":{"@type":"Service","name":"Medication management","areaServed":"Kent, WA"}}],
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Memory and dementia care, including Alzheimer's disease","areaServed":"Kent, WA"}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mental and behavioral health management care","areaServed":"Kent, WA"}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Assisted living with personalized care","areaServed":"Kent, WA"}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Independent and retirement living","areaServed":"Kent, WA"}},
+ {"@type":"Offer","itemOffered":{"@type":"Service","name":"Respite care and adult day care (short-term)","areaServed":"Kent, WA"}}],
 "amenityFeature":[
  {"@type":"LocationFeatureSpecification","name":"24-hour care","value":true},
  {"@type":"LocationFeatureSpecification","name":"Memory and dementia care","value":true},
@@ -78,7 +78,7 @@
 {"@type":"Question","name":"Who are adult family homes for?","acceptedAnswer":{"@type":"Answer","text":"Adults who can no longer safely live alone. That includes older adults with dementia or memory loss, people who need help with bathing, dressing and medications, and people whose needs are too high for independent living but who do not need a nursing home. Birdsong specializes in memory loss and dementia."}},
 {"@type":"Question","name":"How much does an adult family home cost in Kent, WA?","acceptedAnswer":{"@type":"Answer","text":"It depends on the level of care a person needs and whether the room is private or shared, so there is no single number that would be honest to publish. Call Mel on (253) 740-0890 and she will tell you plainly what it would cost for your situation. Birdsong accepts private pay, Medicaid, and holds an Expanded Community Services contract for residents with higher needs."}},
 {"@type":"Question","name":"Do you accept Medicaid at your Kent adult family home?","acceptedAnswer":{"@type":"Answer","text":"Yes. Birdsong accepts private pay and Medicaid, and holds an Expanded Community Services contract, which covers residents whose needs are higher than a standard placement. If you are working with a DSHS case manager, they can contact Mel directly."}},
-{"@type":"Question","name":"Do you offer respite care or short stays?","acceptedAnswer":{"@type":"Answer","text":"Yes. If you care for someone at home and need a short stay covered, for surgery, a trip, or simply to rest, call and we will talk through what is possible."}},
+{"@type":"Question","name":"Do you offer respite care or short stays?","acceptedAnswer":{"@type":"Answer","text":"Yes. We offer respite care and adult day care, by the day or for a longer short-term stay - for surgery, a trip, or simply to give whoever does the caring at home a rest. Call and we will talk through what is possible."}},
 {"@type":"Question","name":"How many residents live at Birdsong?","acceptedAnswer":{"@type":"Answer","text":"Up to six, which is the maximum a Washington adult family home license allows. Keeping the home small is exactly what makes the individual attention possible."}},
 {"@type":"Question","name":"Which areas do you serve?","acceptedAnswer":{"@type":"Answer","text":"Birdsong is on East Hill in Kent, WA. Families come to us from Kent, Renton, Auburn, Covington, Federal Way, Des Moines, Tukwila and across south King County."}},
 {"@type":"Question","name":"Can we visit before deciding?","acceptedAnswer":{"@type":"Answer","text":"Please do. Visits are welcome by appointment. Call Mel on (253) 740-0890 and she will find a time that suits your family."}}]}
@@ -481,12 +481,11 @@ section[id]{scroll-margin-top:96px}
       <a class="btn btn-out" href="#visit" data-cta="tour" data-loc="hero">Arrange a visit</a>
     </div>
     <div class="hsvc">
-      <button class="hpill" data-svc="0">Memory care</button>
-      <button class="hpill" data-svc="1">Dementia care</button>
-      <button class="hpill" data-svc="2">Behavioral support</button>
-      <button class="hpill" data-svc="3">Respite care</button>
-      <button class="hpill" data-svc="4">Medications</button>
-      <button class="hpill" data-svc="5">Daily living</button>
+      <button class="hpill" data-svc="0">Memory &amp; dementia</button>
+      <button class="hpill" data-svc="1">Mental &amp; behavioral health</button>
+      <button class="hpill" data-svc="2">Assisted living</button>
+      <button class="hpill" data-svc="3">Independent living</button>
+      <button class="hpill" data-svc="4">Respite &amp; day care</button>
     </div>
     <p class="hint" style="margin:-18px auto clamp(30px,4vw,50px)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5V6a2 2 0 1 1 4 0v9"/><path d="M13 10a2 2 0 1 1 4 0v6a5 5 0 0 1-5 5h-1.5a4 4 0 0 1-3.2-1.6L4 14.5a1.8 1.8 0 0 1 2.8-2.2L9 14.5"/></svg>Tap any of these to see how we care for it</p>
 
@@ -519,39 +518,34 @@ section[id]{scroll-margin-top:96px}
     <div class="center rv" style="max-width:640px">
       <div class="kick">Our care</div>
       <h2 class="h2">Memory care and dementia care <span class="tone" style="color:#F2C0B6">in Kent.</span></h2>
-      <p class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5V6a2 2 0 1 1 4 0v9"/><path d="M13 10a2 2 0 1 1 4 0v6a5 5 0 0 1-5 5h-1.5a4 4 0 0 1-3.2-1.6L4 14.5a1.8 1.8 0 0 1 2.8-2.2L9 14.5"/></svg>Tap any of the six &mdash; the answer changes below</p>
+      <p class="hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11.5V6a2 2 0 1 1 4 0v9"/><path d="M13 10a2 2 0 1 1 4 0v6a5 5 0 0 1-5 5h-1.5a4 4 0 0 1-3.2-1.6L4 14.5a1.8 1.8 0 0 1 2.8-2.2L9 14.5"/></svg>Tap any of the five &mdash; the answer changes below</p>
     </div>
     <div class="bubs rv" role="tablist" aria-label="What we provide">
-      <button class="bub" role="tab" id="b1" aria-controls="p1" aria-selected="true">Memory care</button>
-      <button class="bub" role="tab" id="b2" aria-controls="p2" aria-selected="false">Dementia care</button>
-      <button class="bub" role="tab" id="b3" aria-controls="p3" aria-selected="false">Behavioral support</button>
-      <button class="bub" role="tab" id="b4" aria-controls="p4" aria-selected="false">Respite care</button>
-      <button class="bub" role="tab" id="b5" aria-controls="p5" aria-selected="false">Medications</button>
-      <button class="bub" role="tab" id="b6" aria-controls="p6" aria-selected="false">Daily living</button>
+      <button class="bub" role="tab" id="b1" aria-controls="p1" aria-selected="true">Memory &amp; dementia</button>
+      <button class="bub" role="tab" id="b2" aria-controls="p2" aria-selected="false">Mental &amp; behavioral health</button>
+      <button class="bub" role="tab" id="b3" aria-controls="p3" aria-selected="false">Assisted living</button>
+      <button class="bub" role="tab" id="b4" aria-controls="p4" aria-selected="false">Independent living</button>
+      <button class="bub" role="tab" id="b5" aria-controls="p5" aria-selected="false">Respite &amp; day care</button>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p1" aria-labelledby="b1">
-      <h3>Memory care</h3>
-      <p>The same day, every day, on purpose. Same faces, same rhythm, meals at the same table. When someone cannot hold on to the last hour, a predictable day is what keeps them calm. The clock, the calendar and the day&rsquo;s date stay on the wall where everyone can see them.</p>
+      <h3>Memory and dementia care</h3>
+      <p>Alzheimer&rsquo;s disease and other forms of dementia. The same day, every day, on purpose &mdash; same faces, same rhythm, meals at the same table. When someone cannot hold on to the last hour, a predictable day is what keeps them calm. The clock, the calendar and the day&rsquo;s date stay on the wall where everyone can see them.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p2" aria-labelledby="b2" hidden>
-      <h3>Dementia care</h3>
-      <p>Six residents, low noise, nothing startling. We watch for the small changes that come before the big ones, and we tell families early.</p>
+      <h3>Mental and behavioral health management</h3>
+      <p>A calm, low-stimulation household and a team who look for what sits behind a behavior before responding to it. Most agitation has a reason: pain, noise, tiredness, a change in routine. We look for the reason first, and we work with each resident&rsquo;s own providers on the plan.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p3" aria-labelledby="b3" hidden>
-      <h3>Behavioral support</h3>
-      <p>Most agitation has a reason: pain, noise, tiredness, a change in routine. We look for the reason before we respond to the behavior.</p>
+      <h3>Assisted living with personalized care</h3>
+      <p>Help with bathing, dressing, grooming and getting around safely, at whatever level someone actually needs. Every medication given on time and written down, refills handled, appointments coordinated with their own doctors. Home-cooked meals, laundry, and company through the day.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p4" aria-labelledby="b4" hidden>
-      <h3>Respite care and short stays</h3>
-      <p>Surgery, a trip, or simply a week of rest. Call and we will work it out. Families come back to us for this again and again.</p>
+      <h3>Independent and retirement living</h3>
+      <p>Not everybody arrives needing a great deal. Some residents want their own room, their meals cooked, the laundry done and people around them &mdash; and to carry on doing the rest themselves. The care is here for the day it is needed, and not before.</p>
     </div>
     <div class="bpanel rv" role="tabpanel" id="p5" aria-labelledby="b5" hidden>
-      <h3>Medications</h3>
-      <p>Every dose on time and written down. Refills handled, appointments coordinated with each resident's own doctors.</p>
-    </div>
-    <div class="bpanel rv" role="tabpanel" id="p6" aria-labelledby="b6" hidden>
-      <h3>Everyday living</h3>
-      <p>Bathing, dressing, grooming, getting around safely. Home-cooked meals, clean rooms, laundry done, and company through the day.</p>
+      <h3>Respite and day care</h3>
+      <p>Short-term care, by the day or for a longer stay. Surgery, a trip, or simply a week of rest for whoever does the caring at home. Call and we will work it out. Families come back to us for this again and again.</p>
     </div>
   </div>
 </section>
@@ -565,7 +559,7 @@ section[id]{scroll-margin-top:96px}
   </div>
 
   <div class="split rv">
-    <div class="ph tilt"><div class="f"><img src="images/bedroom-2.webp" alt="A resident bedroom at Birdsong Adult Family Home in Kent, WA" loading="lazy" decoding="async" srcset="images/bedroom-2-480.webp 480w, images/bedroom-2-768.webp 768w, images/bedroom-2.webp 1320w" sizes="(max-width:1023px) 100vw, 50vw"></div></div>
+    <div class="ph tilt"><div class="f"><img src="images/bedroom-3.webp" alt="A resident bedroom with log walls at Birdsong Adult Family Home in Kent, WA" loading="lazy" decoding="async" srcset="images/bedroom-3-480.webp 480w, images/bedroom-3-768.webp 768w, images/bedroom-3.webp 1600w" sizes="(max-width:1023px) 100vw, 50vw"></div></div>
     <div class="tx">
       <div class="kick">Their own room</div>
       <h3 class="h3">A room to settle into</h3>
@@ -694,8 +688,8 @@ section[id]{scroll-margin-top:96px}
         <p class="a">It depends on the level of care a person needs and whether the room is private or shared, so there is no single number we could publish that would be honest. Call Mel on (253) 740-0890 and she will tell you plainly what it would cost for your situation.</p></details>
       <details class="faq rv"><summary>Do you accept Medicaid?</summary>
         <p class="a">Yes. Birdsong accepts private pay and Medicaid, and we hold an Expanded Community Services contract, which covers residents whose needs are higher than a standard placement. If you are working with a DSHS case manager, they can contact Mel directly.</p></details>
-      <details class="faq rv"><summary>Do you offer respite care or short stays?</summary>
-        <p class="a">Yes. If you care for someone at home and need a short stay covered, for surgery, a trip, or simply to rest, call and we will talk it through. Families come back to us for this again and again.</p></details>
+      <details class="faq rv"><summary>Do you offer respite care or day care?</summary>
+        <p class="a">Yes &mdash; respite care and adult day care, by the day or for a longer short-term stay. For surgery, a trip, or simply to give whoever does the caring at home a rest. Families come back to us for this again and again.</p></details>
       <details class="faq rv"><summary>How many residents live at Birdsong?</summary>
         <p class="a">Up to six, which is the maximum a Washington adult family home license allows. Keeping the home small is exactly what makes the individual attention possible.</p></details>
       <details class="faq rv"><summary>Which areas do you serve?</summary>
