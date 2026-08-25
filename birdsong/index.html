@@ -410,6 +410,17 @@ section[id]{scroll-margin-top:96px}
 /* every tap target clears 44px */
 .lnk{display:inline-block;min-height:24px}
 .areas span,.hpill,.bub{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
+
+/* featured review — Rose's, the one written for publication */
+.feature{background:#fff;border:1px solid var(--line);border-left:5px solid var(--rose);
+  border-radius:var(--r-card);padding:clamp(28px,3.4vw,44px);margin:0 auto clamp(18px,2vw,26px);
+  max-width:860px;box-shadow:var(--sh)}
+.feature .qm{font-family:'Newsreader',serif;font-size:48px;line-height:.6;color:var(--rose);opacity:.5;margin-bottom:16px}
+.feature p{font-family:'Newsreader',Georgia,serif;font-size:clamp(18px,1.7vw,22px);line-height:1.6;
+  color:var(--ink);margin:0 0 20px;font-style:italic}
+.feature footer{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px}
+.feature .who{font-weight:800;color:var(--ink);font-size:15.5px}
+.feature .when{font-size:13.5px;color:var(--faint);font-weight:700}
 </style>
 
 </head>
@@ -611,9 +622,18 @@ section[id]{scroll-margin-top:96px}
   <div class="in">
     <div class="center rv" style="max-width:620px;margin-bottom:clamp(36px,4vw,52px)">
       <div class="kick rose">Families</div>
-      <h2 class="h2">Letters families <span class="tone">have written us.</span></h2>
-      <p class="p">Handwritten notes we have kept since 2007.</p>
+      <h2 class="h2">What families <span class="tone">say about us.</span></h2>
+      <p class="p">A review from a daughter, and handwritten notes we have kept for years.</p>
     </div>
+    <blockquote class="feature rv">
+      <div class="qm" aria-hidden="true">&ldquo;</div>
+      <p>Mom came to Birdsong with much needed 24-hour care. They embraced her immediately.
+      Mel, Jerry and staff let her keep her dignity. They displayed their respect, and attention
+      to detail of Mom&rsquo;s care. Their friendliness and understanding of Mom&rsquo;s illness
+      and pain reflected Mel&rsquo;s ethics and management style. Staff knew Mom was extremely
+      fragile, and yet they comforted her without them knowing I was even watching.</p>
+      <footer><span class="who">Rose</span><span class="when">daughter of a resident</span></footer>
+    </blockquote>
     <div class="lgrid">
       <div class="letter rv"><div class="qm" aria-hidden="true">&ldquo;</div>
         <p>&ldquo;The caregivers provided exceptional personal care for our father, and he had often expressed thanks beyond words.&rdquo;</p>
