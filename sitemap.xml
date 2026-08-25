@@ -37,6 +37,42 @@
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://fullcensus.org/what-we-do/brand-print</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fullcensus.org/what-we-do/facebook-ads</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fullcensus.org/what-we-do/google-business</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fullcensus.org/what-we-do/photography</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fullcensus.org/what-we-do/seo</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fullcensus.org/what-we-do/website</loc>
+    <lastmod>2026-08-25</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://fullcensus.org/guides/a-place-for-mom-provider-cost/</loc>
     <lastmod>2026-08-25</lastmod>
     <changefreq>monthly</changefreq>
