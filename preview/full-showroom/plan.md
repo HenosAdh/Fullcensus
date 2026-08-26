@@ -196,6 +196,37 @@ middleman resentment, zero agency competition) and Henos's care-sector story
 ports straight across. Multi-state Full Census is the highest-confidence
 compounding move. Pet boarding is the clean #2 new vertical.
 
+## Niche commitment & retention design (2026-08-26)
+
+Decision lens: Full Census retains because the problem REGENERATES (residents
+move on, beds reopen — the service is never "done"). The Full Showroom niche
+and offer must pass the same test.
+
+**Committed niche: window tint / PPF shops.** Every job is one-off, so the
+shop needs new customers forever — the problem regenerates. But the offer
+must never have a finish line:
+- Sell **booked bays**, never "get you ranked" (a ranking looks finished;
+  bays never are). Monthly report in dollars: "23 calls · ~$9,600 booked."
+- Expansion ladder deepens retention: tint → PPF → ceramic → commercial/
+  fleet accounts ($19.45 CPC keyword) — more valuable over time, not more done.
+- Jewelers: opportunistic closes only. Long consideration cycles blur
+  attribution, and blurry attribution is what gets marketers fired.
+
+**Ideal client profile (the list filter, in priority order):**
+1. Multi-service shop (tint + PPF + ceramic) — ticket mix and upsell room
+2. 4.7★+, 100+ reviews — proven operators; bad shops fire you for their own
+   fumbled leads
+3. Owner-operated, 1–2 locations, visible open capacity
+4. No website or bad website — biggest before/after delta, strongest story
+(The wedge-ranked prospect CSV already sorts for exactly this; Tinting To-Go
+is the archetype.)
+
+**Second lane, when the engine proves out: child care — brand "Full Roster."**
+Structurally the best retention on the whole radar: kids age out every year,
+so a full roster today is guaranteed empty seats in 12 months, on a schedule.
+"We keep your waitlist full" never expires. 450k/mo "daycare near me" demand,
+zero agency competition, $12–24k/yr per enrollment.
+
 ## Status (2026-08-21)
 
 Built and in the repo:
