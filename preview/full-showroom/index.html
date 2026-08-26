@@ -652,6 +652,43 @@ Get <span class="hl-ice">full.</span></h1>
 </script>
 
 <script>
+  // Conversion event layer (see outreach/engine-runbook.md). Events push to
+  // dataLayer now; GTM/GA4/Meta pick them up once the brand's container exists.
+  // Fired from our own code, never from iframe guesswork — forms here are
+  // native and post directly, so every event below is actually observable.
+  window.dataLayer = window.dataLayer || [];
+  (function () {
+    var track = function (ev, params) {
+      var p = params || {};
+      p.event = ev;
+      window.dataLayer.push(p);
+    };
+    // audit_started — first focus on the audit form
+    var started = false;
+    var qf = document.getElementById("quoteForm");
+    if (qf) qf.addEventListener("focusin", function () {
+      if (started) return; started = true;
+      track("audit_started", { form_id: "showroom-audit", source_page: location.pathname });
+    });
+    // generate_lead — audit form submitted
+    if (qf) qf.addEventListener("submit", function () {
+      track("generate_lead", { form_id: "showroom-audit", value: 1000, currency: "USD" });
+    });
+    // call_booked — Calendly confirms inside the swapped-in iframe
+    window.addEventListener("message", function (e) {
+      if (e.data && e.data.event === "calendly.event_scheduled") {
+        track("call_booked", { value: 1000, currency: "USD" });
+      }
+    });
+    // phone_click — any tel: tap
+    document.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"]') : null;
+      if (a) track("phone_click", { source_page: location.pathname });
+    });
+  })();
+</script>
+
+<script>
 (function(){
 var t=document.getElementById('navToggle'),m=document.getElementById('mobile-menu'),c=document.getElementById('mmClose');
 function open(){m.classList.add('open');t.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}

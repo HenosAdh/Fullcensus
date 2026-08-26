@@ -269,5 +269,21 @@ footer{background:var(--ink);color:#8f8f8f;font-size:.8rem;padding:26px 0 40px}
 <div class="wrap">Full Showroom · a Full Census company · Seattle, WA · (206) 203-4944 · We never sell your information.</div>
 </footer>
 
+<script>
+  // Conversion event layer (see outreach/engine-runbook.md).
+  window.dataLayer = window.dataLayer || [];
+  (function () {
+    var track = function (ev, params) {
+      var p = params || {}; p.event = ev; window.dataLayer.push(p);
+    };
+    document.addEventListener("click", function (e) {
+      var t = e.target && e.target.closest ? e.target.closest("a[href]") : null;
+      if (!t) return;
+      var href = t.getAttribute("href") || "";
+      if (href.indexOf("tel:") === 0) track("phone_click", { source_page: "pitch" });
+      if (href.indexOf("calendly.com") > -1) track("audit_started", { form_id: "calendly-direct", source_page: "pitch" });
+    });
+  })();
+</script>
 </body>
 </html>
