@@ -20,7 +20,12 @@ AFHs are DSHS-licensed, so the authoritative list is public:
 - The export has **no email column**. That's what lanes 2–4 are for. It IS
   the canonical spine: every merge keys on license #.
 
-### Lane 2 · Public records request (send today, the bulk email unlock)
+### Lane 2 · Public records request — ✅ SENT 2026-08-27
+Sent from Henos's Gmail to DSHSPublicDisclosure@dshs.wa.gov (DSHS Office of
+Information Governance, the official PRA channel). Expect a statutory
+acknowledgment within 5 business days; watch the inbox and reply promptly if
+they ask to clarify or quote a small fee — response speed keeps the clock
+running. Original draft below for reference.
 DSHS collects licensee emails during licensing; under the WA Public Records
 Act (RCW 42.56) the business contact record is generally disclosable. One
 request ≈ most of the roster's emails, at $0. Send via the DSHS public
