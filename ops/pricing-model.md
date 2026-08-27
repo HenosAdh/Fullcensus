@@ -72,6 +72,99 @@ versus RareCurve's 4.7-month payback.
 constraints are **delivery capacity** and **retention**, which is what the
 tiering below is actually solving for.
 
+## Payer mix beats bed count — the finding that reorders everything
+
+Every state sets its own rate for what a home collects on a subsidised bed,
+and the spread is enormous. This is not a detail; it decides who can be a
+client at all.
+
+| State / payer | Paid to the home, per bed per month | Source |
+|---|---:|---|
+| **WA** Medicaid AFH, CARE A-low → E-high | **$3,771 → $8,109** ($125.67–$270.31/day) | DSHS base daily rates, eff. 7/1/2025 |
+| **WA** private pay | $3,800–9,000 | market |
+| **CA** private-pay board and care | $3,500–6,000 | market |
+| **CA** SSI/SSP only (room and board) | **$1,444.07** | 2026 SSI/SSP non-medical out-of-home care |
+| **CA** SSI + Assisted Living Waiver | $1,444 + $93–264/day care = **$4,200–9,400** | ALW, limited counties and slots |
+| **FL** OSS base provider rate | **~$1,018.40** (+$160 PNA to resident) | Fla. Admin. Code 65A-2.036 |
+| **AZ** ALTCS | pays **care only, not room and board** — home bills R&B separately | verify before AZ launch |
+
+**Washington is the outlier, in our favour.** Medicaid there pays an AFH
+roughly what private pay does — a high-classification King County bed at
+$8,109/month beats most private-pay beds in the state. That is very likely
+*why* Full Census works so well in Washington: every licensed home, Medicaid
+or private, is a solvent customer.
+
+**That does not travel.** A California board and care serving SSI-only
+residents collects $1,444/bed. Six beds is $8,664/month gross — the entire
+home grosses less than a single Washington Medicaid home does at three beds.
+Florida OSS at ~$1,018/bed is worse.
+
+### Who can actually pay us
+
+| Home type | Owner net (est.) | $400/mo is | Verdict |
+|---|---:|---:|---|
+| WA Medicaid AFH (any classification) | $5,655–12,164 | 3–7% of net | **client** |
+| WA / CA private pay | $7,125–7,500 | 5–6% of net | **client** |
+| CA SSI + ALW slot | $6,351 | 6% of net | **client** |
+| CA SSI-only | ~$1,040 | **38% of net** | cannot afford a retainer |
+| FL OSS-funded | ~$733 | **55% of net** | cannot afford a retainer |
+
+Selling a $400/month retainer to an SSI-only home is not a hard sell, it is
+an unaffordable one — and those are the clients who cancel in month three and
+leave a bad taste in a small, tight-knit community. Screen them out on
+purpose.
+
+### What this changes about targeting
+
+- **Washington: sell to everyone.** Payer mix does not disqualify anyone.
+  This is the easiest market in the country and it is our home one.
+- **California: private-pay and ALW homes only.** They are identifiable —
+  they advertise rates, have websites, sit in higher-income zip codes, and
+  their listings talk about amenities rather than "we accept SSI."
+- **Florida: build-only market** until proven otherwise. OSS rates cannot
+  support a retainer.
+- **Arizona: verify first.** ALTCS covering care but not room and board means
+  the home's actual collection depends on the resident's own income. Confirm
+  before pricing the state.
+
+## Payment model: let the payer mix choose it
+
+Two offers, not one. Which one a prospect gets is decided by what their beds
+collect.
+
+**One-time build — $1,500** (founding rate $1,000). For subsidy-funded homes
+and anyone cash-tight. They can find $1,500 once; they cannot find $400 every
+month forever. No delivery drag for us, instantly profitable against a ~$250
+CAC, and the "it's yours forever" promise is literally true.
+
+**Build + monthly Fill** — for private-pay, WA-Medicaid, and ALW homes, at
+the per-bed tiers ($400 / $750 / $1,200).
+
+**Sell the build first, the retainer second.** Do not force the monthly at
+the point of sale:
+1. It removes the price objection at the moment of the close, so more homes say yes.
+2. The build produces a result within weeks, and *their own numbers* then sell
+   the retainer better than any pitch.
+3. Homes that can only ever afford the build still convert, and still become
+   case studies and referral sources in a community that talks.
+
+### The monthly report is the retainer
+
+A recurring fee needs a recurring deliverable the client can hold, or it
+reads as rent. The report is the product. One page, same day every month:
+
+- **Calls this month** vs last (call tracking, so it is not a guess)
+- **Direction requests and map views** from the Google profile
+- **Where you rank** for the local phrase — "board and care home near me" in
+  their city — this month vs last
+- **Tour requests and form fills**, listed
+- **What we changed** this month, in plain English
+- **The dollar line:** "3 inquiries this month. One move-in at your rate is
+  $5,000/month." That sentence ties the fee back to the only number the owner
+  actually cares about.
+
+Send it on a fixed date. The predictability is half the retention.
+
 ## Recommended structure
 
 **The Build — $1,500 one-time** (founding rate $1,000 for the first five per
