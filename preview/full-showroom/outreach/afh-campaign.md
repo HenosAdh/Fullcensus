@@ -1,5 +1,57 @@
 # Campaign 1 — Adult Family Homes → fullcensus.org
 
+> **Now national (2026-08-27).** Full Census is no longer a Washington
+> agency — it is the care-home marketing brand, state by state, on the
+> AgeSong model (one page per state, every state's own license word).
+> See "National architecture" below. Outbound runs per state, each email
+> landing on that state's page.
+
+## National architecture — built and live in the repo
+
+**The insight that makes it work:** every state calls the same six-bedroom
+home something different, and families search the LOCAL word, not the
+license. That is what makes 50 state pages genuinely distinct content
+rather than doorway spam — each page leads with its own license term,
+regulator, and search phrase (all verified data, not spun text).
+
+| State | License term | Regulator | Status |
+|---|---|---|---|
+| Washington | Adult Family Home (AFH) | DSHS ALTSA | live · home state |
+| California | RCFE / "board and care" | CDSS Community Care Licensing | live · **5,790 homes of 6 or fewer** |
+| Wisconsin | Adult Family Home (3–4) + CBRF (5+) | DHS Division of Quality Assurance | live · same word as WA |
+| Oregon | Adult Foster Home | Oregon DHS | draft |
+| Michigan | Adult Foster Care | LARA | draft |
+| Georgia | Personal Care Home | DCH HFRD | draft |
+| Pennsylvania | Personal Care Home | PA DHS | draft |
+| Texas | Assisted Living Type A/B | Texas HHSC | draft |
+| North Carolina | Family Care Home | NC DHSR | draft |
+| Arizona | Assisted Living Home | AZ DHS | draft |
+
+URLs: `fullcensus.org/` = national hub · `/states/` = directory ·
+`/washington/`, `/california/`, `/wisconsin/`… = state pages.
+Generator: `tools/build_state_pages.py` + `tools/states.json`
+(`python3 tools/build_state_pages.py` regenerates everything).
+
+**Draft states are `noindex` until Henos confirms** the license term,
+regulator name, and home count with that state's agency. Getting an
+operator's own license category wrong in outreach is the one credibility
+mistake this campaign cannot afford — so verification gates publication.
+
+**Agency-side competition is empty in every state** (DataForSEO, Aug 2026):
+"adult family home marketing", "rcfe marketing", "residential assisted
+living marketing", "board and care marketing" all return **zero search
+volume**. "assisted living marketing agency" is 50/mo. No one is fishing
+these owners.
+
+**Per-state outbound pattern** — same 3-touch, three swaps:
+1. license word (AFH → board and care → CBRF → personal care home…)
+2. landing link (`fullcensus.org/{state}/`)
+3. the searched phrase in email 1's mirror line
+
+Rollout order: WA (roster in hand) → CA (biggest, 5,790 small homes) →
+WI (same vocabulary, zero retraining) → then by roster availability.
+
+
 The engine's first campaign runs on the proven offer: WA adult family homes,
 landing on fullcensus.org (live case study, live audit form, live analytics).
 ~6,500 untouched homes × 3 touches ≈ 20K sends — a perfect first quarter.
