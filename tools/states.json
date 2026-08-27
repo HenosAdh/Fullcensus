@@ -1,5 +1,5 @@
 {
-  "_comment": "Full Census national state data. Each state's LICENSE TERM is what makes its page genuinely distinct (not spun duplicate content) — states use different words for the same small care home, and families search the local word. status: 'live' = terminology verified, page indexed. 'draft' = generated with noindex until Henos confirms the license term, regulator, and count with the state agency. count = number of SMALL homes (the ICP), only rendered when count_verified is true.",
+  "_comment": "Full Census national state data. Each state's LICENSE TERM is what makes its page genuinely distinct (not spun duplicate content) \u2014 states use different words for the same small care home, and families search the local word. status: 'live' = terminology verified, page indexed. 'draft' = generated with noindex until Henos confirms the license term, regulator, and count with the state agency. count = number of SMALL homes (the ICP), only rendered when count_verified is true.",
   "states": [
     {
       "slug": "washington",
@@ -16,13 +16,33 @@
       "count_verified": false,
       "status": "live",
       "home_state": true,
-      "blurb": "Where Full Census started. My own family's home, Serene Lynnwood, was the first site I ever built — a family found it in week one.",
+      "blurb": "Where Full Census started. My own family's home, Serene Lynnwood, was the first site I ever built \u2014 a family found it in week one.",
       "guides": [
-        {"url": "/guides/afh-license-requirements-washington", "title": "AFH license requirements in Washington"},
-        {"url": "/guides/start-an-adult-family-home-washington", "title": "How to start an adult family home in Washington"},
-        {"url": "/guides/afh-startup-costs-washington", "title": "AFH startup costs in Washington"},
-        {"url": "/guides/placement-agencies-vs-listing-your-own-beds", "title": "Placement agencies vs. listing your own beds"}
-      ]
+        {
+          "url": "/guides/afh-license-requirements-washington",
+          "title": "AFH license requirements in Washington"
+        },
+        {
+          "url": "/guides/start-an-adult-family-home-washington",
+          "title": "How to start an adult family home in Washington"
+        },
+        {
+          "url": "/guides/afh-startup-costs-washington",
+          "title": "AFH startup costs in Washington"
+        },
+        {
+          "url": "/guides/placement-agencies-vs-listing-your-own-beds",
+          "title": "Placement agencies vs. listing your own beds"
+        }
+      ],
+      "roster": {
+        "name": "DSHS AFH Locator",
+        "url": "https://fortress.wa.gov/dshs/adsaapps/lookup/AFHPubLookup.aspx",
+        "fmt": "CSV/Excel export from the search UI",
+        "has_email": false,
+        "difficulty": "easy",
+        "notes": "Also on geo.wa.gov as 'DSHS Adult Family Homes'. PRA request for emails sent 2026-08-27."
+      }
     },
     {
       "slug": "california",
@@ -39,8 +59,16 @@
       "count_verified": true,
       "status": "live",
       "home_state": false,
-      "blurb": "The biggest small-home market in the country. Families here say \"board and care\" — most operators' websites say \"RCFE,\" which is one reason families can't find them.",
-      "guides": []
+      "blurb": "The biggest small-home market in the country. Families here say \"board and care\" \u2014 most operators' websites say \"RCFE,\" which is one reason families can't find them.",
+      "guides": [],
+      "roster": {
+        "name": "CDSS Community Care Licensing facilities (open data)",
+        "url": "https://data.chhs.ca.gov/dataset/ccl-facilities",
+        "fmt": "CSV, updated regularly",
+        "has_email": false,
+        "difficulty": "easy",
+        "notes": "Filter facility type 740 (Residential Care Elderly) / 741. Also ccld.dss.ca.gov/carefacilitysearch with JSON/CSV export. No records request needed for the spine."
+      }
     },
     {
       "slug": "wisconsin",
@@ -49,7 +77,7 @@
       "term": "Adult Family Home",
       "term_short": "AFH",
       "term_plural": "adult family homes",
-      "beds": "3–4 residents (AFH) or 5+ (CBRF)",
+      "beds": "3\u20134 residents (AFH) or 5+ (CBRF)",
       "regulator": "Wisconsin DHS Division of Quality Assurance",
       "search_term": "adult family home wisconsin",
       "search_volume": 170,
@@ -57,8 +85,16 @@
       "count_verified": false,
       "status": "live",
       "home_state": false,
-      "blurb": "Wisconsin uses the same words Washington does — adult family home — so everything we built for WA operators translates directly. Larger homes here are licensed as CBRFs.",
-      "guides": []
+      "blurb": "Wisconsin uses the same words Washington does \u2014 adult family home \u2014 so everything we built for WA operators translates directly. Larger homes here are licensed as CBRFs.",
+      "guides": [],
+      "roster": {
+        "name": "WI DHS Division of Quality Assurance provider directory",
+        "url": "https://www.dhs.wisconsin.gov/guide/",
+        "fmt": "Provider search + downloadable lists",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": "AFH (3-4 bed) and CBRF are separate license types \u2014 pull both."
+      }
     },
     {
       "slug": "oregon",
@@ -76,7 +112,15 @@
       "status": "draft",
       "home_state": false,
       "blurb": "Next door to our home state, and the closest market to Washington in both licensing structure and family expectations.",
-      "guides": []
+      "guides": [],
+      "roster": {
+        "name": "ODHS licensed facility directory",
+        "url": "https://www.oregon.gov/odhs/providers-partners/licensing/Pages/default.aspx",
+        "fmt": "Provider lists",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": "Adult foster homes are county-administered in places; expect per-county files."
+      }
     },
     {
       "slug": "michigan",
@@ -85,7 +129,7 @@
       "term": "Adult Foster Care Home",
       "term_short": "AFC",
       "term_plural": "adult foster care homes",
-      "beds": "small group homes, 6–12 residents",
+      "beds": "small group homes, 6\u201312 residents",
       "regulator": "Michigan LARA, Adult Foster Care Licensing",
       "search_term": "adult foster care michigan",
       "search_volume": 320,
@@ -94,7 +138,15 @@
       "status": "draft",
       "home_state": false,
       "blurb": "One of the largest small-home populations in the Midwest, licensed as adult foster care.",
-      "guides": []
+      "guides": [],
+      "roster": {
+        "name": "Michigan LARA adult foster care facility search",
+        "url": "https://www.michigan.gov/lara",
+        "fmt": "Search UI, exportable",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": "AFC small group homes are the ICP; screen out large group homes."
+      }
     },
     {
       "slug": "georgia",
@@ -111,8 +163,16 @@
       "count_verified": false,
       "status": "draft",
       "home_state": false,
-      "blurb": "Georgia families search \"personal care home\" — a completely different phrase from the one operators' own websites usually use.",
-      "guides": []
+      "blurb": "Georgia families search \"personal care home\" \u2014 a completely different phrase from the one operators' own websites usually use.",
+      "guides": [],
+      "roster": {
+        "name": "Georgia DCH Healthcare Facility Regulation directory",
+        "url": "https://dch.georgia.gov/",
+        "fmt": "Facility directory",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": "Personal care homes; separate list from assisted living communities."
+      }
     },
     {
       "slug": "pennsylvania",
@@ -130,7 +190,15 @@
       "status": "draft",
       "home_state": false,
       "blurb": "Pennsylvania licenses small homes as personal care homes, separate from its larger assisted living residences.",
-      "guides": []
+      "guides": [],
+      "roster": {
+        "name": "PA DHS personal care home directory",
+        "url": "https://www.dhs.pa.gov/",
+        "fmt": "Provider directory",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": ""
+      }
     },
     {
       "slug": "texas",
@@ -147,8 +215,16 @@
       "count_verified": false,
       "status": "draft",
       "home_state": false,
-      "blurb": "Texas splits small homes into Type A and Type B licenses — and the residential assisted living investor wave has created thousands of new owner-operators who have never marketed anything.",
-      "guides": []
+      "blurb": "Texas splits small homes into Type A and Type B licenses \u2014 and the residential assisted living investor wave has created thousands of new owner-operators who have never marketed anything.",
+      "guides": [],
+      "roster": {
+        "name": "Texas HHSC long-term care provider search",
+        "url": "https://www.hhs.texas.gov/providers/long-term-care-providers/assisted-living-facilities-alf",
+        "fmt": "Provider search + LTC datasets",
+        "has_email": false,
+        "difficulty": "medium",
+        "notes": "Type A vs Type B matters for the pitch; Type B homes serve higher-acuity residents."
+      }
     },
     {
       "slug": "north-carolina",
@@ -157,7 +233,7 @@
       "term": "Family Care Home",
       "term_short": "FCH",
       "term_plural": "family care homes",
-      "beds": "2–6 residents",
+      "beds": "2\u20136 residents",
       "regulator": "NC Division of Health Service Regulation",
       "search_term": "care home near me",
       "search_volume": null,
@@ -165,8 +241,16 @@
       "count_verified": false,
       "status": "draft",
       "home_state": false,
-      "blurb": "North Carolina's family care home license covers exactly the 2–6 bed homes we serve best.",
-      "guides": []
+      "blurb": "North Carolina's family care home license covers exactly the 2\u20136 bed homes we serve best.",
+      "guides": [],
+      "roster": {
+        "name": "NC DHSR facility lists",
+        "url": "https://info.ncdhhs.gov/dhsr/",
+        "fmt": "Downloadable facility lists by type",
+        "has_email": false,
+        "difficulty": "easy",
+        "notes": "DHSR publishes clean per-type lists; family care homes are their own category."
+      }
     },
     {
       "slug": "arizona",
@@ -184,7 +268,41 @@
       "status": "draft",
       "home_state": false,
       "blurb": "Arizona's assisted living home license is built for the small residential model, and the retiree population keeps demand high year-round.",
-      "guides": []
+      "guides": [],
+      "roster": {
+        "name": "AZDHS licensed facility search",
+        "url": "https://www.azdhs.gov/licensing/",
+        "fmt": "Search + downloadable data",
+        "has_email": false,
+        "difficulty": "easy",
+        "notes": "Assisted living homes (<=10 beds) are separate from assisted living centers."
+      }
+    },
+    {
+      "slug": "florida",
+      "name": "Florida",
+      "abbr": "FL",
+      "term": "Adult Family Care Home",
+      "term_short": "AFCH",
+      "term_plural": "adult family care homes",
+      "beds": "up to 5 residents in the provider's own home",
+      "regulator": "Florida Agency for Health Care Administration (AHCA)",
+      "search_term": "care home near me",
+      "search_volume": null,
+      "count": null,
+      "count_verified": false,
+      "status": "draft",
+      "home_state": false,
+      "blurb": "Florida licenses the small home as an adult family care home \u2014 the operator lives in the house, exactly like a Washington AFH. Larger properties are licensed as ALFs.",
+      "guides": [],
+      "roster": {
+        "name": "Florida AHCA / FloridaHealthFinder",
+        "url": "https://quality.healthfinder.fl.gov/",
+        "fmt": "Facility locator with data downloads",
+        "has_email": false,
+        "difficulty": "easy",
+        "notes": "Adult Family Care Home (AFCH) is the small-home license, separate from ALF. AHCA data is among the cleanest in the country."
+      }
     }
   ]
 }
