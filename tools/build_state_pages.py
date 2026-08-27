@@ -322,6 +322,20 @@ def hub_page():
         "https://fullcensus.org/states/", body)
 
 
+def sitemap():
+    """Only indexable pages: draft states carry noindex, so they stay out."""
+    urls = ["https://fullcensus.org/", "https://fullcensus.org/states/",
+            "https://fullcensus.org/about", "https://fullcensus.org/websites",
+            "https://fullcensus.org/what-we-do/", "https://fullcensus.org/guides/"]
+    urls += [f"https://fullcensus.org/{s['slug']}/" for s in STATES if s["status"] == "live"]
+    for g in ROOT.glob("guides/*/index.html"):
+        urls.append(f"https://fullcensus.org/guides/{g.parent.name}/")
+    body = "\n".join(f"  <url><loc>{u}</loc></url>" for u in urls)
+    return ('<?xml version="1.0" encoding="UTF-8"?>\n'
+            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+            f"{body}\n</urlset>\n"), len(urls)
+
+
 def main():
     written = []
     for s in STATES:
@@ -333,6 +347,9 @@ def main():
     d.mkdir(exist_ok=True)
     (d / "index.html").write_text(hub_page())
     written.append("/states/")
+    sm, n = sitemap()
+    (ROOT / "sitemap.xml").write_text(sm)
+    written.append(f"/sitemap.xml ({n} indexable urls)")
     print(f"generated {len(written)} pages:")
     for w in written:
         print("  ", w)

@@ -6,6 +6,19 @@
 > See "National architecture" below. Outbound runs per state, each email
 > landing on that state's page.
 
+## Verified market (DataForSEO, 2026-08-27)
+
+California 5,241 · Florida 2,818 · Washington 2,188 · Arizona 1,824 —
+**12,071 homes across the four launch states.** California's Maps count
+sits within 10% of the 5,790 licensed small RCFEs CDSS publishes, so the
+sizing is corroborated by two independent sources.
+
+Important: that is not 12,071 sendable prospects. After filtering and
+realistic email coverage it is roughly 4,500 email-contactable homes —
+about one month of engine capacity. See `engine-runbook.md`: the binding
+constraint is email coverage, not sending capacity, which is why the
+records requests outrank adding new states.
+
 ## National architecture — built and live in the repo
 
 **The insight that makes it work:** every state calls the same six-bedroom

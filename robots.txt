@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Internal strategy, pricing, and outreach material — never index.
+Disallow: /ops/
+# Draft brands and unlaunched work.
+Disallow: /preview/
+
+Sitemap: https://fullcensus.org/sitemap.xml
