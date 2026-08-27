@@ -1,0 +1,4 @@
+# Prospect lists are operational data. This repo is served publicly by
+# GitHub Pages, so never commit lists here — they would be downloadable at
+# fullcensus.org/data/.
+data/

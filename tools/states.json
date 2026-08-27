@@ -42,7 +42,9 @@
         "has_email": false,
         "difficulty": "easy",
         "notes": "Also on geo.wa.gov as 'DSHS Adult Family Homes'. PRA request for emails sent 2026-08-27."
-      }
+      },
+      "maps_count": 2188,
+      "maps_count_date": "2026-08-27"
     },
     {
       "slug": "california",
@@ -68,7 +70,9 @@
         "has_email": false,
         "difficulty": "easy",
         "notes": "Filter facility type 740 (Residential Care Elderly) / 741. Also ccld.dss.ca.gov/carefacilitysearch with JSON/CSV export. No records request needed for the spine."
-      }
+      },
+      "maps_count": 5241,
+      "maps_count_date": "2026-08-27"
     },
     {
       "slug": "wisconsin",
@@ -276,7 +280,9 @@
         "has_email": false,
         "difficulty": "easy",
         "notes": "Assisted living homes (<=10 beds) are separate from assisted living centers."
-      }
+      },
+      "maps_count": 1824,
+      "maps_count_date": "2026-08-27"
     },
     {
       "slug": "florida",
@@ -302,7 +308,9 @@
         "has_email": false,
         "difficulty": "easy",
         "notes": "Adult Family Care Home (AFCH) is the small-home license, separate from ALF. AHCA data is among the cleanest in the country."
-      }
+      },
+      "maps_count": 2818,
+      "maps_count_date": "2026-08-27"
     }
   ]
 }

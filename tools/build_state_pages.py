@@ -196,6 +196,11 @@ def state_page(s):
             f'<div class="fact"><div class="lbl">Homes like yours</div>'
             f'<div class="big">{s["count"]:,}</div>'
             f'<p>Small licensed homes in {name} — nearly every one of them competing for the same families.</p></div>')
+    elif s.get("maps_count"):
+        facts.append(
+            f'<div class="fact"><div class="lbl">Homes on the map</div>'
+            f'<div class="big">{s["maps_count"]:,}</div>'
+            f'<p>Senior care homes listed in {name} &mdash; and most of them stop at the map pin.</p></div>')
     else:
         facts.append(
             f'<div class="fact"><div class="lbl">What families type</div>'
