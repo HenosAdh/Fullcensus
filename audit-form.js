@@ -25,9 +25,10 @@
     // of that column and use the width it was designed for. Scoped to main.narrow so
     // pages that already give it full width (/websites) are untouched. Fixed pixel
     // steps rather than vw, so a scrollbar can never push the page sideways.
-    + "@media(min-width:1060px){main.narrow [data-audit-form]{margin-left:-120px;margin-right:-120px}}"
-    + "@media(min-width:1260px){main.narrow [data-audit-form]{margin-left:-230px;margin-right:-230px}}"
-    + ".fccta .fcw{max-width:1100px;margin:0 auto;padding:0 22px}"
+    + "@media(min-width:1080px){main.narrow [data-audit-form]{margin-left:-80px;margin-right:-80px}}"
+    + "@media(min-width:1240px){main.narrow [data-audit-form]{margin-left:-160px;margin-right:-160px}}"
+    + "@media(min-width:1400px){main.narrow [data-audit-form]{margin-left:-220px;margin-right:-220px}}"
+    + ".fccta .fcw{max-width:1180px;margin:0 auto;padding:0 22px}"
     + ".fccta .fcg{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}"
     + ".fccta .qp .eyebrow{color:#c4b139;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}"
     + ".fccta .qp h2{font-size:clamp(1.9rem,3.4vw,2.9rem);font-weight:700;color:#fff;line-height:1.18;letter-spacing:-.01em;margin-bottom:16px;text-wrap:balance}"
