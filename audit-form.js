@@ -114,22 +114,51 @@
   function FORM(m) {
     var cta = m.getAttribute('data-cta') || 'Book my free audit';
     var sub = m.getAttribute('data-sub') || "We'll reach out within one business day to schedule.";
+    var at = function (n, d) { return m.getAttribute(n) || d; };
     var phoneLine = m.getAttribute('data-nophone') ? ''
       : '<div class="fcaf-note">Or call/text <a href="tel:+12062034944">(206) 203-4944</a></div>';
+
+    // A field carries its own label so the lead note reads correctly whatever
+    // the page decided to call it.
+    var field = function (name, label, type, extra, ph) {
+      return '<label class="fcaf-field"><span>' + label + '</span><input name="' + name
+        + '" type="' + type + '" data-label="' + esc(label.replace(/<[^>]*>/g, '').trim())
+        + '"' + (extra || '') + ' placeholder="' + esc(ph) + '"></label>';
+    };
+
+    var homeLabel = at('data-homelabel', 'Adult family home name');
+    var cityLabel = at('data-citylabel', 'City');
+    var bedsLabel = at('data-bedslabel', 'Open beds');
+    var extraLabel = at('data-extra', '');
+
+    var home = m.getAttribute('data-nohome') ? ''
+      : field('afhome', esc(homeLabel), 'text', ' required', at('data-homeph', 'e.g. Serene Adult Family Home'));
+    var city = field('afcity', esc(cityLabel), 'text', ' required', at('data-cityph', 'Lynnwood'));
+    var beds = m.getAttribute('data-nobeds') ? ''
+      : field('afbeds', esc(bedsLabel), 'number', ' min="0"', at('data-bedsph', 'e.g. 3'));
+    var web = m.getAttribute('data-noweb') ? ''
+      : '<label class="fcaf-field"><span>Have a website?</span><select name="afweb" data-label="Has website"><option value="">Select&hellip;</option><option value="no">No website</option><option value="yes">Yes, we have one</option><option value="unsure">Not sure</option></select></label>';
+    var phone = field('afphone', 'Phone <em>(optional)</em>', 'tel', '', at('data-phoneph', '(425) 555-0142'));
+    var extra = extraLabel
+      ? field('afextra', esc(extraLabel), 'text', '', at('data-extraph', ''))
+      : '';
+
+    // Pair the short fields two-up, and fall back to full width when one of a
+    // pair has been dropped, so nothing is left as a lonely half-row.
+    var pair = function (a, b) {
+      if (a && b) return '<div class="fcaf-row2">' + a + b + '</div>';
+      return a || b || '';
+    };
+
     return '<form class="fcaf" aria-label="' + esc(cta) + '">'
       + '<h3>' + esc(cta) + '</h3>'
       + '<div class="fcaf-sub">' + esc(sub) + '</div>'
-      + '<label class="fcaf-field"><span>Your name</span><input name="afname" type="text" required placeholder="First and last"></label>'
-      + '<label class="fcaf-field"><span>Adult family home name</span><input name="afhome" type="text" required placeholder="e.g. Serene Adult Family Home"></label>'
-      + '<div class="fcaf-row2">'
-      +   '<label class="fcaf-field"><span>City</span><input name="afcity" type="text" required placeholder="Lynnwood"></label>'
-      +   '<label class="fcaf-field"><span>Open beds</span><input name="afbeds" type="number" min="0" placeholder="e.g. 3"></label>'
-      + '</div>'
-      + '<div class="fcaf-row2">'
-      +   '<label class="fcaf-field"><span>Phone <em>(optional)</em></span><input name="afphone" type="tel" placeholder="(425) 555-0142"></label>'
-      +   '<label class="fcaf-field"><span>Have a website?</span><select name="afweb"><option value="">Select&hellip;</option><option value="no">No website</option><option value="yes">Yes, we have one</option><option value="unsure">Not sure</option></select></label>'
-      + '</div>'
-      + '<label class="fcaf-field"><span>Email</span><input name="afemail" type="email" required placeholder="you@email.com"></label>'
+      + field('afname', 'Your name', 'text', ' required', 'First and last')
+      + home
+      + extra
+      + pair(city, beds)
+      + pair(phone, web)
+      + '<label class="fcaf-field"><span>Email</span><input name="afemail" type="email" data-label="Email" required placeholder="you@email.com"></label>'
       + '<button type="submit">' + esc(cta) + ' <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'
       + phoneLine
       + '</form>';
@@ -157,11 +186,18 @@
     form.addEventListener('submit', async function (e) {
       e.preventDefault();
       var get = function (n) { var el = form.querySelector('[name=' + n + ']'); return el ? el.value.trim() : ""; };
-      var name = get('afname'), home = get('afhome'), city = get('afcity'), beds = get('afbeds'), phone = get('afphone'), website = get('afweb'), email = get('afemail');
+      var name = get('afname'), home = get('afhome'), city = get('afcity'), beds = get('afbeds'), phone = get('afphone'), website = get('afweb'), email = get('afemail'), extra = get('afextra');
+      // Use whatever this page called the field, since not every guide asks for beds.
+      var lab = function (n, d) { var el = form.querySelector('[name=' + n + ']'); return (el && el.getAttribute('data-label')) || d; };
       btn.disabled = true; btn.textContent = "Sending…";
       var payload = {
         family_name: name, email: email, phone: phone || "", location_pref: city,
-        notes: "Occupancy Audit request · Home: " + home + (beds ? " · Open beds: " + beds : "") + (website ? " · Website: " + website : "") + " · via " + (document.title || "site"),
+        notes: (mount.getAttribute("data-kind") || "Occupancy Audit request")
+          + (home ? " · Home: " + home : "")
+          + (extra ? " · " + lab("afextra", "Detail") + ": " + extra : "")
+          + (beds ? " · " + lab("afbeds", "Open beds") + ": " + beds : "")
+          + (website ? " · Website: " + website : "")
+          + " · via " + (document.title || "site"),
         source: "occupancy-audit", route: "fullcensus", status: "new"
       };
       try {
@@ -177,11 +213,13 @@
           method: "POST",
           headers: { "Content-Type": "application/json", "Accept": "application/json" },
           body: JSON.stringify({
-            _subject: "New Occupancy Audit request — " + (home || "an AFH"),
+            _subject: "New enquiry — " + (home || mount.getAttribute("data-kind") || "Occupancy Audit") + (city ? " · " + city : ""),
             _template: "table", _captcha: "false",
-            Name: name, "Adult family home": home, City: city,
-            "Open beds": beds || "—", Phone: phone,
-            "Has website": website || "—", Email: email,
+            Name: name, Email: email, City: city, Phone: phone || "—",
+            ...(home ? { "Adult family home": home } : {}),
+            ...(extra ? { [lab("afextra", "Detail")]: extra } : {}),
+            ...(beds ? { [lab("afbeds", "Open beds")]: beds } : {}),
+            ...(website ? { "Has website": website } : {}),
             Source: (document.title || "fullcensus.org")
           })
         });
