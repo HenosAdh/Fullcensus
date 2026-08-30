@@ -20,6 +20,13 @@
 
   var css = ""
     + ".fccta{background:#000;color:#fff;border-radius:28px;padding:46px 0;overflow:hidden}"
+    // The guides set their article column to 760px for readability, which squeezed
+    // this form to 720px and left the two columns at ~310px each. Let it break out
+    // of that column and use the width it was designed for. Scoped to main.narrow so
+    // pages that already give it full width (/websites) are untouched. Fixed pixel
+    // steps rather than vw, so a scrollbar can never push the page sideways.
+    + "@media(min-width:1060px){main.narrow [data-audit-form]{margin-left:-120px;margin-right:-120px}}"
+    + "@media(min-width:1260px){main.narrow [data-audit-form]{margin-left:-230px;margin-right:-230px}}"
     + ".fccta .fcw{max-width:1100px;margin:0 auto;padding:0 22px}"
     + ".fccta .fcg{display:grid;grid-template-columns:1fr 1.05fr;gap:40px;align-items:start}"
     + ".fccta .qp .eyebrow{color:#c4b139;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}"
