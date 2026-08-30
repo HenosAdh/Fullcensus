@@ -165,25 +165,92 @@ reads as rent. The report is the product. One page, same day every month:
 
 Send it on a fixed date. The predictability is half the retention.
 
+## What market this actually is
+
+Not web design. Not SEO. **Occupancy.**
+
+The distinction decides everything downstream:
+
+- **Web design** is a finished project. A website is done, so a monthly fee is
+  indefensible and you are compared to Squarespace and Fiverr.
+- **SEO services** justifies a retainer, but drops you into a commodity fight
+  with $300/mo agencies and inherits SEO's credibility problem — most small
+  operators have already been burned by someone selling "SEO."
+- **Occupancy** is the outcome the owner actually buys, it never finishes
+  (residents move on, beds reopen), and it has no competing vendors in this
+  vertical.
+
+The brand already says it: Full Census. The deck already says it: "Let's fill
+your beds." Keep it there.
+
+**The competitor is not an SEO agency — it is A Place for Mom.** Placement
+agencies charge about one month's rent per resident placed, forever, every
+time. That is the budget line we replace, and it is the comparison that makes
+a monthly fee obvious rather than suspicious.
+
+Say it as: *"I keep your beds full. The website and the Google profile are how
+I do it."* Never lead with the mechanism.
+
 ## Recommended structure
 
-**The Build — $1,500 one-time** (founding rate $1,000 for the first five per
-state). Website, Google Business Profile, call tracking; photography included
-in Washington, guided DIY elsewhere. Registered in their name, theirs
-forever. Waive $250 on a 6-month prepay to pull cash forward.
+Two products, priced so the monthly is the obvious path without a visible
+"discount" to argue with.
 
-**The Fill — monthly, scaled to licensed beds**, because value scales with beds:
+| | Price | Who it is for |
+|---|---|---|
+| **Full Census Monthly** | **$900 to start, then $450/mo** — six months, then month-to-month | Private-pay, WA-Medicaid, ALW, and multi-home operators |
+| **Website Only** | **$1,900 one-time** | Subsidy-funded (CA SSI-only, FL OSS) and cash-tight homes |
 
-| Tier | Licensed beds | Price | Typical operator |
-|---|---|---|---|
-| Home | ≤6 | **$400/mo** | the classic AFH / 6-bed board and care |
-| Home+ | 7–15 | **$750/mo** | larger RCFE, CBRF, Type B ALF |
-| Portfolio | 16+ or multi-home | **$1,200/mo** | 2–3 homes under one owner |
+First term: $900 + ($450 x 6) = **$3,600** — which sits sensibly next to
+$1,900 rather than dwarfing it. That was the flaw in the earlier
+$900-vs-$1,900 setup framing: at $897/mo the six-month total was $6,282, and
+any owner doing the arithmetic felt the "discount" was bait.
 
-Month-to-month after a 3-month start. Cancel anytime, keep everything.
+**Do not present both to the same prospect.** Payer mix (above) tells you
+which one they get before the call. Two products for two customers, no
+comparison to lose.
 
-Optional **Ads** add-on at +$500/mo plus their own ad spend — only for homes
-with two or more beds open that want them filled fast.
+If someone asks why setup is cheaper on the monthly, the honest answer works:
+*"$900 when you're on monthly, because I earn it back over time. $1,900 if
+it's one-and-done, because that's the only payment I ever get for the same
+build."*
+
+### Ad spend is never inside the retainer
+
+$15/day is $456/month. Bundled into a $450–900 fee it consumes most or all of
+the margin and leaves you fronting cash to Meta on someone else's behalf.
+Ads, when they happen, go on **the client's own account, their card**, and we
+manage them. They own the pixel and the audiences, same as they own the site,
+and they see every dollar. That transparency closes better than an all-in
+number anyway.
+
+### $450 is a founding rate, and should be named as one
+
+$450/mo is roughly 6% of a private-pay owner's net profit — an easy yes, and
+deliberately below the $897 the value math supports. Call it the founding
+rate on the deck. It is honest (we are launching nationally and need case
+studies), it creates real urgency, it preserves room to price later clients at
+$897, and early clients keep $450 forever, which is its own retention lever.
+
+**Delivery reality check:** at $450/mo it takes 22 clients to reach $10K MRR,
+which is at the edge of solo capacity. Plan to raise new-client pricing toward
+$897 once the first 15–20 are signed and the case studies exist.
+
+## The monthly report is the product
+
+At $450/mo the report is not a nice-to-have — it is the reason the fee is
+legitimate. One page, same date every month:
+
+- Calls this month vs last (tracked, not guessed)
+- Map views and direction requests
+- Where you rank for the local phrase, this month vs last
+- Tour requests and form fills, listed
+- What changed this month, in plain English
+- **The dollar line:** "3 inquiries this month. One move-in at your rate is
+  $5,000 a month."
+
+If a month passes and the owner cannot point at something that happened, that
+is the month they cancel.
 
 ## Why per-bed beats one flat price
 
