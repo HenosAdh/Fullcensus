@@ -193,48 +193,49 @@ I do it."* Never lead with the mechanism.
 
 ## Recommended structure
 
-Two products, priced so the monthly is the obvious path without a visible
-"discount" to argue with.
+Revised 2026-08-31 after a working local-SEO operator's teardown of the same
+business model (Nico / AI Ranking, "Claude + SEO", 31 Aug 2026). His numbers
+and structure independently match ours, and one mechanic of his fixes the
+problem our two-price setup had.
 
-| | Price | Who it is for |
+### The onboarding fee is waived for a commitment, not discounted
+
+Charging $1,900 standalone and $900 "with the monthly" reads as bait to any
+owner who does the six-month arithmetic. Instead:
+
+> **Onboarding: $1,900. Waived if you commit to six months.**
+
+Same money, completely different conversation. It is an exchange, not a
+discount, it is instantly understandable, and it is standard practice in this
+category. The client feels they won something; you get the term that lets SEO
+actually work. Nobody has to compare two prices.
+
+### Three tiers, because the top one sells the middle
+
+| Tier | Price | What it is |
 |---|---|---|
-| **Full Census Monthly** | **$900 to start, then $450/mo** — six months, then month-to-month | Private-pay, WA-Medicaid, ALW, and multi-home operators |
-| **Website Only** | **$1,900 one-time** | Subsidy-funded (CA SSI-only, FL OSS) and cash-tight homes |
+| **Foundation** | **$450/mo** | Local SEO, GBP posts, review engine, monthly report |
+| **Growth** ← most clients | **$897/mo** | + content published monthly, local citations, call tracking, quarterly strategy call |
+| **Full** | **$1,800/mo** | + managed ads, priority turnaround, multi-home coverage |
 
-First term: $900 + ($450 x 6) = **$3,600** — which sits sensibly next to
-$1,900 rather than dwarfing it. That was the flaw in the earlier
-$900-vs-$1,900 setup framing: at $897/mo the six-month total was $6,282, and
-any owner doing the arithmetic felt the "discount" was bait.
+The expensive tier is not there because we expect it to sell. It exists to
+make Growth look like the sensible middle — and occasionally a big fish takes
+it. Onboarding is $1,900 across all three, waived on a six-month commitment.
 
-**Do not present both to the same prospect.** Payer mix (above) tells you
-which one they get before the call. Two products for two customers, no
-comparison to lose.
+Pick the entry tier by payer mix (above): subsidy-funded homes get Foundation
+or the one-time website; private-pay and WA-Medicaid homes get quoted Growth.
 
-If someone asks why setup is cheaper on the monthly, the honest answer works:
-*"$900 when you're on monthly, because I earn it back over time. $1,900 if
-it's one-and-done, because that's the only payment I ever get for the same
-build."*
+### What the retainer actually does each month
 
-### Ad spend is never inside the retainer
+A retainer needs a visible work rhythm or it reads as rent. The operating
+cadence, matching what working operators run:
 
-$15/day is $456/month. Bundled into a $450–900 fee it consumes most or all of
-the margin and leaves you fronting cash to Meta on someone else's behalf.
-Ads, when they happen, go on **the client's own account, their card**, and we
-manage them. They own the pixel and the audiences, same as they own the site,
-and they see every dollar. That transparency closes better than an all-in
-number anyway.
-
-### $450 is a founding rate, and should be named as one
-
-$450/mo is roughly 6% of a private-pay owner's net profit — an easy yes, and
-deliberately below the $897 the value math supports. Call it the founding
-rate on the deck. It is honest (we are launching nationally and need case
-studies), it creates real urgency, it preserves room to price later clients at
-$897, and early clients keep $450 forever, which is its own retention lever.
-
-**Delivery reality check:** at $450/mo it takes 22 clients to reach $10K MRR,
-which is at the edge of solo capacity. Plan to raise new-client pricing toward
-$897 once the first 15–20 are signed and the case studies exist.
+- **Weekly:** 2–3 Google Business Profile posts, reply to every review, check
+  Search Console clicks and impressions (15 minutes)
+- **Weekly:** three local citations / directory submissions — all major ones
+  done by about week six
+- **Monthly:** new content published to the site, the one-page report
+- **Quarterly:** strategy call, competitor re-check
 
 ## The monthly report is the product
 
