@@ -180,7 +180,8 @@
     var started = false;
     form.addEventListener('input', function () {
       if (started) return; started = true;
-      track('form_start', { form_id: 'occupancy_audit', page_path: location.pathname });
+      track('form_start', { form_id: 'occupancy_audit', page_path: location.pathname,
+        lead_type: mount.getAttribute('data-kind') || 'Occupancy Audit' });
     }, { once: false });
     var btn = form.querySelector('button');
     form.addEventListener('submit', async function (e) {
@@ -225,15 +226,17 @@
         });
       } catch (err) { /* email is best-effort; the lead is already saved above */ }
       // GA4's recommended lead event, so this shows up as a conversion.
-      track('generate_lead', {
+      track('generate_lead', Object.assign({
         form_id: 'occupancy_audit',
+        // Two products share this form now, so name which funnel the lead came from.
+        lead_type: mount.getAttribute('data-kind') || 'Occupancy Audit',
         page_path: location.pathname,
         page_title: document.title,
         home_city: city,
-        has_website: website || 'unknown',
         gave_phone: phone ? 'yes' : 'no',
         currency: 'USD', value: 1
-      });
+      // only report a website answer on pages that actually asked for one
+      }, form.querySelector('[name=afweb]') ? { has_website: website || 'unknown' } : {}));
       var q = "?hide_gdpr_banner=1" + (name ? "&name=" + encodeURIComponent(name) : "") + (email ? "&email=" + encodeURIComponent(email) : "");
       formcol.innerHTML = done(q, mount.getAttribute('data-nophone'));
     });
