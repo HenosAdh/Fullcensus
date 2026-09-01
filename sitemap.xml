@@ -36,6 +36,12 @@
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
+<url>
+    <loc>https://fullcensus.org/list/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://fullcensus.org/what-we-do/brand-print</loc>
     <lastmod>2026-08-25</lastmod>
