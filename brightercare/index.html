@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Adult Family Home in Lynnwood, WA | Brighter Care</title>
+<meta name="description" content="Brighter Care is a licensed adult family home in Lynnwood, WA for six residents. Dementia, mental health and developmental disabilities care, DSHS licensed. Medicaid and private pay welcome. Currently accepting residents.">
+
+<!--
+  ============================================================
+  BRIGHTER CARE ADULT FAMILY HOME - MOCKUP v2
+  Built 3 Sep 2026. Rebuilt from Ebrima's own Canva brochure and business card,
+  which he shared to hello@fullcensus.org.
+
+  EVERYTHING ON THIS PAGE IS HIS OWN MATERIAL. The story, the taglines, the care
+  list, the neighbourhood landmarks and the "why families choose us" points are
+  lifted from his trifold. Nothing here is invented.
+
+  PALETTE - read off the brochure artwork, then darkened where it had to carry
+  text. Contrast on white: navy 11.42:1, sky-ink 6.97:1, gold-ink 5.53:1, body
+  9.86:1. Raw sky (#4AA8DC 2.65:1) and raw gold (#F0B429 1.86:1) are DECORATIVE
+  ONLY on light - but gold on navy is 6.12:1, so gold text is allowed on the navy
+  bands. Confirm the exact hexes against his Canva brand kit.
+
+  STILL A MOCKUP:
+    Photos - every .ph block is a labelled placeholder in his brand colours.
+    Logo - the wordmark is rebuilt in HTML/SVG so it stays crisp. Swap for his
+      real export if he wants pixel-exact.
+    Form posts nowhere yet. No analytics. No domain.
+
+  NOTE: his brochure uses brightercareafh@gmail.com, not the Abeceesay81 address.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16357D; --navy-deep:#0F2657; --sky:#4AA8DC; --sky-ink:#15607F;
+    --gold:#F0B429; --gold-ink:#8A6111; --cream:#F3E9C8; --cream-soft:#FAF4E2;
+    --paper:#F7FAFD; --white:#fff; --line:#DCE6F2;
+    --ink:#0F2657; --body:#33445E; --muted:#5A6B85;
+    --f-serif:'Newsreader',Georgia,serif; --f-sans:'Mulish',system-ui,sans-serif;
+    --max:1180px; --pad:clamp(1.25rem,5vw,3rem);
+    --r-sm:12px; --r-md:18px; --r-lg:26px; --pill:100px;
+    --sh-sm:0 8px 24px rgba(22,53,125,.07);
+    --sh-md:0 16px 40px rgba(22,53,125,.12);
+    --sh-cta:0 10px 26px rgba(22,53,125,.25);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--f-sans);color:var(--body);background:var(--paper);line-height:1.65;
+    -webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:var(--sky-ink);text-underline-offset:3px}
+  h1,h2,h3{font-family:var(--f-serif);color:var(--ink);font-weight:500;line-height:1.14;letter-spacing:-.01em}
+  section{padding:clamp(3.5rem,7vw,6rem) var(--pad)}
+  .inner{max-width:var(--max);margin:0 auto}
+  .eyebrow{font-weight:800;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--gold-ink);margin-bottom:.9rem}
+  h1{font-size:clamp(2.4rem,5.4vw,3.9rem)}
+  h2{font-size:clamp(1.85rem,3.6vw,2.6rem)}
+  h3{font-size:1.35rem}
+  .lede{font-size:clamp(1.03rem,1.5vw,1.15rem);max-width:56ch}
+  .sec-head{max-width:60ch;margin-bottom:clamp(1.8rem,3vw,2.6rem)}
+  .sec-head p{margin-top:.7rem}
+  em.accent{font-style:italic;color:var(--sky-ink)}
+
+  /* ---------- logo ---------- */
+  .logo{display:flex;align-items:center;gap:.55rem;text-decoration:none}
+  .logo .wm{position:relative;display:inline-block;padding-top:.3rem}
+  .logo .wm b{font-family:var(--f-sans);font-weight:800;font-size:1.22rem;letter-spacing:-.02em;color:var(--navy)}
+  .logo .wm b span{color:var(--sky)}
+  .logo .sun{position:absolute;top:-.15rem;left:1.55rem;width:15px;height:15px}
+  .logo .swoosh{display:block;width:100%;height:7px;margin-top:-1px}
+  .logo .kick{display:block;font-size:.56rem;font-weight:800;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--navy);margin-top:1px}
+
+  /* ---------- nav ---------- */
+  .nav{position:sticky;top:0;z-index:50;background:rgba(247,250,253,.9);backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;transition:border-color .2s,box-shadow .2s}
+  .nav.stuck{border-bottom-color:var(--line);box-shadow:var(--sh-sm)}
+  .nav-in{max-width:var(--max);margin:0 auto;padding:.7rem var(--pad);display:flex;align-items:center;
+    justify-content:space-between;gap:1rem}
+  .nav-links{display:flex;gap:1.5rem}
+  .nav-links a{font-weight:600;font-size:.92rem;color:var(--navy);text-decoration:none;padding:.4rem 0}
+  .nav-links a:hover{color:var(--sky-ink)}
+  .nav-cta{display:flex;align-items:center;gap:.85rem}
+  .nav-phone{font-weight:800;color:var(--navy);text-decoration:none;font-size:.95rem;white-space:nowrap}
+  .menu-toggle{display:none;background:none;border:0;color:var(--navy);cursor:pointer;padding:.3rem}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;min-height:44px;
+    padding:.8rem 1.5rem;border-radius:var(--pill);font-weight:700;font-size:.95rem;
+    text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:transform .15s,background .15s}
+  .btn-primary{background:var(--navy);color:#fff;box-shadow:var(--sh-cta)}
+  .btn-primary:hover{background:var(--navy-deep);transform:translateY(-2px)}
+  .btn-secondary{border-color:var(--navy);color:var(--navy);background:transparent}
+  .btn-secondary:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+  .btn-lg{font-size:1.02rem;padding:.95rem 1.8rem}
+  .btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{
+    outline:3px solid var(--navy);outline-offset:2px}
+
+  /* ---------- placeholders ---------- */
+  .ph{position:relative;border-radius:var(--r-lg);overflow:hidden;
+    background:linear-gradient(140deg,#DCEBF8 0%,#EAF3FB 45%,var(--cream-soft) 100%);
+    border:1px solid var(--line);min-height:180px;display:flex;align-items:flex-end}
+  .ph::after{content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 78% 18%, rgba(240,180,41,.20), transparent 42%)}
+  .ph span{position:relative;z-index:2;margin:.75rem;padding:.32rem .6rem;border-radius:var(--pill);
+    background:rgba(255,255,255,.9);font-size:.72rem;font-weight:700;color:var(--sky-ink);
+    letter-spacing:.02em}
+
+  /* ---------- hero ---------- */
+  .hero{padding-top:clamp(2.5rem,5vw,4rem)}
+  .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .hero-photo{aspect-ratio:4/5;box-shadow:var(--sh-md)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem;margin:1.6rem 0 1.3rem}
+  .badge{display:inline-flex;align-items:center;gap:.45rem;background:var(--cream);
+    color:var(--gold-ink);font-weight:800;font-size:.76rem;letter-spacing:.06em;text-transform:uppercase;
+    padding:.4rem .85rem;border-radius:var(--pill);margin-bottom:1rem}
+  .badge i{width:7px;height:7px;border-radius:50%;background:#1F8A4C;display:inline-block}
+  .hero-trust{display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;font-size:.88rem;color:var(--muted);font-weight:600}
+  .hero-trust span{display:inline-flex;align-items:center;gap:.4rem}
+
+  /* ---------- facts ---------- */
+  .facts{background:var(--navy);color:#fff;padding:2.4rem var(--pad)}
+  .facts .inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+  .fact b{display:block;font-family:var(--f-serif);font-size:2.1rem;font-weight:500;color:#fff;line-height:1}
+  .fact span{display:block;font-size:.82rem;color:#C9DBF2;margin-top:.35rem;font-weight:600}
+
+  /* ---------- story ---------- */
+  .story{background:var(--white)}
+  .story-grid{display:grid;grid-template-columns:.85fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .story-photo{aspect-ratio:1/1;border-radius:50%;box-shadow:var(--sh-md);
+    align-items:center;justify-content:center}
+  /* the round crop clips a bottom-left label, so centre it in this one */
+  .story-photo span{margin:0}
+  .pull{font-family:var(--f-serif);font-style:italic;font-size:clamp(1.25rem,2.2vw,1.6rem);
+    color:var(--navy);line-height:1.4;margin:.2rem 0 1.2rem;padding-left:1rem;
+    border-left:3px solid var(--gold)}
+  .story p+p{margin-top:.9rem}
+  .sig{margin-top:1.2rem;font-weight:800;font-size:.8rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--navy)}
+
+  /* ---------- care ---------- */
+  .care{background:var(--paper)}
+  .tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 1.8rem}
+  .tag{background:var(--cream);color:var(--gold-ink);font-weight:800;font-size:.78rem;
+    letter-spacing:.06em;text-transform:uppercase;padding:.45rem 1rem;border-radius:var(--pill)}
+  .sub-h{font-weight:800;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--navy);margin:1.6rem 0 .5rem}
+  .checks{display:grid;grid-template-columns:repeat(2,1fr);gap:.75rem 1.5rem;margin-top:.4rem}
+  .checks li{list-style:none;display:flex;gap:.6rem;align-items:flex-start;font-size:.97rem}
+  .checks svg{flex:none;margin-top:.22rem}
+
+  /* ---------- home ---------- */
+  .home{background:var(--white)}
+  .home-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .feat{display:flex;gap:.8rem;align-items:flex-start;margin-bottom:1.05rem}
+  .feat .ic{flex:none;width:38px;height:38px;border-radius:11px;background:var(--cream);
+    display:grid;place-items:center;color:var(--gold-ink)}
+  .feat b{display:block;color:var(--ink);font-weight:700;font-size:.98rem}
+  .feat p{font-size:.93rem;margin-top:.1rem}
+  .nearby{background:var(--cream-soft);border:1px solid #EADFBE;border-radius:var(--r-md);
+    padding:1.1rem 1.3rem;margin-top:1.4rem}
+  .nearby b{display:block;font-weight:800;font-size:.76rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--gold-ink);margin-bottom:.5rem}
+  .nearby li{list-style:none;font-size:.93rem;padding-left:1.1rem;position:relative;margin-bottom:.3rem}
+  .nearby li::before{content:"";position:absolute;left:0;top:.62em;width:5px;height:5px;
+    border-radius:50%;background:var(--gold)}
+
+  /* ---------- why ---------- */
+  .why{background:var(--navy);color:#fff}
+  .why h2{color:#fff}
+  .why .sec-head p{color:#C9DBF2}
+  .why-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+  .why-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--r-md);padding:1.4rem 1.5rem}
+  .why-card b{display:block;font-weight:800;font-size:.79rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:.45rem}
+  .why-card p{color:#DCE8F7;font-size:.97rem}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--paper)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;grid-auto-rows:190px}
+  .gal-grid .ph{border-radius:var(--r-md)}
+  .gal-grid .tall{grid-row:span 2}
+  .gal-grid .wide{grid-column:span 2}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--white)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .cdetail{display:flex;gap:.75rem;margin-top:1.1rem}
+  .cdetail .ic{flex:none;width:34px;height:34px;border-radius:10px;background:var(--paper);
+    display:grid;place-items:center;color:var(--navy);border:1px solid var(--line)}
+  .cdetail b{display:block;font-weight:700;color:var(--ink);font-size:.95rem}
+  .cdetail span{font-size:.94rem}
+  .form-card{background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+    padding:clamp(1.4rem,3vw,2rem);box-shadow:var(--sh-md)}
+  .field{margin-bottom:.9rem}
+  .field label{display:block;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:.35rem}
+  .field input,.field textarea{width:100%;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--r-sm);padding:.8rem 1rem;font-family:inherit;font-size:1rem;color:var(--body)}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--sky-ink);background:#fff;
+    box-shadow:0 0 0 3px rgba(21,96,127,.15)}
+  .form-card .btn{width:100%;margin-top:.3rem}
+  .fineprint{font-size:.8rem;color:var(--muted);text-align:center;margin-top:.7rem}
+
+  /* ---------- footer ---------- */
+  .foot{background:var(--navy-deep);color:#C9DBF2;padding:clamp(2.5rem,5vw,3.5rem) var(--pad) 1.5rem}
+  .foot-grid{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2rem}
+  .foot h4{font-family:var(--f-serif);color:#fff;font-size:1.2rem;font-weight:500;margin-bottom:.5rem}
+  .foot .tagline{font-family:var(--f-serif);font-style:italic;color:var(--gold);margin-top:.6rem}
+  .foot b{display:block;font-size:.74rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;
+    color:#fff;margin-bottom:.7rem}
+  .foot a{color:#C9DBF2;text-decoration:none;display:block;padding:.22rem 0;font-size:.93rem}
+  .foot a:hover{color:#fff}
+  .foot-bot{max-width:var(--max);margin:2rem auto 0;padding-top:1.2rem;
+    border-top:1px solid rgba(255,255,255,.15);display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;
+    justify-content:space-between;font-size:.82rem}
+
+  @media(max-width:960px){
+    .hero-grid,.story-grid,.home-grid,.contact-grid{grid-template-columns:1fr}
+    .hero-photo{aspect-ratio:16/10;order:-1}
+    .story-photo{aspect-ratio:16/10;border-radius:var(--r-lg);max-width:420px}
+    .why-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:760px){
+    .nav-links{display:none}
+    .nav-phone{display:none}
+    .menu-toggle{display:block}
+    .facts .inner{grid-template-columns:repeat(2,1fr);gap:1.6rem}
+    .checks{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  @media(prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important}
+    .btn:hover{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#top" aria-label="Brighter Care Adult Family Home, home">
+      <span class="wm">
+        <svg class="sun" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <circle cx="10" cy="10" r="4" fill="#F0B429"/>
+          <g stroke="#F0B429" stroke-width="1.6" stroke-linecap="round">
+            <path d="M10 1.5v2M10 16.5v2M1.5 10h2M16.5 10h2M4 4l1.4 1.4M14.6 14.6L16 16M16 4l-1.4 1.4M5.4 14.6L4 16"/>
+          </g>
+        </svg>
+        <b>Brighter <span>Care</span></b>
+        <svg class="swoosh" viewBox="0 0 160 8" fill="none" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M2 6C40 1.5 120 1.5 158 6" stroke="#F0B429" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span class="kick">Adult Family Home</span>
+      </span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#story">Our Story</a>
+      <a href="#care">Our Care</a>
+      <a href="#home">Our Home</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+12064579963">(206) 457-9963</a>
+      <a class="btn btn-primary" href="#visit">Schedule a visit</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><path d="M4 8h18M4 13h18M4 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="inner hero-grid">
+    <div>
+      <span class="badge"><i></i>Currently accepting residents</span>
+      <h1>Two generations. One home. <em class="accent">Care you can trust.</em></h1>
+      <p class="lede">Brighter Care is a licensed adult family home for six residents on a quiet street in Lynnwood. Medicaid and private pay are both welcome, and we have room for your loved one now.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary btn-lg" href="#visit">Schedule a visit</a>
+        <a class="btn btn-secondary btn-lg" href="tel:+12064579963">Call or text (206) 457-9963</a>
+      </div>
+      <div class="hero-trust">
+        <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 1.5 2.5 4v3.5C2.5 11 5 13.5 8 14.5c3-1 5.5-3.5 5.5-7V4L8 1.5Z" stroke="#15607F" stroke-width="1.4" stroke-linejoin="round"/><path d="m6 8 1.5 1.5L10.5 6.5" stroke="#15607F" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>DSHS licensed #759167</span>
+        <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><circle cx="8" cy="8" r="6.3" stroke="#15607F" stroke-width="1.4"/><path d="M8 4.5V8l2.3 1.4" stroke="#15607F" stroke-width="1.4" stroke-linecap="round"/></svg>24/7 live-in caregiver</span>
+        <span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 13s-.5-4 5-4 5 4 5 4" stroke="#15607F" stroke-width="1.4" stroke-linecap="round"/><circle cx="8" cy="5" r="2.5" stroke="#15607F" stroke-width="1.4"/></svg>Single and shared rooms</span>
+      </div>
+    </div>
+    <div class="ph hero-photo"><span>Photo: the front of the house</span></div>
+  </div>
+</section>
+
+<!-- FACTS -->
+<section class="facts">
+  <div class="inner">
+    <div class="fact"><b>6</b><span>Residents, never more</span></div>
+    <div class="fact"><b>2</b><span>Generations of care</span></div>
+    <div class="fact"><b>24/7</b><span>Live-in caregiver</span></div>
+    <div class="fact"><b>Both</b><span>Medicaid &amp; private pay</span></div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section class="story" id="story">
+  <div class="inner story-grid">
+    <div class="ph story-photo"><span>Photo: Ebrima</span></div>
+    <div>
+      <p class="eyebrow">Our Story</p>
+      <h2>The care I grew up in.</h2>
+      <p class="pull">"This isn't a business I started. It's a life I was shaped by."</p>
+      <p>My father ran an adult family home, and I grew up inside it. I absorbed what it means to care for every person with patience and dignity.</p>
+      <p>It was never a job in our house. It was simply how we lived. I stepped into it with open eyes and a full heart, and trained as a licensed CNA to do it right.</p>
+      <p>Brighter Care is built on everything those years taught me, carried into a home of my own.</p>
+      <p class="sig">Ebrima Ceesay &middot; Owner and provider</p>
+    </div>
+  </div>
+</section>
+
+<!-- OUR CARE -->
+<section class="care" id="care">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Our Care</p>
+      <h2>Care built around your loved one.</h2>
+      <p>Whatever your parent needs today, and whatever comes next, someone trained is here around the clock.</p>
+    </div>
+
+    <p class="sub-h">DSHS approved specialty care</p>
+    <div class="tags">
+      <span class="tag">Dementia</span>
+      <span class="tag">Mental health</span>
+      <span class="tag">Developmental disabilities</span>
+    </div>
+
+    <p class="sub-h">Other care needs</p>
+    <div class="tags">
+      <span class="tag">Respite care</span>
+      <span class="tag">Hospice care</span>
+      <span class="tag">Diabetic care</span>
+    </div>
+
+    <p class="sub-h">Everyday support</p>
+    <ul class="checks">
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>24/7 personal care and a live-in caregiver</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Medication management and monitoring</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Home-cooked meals for dietary and cultural needs</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Help with bathing, dressing, grooming, toileting and mobility</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Accessible home: ramp, grab bars, roll-in showers, non-slip floors, wide doorways</span></li>
+      <li><svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="8" stroke="#16357D" stroke-width="1.4"/><path d="m5.5 9 2.4 2.4L12.5 6.8" stroke="#16357D" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Care coordinated with your physician, family and care team</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- OUR HOME -->
+<section class="home" id="home">
+  <div class="inner home-grid">
+    <div>
+      <p class="eyebrow">Our Home</p>
+      <h2>Safety, comfort, close to everything.</h2>
+      <div style="margin-top:1.4rem">
+        <div class="feat">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="15" height="10" rx="1.6" stroke="currentColor" stroke-width="1.5"/><path d="M7 17h6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div><b>A personal TV in every room</b></div>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 12V7a2 2 0 0 1 4 0v5M4 12h12v3H4zM16 12V9a2 2 0 0 0-4 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div><b>Heated, massaging recliners</b><p>One for each resident to relax in.</p></div>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="7" stroke="currentColor" stroke-width="1.5"/><path d="M10 6v4l2.6 1.6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div><b>Activities built around each resident</b><p>Puzzles, games, music, gardening, and an open deck for relaxing and barbecues.</p></div>
+        </div>
+        <div class="feat">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 16s-6-3.8-6-8a3.4 3.4 0 0 1 6-2.2A3.4 3.4 0 0 1 16 8c0 4.2-6 8-6 8Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div><b>Family always welcome</b><p>An open door, not visiting hours.</p></div>
+        </div>
+      </div>
+      <div class="nearby">
+        <b>Peace of mind nearby</b>
+        <ul>
+          <li>Minutes from Swedish Mill Creek and the ER</li>
+          <li>Minutes from Walgreens and CVS pharmacy, Walmart, Mill Creek Town Center and Martha Lake Park</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ph" style="aspect-ratio:4/5"><span>Photo: the living room</span></div>
+  </div>
+</section>
+
+<!-- WHY FAMILIES CHOOSE US -->
+<section class="why">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow" style="color:var(--gold)">Why families choose us</p>
+      <h2>What makes this home different.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <b>Two generations of experience</b>
+        <p>A standard of care shaped in my father&rsquo;s adult family home, and carried into this one.</p>
+      </div>
+      <div class="why-card">
+        <b>Trusted staff</b>
+        <p>A familiar family care team, so your parent sees the same faces every day.</p>
+      </div>
+      <div class="why-card">
+        <b>A home of six, never a facility</b>
+        <p>Small enough that every resident is truly known and remembered.</p>
+      </div>
+      <div class="why-card">
+        <b>DSHS licensed specialties</b>
+        <p>Dementia, mental health and developmental disabilities.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="inner">
+    <div class="sec-head">
+      <p class="eyebrow">Inside Brighter Care</p>
+      <h2>Have a look around.</h2>
+      <p>Photos coming from Ebrima. These are placeholders.</p>
+    </div>
+    <div class="gal-grid">
+      <div class="ph tall"><span>Living room</span></div>
+      <div class="ph wide"><span>Shared dining table</span></div>
+      <div class="ph"><span>A resident bedroom</span></div>
+      <div class="ph"><span>The kitchen</span></div>
+      <div class="ph wide"><span>The open deck</span></div>
+      <div class="ph"><span>A home-cooked meal</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VISIT -->
+<section class="contact" id="visit">
+  <div class="inner contact-grid">
+    <div>
+      <p class="eyebrow">Schedule a visit</p>
+      <h2>Come and see it for yourself.</h2>
+      <p class="lede">A warm, no-pressure visit, and we reply the same day. The best way to know if a home is right is to walk through the door.</p>
+      <div class="cdetail">
+        <div class="ic"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><path d="M8.5 15s5.5-4.4 5.5-8.2A5.5 5.5 0 0 0 3 6.8C3 10.6 8.5 15 8.5 15Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/><circle cx="8.5" cy="6.8" r="1.9" stroke="currentColor" stroke-width="1.4"/></svg></div>
+        <div><b>Address</b><span>431 Lakeview Road, Lynnwood, WA 98087</span></div>
+      </div>
+      <div class="cdetail">
+        <div class="ic"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><path d="M3.5 4.5c0 5 4 9 9 9l1.5-2.4-3-1.6-1.4 1.4a9.6 9.6 0 0 1-3.5-3.5L7.5 6 5.9 3 3.5 4.5Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <div><b>Call or text</b><span><a href="tel:+12064579963">(206) 457-9963</a></span></div>
+      </div>
+      <div class="cdetail">
+        <div class="ic"><svg width="17" height="17" viewBox="0 0 17 17" fill="none" aria-hidden="true"><rect x="2.5" y="4" width="12" height="9" rx="1.6" stroke="currentColor" stroke-width="1.4"/><path d="m3 5 5.5 4L14 5" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+        <div><b>Email</b><span><a href="mailto:brightercareafh@gmail.com">brightercareafh@gmail.com</a></span></div>
+      </div>
+      <div class="ph" style="aspect-ratio:16/10;margin-top:1.4rem"><span>Map: Lynnwood, WA</span></div>
+    </div>
+
+    <div class="form-card">
+      <h3>Ask about a room</h3>
+      <p style="font-size:.94rem;margin:.4rem 0 1.2rem">Tell us a little about your situation and we will call you back the same day.</p>
+      <form id="visitForm" novalidate>
+        <div class="field"><label for="name">Your name</label>
+          <input id="name" name="name" type="text" placeholder="First and last name" required></div>
+        <div class="field"><label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" placeholder="(206) 555-0000" required></div>
+        <div class="field"><label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@email.com"></div>
+        <div class="field"><label for="msg">How can we help?</label>
+          <textarea id="msg" name="msg" rows="3" placeholder="A little about your parent and what they need"></textarea></div>
+        <button class="btn btn-primary" type="submit">Request a visit</button>
+        <p class="fineprint">We never share your information. A real person reads every message.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot-grid">
+    <div>
+      <h4>Brighter Care Adult Family Home</h4>
+      <p style="font-size:.93rem">A small, family-owned home in Lynnwood, Washington, where your parent is known by name.</p>
+      <p class="tagline">Carrying the light forward.</p>
+    </div>
+    <div>
+      <b>Visit</b>
+      <a href="#story">Our Story</a>
+      <a href="#care">Our Care</a>
+      <a href="#home">Our Home</a>
+      <a href="#gallery">Gallery</a>
+    </div>
+    <div>
+      <b>Contact</b>
+      <a href="tel:+12064579963">(206) 457-9963</a>
+      <a href="mailto:brightercareafh@gmail.com">brightercareafh@gmail.com</a>
+      <span style="font-size:.93rem;display:block;padding-top:.22rem">431 Lakeview Road<br>Lynnwood, WA 98087</span>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>&copy; <span id="yr"></span> Brighter Care Adult Family Home. DSHS License #759167.</span>
+    <span>Licensed by Washington State DSHS. Medicaid and private pay welcome.</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  var nav = document.getElementById('nav');
+  addEventListener('scroll', function(){ nav.classList.toggle('stuck', scrollY > 8); }, {passive:true});
+  document.getElementById('visitForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    /* MOCKUP: no backend yet. Needs a per-client Web3Forms key before launch. */
+    alert('This is a draft. The form is not connected yet.');
+  });
+</script>
+</body>
+</html>
