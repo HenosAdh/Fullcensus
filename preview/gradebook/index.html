@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Five Washington houses a week, graded on how far each is from being a licensable adult family home.">
+<meta name="theme-color" content="#1C2127">
+<title>The AFH Gradebook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,800&family=Figtree:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap">
+<style>
+:root{
+  --ink:#1C2127; --paper:#F7F4EF; --card:#FFFFFF; --sunk:#EFEBE3;
+  --rule:#DFD8CC; --hair:#EBE5DA;
+  --text:#1C2127; --dim:#6A6459; --faint:#948D80;
+  --clay:#B4552F; --clay-soft:#F5E3D9;
+  --inv-bg:#1C2127; --inv-fg:#F7F4EF;
+  --S:#96751F; --A:#2E7D5B; --B:#33707F; --C:#A87A1C; --D:#BE6327; --F:#A33B2D;
+  --S-bg:#F7EFD7; --A-bg:#E0F0E7; --B-bg:#DDEDF0; --C-bg:#F7EED8; --D-bg:#FAE6D7; --F-bg:#F8DFDA;
+  --shadow:0 1px 2px rgba(28,33,39,.05), 0 10px 30px -20px rgba(28,33,39,.35);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]){
+  --ink:#14181D; --paper:#15181C; --card:#1E2329; --sunk:#252A31;
+  --rule:#333A42; --hair:#2A3037;
+  --text:#EDE8DF; --dim:#A29B8F; --faint:#7B7568;
+  --clay:#E0805A; --clay-soft:#3A241B;
+  --inv-bg:#EDE8DF; --inv-fg:#15181C;
+  --S:#D8B455; --A:#63BC93; --B:#63B2C2; --C:#CFA544; --D:#E4915A; --F:#DE7060;
+  --S-bg:#31280F; --A-bg:#16301F; --B-bg:#142C33; --C-bg:#2F2710; --D-bg:#33210F; --F-bg:#331A15;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -20px rgba(0,0,0,.9);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --ink:#14181D; --paper:#15181C; --card:#1E2329; --sunk:#252A31;
+  --rule:#333A42; --hair:#2A3037;
+  --text:#EDE8DF; --dim:#A29B8F; --faint:#7B7568;
+  --clay:#E0805A; --clay-soft:#3A241B;
+  --inv-bg:#EDE8DF; --inv-fg:#15181C;
+  --S:#D8B455; --A:#63BC93; --B:#63B2C2; --C:#CFA544; --D:#E4915A; --F:#DE7060;
+  --S-bg:#31280F; --A-bg:#16301F; --B-bg:#142C33; --C-bg:#2F2710; --D-bg:#33210F; --F-bg:#331A15;
+  --shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 30px -20px rgba(0,0,0,.9);
+  color-scheme:dark;
+}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--text);
+  font:400 15.5px/1.6 Figtree,"Segoe UI",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,serif;margin:0;letter-spacing:-.02em;text-wrap:balance}
+.mono{font-family:"JetBrains Mono",ui-monospace,monospace}
+button{font:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--clay);outline-offset:2px;border-radius:4px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+
+/* masthead */
+header.mast{background:var(--ink);color:#F7F4EF;padding:40px 0 34px;border-bottom:4px solid var(--clay)}
+.kicker{font-family:"JetBrains Mono",monospace;font-size:10.5px;letter-spacing:.2em;
+  text-transform:uppercase;color:#C79070;margin-bottom:12px}
+header.mast h1{font-size:clamp(34px,6vw,60px);font-weight:800;color:#F7F4EF;line-height:.98}
+header.mast .sub{margin:14px 0 0;color:#B0A99C;max-width:56ch;font-size:16px}
+.mastfoot{margin-top:24px;padding-top:18px;border-top:1px solid #333A42;
+  display:flex;gap:28px;flex-wrap:wrap}
+.mastfoot div b{display:block;font-family:"Bricolage Grotesque",serif;font-size:22px;
+  color:#F7F4EF;font-variant-numeric:tabular-nums;line-height:1}
+.mastfoot div span{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:#857E71}
+
+section{padding:38px 0}
+.shead{margin-bottom:20px}
+.shead .eyebrow{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--clay);margin-bottom:7px}
+.shead h2{font-size:26px;font-weight:700}
+.shead p{margin:7px 0 0;color:var(--dim);max-width:64ch;font-size:14.5px}
+
+/* rubric */
+.rubric{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.rc{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:15px}
+.rc .w{font-family:"JetBrains Mono",monospace;font-size:11px;font-weight:700;color:var(--clay);
+  margin-bottom:5px}
+.rc h3{font-size:14.5px;font-weight:600;margin-bottom:5px}
+.rc p{margin:0;font-size:13px;color:var(--dim);line-height:1.5}
+
+/* scale */
+.scale{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
+.sp{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--rule);
+  border-radius:8px;padding:6px 11px 6px 7px;font-size:12.5px;color:var(--dim)}
+.sp b{font-family:"Bricolage Grotesque",serif;font-size:16px;width:26px;height:26px;
+  display:grid;place-items:center;border-radius:6px;font-weight:800}
+
+/* home cards */
+.homes{display:flex;flex-direction:column;gap:16px}
+.home{background:var(--card);border:1px solid var(--rule);border-radius:13px;
+  box-shadow:var(--shadow);overflow:hidden}
+.hhead{display:flex;gap:16px;align-items:center;padding:17px 19px;border-bottom:1px solid var(--hair)}
+.gbadge{font-family:"Bricolage Grotesque",serif;font-weight:800;font-size:36px;
+  width:64px;height:64px;flex:none;display:grid;place-items:center;border-radius:12px;line-height:1}
+.hmeta{flex:1;min-width:0}
+.hcounty{font-family:"JetBrains Mono",monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--clay);margin-bottom:3px}
+.hmeta h3{font-size:18px;font-weight:700}
+.hspec{margin-top:5px;font-size:13px;color:var(--dim);font-variant-numeric:tabular-nums}
+.hcap{text-align:right;flex:none}
+.hcap b{display:block;font-family:"Bricolage Grotesque",serif;font-size:27px;line-height:1;
+  font-variant-numeric:tabular-nums}
+.hcap span{font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--faint)}
+
+.hbody{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.hcol{padding:17px 19px}
+.hcol+.hcol{border-left:1px solid var(--hair)}
+.lab{font-family:"JetBrains Mono",monospace;font-size:9.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.bars{display:flex;flex-direction:column;gap:8px}
+.b{display:grid;grid-template-columns:96px 1fr 40px;gap:9px;align-items:center;font-size:12.5px}
+.b .n{color:var(--dim)}
+.b .t{height:7px;background:var(--sunk);border-radius:4px;overflow:hidden}
+.b .t i{display:block;height:100%;border-radius:4px;background:var(--clay)}
+.b .v{font-family:"JetBrains Mono",monospace;font-size:11px;color:var(--faint);text-align:right;
+  font-variant-numeric:tabular-nums}
+.todo{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+.todo li{font-size:13px;color:var(--dim);padding-left:17px;position:relative;line-height:1.45}
+.todo li::before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;
+  border-radius:2px;background:var(--clay)}
+.todo li.ok::before{background:var(--A)}
+.note{margin:13px 0 0;font-size:13.5px;color:var(--text);font-style:italic;
+  border-left:2px solid var(--clay);padding-left:11px;line-height:1.5}
+.hfoot{padding:13px 19px;border-top:1px solid var(--hair);background:var(--sunk);
+  display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.schem{width:100%;height:auto;display:block;border-radius:8px;background:var(--sunk);margin-bottom:6px}
+.schcap{font-size:11.5px;color:var(--faint);margin:0}
+
+.btn{border:1px solid var(--rule);background:var(--card);color:var(--dim);border-radius:7px;
+  padding:7px 13px;font-size:12.5px;font-weight:500;transition:.13s}
+.btn:hover{border-color:var(--ink);color:var(--text)}
+.btn.pri{background:var(--inv-bg);border-color:var(--inv-bg);color:var(--inv-fg)}
+.btn.pri:hover{background:var(--clay);border-color:var(--clay);color:#fff}
+
+/* grader */
+.grader{background:var(--card);border:1px solid var(--rule);border-radius:13px;
+  box-shadow:var(--shadow);overflow:hidden}
+.gform{padding:19px;display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:11px;
+  border-bottom:1px solid var(--hair)}
+.f label{display:block;font-family:"JetBrains Mono",monospace;font-size:9px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+.f input,.f select{width:100%;background:var(--sunk);border:1px solid var(--rule);border-radius:6px;
+  padding:7px 9px;font:500 13px Figtree,sans-serif;color:var(--text)}
+#gout{padding:0}
+.post{margin:0;padding:17px 19px;background:var(--sunk);border-top:1px solid var(--hair);
+  white-space:pre-wrap;font-size:13.5px;line-height:1.6;font-family:Figtree,sans-serif;color:var(--text)}
+
+.rails{background:var(--ink);color:#B0A99C;padding:30px 0;font-size:13.5px;line-height:1.65}
+.rails .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:22px}
+.rails h3{color:#F7F4EF;font-size:13px;font-weight:600;margin-bottom:6px;font-family:Figtree,sans-serif}
+.rails b{color:#E8E1D4}
+footer{padding:24px 0 60px;font-size:12.5px;color:var(--faint)}
+
+.toast{position:fixed;bottom:20px;left:50%;transform:translate(-50%,90px);background:var(--inv-bg);
+  color:var(--inv-fg);padding:10px 18px;border-radius:100px;font-size:13px;font-weight:500;
+  z-index:60;transition:transform .2s;box-shadow:0 10px 34px -10px rgba(0,0,0,.5)}
+.toast.up{transform:translate(-50%,0)}
+
+@media (max-width:780px){ .hbody{grid-template-columns:1fr} .hcol+.hcol{border-left:0;border-top:1px solid var(--hair)} }
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="mast"><div class="wrap">
+  <div class="kicker">Henos Adhana &middot; Broker &middot; eXp Realty</div>
+  <h1>The AFH Gradebook</h1>
+  <p class="sub">Five houses a week, one from each county that actually holds Washington's adult family homes, graded on one question only: how far is this building from a licensed home?</p>
+  <div class="mastfoot">
+    <div><b>5,293</b><span>homes in these 5 counties</span></div>
+    <div><b>86%</b><span>of the state's total</span></div>
+    <div><b>6,178</b><span>active homes statewide</span></div>
+    <div><b>S&ndash;F</b><span>conversion fit only</span></div>
+  </div>
+</div></header>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="eyebrow">How the grade is built</div>
+    <h2>Six things decide whether a house can hold residents</h2>
+    <p>The grade is my read on the property's fit for adult family home use. It is never a comment on the price, the listing or the agent, and the licensor always has the final say.</p>
+  </div>
+  <div class="rubric">
+    <div class="rc"><div class="w">25 points</div><h3>Bathrooms</h3><p>WAC 388-76-10780 wants one toilet, sink and bathing fixture per five people in the home. Residents and live-in staff both count. This is the most common killer.</p></div>
+    <div class="rc"><div class="w">20 points</div><h3>Evacuation</h3><p>WAC 388-76-10865 requires everyone to be able to get out with the staff actually on shift. Bedrooms upstairs is the single biggest capacity question.</p></div>
+    <div class="rc"><div class="w">20 points</div><h3>Bedrooms</h3><p>Enough rooms for the residents you want plus a room for a live-in caregiver, if you plan to have one.</p></div>
+    <div class="rc"><div class="w">15 points</div><h3>Accessibility</h3><p>Step-free entry, door and hallway width, turning room. Newer builds and single levels start ahead. Everything here is retrofittable, at a price.</p></div>
+    <div class="rc"><div class="w">10 points</div><h3>Site</h3><p>Lot size, staff parking, and whether an aid car can get in and turn around at two in the morning.</p></div>
+    <div class="rc"><div class="w">10 points</div><h3>Market</h3><p>Drive time to the nearest hospital, because discharge planners are the referral source most homes ignore, and the depth of the county around it.</p></div>
+  </div>
+  <div class="scale" id="scale"></div>
+</div></section>
+
+<section style="background:var(--sunk);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)"><div class="wrap">
+  <div class="shead">
+    <div class="eyebrow">This week</div>
+    <h2>The five</h2>
+    <p>Specs below are illustrative so the page renders a full issue. Replace them with the week's real listings; every grade, capacity figure and schematic recalculates from the numbers.</p>
+  </div>
+  <div class="homes" id="homes"></div>
+</div></section>
+
+<section><div class="wrap">
+  <div class="shead">
+    <div class="eyebrow">Do it yourself</div>
+    <h2>Grade a house</h2>
+    <p>Enter what the listing sheet tells you. You get the grade, the capacity math, a conversion schematic and a post written to the rails.</p>
+  </div>
+  <div class="grader">
+    <form class="gform" id="gform">
+      <div class="f"><label>County</label><select name="county" id="fc"></select></div>
+      <div class="f"><label>Label</label><input name="label" value="Address withheld"></div>
+      <div class="f"><label>Bedrooms</label><input name="beds" type="number" min="1" max="12" value="5"></div>
+      <div class="f"><label>Bathrooms</label><input name="baths" type="number" min="1" max="8" step="0.5" value="2"></div>
+      <div class="f"><label>Sq ft</label><input name="sqft" type="number" min="500" value="2200"></div>
+      <div class="f"><label>Year built</label><input name="year" type="number" min="1900" max="2030" value="1995"></div>
+      <div class="f"><label>Stories</label><input name="stories" type="number" min="1" max="3" value="1"></div>
+      <div class="f"><label>Beds upstairs</label><input name="bedsUp" type="number" min="0" max="12" value="0"></div>
+      <div class="f"><label>Lot sq ft</label><input name="lot" type="number" min="0" value="7500"></div>
+      <div class="f"><label>Parking</label><input name="parking" type="number" min="0" max="10" value="3"></div>
+      <div class="f"><label>Hospital min</label><input name="hospitalMin" type="number" min="0" max="90" value="12"></div>
+      <div class="f"><label>Step-free</label><select name="stepFree"><option value="0">No</option><option value="1">Yes</option></select></div>
+      <div class="f"><label>Residents</label><input name="target" type="number" min="1" max="8" value="5"></div>
+      <div class="f"><label>Live-in staff</label><input name="liveIn" type="number" min="0" max="3" value="1"></div>
+    </form>
+    <div id="gout"></div>
+  </div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap">
+  <div class="shead">
+    <div class="eyebrow">The search that feeds it</div>
+    <h2>Your NWMLS filter</h2>
+    <p>Save this once as a recurring search per county and the Gradebook writes itself every Monday. Tuned to surface conversion candidates, not finished homes.</p>
+  </div>
+  <div class="rubric">
+    <div class="rc"><h3>Structure</h3><p>Residential, single family. Bedrooms 4+. Baths 2+. Square feet 1,900&ndash;4,000. Lot 5,000+.</p></div>
+    <div class="rc"><h3>Style</h3><p>Prefer 1 Story and 1 Story w/ Bsmnt. Two-story is not excluded, it just starts twenty points down and is worth watching for the rare main-floor primary.</p></div>
+    <div class="rc"><h3>Status</h3><p>Active plus Back on Market, listed in the last 7 days. Back on Market is where the motivated sellers hide.</p></div>
+    <div class="rc"><h3>Read the remarks</h3><p>Search remarks for <b>ADU</b>, <b>main floor primary</b>, <b>ramp</b>, <b>wide hall</b>, <b>group home</b>, <b>care</b>, <b>WABO</b>. The last one is rare and worth a same-day call.</p></div>
+  </div>
+</div></section>
+
+<div class="rails"><div class="wrap">
+  <div><h3>What this page is not</h3><p>Not a valuation, not a listing review, not a comment on any agent. It grades a building against one use. <b>The licensor always has the final say.</b></p></div>
+  <div><h3>MLS content</h3><p>No listing photos and no MLS data are republished here. The schematics are drawn from the numbers. <b>Link to the listing rather than reposting it</b>, and credit the listing brokerage.</p></div>
+  <div><h3>Naming</h3><p>Name the address on strong grades where it helps a buyer. <b>Withhold it on weak grades</b>, and never pair a low grade with a price, a photo or a brokerage.</p></div>
+  <div><h3>Every post carries</h3><p><b>Henos Adhana, Broker, eXp Realty.</b> Washington licence 25016434. Required on anything advertising brokerage services.</p></div>
+</div></div>
+
+<footer><div class="wrap">County depth from the DSHS licence list, 6,178 active adult family homes, pulled 2 September 2026. Rules cited: WAC 388-76-10780 and WAC 388-76-10865 &mdash; confirm both against the current text before you publish a grade that leans on them.</div></footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const D = {"counties":[{"name":"King","homes":1820,"beds":10639,"hub":"Seattle / Bellevue / Kent"},{"name":"Snohomish","homes":1181,"beds":6839,"hub":"Everett / Lynnwood / Marysville"},{"name":"Pierce","homes":1072,"beds":6272,"hub":"Tacoma / Lakewood / Puyallup"},{"name":"Spokane","homes":628,"beds":3619,"hub":"Spokane / Spokane Valley"},{"name":"Clark","homes":592,"beds":3446,"hub":"Vancouver / Battle Ground"}],"examples":[{"county":"King","label":"Kent — address shown on request","beds":6,"baths":3,"sqft":2680,"year":2004,"stories":1,"bedsUp":0,"lot":9100,"parking":4,"hospitalMin":7,"stepFree":true,"target":5,"liveIn":1,"note":"Single level, three full baths, wide hall. The rare one."},{"county":"Snohomish","label":"Lynnwood — address shown on request","beds":5,"baths":2,"sqft":2210,"year":1996,"stories":1,"bedsUp":0,"lot":7400,"parking":3,"hospitalMin":11,"stepFree":false,"target":5,"liveIn":1,"note":"Good bones. One step at the entry and a bedroom short if you want a live-in room."},{"county":"Pierce","label":"Tacoma — address shown on request","beds":6,"baths":2,"sqft":2540,"year":1978,"stories":2,"bedsUp":2,"lot":8200,"parking":2,"hospitalMin":9,"stepFree":false,"target":5,"liveIn":1,"note":"Two bedrooms upstairs is the whole conversation. Everything else works."},{"county":"Spokane","label":"Spokane Valley — address shown on request","beds":5,"baths":2,"sqft":1980,"year":1968,"stories":1,"bedsUp":0,"lot":10500,"parking":3,"hospitalMin":16,"stepFree":false,"target":4,"liveIn":1,"note":"Older build, narrow doors, but one level and a big flat lot."},{"county":"Clark","label":"Address withheld","beds":6,"baths":1,"sqft":2300,"year":1958,"stories":2,"bedsUp":4,"lot":5100,"parking":1,"hospitalMin":24,"stepFree":false,"target":6,"liveIn":1,"note":"One bathroom and four bedrooms upstairs. I am not naming this one."}]};
+const $ = (s,r)=>(r||document).querySelector(s);
+const LETTERS = [["S",93],["A",85],["B",75],["C",65],["D",55],["F",0]];
+const BLURB = {S:"Would license close to as-is. Rare.",A:"Strong. Minor work.",
+  B:"Good bones, one real problem.",C:"Workable, at a cost.",
+  D:"Structural barriers. Go in with eyes open.",F:"Not this one."};
+
+function grade(h){
+  const people = (+h.target) + (+h.liveIn);
+  const needBaths = Math.ceil(people/5);
+  const baths = +h.baths, beds = +h.beds, bedsUp = +h.bedsUp;
+
+  const bath = baths >= needBaths ? 25 : Math.max(0, 25 - (needBaths-baths)*14);
+  const evac = bedsUp === 0 ? 20 : (bedsUp <= beds/2 ? 9 : 3);
+  const rooms = beds - (+h.liveIn > 0 ? 1 : 0);
+  const cap  = Math.max(0, Math.min(20, Math.round(rooms / Math.max(1,+h.target) * 20)));
+  const acc  = (+h.stepFree?6:0) + (h.year>=1995?5:h.year>=1975?3:1) + (+h.stories===1?4:1);
+  const site = (h.lot>=7000?5:h.lot>=4500?3:1) + (h.parking>=3?5:h.parking>=2?3:1);
+  const depth= (D.counties.find(c=>c.name===h.county)||{}).homes || 0;
+  const mkt  = (h.hospitalMin<=10?6:h.hospitalMin<=20?4:2) + (depth>=592?4:2);
+
+  const total = bath+evac+cap+acc+site+mkt;
+  const parts = [["Bathrooms",bath,25],["Evacuation",evac,20],["Bedrooms",cap,20],
+                 ["Accessibility",acc,15],["Site",site,10],["Market",mkt,10]];
+
+  // No fatal flaws. A high total must not hide one badly failing criterion,
+  // so the worst category puts a ceiling on the letter.
+  const worst = Math.min(...parts.map(([,v,m])=>v/m));
+  const ceiling = worst < 0.20 ? "C" : worst < 0.40 ? "B" : "S";
+  const order = LETTERS.map(l=>l[0]);
+  let letter = LETTERS.find(l=>total>=l[1])[0];
+  if (order.indexOf(letter) < order.indexOf(ceiling)) letter = ceiling;
+  const capped = letter !== LETTERS.find(l=>total>=l[1])[0]
+    ? parts.find(([,v,m])=>v/m===worst)[0] : null;
+
+  // capacity: bathrooms and resident rooms both cap it
+  const byBath = baths*5 - (+h.liveIn);
+  const asIs = Math.max(0, Math.min(rooms, byBath, bedsUp>0 ? beds-bedsUp-(+h.liveIn>0?1:0) : rooms));
+
+  const todo = [];
+  if (baths < needBaths) todo.push([`Add ${needBaths-baths} bathroom${needBaths-baths>1?"s":""} to clear one per five for ${people} people`,0]);
+  else todo.push([`Bathrooms already clear one per five for ${people} people`,1]);
+  if (bedsUp > 0) todo.push([`${bedsUp} bedroom${bedsUp>1?"s":""} upstairs. Either they do not count or the evacuation plan and staffing have to carry them`,0]);
+  else todo.push(["Everything on one level, which is what most often decides capacity",1]);
+  if (rooms < +h.target) todo.push([`Short ${(+h.target)-rooms} bedroom${(+h.target)-rooms>1?"s":""} for ${h.target} residents plus a live-in room`,0]);
+  else todo.push([`Bedrooms support ${h.target} residents${+h.liveIn>0?" plus a live-in room":""}`,1]);
+  if (!+h.stepFree) todo.push(["No step-free entry. Budget a ramp or a regraded walk",0]);
+  if (h.year < 1975) todo.push(["Pre-1975 build. Measure door and hall widths before you offer, not after",0]);
+  if (h.parking < 2) todo.push(["Parking is tight for shift changes and an aid car",0]);
+  if (h.hospitalMin > 20) todo.push([`${h.hospitalMin} minutes to a hospital. Weaker discharge-planner referrals`,0]);
+
+  return {letter,total,asIs,needBaths,people,rooms,todo,parts,capped};
+}
+
+/* schematic: plan-view blocks driven by the specs. Not a floor plan. */
+function schematic(h,g){
+  const W=560,H=190,pad=14;
+  const down = (+h.beds)-(+h.bedsUp);
+  const cell=(x,y,w,hh,fill,stroke,label,sub,dash)=>
+    `<rect x="${x}" y="${y}" width="${w}" height="${hh}" rx="5" fill="${fill}" stroke="${stroke}"
+      stroke-width="1.3" ${dash?'stroke-dasharray="4 3"':''}/>
+     <text x="${x+w/2}" y="${y+hh/2-1}" text-anchor="middle" font-size="10.5" font-weight="600"
+      fill="currentColor" font-family="Figtree,sans-serif">${label}</text>
+     ${sub?`<text x="${x+w/2}" y="${y+hh/2+12}" text-anchor="middle" font-size="8.5"
+      fill="currentColor" opacity=".62" font-family="JetBrains Mono,monospace">${sub}</text>`:""}`;
+
+  let s=`<svg class="schem" viewBox="0 0 ${W} ${H}" role="img"
+    aria-label="Schematic of the house as an adult family home">`;
+  s+=`<rect x="1" y="1" width="${W-2}" height="${H-2}" rx="10" fill="none"
+      stroke="currentColor" opacity=".16"/>`;
+
+  // ground floor bedrooms
+  const n = Math.max(1,down), bw = Math.min(78,(W-pad*2-8*(n-1))/n);
+  let x=pad;
+  s+=`<text x="${pad}" y="20" font-size="9" font-family="JetBrains Mono,monospace"
+      fill="currentColor" opacity=".55" letter-spacing="1.4">GROUND FLOOR</text>`;
+  for(let i=0;i<n;i++){
+    const staff = (+h.liveIn>0 && i===n-1);
+    s+=cell(x,28,bw,42, staff?"var(--clay-soft)":"var(--card)","currentColor",
+        staff?"Staff":"Bed "+(i+1), staff?"live-in":"resident");
+    x+=bw+8;
+  }
+
+  // bathrooms row incl. required additions
+  const need=g.needBaths, have=Math.floor(+h.baths), add=Math.max(0,need-have);
+  x=pad;
+  s+=`<text x="${pad}" y="93" font-size="9" font-family="JetBrains Mono,monospace"
+      fill="currentColor" opacity=".55" letter-spacing="1.4">BATHS &middot; ${have} of ${need} required</text>`;
+  for(let i=0;i<have;i++){ s+=cell(x,100,62,34,"var(--sunk)","currentColor","Bath",""); x+=70; }
+  for(let i=0;i<add;i++){ s+=cell(x,100,62,34,"none","var(--clay)","+ Add","required",true); x+=70; }
+
+  // common + exits
+  s+=cell(Math.max(x,W-190),100,176,34,"var(--sunk)","currentColor","Common / kitchen","");
+
+  // upstairs warning band
+  if(+h.bedsUp>0){
+    s+=`<rect x="${pad}" y="146" width="${W-pad*2}" height="30" rx="6"
+        fill="var(--F-bg)" stroke="var(--F)" stroke-width="1.2" stroke-dasharray="4 3"/>
+      <text x="${W/2}" y="165" text-anchor="middle" font-size="10.5" font-weight="600"
+        fill="var(--F)" font-family="Figtree,sans-serif">
+        ${h.bedsUp} bedroom${+h.bedsUp>1?"s":""} upstairs &mdash; evacuation question under WAC 388-76-10865</text>`;
+  } else {
+    s+=`<rect x="${pad}" y="146" width="${W-pad*2}" height="30" rx="6"
+        fill="var(--A-bg)" stroke="var(--A)" stroke-width="1.2"/>
+      <text x="${W/2}" y="165" text-anchor="middle" font-size="10.5" font-weight="600"
+        fill="var(--A)" font-family="Figtree,sans-serif">Single level &mdash; every bedroom exits at grade</text>`;
+  }
+  return s+"</svg>";
+}
+
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+
+function postText(h,g){
+  const wins = g.todo.filter(t=>t[1]).map(t=>t[0]);
+  const work = g.todo.filter(t=>!t[1]).map(t=>t[0]);
+  return `THE AFH GRADEBOOK
+${h.county} County
+
+Grade: ${g.letter}   (${g.total}/100)${g.capped?`
+Scored higher on points, held at ${g.letter} because ${g.capped.toLowerCase()} fails badly enough on its own.`:""}
+
+${h.beds} bed, ${h.baths} bath, ${(+h.sqft).toLocaleString()} sq ft, ${(+h.stories)===1?"single level":h.stories+" stories"}, built ${h.year}.
+As it stands today it supports about ${g.asIs} resident${g.asIs===1?"":"s"}.
+
+What works:
+${wins.map(w=>"- "+w).join("\n") || "- Not much, and that is the lesson this week."}
+
+What it would take:
+${work.map(w=>"- "+w).join("\n") || "- Genuinely very little, which is why it grades where it does."}
+
+I grade the building against one use only. This is not a comment on the price, the listing or the agent, and the licensor always has the final say.
+
+Would you grade it higher or lower than ${g.letter}?
+
+Henos Adhana, Broker, eXp Realty`;
+}
+
+function homeCard(h,i){
+  const g = grade(h);
+  const cap = (+h.stories)===1 ? "single level" : h.stories+" stories";
+  return `<article class="home">
+    <div class="hhead">
+      <div class="gbadge" style="background:var(--${g.letter}-bg);color:var(--${g.letter})">${g.letter}</div>
+      <div class="hmeta">
+        <div class="hcounty">${esc(h.county)} County</div>
+        <h3>${esc(h.label)}</h3>
+        <div class="hspec">${h.beds} bed &middot; ${h.baths} bath &middot; ${(+h.sqft).toLocaleString()} sq ft &middot; ${cap} &middot; built ${h.year} &middot; ${(+h.lot).toLocaleString()} sq ft lot</div>
+      </div>
+      <div class="hcap"><b>${g.asIs}</b><span>resident${g.asIs===1?"":"s"} as-is</span></div>
+    </div>
+    <div class="hbody">
+      <div class="hcol">
+        <div class="lab">Score &middot; ${g.total} of 100${g.capped?` &middot; held at ${g.letter} by ${g.capped.toLowerCase()}`:""}</div>
+        <div class="bars">${g.parts.map(([n,v,m])=>`<div class="b"><span class="n">${n}</span>
+          <span class="t"><i style="width:${Math.round(v/m*100)}%"></i></span>
+          <span class="v">${v}/${m}</span></div>`).join("")}</div>
+        ${h.note?`<p class="note">${esc(h.note)}</p>`:""}
+      </div>
+      <div class="hcol">
+        <div class="lab">As an adult family home</div>
+        ${schematic(h,g)}
+        <p class="schcap">Schematic from the listed specs, not a floor plan.</p>
+        <div class="lab" style="margin-top:14px">What it would take</div>
+        <ul class="todo">${g.todo.map(t=>`<li class="${t[1]?"ok":""}">${esc(t[0])}</li>`).join("")}</ul>
+      </div>
+    </div>
+    <div class="hfoot">
+      <button class="btn pri" data-post="${i}">Copy the post</button>
+      <span style="font-size:12px;color:var(--faint)">${BLURB[g.letter]}</span>
+    </div>
+  </article>`;
+}
+
+/* render */
+$("#scale").innerHTML = LETTERS.map(([l,min])=>
+  `<span class="sp"><b style="background:var(--${l}-bg);color:var(--${l})">${l}</b>${min?min+"+":"under 55"} &middot; ${BLURB[l]}</span>`).join("");
+$("#homes").innerHTML = D.examples.map(homeCard).join("");
+$("#fc").innerHTML = D.counties.map(c=>`<option value="${c.name}">${c.name}</option>`).join("");
+
+function readForm(){
+  const f = $("#gform"), o = {};
+  [...f.elements].forEach(el=>{ if(el.name) o[el.name] = el.type==="number"||["stepFree"].includes(el.name) ? +el.value : el.value; });
+  return o;
+}
+function renderGrader(){
+  const h = readForm(), g = grade(h);
+  $("#gout").innerHTML = homeCard(h,"live").replace('class="home"','class="home" style="border:0;box-shadow:none;border-radius:0"')
+    + `<pre class="post" id="livepost">${esc(postText(h,g))}</pre>`;
+}
+$("#gform").addEventListener("input", renderGrader);
+renderGrader();
+
+let tt; function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("up");
+  clearTimeout(tt);tt=setTimeout(()=>t.classList.remove("up"),1900);}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-post]"); if(!b) return;
+  const idx=b.dataset.post;
+  const h = idx==="live" ? readForm() : D.examples[+idx];
+  const txt = postText(h, grade(h));
+  (navigator.clipboard?.writeText(txt)||Promise.reject())
+    .then(()=>toast("Copied. Check the address rule before you post a low grade."))
+    .catch(()=>toast("Select the text and copy manually"));
+});
+</script>
+
+</body>
+</html>
