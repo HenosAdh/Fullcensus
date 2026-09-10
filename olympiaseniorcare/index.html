@@ -323,6 +323,45 @@
   </div>
 </section>
 
+<!-- ============ VIDEO TOUR ============ -->
+<!-- Peter's own walkthrough, 29s, transcoded from a 108 MB 4K master. preload="none"
+     so it costs nothing until someone presses play. It has music: never autoplay. -->
+<section class="sand" id="tour">
+  <div class="inner">
+    <div class="sec-head center">
+      <p class="eyebrow">Take a look inside</p>
+      <h2>Walk through the house in thirty seconds.</h2>
+    </div>
+    <div class="tour">
+      <video controls preload="none" playsinline poster="images/tour-poster.jpg" width="1280" height="720">
+        <source src="video/tour.mp4" type="video/mp4">
+        <p>Your browser cannot play this video. <a href="video/tour.mp4">Open it directly</a> instead.</p>
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUR STORY + CAREGIVERS (merged 10 Sep) ============ -->
+<!-- One section instead of two, at Henos's request: Peter's story and the
+     caregiver line together, about half the words. The full versions live on
+     story.html and team.html. -->
+<section id="story">
+  <div class="inner split">
+    <div>
+      <p class="eyebrow">Our story</p>
+      <h2>It started with my grandmother.</h2>
+      <blockquote class="quote">
+        <p>I knew GiGi would do best somewhere small. We could not find a place that met our standards, so I built one.</p>
+        <cite>Peter, PMHNP-BC &middot; Owner</cite>
+      </blockquote>
+      <p>Every caregiver here is a Washington-licensed employee, background checked and trained in dementia care before they meet a resident.</p>
+      <p><a class="more" href="story.html" style="margin-right:1.4rem">Read our story <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a><a class="more" href="team.html">Meet the team <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+    <img class="portrait" src="images/peter-portrait.jpg" width="804" height="1024" loading="lazy"
+         alt="Peter, owner of Olympia Senior Care and a board-certified psychiatric nurse practitioner.">
+  </div>
+</section>
+
 <!-- ============ SHADOW BOXES ============ -->
 <section class="sand" id="stories">
   <div class="inner split">
@@ -383,26 +422,8 @@
   </div>
 </section>
 
-<!-- ============ VIDEO TOUR ============ -->
-<!-- Peter's own walkthrough, 29s, transcoded from a 108 MB 4K master. preload="none"
-     so it costs nothing until someone presses play. It has music: never autoplay. -->
-<section id="tour">
-  <div class="inner">
-    <div class="sec-head center">
-      <p class="eyebrow">Take a look inside</p>
-      <h2>Walk through the house in thirty seconds.</h2>
-    </div>
-    <div class="tour">
-      <video controls preload="none" playsinline poster="images/tour-poster.jpg" width="1280" height="720">
-        <source src="video/tour.mp4" type="video/mp4">
-        <p>Your browser cannot play this video. <a href="video/tour.mp4">Open it directly</a> instead.</p>
-      </video>
-    </div>
-  </div>
-</section>
-
 <!-- ============ GALLERY ============ -->
-<section class="sand" id="gallery">
+<section id="gallery">
   <div class="inner">
     <div class="sec-head center">
       <p class="eyebrow">Have a look around</p>
@@ -423,42 +444,11 @@
   </div>
 </section>
 
-<!-- ============ STORY TEASER ============ -->
-<section id="story">
-  <div class="inner split">
-    <div>
-      <p class="eyebrow">Our story</p>
-      <h2>It started with my grandmother.</h2>
-      <p class="lede">I knew GiGi would do best somewhere small. We looked, and we could not find a place that met our standards. So I built one.</p>
-      <blockquote class="quote">
-        <p>My vision is to offer a safe, supportive setting where individuals living with dementia and Alzheimer's truly flourish.</p>
-        <cite>Peter, PMHNP-BC &middot; Owner</cite>
-      </blockquote>
-      <a class="more" href="story.html">Read the whole story
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </div>
-    <img class="portrait" src="images/peter-portrait.jpg" width="804" height="1024" loading="lazy"
-         alt="Peter, owner of Olympia Senior Care and a board-certified psychiatric nurse practitioner.">
-  </div>
-</section>
-
-<!-- ============ CAREGIVERS ============ -->
-<!-- Named caregiver cards removed 10 Sep at Henos's request. Peter's photo already
-     sits beside his GiGi quote in the story section, so no individual cards here. -->
-<section class="sand" id="team">
-  <div class="inner narrow center">
-    <p class="eyebrow">Our caregivers</p>
-    <h2>The people who will know your parent by name.</h2>
-    <p class="lede">Every caregiver here is a Washington-licensed employee, not a contractor, background checked and trained in dementia care before they meet a resident. Peter, a board-certified psychiatric nurse practitioner, guides every care plan.</p>
-    <a class="more" href="team.html">How we hire, and what they are certified in <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-  </div>
-</section>
-
 <!-- ============ FAQ ============ -->
 <!-- These questions are mirrored exactly in the FAQPage JSON-LD in <head>.
      If you edit one, edit the other. Google penalises schema that does not
      match what a visitor can actually see on the page. -->
-<section id="faq">
+<section class="sand" id="faq">
   <div class="inner">
     <div class="sec-head center">
       <p class="eyebrow">Questions families ask</p>
@@ -502,7 +492,7 @@
 </section>
 
 <!-- ============ LOCATION + MAP ============ -->
-<section class="loc sand" id="find-us">
+<section class="loc" id="find-us">
   <div class="loc-copy">
     <p class="eyebrow">Find us</p>
     <h2>Right here in West Olympia.</h2>
@@ -521,7 +511,7 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section id="visit">
+<section class="sand" id="visit">
   <div class="inner contact-grid">
     <div>
       <p class="eyebrow">Experience the difference in person</p>
