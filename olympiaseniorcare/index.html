@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Adult Family Home in Olympia, WA | Dementia Care | Olympia Senior Care</title>
-<meta name="description" content="Olympia Senior Care is a licensed 6-bed adult family home in West Olympia, WA specializing in dementia and Alzheimer's care. Montessori-inspired memory care, a 1:3 caregiver ratio, owned by a psychiatric nurse practitioner. Schedule a private tour.">
+<meta name="description" content="Olympia Senior Care is a licensed 6-bed adult family home in West Olympia, WA specializing in dementia and Alzheimer's care. Montessori-inspired memory care, a 1:3 caregiver ratio, owned by a psychiatric nurse practitioner. Medicaid and private pay welcome.">
 <link rel="canonical" href="https://olympiaseniorcareservices.com/">
 <meta name="robots" content="noindex,nofollow">
 
@@ -22,8 +22,6 @@
   the robots meta above at launch, and only then.
 
   STILL OPEN (see BUILD-NOTES.md):
-    - Photos of Janet and Samantha (monogram placeholders)
-    - Medicaid or private pay: FAQ answer written but commented out
     - No testimonials yet. The section is written but commented out.
     - Form posts to FormSubmit and needs Peter to click the
       activation email before it delivers anywhere.
@@ -45,44 +43,85 @@
 
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":["ResidentialCare","LocalBusiness"],
-  "name":"Olympia Senior Care",
-  "alternateName":"Belmont Village Adult Family Home",
-  "legalName":"Belmont Village Adult Family Home LLC",
-  "identifier":{"@type":"PropertyValue","propertyID":"WA DSHS adult family home license","value":"759298"},
-  "description":"A licensed six-bed adult family home in West Olympia, Washington, specializing in Montessori-inspired dementia and Alzheimer's care.",
-  "url":"https://olympiaseniorcareservices.com/",
-  "telephone":"+1-425-589-1971",
-  "email":"belmontvillageafh@gmail.com",
-  "image":"https://olympiaseniorcareservices.com/images/og-image.jpg",
-  "logo":"https://olympiaseniorcareservices.com/images/logo.png",
-  "slogan":"Small. Peaceful. Personal. Professional.",
-  "address":{
-    "@type":"PostalAddress",
-    "streetAddress":"1925 Lenox Ct NW",
-    "addressLocality":"Olympia",
-    "addressRegion":"WA",
-    "postalCode":"98502",
-    "addressCountry":"US"
-  },
-  "areaServed":[
-    {"@type":"City","name":"Olympia"},
-    {"@type":"City","name":"Lacey"},
-    {"@type":"City","name":"Tumwater"},
-    {"@type":"AdministrativeArea","name":"Thurston County"}
+  "@context": "https://schema.org",
+  "@type": [
+    "ResidentialCare",
+    "LocalBusiness"
   ],
-  "openingHoursSpecification":{
-    "@type":"OpeningHoursSpecification",
-    "dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
-    "opens":"00:00","closes":"23:59"
+  "name": "Olympia Senior Care",
+  "alternateName": "Belmont Village Adult Family Home",
+  "legalName": "Belmont Village Adult Family Home LLC",
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "WA DSHS adult family home license",
+    "value": "759298"
   },
-  "availableService":[
-    {"@type":"MedicalTherapy","name":"Dementia and Alzheimer's care"},
-    {"@type":"MedicalTherapy","name":"Assisted living"},
-    {"@type":"MedicalTherapy","name":"Respite care"},
-    {"@type":"MedicalTherapy","name":"Hospice support"}
-  ]
+  "description": "A licensed six-bed adult family home in West Olympia, Washington, specializing in Montessori-inspired dementia and Alzheimer's care.",
+  "url": "https://olympiaseniorcareservices.com/",
+  "telephone": "+1-425-589-1971",
+  "email": "belmontvillageafh@gmail.com",
+  "image": "https://olympiaseniorcareservices.com/images/og-image.jpg",
+  "logo": "https://olympiaseniorcareservices.com/images/logo.png",
+  "slogan": "Small. Peaceful. Personal. Professional.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1925 Lenox Ct NW",
+    "addressLocality": "Olympia",
+    "addressRegion": "WA",
+    "postalCode": "98502",
+    "addressCountry": "US"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Olympia"
+    },
+    {
+      "@type": "City",
+      "name": "Lacey"
+    },
+    {
+      "@type": "City",
+      "name": "Tumwater"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Thurston County"
+    }
+  ],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    "opens": "00:00",
+    "closes": "23:59"
+  },
+  "availableService": [
+    {
+      "@type": "MedicalTherapy",
+      "name": "Dementia and Alzheimer's care"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Assisted living"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Respite care"
+    },
+    {
+      "@type": "MedicalTherapy",
+      "name": "Hospice support"
+    }
+  ],
+  "paymentAccepted": "Medicaid, Private pay"
 }
 </script>
 <script type="application/ld+json">
@@ -145,6 +184,14 @@
         "@type": "Answer",
         "text": "We are in West Olympia, and we welcome families from Olympia, Lacey, Tumwater and across Thurston County."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you accept Medicaid?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We accept both Medicaid and private pay. If your parent already has Medicaid, or you are partway through applying, call us and we will walk you through how it works with DSHS and your parent's case manager."
+      }
     }
   ]
 }
@@ -201,6 +248,7 @@
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>DSHS dementia &amp; mental health specialty</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Awake care, 24 hours a day</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg>Owned by a psychiatric nurse practitioner</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/><path d="M7 15h3"/></svg>Medicaid &amp; private pay welcome</li>
       </ul>
     </div>
     <div class="hero-photo">
@@ -273,6 +321,7 @@
       <li>Support alongside hospice</li>
       <li>Roll-in shower, grab bars</li>
       <li>No stairs</li>
+      <li>Medicaid &amp; private pay</li>
     </ul>
   </div>
 </section>
@@ -371,43 +420,15 @@
   </div>
 </section>
 
-<!-- ============ TEAM TEASER ============ -->
+<!-- ============ CAREGIVERS ============ -->
+<!-- Named caregiver cards removed 10 Sep at Henos's request. Peter's photo already
+     sits beside his GiGi quote in the story section, so no individual cards here. -->
 <section id="team">
-  <div class="inner">
-    <div class="sec-head center">
-      <p class="eyebrow">Meet the team</p>
-      <h2>The people who will know your parent by name.</h2>
-    </div>
-    <div class="team-grid">
-      <article class="member">
-        <div class="por"><img src="images/team-peter.jpg" width="804" height="804" loading="lazy" alt="Peter, owner and psychiatric nurse practitioner"></div>
-        <div class="body">
-          <h3>Peter, PMHNP-BC</h3>
-          <p class="role">Owner and psychiatric nurse practitioner</p>
-          <p class="yrs">Dementia &amp; Alzheimer's since 2008</p>
-        </div>
-      </article>
-      <article class="member">
-        <div class="por"><span class="mono">J</span><span class="tag">Photo coming</span></div>
-        <div class="body">
-          <h3>Janet, CNA</h3>
-          <p class="role">Certified nursing assistant, studying for her nursing degree</p>
-          <p class="yrs">Caring for seniors nearly 12 years</p>
-        </div>
-      </article>
-      <article class="member">
-        <div class="por"><span class="mono">S</span><span class="tag">Photo coming</span></div>
-        <div class="body">
-          <h3>Samantha, CNA</h3>
-          <p class="role">Certified nursing assistant, memory care</p>
-          <p class="yrs">Alzheimer's &amp; dementia nearly 5 years</p>
-        </div>
-      </article>
-    </div>
-    <p class="center" style="margin-top:1.8rem">Every caregiver here is a Washington-licensed employee, not a contractor, background checked and trained in dementia care before they meet a resident.<br>
-      <a class="more" href="team.html">How we hire, and what they are certified in
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
-    </p>
+  <div class="inner narrow center">
+    <p class="eyebrow">Our caregivers</p>
+    <h2>The people who will know your parent by name.</h2>
+    <p class="lede">Every caregiver here is a Washington-licensed employee, not a contractor, background checked and trained in dementia care before they meet a resident. Peter, a board-certified psychiatric nurse practitioner, guides every care plan.</p>
+    <a class="more" href="team.html">How we hire, and what they are certified in <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
   </div>
 </section>
 
@@ -472,17 +493,10 @@
         <summary>What areas do you serve?</summary>
         <p class="a">We are in West Olympia, and we welcome families from Olympia, Lacey, Tumwater and across Thurston County.</p>
       </details>
-      <!--
-        PAYMENT QUESTION — DELIBERATELY NOT PUBLISHED.
-        Peter has never told us whether he takes Medicaid, private pay, or both.
-        It is one of the first two things a family needs to know, and it is the
-        biggest single gap on this site. Uncomment and fill in the moment he says.
-
       <details class="faq">
         <summary>Do you accept Medicaid?</summary>
-        <p class="a">[ANSWER NEEDED FROM PETER]</p>
+        <p class="a">Yes. We accept both Medicaid and private pay. If your parent already has Medicaid, or you are partway through applying, call us and we will walk you through how it works with DSHS and your parent's case manager.</p>
       </details>
-      -->
     </div>
   </div>
 </section>
