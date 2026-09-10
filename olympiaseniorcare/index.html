@@ -10,7 +10,7 @@
 
 <!--
   ============================================================
-  OLYMPIA SENIOR CARE ADULT FAMILY HOME  —  DRAFT v1
+  OLYMPIA SENIOR CARE ADULT FAMILY HOME  —  DRAFT v2 (10 Sep)
   Built 7 Sep 2026 by Full Census. Draft due to Peter Wed 10 Sep.
 
   EVERY WORD ON THIS PAGE IS PETER'S OWN, from the copy he sent on
@@ -22,9 +22,8 @@
   the robots meta above at launch, and only then.
 
   STILL OPEN (see BUILD-NOTES.md):
-    - DSHS licence number (footer placeholder)
-    - Peter's last name
-    - Team photos: three monogram placeholders are in place
+    - Photos of Janet and Samantha (monogram placeholders)
+    - Medicaid or private pay: FAQ answer written but commented out
     - No testimonials yet. The section is written but commented out.
     - Form posts to FormSubmit and needs Peter to click the
       activation email before it delivers anywhere.
@@ -34,7 +33,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,600;0,700;0,800;1,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.v2.css">
+<link rel="stylesheet" href="css/site.v3.css">
 <link rel="icon" href="images/logo.png">
 
 <meta property="og:type" content="website">
@@ -50,6 +49,8 @@
   "@type":["ResidentialCare","LocalBusiness"],
   "name":"Olympia Senior Care",
   "alternateName":"Belmont Village Adult Family Home",
+  "legalName":"Belmont Village Adult Family Home LLC",
+  "identifier":{"@type":"PropertyValue","propertyID":"WA DSHS adult family home license","value":"759298"},
   "description":"A licensed six-bed adult family home in West Olympia, Washington, specializing in Montessori-inspired dementia and Alzheimer's care.",
   "url":"https://olympiaseniorcareservices.com/",
   "telephone":"+1-425-589-1971",
@@ -102,7 +103,7 @@
       "name": "Do you specialize in dementia care?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Olympia Senior Care was built specifically for people living with dementia, Alzheimer's and other cognitive conditions. Peter, the owner, is a board-certified psychiatric nurse practitioner who has worked with memory loss since 2008, and our caregivers are trained in Montessori methods for dementia before they ever work a shift."
+        "text": "Yes. Olympia Senior Care was built specifically for people living with dementia, Alzheimer's and other cognitive conditions. Peter, the owner, is a board-certified psychiatric nurse practitioner who has worked with memory loss since 2008, and our caregivers are trained in Montessori methods for dementia before they ever work a shift. The home is licensed by DSHS with both the Dementia and the Mental Health specialty designations."
       }
     },
     {
@@ -118,7 +119,7 @@
       "name": "My mother wanders and gets agitated in the evening. Can you handle that?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, and it is worth saying plainly, because it is the reason a lot of families are turned away elsewhere. Sundowning, wandering and agitation are dementia, not misbehaviour. The house is single storey with clear visual cues so someone can move around safely on their own, and the day is built so that late afternoon has something calm and familiar in it rather than nothing. Come and talk to us about what your mother actually does, and we will tell you honestly whether we are the right home."
+        "text": "Yes, and it is worth saying plainly, because it is the reason a lot of families are turned away elsewhere. Sundowning, wandering and agitation are dementia, not misbehavior. The house is single-story with clear visual cues so someone can move around safely on their own, and the day is built so that late afternoon has something calm and familiar in it rather than nothing. Come and talk to us about what your mother actually does, and we will tell you honestly whether we are the right home."
       }
     },
     {
@@ -160,8 +161,7 @@
     <nav class="nav-links" aria-label="Primary">
       <a href="story.html">Our Story</a>
       <a href="#care">Our Care</a>
-      <a href="#enrichment">Life Enrichment</a>
-      <a href="#dining">Dining</a>
+      <a href="montessori.html">Montessori Care</a>
       <a href="team.html">Our Team</a>
       <a href="news/">News</a>
     </nav>
@@ -176,8 +176,7 @@
   <div class="drawer" id="drawer">
     <a href="story.html">Our Story</a>
     <a href="#care">Our Care</a>
-    <a href="#enrichment">Life Enrichment</a>
-    <a href="#dining">Dining</a>
+    <a href="montessori.html">Montessori Care</a>
     <a href="team.html">Our Team</a>
     <a href="news/">News</a>
     <a href="tel:+14255891971">Call (425) 589-1971</a>
@@ -199,14 +198,14 @@
         <a class="btn btn-secondary btn-lg" href="tel:+14255891971" data-track="call">Call (425) 589-1971</a>
       </div>
       <ul class="trust">
-        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>Licensed Washington adult family home</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.4 8.4-8 9-4.6-.6-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg>DSHS dementia &amp; mental health specialty</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>Awake care, 24 hours a day</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.6-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.4-7 10-7 10z"/></svg>Owned by a psychiatric nurse practitioner</li>
       </ul>
     </div>
     <div class="hero-photo">
       <img src="images/home-exterior.jpg" width="1600" height="1198" fetchpriority="high"
-           alt="The front of Olympia Senior Care, a yellow single-storey home on a quiet street in West Olympia, with a wide lawn and tall firs behind it.">
+           alt="The front of Olympia Senior Care, a yellow single-story home on a quiet street in West Olympia, with a wide lawn and tall firs behind it.">
     </div>
   </div>
 </section>
@@ -218,6 +217,24 @@
     <div><b>1:3</b><span>Caregiver to resident</span></div>
     <div><b>24/7</b><span>Awake, on-site care</span></div>
     <div><b>2008</b><span>Caring for memory loss since</span></div>
+  </div>
+</section>
+
+<!-- ============ VIDEO TOUR ============ -->
+<!-- Peter's own walkthrough, 29s, transcoded from a 108 MB 4K master. preload="none"
+     so it costs nothing until someone presses play. It has music: never autoplay. -->
+<section class="sand" id="tour">
+  <div class="inner">
+    <div class="sec-head center">
+      <p class="eyebrow">Take a look inside</p>
+      <h2>Walk through the house in thirty seconds.</h2>
+    </div>
+    <div class="tour">
+      <video controls preload="none" playsinline poster="images/tour-poster.jpg" width="1280" height="720">
+        <source src="video/tour.mp4" type="video/mp4">
+        <p>Your browser cannot play this video. <a href="video/tour.mp4">Open it directly</a> instead.</p>
+      </video>
+    </div>
   </div>
 </section>
 
@@ -235,8 +252,8 @@
       <a class="more" href="story.html">Read the whole story
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a>
     </div>
-    <img src="images/living-room.jpg" width="1600" height="1081" loading="lazy"
-         alt="The living room at Olympia Senior Care, with a leather sofa, a piano, tall windows and a chandelier over the entry.">
+    <img class="portrait" src="images/peter-portrait.jpg" width="804" height="1024" loading="lazy"
+         alt="Peter, owner of Olympia Senior Care and a board-certified psychiatric nurse practitioner.">
   </div>
 </section>
 
@@ -250,6 +267,7 @@
 
     <ul class="tags">
       <li>Dementia &amp; Alzheimer's</li>
+      <li>Mental health specialty</li>
       <li>Assisted living</li>
       <li>Respite &amp; short stays</li>
       <li>Support alongside hospice</li>
@@ -294,7 +312,7 @@
 </section>
 
 <!-- ============ SHADOW BOXES ============ -->
-<section id="stories">
+<section class="sand" id="stories">
   <div class="inner split">
     <img class="portrait" src="images/shadowbox-f.jpg" width="1000" height="1187" loading="lazy"
          alt="Inside one resident's shadow box: their own photographs pinned to burlap, with a card that reads Adventure Awaits.">
@@ -310,7 +328,7 @@
 </section>
 
 <!-- ============ LIFE ENRICHMENT ============ -->
-<section class="sand" id="enrichment">
+<section id="enrichment">
   <div class="inner">
     <div class="sec-head">
       <p class="eyebrow">Life enrichment</p>
@@ -334,23 +352,27 @@
         <p>Puzzles and music chosen for the person, at a pace that will not defeat them. Pet therapy, visits from children, and church groups for anyone who wants them.</p>
       </div>
     </div>
+    <p style="margin-top:1.6rem"><a class="more" href="montessori.html">How Montessori care works here, day to day <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></p>
   </div>
 </section>
 
 <!-- ============ DINING ============ -->
-<!-- PHOTO PENDING: this section wants a shot of the kitchen, or of a plated meal.
-     Nothing Peter has sent so far shows either. The menu sheet was here and looked
-     like a document, not like food, so it has been pulled. See BUILD-NOTES. -->
-<section id="dining">
-  <div class="inner narrow center">
-    <p class="eyebrow">What is cooking</p>
-    <h2>Nothing here comes out of a packet.</h2>
-    <p class="lede">Three meals and two snacks a day, cooked in this kitchen from a six-week menu, so nothing repeats week to week. A registered dietitian signs off on every rotation, and we cook to whatever your doctor has ordered.</p>
+<!-- The kitchen photo is a still from Peter's own walkthrough video. -->
+<section class="sand" id="dining">
+  <div class="inner split">
+    <div>
+      <p class="eyebrow">What is cooking</p>
+      <h2>Nothing here comes out of a packet.</h2>
+      <p class="lede">Three meals and two snacks a day, cooked in this kitchen from a six-week menu, so nothing repeats week to week. A registered dietitian signs off on every rotation, and we cook to whatever your doctor has ordered.</p>
+      <p>Residents who want to can help, choosing what goes on the plate, setting the table, or lending a hand with simple preparation. For a lot of people living with dementia, the kitchen is the most familiar room in any house.</p>
+    </div>
+    <img src="images/kitchen.jpg" width="1400" height="788" loading="lazy"
+         alt="The kitchen at Olympia Senior Care, with granite counters, a breakfast bar, a stainless range and a bowl of fresh fruit.">
   </div>
 </section>
 
 <!-- ============ TEAM TEASER ============ -->
-<section class="sand" id="team">
+<section id="team">
   <div class="inner">
     <div class="sec-head center">
       <p class="eyebrow">Meet the team</p>
@@ -358,8 +380,7 @@
     </div>
     <div class="team-grid">
       <article class="member">
-        <!-- PHOTO PENDING: replace .por block with <img src="images/team-peter.jpg" alt="Peter, owner"> -->
-        <div class="por"><span class="mono">P</span><span class="tag">Photo coming</span></div>
+        <div class="por"><img src="images/team-peter.jpg" width="804" height="804" loading="lazy" alt="Peter, owner and psychiatric nurse practitioner"></div>
         <div class="body">
           <h3>Peter, PMHNP-BC</h3>
           <p class="role">Owner and psychiatric nurse practitioner</p>
@@ -391,7 +412,7 @@
 </section>
 
 <!-- ============ GALLERY ============ -->
-<section id="gallery">
+<section class="sand" id="gallery">
   <div class="inner">
     <div class="sec-head center">
       <p class="eyebrow">Have a look around</p>
@@ -405,6 +426,9 @@
       <figure><img src="images/living-room.jpg" width="1600" height="1081" loading="lazy" alt="The bright living room with a leather sofa, recliner and tall windows onto the front garden."><figcaption>The living room</figcaption></figure>
       <figure><img src="images/bedroom.jpg" width="1600" height="1005" loading="lazy" alt="A private bedroom with a bed, dresser, recliner and two windows."><figcaption>A private bedroom</figcaption></figure>
       <figure><img src="images/piano-corner.jpg" width="1100" height="1467" loading="lazy" alt="The piano in the corner of the living room, with candlesticks and a framed print above it."><figcaption>Music, most days</figcaption></figure>
+      <figure class="wide"><img src="images/exercise-room.jpg" width="1400" height="1050" loading="lazy" alt="The exercise room, with a recumbent bike, an exercise mat and a walking treadmill on a padded floor."><figcaption>The exercise room</figcaption></figure>
+      <figure><img src="images/dining-table.jpg" width="1400" height="788" loading="lazy" alt="The dining table set for a meal, with red tulips and a sign on the wall that reads gather."><figcaption>Where everyone eats together</figcaption></figure>
+      <figure><img src="images/fireside.jpg" width="1400" height="788" loading="lazy" alt="The sitting room with the piano, a fireplace and a leather sofa."><figcaption>By the fire</figcaption></figure>
     </div>
   </div>
 </section>
@@ -426,7 +450,7 @@
       </details>
       <details class="faq">
         <summary>Do you specialize in dementia care?</summary>
-        <p class="a">Yes. Olympia Senior Care was built specifically for people living with dementia, Alzheimer's and other cognitive conditions. Peter, the owner, is a board-certified psychiatric nurse practitioner who has worked with memory loss since 2008, and our caregivers are trained in Montessori methods for dementia before they ever work a shift.</p>
+        <p class="a">Yes. Olympia Senior Care was built specifically for people living with dementia, Alzheimer's and other cognitive conditions. Peter, the owner, is a board-certified psychiatric nurse practitioner who has worked with memory loss since 2008, and our caregivers are trained in Montessori methods for dementia before they ever work a shift. The home is licensed by DSHS with both the Dementia and the Mental Health specialty designations.</p>
       </details>
       <details class="faq">
         <summary>How many caregivers are on duty?</summary>
@@ -434,7 +458,7 @@
       </details>
       <details class="faq">
         <summary>My mother wanders and gets agitated in the evening. Can you handle that?</summary>
-        <p class="a">Yes, and it is worth saying plainly, because it is the reason a lot of families are turned away elsewhere. Sundowning, wandering and agitation are dementia, not misbehaviour. The house is single storey with clear visual cues so someone can move around safely on their own, and the day is built so that late afternoon has something calm and familiar in it rather than nothing. Come and talk to us about what your mother actually does, and we will tell you honestly whether we are the right home.</p>
+        <p class="a">Yes, and it is worth saying plainly, because it is the reason a lot of families are turned away elsewhere. Sundowning, wandering and agitation are dementia, not misbehavior. The house is single-story with clear visual cues so someone can move around safely on their own, and the day is built so that late afternoon has something calm and familiar in it rather than nothing. Come and talk to us about what your mother actually does, and we will tell you honestly whether we are the right home.</p>
       </details>
       <details class="faq">
         <summary>Can we visit before deciding?</summary>
@@ -464,7 +488,7 @@
 </section>
 
 <!-- ============ LOCATION + MAP ============ -->
-<section class="loc sand">
+<section class="loc sand" id="find-us">
   <div class="loc-copy">
     <p class="eyebrow">Find us</p>
     <h2>Right here in West Olympia.</h2>
@@ -483,7 +507,7 @@
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="sand" id="visit">
+<section id="visit">
   <div class="inner contact-grid">
     <div>
       <p class="eyebrow">Experience the difference in person</p>
@@ -580,7 +604,7 @@
       <ul>
         <li><a href="story.html">Our Story</a></li>
         <li><a href="#care">Our Care</a></li>
-        <li><a href="#enrichment">Life Enrichment</a></li>
+        <li><a href="montessori.html">Montessori Care</a></li>
         <li><a href="#dining">Dining</a></li>
         <li><a href="team.html">Our Team</a></li>
         <li><a href="news/">News &amp; Resources</a></li>
@@ -597,8 +621,8 @@
     </div>
   </div>
   <div class="foot-bot">
-    <!-- FLAG: DSHS licence number still needed from Peter. -->
-    <span>&copy; <span id="yr">2026</span> Belmont Village Adult Family Home, doing business as Olympia Senior Care. DSHS Licence #<span style="opacity:.6">[pending]</span>.</span>
+    <!-- FLAG: DSHS license number still needed from Peter. -->
+    <span>&copy; <span id="yr">2026</span> Belmont Village Adult Family Home LLC, doing business as Olympia Senior Care. DSHS license #759298.</span>
     <span>Licensed by the Washington State Department of Social and Health Services.</span>
   </div>
 </footer>
