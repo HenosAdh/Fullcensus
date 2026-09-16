@@ -5,3 +5,4 @@ Allow: /
 Disallow: /preview/
 
 Sitemap: https://fullcensus.org/sitemap.xml
+Disallow: /v/

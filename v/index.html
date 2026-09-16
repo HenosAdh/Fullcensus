@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Full Census</title>
+<style>
+  html,body{height:100%;margin:0}
+  body{display:flex;align-items:center;justify-content:center;background:#fff;color:#141414;
+       font-family:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  p{font-size:1rem;color:#6f6f6f;text-align:center;padding:0 24px;max-width:36ch;line-height:1.5}
+  p b{color:#141414}
+</style>
+</head>
+<body>
+<p id="m">One moment&hellip;</p>
+<!--
+  Full Census tracked link:  fullcensus.org/v/?<code>
+
+  Records the click, then sends the visitor on to the real page. The click is
+  recorded from JavaScript on purpose: email security scanners (Outlook Safe
+  Links, Gmail, Proofpoint, Mimecast) fetch every link seconds after delivery,
+  but they fetch the HTML and do not run it, so they never reach the logger.
+  A plain server redirect would ping on nearly every email sent.
+
+  fullcensus.org/v/?me      mark this device as yours; your clicks never notify
+  fullcensus.org/v/?notme   undo that
+
+  Codes, destinations and recipients live in Supabase (fc_links). This page can
+  only resolve a code to its destination; it cannot list links or read names.
+-->
+<script>
+(function () {
+  var SB = "https://kficcgswkkprnyvuxqsx.supabase.co";
+  var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmaWNjZ3N3a2twcm55dnV4cXN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NjU0MjUsImV4cCI6MjA5NjU0MTQyNX0.uMHqNV4IAWv1WVJTmouqG-Oju5d-hK5sC7RmYEdqRDM";
+  var HOME = "https://fullcensus.org/websites/";
+  var msg = document.getElementById("m");
+  var code = (location.search || "").replace(/^\?/, "").split(/[&=#]/)[0].toLowerCase();
+
+  function isMine() { try { return localStorage.getItem("fc_me") === "1"; } catch (e) { return false; } }
+
+  if (code === "me") {
+    try { localStorage.setItem("fc_me", "1"); } catch (e) {}
+    msg.innerHTML = "<b>This device is marked as yours.</b><br>Links you open here are still recorded, but they will never notify you.";
+    return;
+  }
+  if (code === "notme") {
+    try { localStorage.removeItem("fc_me"); } catch (e) {}
+    msg.innerHTML = "<b>Unmarked.</b><br>Links opened on this device will notify you again.";
+    return;
+  }
+  if (!/^[a-z0-9]{4,12}$/.test(code)) { location.replace(HOME); return; }
+
+  var ua = navigator.userAgent || "";
+  // Scanners that DO run JavaScript usually announce themselves one of these ways.
+  var bot = !!navigator.webdriver ||
+    /bot|crawl|spider|slurp|preview|scanner|headless|phantom|lighthouse|facebookexternalhit|embedly|pinterest|slack|discord|whatsapp|telegram|skype|bingpreview|google-safety|safelinks|proofpoint|mimecast|barracuda/i.test(ua);
+
+  var sent = false;
+  function go(url) { if (sent) return; sent = true; location.replace(url); }
+
+  // Tag the destination so its own analytics show what happened after the click.
+  // The code, never the person's name, goes to third-party analytics. Payment
+  // pages are left untouched.
+  function tag(url) {
+    try {
+      var u = new URL(url);
+      if (/(^|\.)stripe\.com$/i.test(u.hostname)) return url;
+      if (!u.searchParams.has("utm_source")) {
+        u.searchParams.set("utm_source", "fullcensus");
+        u.searchParams.set("utm_medium", "outreach");
+        u.searchParams.set("utm_campaign", code);
+      }
+      return u.toString();
+    } catch (e) { return url; }
+  }
+
+  // Never strand someone on a blank page if the network is slow.
+  var fallback = setTimeout(function () { go(HOME); }, 4000);
+
+  fetch(SB + "/rest/v1/rpc/fc_track_click", {
+    method: "POST",
+    keepalive: true,
+    headers: { "apikey": KEY, "Authorization": "Bearer " + KEY, "Content-Type": "application/json" },
+    body: JSON.stringify({ p_code: code, p_ua: ua, p_ref: document.referrer || "", p_self: isMine(), p_bot: bot })
+  })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (dest) {
+      clearTimeout(fallback);
+      go(typeof dest === "string" && /^https:\/\//i.test(dest) ? tag(dest) : HOME);
+    })
+    .catch(function () { clearTimeout(fallback); go(HOME); });
+})();
+</script>
+</body>
+</html>
