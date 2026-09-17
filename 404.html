@@ -44,10 +44,12 @@
   Two jobs, because GitHub Pages serves this page for any address that does
   not exist:
 
-  1. Tracked links. fullcensus.org/k7q2mx (also /K7Q2MX, /k7q2mx/, /v/k7q2mx)
-     records the open and forwards to the real page. See /v/track.js.
-     Real pages always win, which is why new codes always contain a digit:
-     every page on this site is a word, so a code can never shadow one.
+  1. Tracked links. fullcensus.org/for/prestige (also /for/PRESTIGE, a trailing
+     slash, or the older bare /k7q2mx and /v/k7q2mx) records the open and
+     forwards to the real page. See /v/track.js.
+     Real pages always win over a link, so links named after a home live under
+     /for/: staging that home at fullcensus.org/prestigemanor can never take
+     the link over. Nothing real is ever published under /for/.
   2. Everything else gets a proper page-not-found instead of GitHub's.
 -->
 <script src="/v/track.js?v=20260917b"></script>
@@ -64,7 +66,7 @@
 
   var path = location.pathname;
   try { path = decodeURIComponent(path); } catch (e) {}
-  var m = path.toLowerCase().replace(/^\/+/, "").match(/^(?:v\/)?([a-z0-9]{4,12})[^a-z0-9]*$/);
+  var m = path.toLowerCase().replace(/^\/+/, "").match(/^(?:for\/|v\/)?([a-z0-9]{4,12})[^a-z0-9]*$/);
   if (!m || !window.fcLink) { notFound(); return; }
 
   // Only say "one moment" if the lookup is slow, so a typo never flashes it.
