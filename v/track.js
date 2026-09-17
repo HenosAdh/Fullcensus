@@ -28,22 +28,6 @@ window.fcLink = (function () {
     try { if (on) localStorage.setItem("fc_me", "1"); else localStorage.removeItem("fc_me"); } catch (e) {}
   }
 
-  // Tag the destination so its own analytics show what happened after the click.
-  // The code, never the person's name, goes to third-party analytics. Payment
-  // pages are left untouched.
-  function tag(url, code) {
-    try {
-      var u = new URL(url);
-      if (/(^|\.)stripe\.com$/i.test(u.hostname)) return url;
-      if (!u.searchParams.has("utm_source")) {
-        u.searchParams.set("utm_source", "fullcensus");
-        u.searchParams.set("utm_medium", "outreach");
-        u.searchParams.set("utm_campaign", code);
-      }
-      return u.toString();
-    } catch (e) { return url; }
-  }
-
   // Record an open of `code`, then leave for its destination. `unknown` runs
   // when no such link exists; by default the visitor goes to my work instead.
   function open(code, unknown) {
@@ -71,7 +55,8 @@ window.fcLink = (function () {
       .then(function (dest) {
         clearTimeout(fallback);
         if (left) return;
-        if (typeof dest === "string" && /^https:\/\//i.test(dest)) go(tag(dest, code));
+        // The exact address you chose, nothing added: no ?utm_ tail in her address bar.
+        if (typeof dest === "string" && /^https:\/\//i.test(dest)) go(dest);
         else unknown();
       })
       // If the tracker itself is down, still show them the work, never an error.
