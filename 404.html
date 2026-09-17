@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Full Census</title>
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<style>
+  :root{--ink:#000;--text:#141414;--muted:#6f6f6f;--gold:#c4b139;
+        --font:'Space Grotesk',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+  html,body{height:100%;margin:0}
+  body{display:flex;align-items:center;justify-content:center;background:#fff;color:var(--text);
+       font-family:var(--font);padding:0 20px;box-sizing:border-box}
+  #wait{font-size:1rem;color:var(--muted)}
+  main{max-width:600px;text-align:center;padding:40px 0}
+  .brand{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:1.18rem;color:var(--ink);text-decoration:none;margin-bottom:36px}
+  .brand svg{width:30px;height:30px}
+  h1{font-size:clamp(2rem,6vw,3.1rem);line-height:1.06;letter-spacing:-.02em;margin:0 0 16px;text-wrap:balance}
+  main p{font-size:1.125rem;line-height:1.55;color:var(--muted);margin:0 auto 30px;max-width:44ch}
+  .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+  .btn{display:inline-flex;align-items:center;font-weight:600;font-size:.95rem;padding:12px 20px;border-radius:40px;
+       min-height:44px;box-sizing:border-box;border:1.5px solid var(--ink);color:var(--ink);text-decoration:none}
+  .btn.dark{background:var(--ink);color:#fff}
+  .btn:hover{border-color:var(--gold)}
+</style>
+</head>
+<body>
+<p id="wait" hidden>One moment&hellip;</p>
+
+<main id="nf" hidden>
+  <a class="brand" href="/" aria-label="Full Census home"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="16" fill="#000"/><g fill="#c4b139"><circle cx="16" cy="9.5" r="4.4"/><circle cx="16" cy="22.5" r="4.4"/><circle cx="9.5" cy="16" r="4.4"/><circle cx="22.5" cy="16" r="4.4"/></g><circle cx="16" cy="16" r="3.2" fill="#fff"/></svg>Full&nbsp;Census</a>
+  <h1>This page isn&rsquo;t here.</h1>
+  <p>The link may be old, or a letter got lost along the way. Here&rsquo;s where most people are headed.</p>
+  <div class="btns">
+    <a class="btn dark" href="/websites/">See the websites I&rsquo;ve built</a>
+    <a class="btn" href="/guides/">Read the guides</a>
+    <a class="btn" href="/">Home</a>
+  </div>
+</main>
+<noscript><style>#nf{display:block!important}</style></noscript>
+
+<!--
+  Two jobs, because GitHub Pages serves this page for any address that does
+  not exist:
+
+  1. Tracked links. fullcensus.org/k7q2mx (also /K7Q2MX, /k7q2mx/, /v/k7q2mx)
+     records the open and forwards to the real page. See /v/track.js.
+     Real pages always win, which is why new codes always contain a digit:
+     every page on this site is a word, so a code can never shadow one.
+  2. Everything else gets a proper page-not-found instead of GitHub's.
+-->
+<script src="/v/track.js?v=20260917"></script>
+<script>
+(function () {
+  var nf = document.getElementById("nf"), wait = document.getElementById("wait");
+  var slow = null;
+  function notFound() {
+    clearTimeout(slow);
+    document.title = "Page not found | Full Census";
+    wait.hidden = true;
+    nf.hidden = false;
+  }
+
+  var path = location.pathname;
+  try { path = decodeURIComponent(path); } catch (e) {}
+  var m = path.toLowerCase().replace(/^\/+/, "").match(/^(?:v\/)?([a-z0-9]{4,12})[^a-z0-9]*$/);
+  if (!m || !window.fcLink) { notFound(); return; }
+
+  // Only say "one moment" if the lookup is slow, so a typo never flashes it.
+  slow = setTimeout(function () { wait.hidden = false; }, 500);
+  fcLink.open(m[1], notFound);
+})();
+</script>
+</body>
+</html>
