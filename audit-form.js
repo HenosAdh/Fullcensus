@@ -191,6 +191,9 @@
       // Use whatever this page called the field, since not every guide asks for beds.
       var lab = function (n, d) { var el = form.querySelector('[name=' + n + ']'); return (el && el.getAttribute('data-label')) || d; };
       btn.disabled = true; btn.textContent = "Sending…";
+      // If a tracked link (fullcensus.org/for/<code>) brought them here in the last 30 days, say which one.
+      var via = "";
+      try { var sv = (localStorage.getItem("fc_src") || "").split("|"); if (sv[0] && Date.now() - (+sv[1] || 0) < 30 * 864e5) via = sv[0]; } catch (err) {}
       var payload = {
         family_name: name, email: email, phone: phone || "", location_pref: city,
         notes: (mount.getAttribute("data-kind") || "Occupancy Audit request")
@@ -198,6 +201,7 @@
           + (extra ? " · " + lab("afextra", "Detail") + ": " + extra : "")
           + (beds ? " · " + lab("afbeds", "Open beds") + ": " + beds : "")
           + (website ? " · Website: " + website : "")
+          + (via ? " · Came via fullcensus.org/for/" + via : "")
           + " · via " + (document.title || "site"),
         source: "occupancy-audit", route: "fullcensus", status: "new"
       };
@@ -220,6 +224,7 @@
             ...(home ? { "Adult family home": home } : {}),
             ...(extra ? { [lab("afextra", "Detail")]: extra } : {}),
             ...(beds ? { [lab("afbeds", "Open beds")]: beds } : {}),
+            ...(via ? { "Came via": "fullcensus.org/for/" + via } : {}),
             ...(website ? { "Has website": website } : {}),
             Source: (document.title || "fullcensus.org")
           })

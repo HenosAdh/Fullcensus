@@ -36,6 +36,8 @@ window.fcLink = (function () {
     code = String(code || "").toLowerCase();
     unknown = unknown || function () { go(HOME); };
     if (!/^[a-z0-9]{4,12}$/.test(code)) { unknown(); return; }
+    // Remember which link brought them, so a form they fill later says so.
+    try { localStorage.setItem("fc_src", code + "|" + Date.now()); } catch (e) {}
 
     var ua = navigator.userAgent || "";
     // Scanners that DO run JavaScript usually announce themselves one of these ways.
