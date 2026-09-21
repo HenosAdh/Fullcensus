@@ -556,7 +556,7 @@ Full&nbsp;Census
   var ref = "";
   try { var s = (localStorage.getItem("fc_src") || "").split("|"); if (s[0] && Date.now() - (+s[1] || 0) < 30 * 864e5) ref = s[0].replace(/[^a-z0-9]/g, ""); } catch (e) {}
   var WA = "https://wa.me/12062034944?text=";
-  function tag(t) { return t + (ref ? "\n(ref: " + ref + ")" : ""); }
+  function tag(t) { return t; }
   function track(name, p) {
     p = p || {}; p.page_path = location.pathname; if (ref) p.ref = ref;
     try { if (window.gtag) window.gtag("event", name, p); } catch (e) {}
