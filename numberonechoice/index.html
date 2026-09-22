@@ -267,7 +267,6 @@ h3{font-size:22px;margin-bottom:8px}
 .meals ul{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .meals img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:var(--r);box-shadow:var(--sh);display:block}
 .meals figcaption{font-size:15px;color:var(--faint);margin-top:12px;text-align:center}
-.meals .note{font-size:13px;color:var(--faint);opacity:.85}
 @media(max-width:620px){.meals ul{grid-template-columns:repeat(2,1fr)}}
 
 /* ---------- meet melake ---------- */
@@ -570,8 +569,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
         <li><img src="images/meal-dinner.webp" srcset="images/meal-dinner-520.webp 520w, images/meal-dinner.webp 900w" sizes="(max-width:620px) 45vw, 210px" width="1600" height="1200" loading="lazy" decoding="async" alt="A dinner of sausages, roast potatoes and mixed vegetables on a plate"></li>
         <li><img src="images/meal-soup.webp" srcset="images/meal-soup-520.webp 520w, images/meal-soup.webp 900w" sizes="(max-width:620px) 45vw, 210px" width="1600" height="1200" loading="lazy" decoding="async" alt="A bowl of vegetable soup served with bread"></li>
       </ul>
-      <figcaption>Three cooked meals a day, plus snacks, made in the kitchen here.
-        <span class="note">Meal photographs are illustrative.</span></figcaption>
+      <figcaption>Three cooked meals a day, plus snacks, made in the kitchen here.</figcaption>
     </figure>
   </div>
 </section>
@@ -836,8 +834,12 @@ function callAlert(el){
     f.append('Device',(/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent))?'Phone or tablet':'Computer');
     f.append('Note','This is an automatic alert, not a message from the family. There is nothing to reply to.');
     var url='https://api.web3forms.com/submit', sent=false;
-    try{ if(navigator.sendBeacon) sent=navigator.sendBeacon(url,f); }catch(e){}
-    if(!sent){ try{ fetch(url,{method:'POST',body:f,keepalive:true}).catch(function(){}); }catch(e){} }
+    /* fetch(keepalive) first, NOT sendBeacon: Web3Forms answers a beacon POST with 503.
+       Verified on the live Birdsong site 2026-09-22 - beacon 503 twice, fetch 200 twice,
+       same key, same payload, 20s+ apart, so it is not rate limiting. keepalive survives
+       the tel: navigation the same way a beacon would. */
+    try{ fetch(url,{method:'POST',body:f,keepalive:true}).catch(function(){}); sent=true; }catch(e){}
+    if(!sent){ try{ if(navigator.sendBeacon) navigator.sendBeacon(url,f); }catch(e){} }
   }catch(e){}
 }
 
