@@ -213,7 +213,9 @@ h3{font-size:22px;margin-bottom:8px}
 .card.spec{border-top:4px solid var(--blue)}
 .note{margin-top:26px;font-size:16px;color:var(--faint);text-align:center}
 @media(max-width:980px){.cards{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:620px){.cards{grid-template-columns:1fr}}
+.cards>*{min-width:0}
+.cards.two{grid-template-columns:repeat(2,1fr);max-width:900px;margin-left:auto;margin-right:auto}
+@media(max-width:620px){.cards,.cards.two{grid-template-columns:1fr}}
 
 /* ---------- nurse-led split ---------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,70px);align-items:center}
@@ -632,7 +634,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
       <h2>Referrals welcome</h2>
       <p class="lead">We work with DSHS, Home and Community Services and hospital discharge planners, and we hold the state contracts below.</p>
     </div>
-    <div class="cards" style="grid-template-columns:repeat(2,1fr);max-width:900px;margin-left:auto;margin-right:auto">
+    <div class="cards two">
       <article class="card rv"><h3>Medicaid, through DSHS</h3>
         <p>A Medicaid adult family home contract, for residents who qualify.</p></article>
       <article class="card rv"><h3>Expanded Community Services</h3>
