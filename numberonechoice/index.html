@@ -295,6 +295,19 @@ details.faq summary::after{content:"";position:absolute;right:22px;top:50%;width
 details.faq[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
 details.faq .a{padding:0 22px 20px;font-size:17px}
 
+/* ---------- care accordion ---------- */
+.carelist{max-width:880px;margin:36px auto 0;display:grid;gap:12px}
+details.care{background:#fff;border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh)}
+details.care.spec{border-left:4px solid var(--blue)}
+details.care summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;
+  padding:16px 58px 16px 18px;font-weight:700;font-size:18px;color:var(--ink);position:relative;min-height:44px}
+details.care summary::-webkit-details-marker{display:none}
+details.care summary::after{content:"";position:absolute;right:22px;top:50%;width:12px;height:12px;border-right:3px solid var(--blue);
+  border-bottom:3px solid var(--blue);transform:translateY(-70%) rotate(45deg);transition:transform .2s}
+details.care[open] summary::after{transform:translateY(-30%) rotate(-135deg)}
+details.care p{padding:0 22px 20px 76px;font-size:17px;margin:0}
+@media(max-width:560px){details.care summary{font-size:17px;gap:12px}details.care p{padding-left:18px}}
+
 /* ---------- location ---------- */
 .loc{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,4vw,56px);align-items:center}
 .addr{font-size:19px;line-height:1.5;color:var(--ink);margin:14px 0 22px}
@@ -436,37 +449,19 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--blue)}
       <h2>Care for every level of need</h2>
       <p class="lead">From a little help each morning to full care in bed, we plan care around each person, and we let residents do what they can for themselves, safely.</p>
     </div>
-    <div class="cards">
-      <article class="card spec rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3a4.5 4.5 0 0 0-4.4 5.4A4 4 0 0 0 6 16h1.5v3h5v-2"/><path d="M14.5 3a4.5 4.5 0 0 1 4.4 5.4A4 4 0 0 1 18 16h-1.5"/><path d="M12 3v14"/></svg></div>
-        <h3>Dementia care</h3>
-        <p>Care for people living with Alzheimer&rsquo;s disease and other forms of dementia. Calm, predictable days, gentle reminders, and help at whatever level each person needs.</p>
-      </article>
-      <article class="card spec rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 22l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
-        <h3>Mental health care</h3>
-        <p>Support for adults living with mental illness, with a steady daily routine and a care plan built around the person, not the diagnosis.</p>
-      </article>
-      <article class="card spec rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c.6-.3 1.3-.5 2-.5 2.2 0 4 1.8 4 4v2"/></svg></div>
-        <h3>Developmental disabilities</h3>
-        <p>Care and everyday support for adults with developmental disabilities, in a home setting with the same familiar faces each day.</p>
-      </article>
-      <article class="card rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V6.5A2.5 2.5 0 0 1 10.5 5"/><path d="M7 19l-1 2M17 19l1 2"/></svg></div>
-        <h3>Personal care</h3>
-        <p>Help with bathing, dressing, grooming, eating and using the bathroom, from simple reminders to full help. Residents choose their own clothes and do what they can.</p>
-      </article>
-      <article class="card rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7v6"/><path d="M8 10l4-1 4 1"/><path d="M9 21l3-8 3 8"/></svg></div>
-        <h3>Moving safely</h3>
-        <p>Help walking and moving around the home, wheelchair help, and every kind of transfer, including with a Hoyer lift. Residents in bed are turned at least every 2 hours.</p>
-      </article>
-      <article class="card rv">
-        <div class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></div>
-        <h3>Medications and nursing tasks</h3>
-        <p>Medication help and administration through nurse delegation, including insulin injections, blood sugar checks, eye and ear drops, wound dressings and tube feeding.</p>
-      </article>
+    <div class="carelist">
+      <details class="care spec rv" open><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 3a4.5 4.5 0 0 0-4.4 5.4A4 4 0 0 0 6 16h1.5v3h5v-2"/><path d="M14.5 3a4.5 4.5 0 0 1 4.4 5.4A4 4 0 0 1 18 16h-1.5"/><path d="M12 3v14"/></svg></span>Dementia care</summary>
+        <p>Care for people living with Alzheimer&rsquo;s disease and other forms of dementia. Calm, predictable days, gentle reminders, and help at whatever level each person needs.</p></details>
+      <details class="care spec rv"><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.8 5.6a5.5 5.5 0 0 0-7.8 0L12 6.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 22l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></span>Mental health care</summary>
+        <p>Support for adults living with mental illness, with a steady daily routine and a care plan built around the person, not the diagnosis.</p></details>
+      <details class="care spec rv"><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="7" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M15 14.5c.6-.3 1.3-.5 2-.5 2.2 0 4 1.8 4 4v2"/></svg></span>Developmental disabilities</summary>
+        <p>Care and everyday support for adults with developmental disabilities, in a home setting with the same familiar faces each day.</p></details>
+      <details class="care rv"><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h18v2a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5z"/><path d="M6 12V6.5A2.5 2.5 0 0 1 10.5 5"/><path d="M7 19l-1 2M17 19l1 2"/></svg></span>Personal care</summary>
+        <p>Help with bathing, dressing, grooming, eating and using the bathroom, from simple reminders to full help. Residents choose their own clothes and do what they can.</p></details>
+      <details class="care rv"><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><path d="M12 7v6"/><path d="M8 10l4-1 4 1"/><path d="M9 21l3-8 3 8"/></svg></span>Moving safely</summary>
+        <p>Help walking and moving around the home, wheelchair help, and every kind of transfer, including with a Hoyer lift. Residents in bed are turned at least every 2 hours.</p></details>
+      <details class="care rv"><summary><span class="tico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="8" width="18" height="8" rx="4"/><path d="M12 8v8"/></svg></span>Medications and nursing tasks</summary>
+        <p>Medication help and administration through nurse delegation, including insulin injections, blood sugar checks, eye and ear drops, wound dressings and tube feeding.</p></details>
     </div>
     <p class="note rv">Every caregiver is trained and delegated by a nurse before doing any nursing task.</p>
   </div>
