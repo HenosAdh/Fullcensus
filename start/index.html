@@ -254,6 +254,15 @@ footer a{color:#9c988e}
 .tapshot{margin:clamp(34px,5vw,52px) auto 0;max-width:560px}
 .tapshot img{width:100%;border-radius:18px;box-shadow:0 2px 8px rgba(0,0,0,.06),0 26px 50px -28px rgba(0,0,0,.4)}
 .tapshot figcaption{font-size:15px;color:var(--muted);margin-top:14px;text-align:center}
+
+.path{display:flex;flex-direction:column}
+.tag{margin-top:auto;padding-top:22px;font:500 12px/1 'Space Grotesk',monospace;letter-spacing:.14em;
+  text-transform:uppercase;color:#6f6c64}
+.tag.on{color:#3d3814}
+.tag::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;
+  background:currentColor;margin-right:9px;vertical-align:1px;opacity:.55}
+.forkfoot{max-width:70ch;margin:40px auto 0;text-align:center;font-size:17px;line-height:1.6;color:#9c988e}
+.forkfoot{font-weight:300}
 @media(max-width:860px){
   .who,.demo,.agree,.fork,.heat{grid-template-columns:1fr}
   .phone{max-width:290px;margin:0 auto}
@@ -511,13 +520,16 @@ footer a{color:#9c988e}
         <div class="t">If nothing changes</div>
         <p>She types your city and the words adult family home. She finds three homes and a referral service, and she calls them.</p>
         <p style="margin-top:14px">You never know the call happened. The bed stays empty another month.</p>
+        <div class="tag">Nothing recorded</div>
       </div>
       <div class="path b">
         <div class="t">Or</div>
         <p>She finds you. Your photos, your real home, your number as a button she can tap.</p>
         <p style="margin-top:14px">Your phone rings while she is still looking at the screen. She came to you directly, so nobody takes a cut of her rent.</p>
+        <div class="tag on">call_click &middot; counted</div>
       </div>
     </div>
+    <p class="forkfoot">That second one is not a feeling. Every tap of your number is logged as a key event in your own Google Analytics, so at the end of the month you know how many families the website actually put on your phone.</p>
   </div>
 </section>
 
