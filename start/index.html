@@ -241,13 +241,23 @@ footer a{color:#9c988e}
 .dash{margin:clamp(44px,6vw,72px) 0 0}
 .dash img{width:100%;border-radius:16px;box-shadow:0 30px 70px -30px rgba(0,0,0,.9)}
 .dash figcaption{font-size:15px;color:#6f6c64;margin-top:16px;text-align:center;max-width:62ch;margin-left:auto;margin-right:auto}
+
+.cityform{flex-wrap:wrap}
+.cityform input{padding:8px 0}
+.cityform input+input{border-left:1px solid var(--dline);padding-left:18px;max-width:180px;flex:0 1 180px}
+.sent{max-width:520px;margin:38px auto 0;background:#17160f;border:1px solid var(--dline);
+  border-radius:26px;padding:26px;text-align:center}
+.sent b{display:block;font-size:20px;color:#fff;font-weight:600;letter-spacing:-.02em;margin-bottom:6px}
+.sent span{display:block;font-size:15px;color:#6f6c64;margin-bottom:18px}
+.sentbtns{display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
 @media(max-width:860px){
   .who,.demo,.agree,.fork,.heat{grid-template-columns:1fr}
   .phone{max-width:290px;margin:0 auto}
   .who img.me{max-width:240px;margin:0 auto}
   .agree{text-align:left}
   .cityform{flex-direction:column;border-radius:26px;padding:16px;gap:12px}
-  .cityform input{padding:6px 8px;text-align:center}
+  .cityform input{padding:10px 8px;text-align:center}
+  .cityform input+input{border-left:0;border-top:1px solid var(--dline);padding-left:8px;max-width:none;flex:1 1 auto}
   .cityform .btn{width:100%}
   .sym{gap:14px}
   .ownrule{padding:24px}
@@ -278,11 +288,21 @@ footer a{color:#9c988e}
     <div class="eyebrow">Adult family homes &middot; Washington</div>
     <h1>The homes that stay full are the ones families <em>can find</em>.</h1>
     <p class="lead">I build the website, the Google listing and the print for adult family homes in Washington. My own family runs one in Lynnwood.</p>
-    <form class="cityform" id="cityform">
-      <input id="city" type="text" autocomplete="off" placeholder="Your home and city" aria-label="Your home and city">
+    <form class="cityform" data-fcform>
+      <input name="home" type="text" autocomplete="off" required placeholder="Your home and city" aria-label="Your home and city">
+      <input name="contact" type="text" autocomplete="off" required placeholder="Phone or email" aria-label="Phone or email">
       <button class="btn gold" type="submit">Check my home</button>
     </form>
-    <p class="hint">Free. I look up how you come up today and send you what I find. Or email <a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a></p>
+    <div class="sent" hidden>
+      <b>Got it. I will get back to you today.</b>
+      <span>If you would rather not wait:</span>
+      <div class="sentbtns">
+        <a class="btn gold sm" data-smsnow href="sms:+12062034944">Text me now</a>
+        <a class="btn ghost sm" href="tel:+12062034944">Call (206) 203-4944</a>
+        <a class="btn ghost sm" href="mailto:hello@fullcensus.org">Email me</a>
+      </div>
+    </div>
+    <p class="hint">Free. I look up how you come up today and send you what I find. Phone or email, whichever you actually check.</p>
     <div class="trust">
       <span><b>$1,497</b> one time</span>
       <span><b>No</b> monthly fee</span>
@@ -544,10 +564,20 @@ footer a{color:#9c988e}
     <div class="eyebrow">Start here</div>
     <h2>Tell me your home and your city.</h2>
     <p class="lead">I will look up how you come up today and send you what I find. If I think you do not need me yet, I will tell you that too.</p>
-    <form class="cityform" id="cityform2">
-      <input id="city2" type="text" autocomplete="off" placeholder="Your home and city" aria-label="Your home and city">
+    <form class="cityform" data-fcform>
+      <input name="home" type="text" autocomplete="off" required placeholder="Your home and city" aria-label="Your home and city">
+      <input name="contact" type="text" autocomplete="off" required placeholder="Phone or email" aria-label="Phone or email">
       <button class="btn gold" type="submit">Check my home</button>
     </form>
+    <div class="sent" hidden>
+      <b>Got it. I will get back to you today.</b>
+      <span>If you would rather not wait:</span>
+      <div class="sentbtns">
+        <a class="btn gold sm" data-smsnow href="sms:+12062034944">Text me now</a>
+        <a class="btn ghost sm" href="tel:+12062034944">Call (206) 203-4944</a>
+        <a class="btn ghost sm" href="mailto:hello@fullcensus.org">Email me</a>
+      </div>
+    </div>
     <p class="hint">Henos Adhana &middot; (206) 203-4944 &middot; <a href="mailto:hello@fullcensus.org">hello@fullcensus.org</a></p>
   </div>
 </section>
@@ -570,17 +600,66 @@ addEventListener('scroll', function(){
   nav.classList.toggle('up', scrollY > hero.offsetHeight - 80);
 }, {passive:true});
 
-function wire(formId, inputId){
-  var f = document.getElementById(formId); if (!f) return;
-  f.addEventListener('submit', function(e){
-    e.preventDefault();
-    var v = document.getElementById(inputId).value.trim();
-    var body = v ? 'Hi Henos, my home is ' + v + '. How do I come up when a family searches?'
-                 : 'Hi Henos, I saw your page. Can you check how my home comes up?';
-    location.href = 'sms:+12062034944?&body=' + encodeURIComponent(body);
-  });
+function track(name, params){ try{ if (window.gtag) gtag('event', name, params||{}); }catch(e){} }
+
+var SB  = "https://kficcgswkkprnyvuxqsx.supabase.co";
+var KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImtmaWNjZ3N3a2twcm55dnV4cXN4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA5NjU0MjUsImV4cCI6MjA5NjU0MTQyNX0.uMHqNV4IAWv1WVJTmouqG-Oju5d-hK5sC7RmYEdqRDM";
+
+function via(){
+  try{ var v=(localStorage.getItem('fc_src')||'').split('|');
+       if(v[0] && Date.now()-(+v[1]||0) < 30*864e5) return v[0]; }catch(e){}
+  return "";
 }
-wire('cityform','city'); wire('cityform2','city2');
+
+document.querySelectorAll('[data-fcform]').forEach(function(form){
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    var home = form.home.value.trim(), contact = form.contact.value.trim();
+    if (!home || !contact) return;
+    var btn = form.querySelector('button'); btn.disabled = true; btn.textContent = 'Sending...';
+
+    var isEmail = contact.indexOf('@') > -1;
+    var digits  = contact.replace(/[^0-9]/g, '');
+    var v = via();
+    var note = 'Start page · ' + home + (v ? ' · Came via fullcensus.org/for/' + v : '');
+
+    try{
+      await fetch(SB + '/rest/v1/leads', {
+        method:'POST', keepalive:true,
+        headers:{'apikey':KEY,'Authorization':'Bearer '+KEY,'Content-Type':'application/json','Prefer':'return=minimal'},
+        body: JSON.stringify({
+          family_name: home, location_pref: home, notes: note,
+          email: isEmail ? contact : '', phone: isEmail ? '' : contact,
+          source:'start-page', route:'fullcensus', status:'new'
+        })
+      });
+    }catch(err){}
+
+    try{
+      await fetch('https://formsubmit.co/ajax/henosadhana@gmail.com', {
+        method:'POST', keepalive:true,
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify({
+          _subject:'Start page · ' + home, _template:'table', _captcha:'false',
+          'Home and city': home,
+          'Phone or email': contact,
+          ...(v ? {'Came via':'fullcensus.org/for/' + v} : {}),
+          Source:'fullcensus.org/start'
+        })
+      });
+    }catch(err){}
+
+    track('generate_lead', {form_id:'start_page', value:1497, currency:'USD'});
+
+    // hand them the instant route as well, with the message already written
+    var body = 'Hi Henos, my home is ' + home + '. How do I come up when a family searches?';
+    var sent = form.parentNode.querySelector('.sent');
+    var now  = sent.querySelector('[data-smsnow]');
+    if (now) now.setAttribute('href', 'sms:+12062034944?&body=' + encodeURIComponent(body));
+    form.hidden = true; sent.hidden = false;
+    if (digits.length >= 10 || isEmail) { /* nothing else needed */ }
+  });
+});
 
 var lb = document.getElementById('lb'), lbimg = document.getElementById('lbimg');
 document.querySelectorAll('.gal figure').forEach(function(fig){
