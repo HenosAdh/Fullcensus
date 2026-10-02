@@ -70,6 +70,35 @@ nav a.nl:hover{background:var(--cream);color:var(--navy)}
 .chips svg{width:16px;height:16px;flex:none;color:var(--steel)}
 .shot{border-radius:var(--r);overflow:hidden;box-shadow:0 12px 38px rgba(19,36,64,.17)}
 
+/* booking bar — the thing people came to use */
+.barwrap{grid-column:1 / -1}
+.bookbar{display:grid;grid-template-columns:1.25fr 1.25fr .78fr .78fr 1.05fr auto;
+  background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;
+  box-shadow:0 14px 44px rgba(19,36,64,.18);margin-top:clamp(26px,3.6vw,40px);position:relative;z-index:5}
+.bb-field{padding:11px 16px;border-right:1px solid var(--line);min-width:0}
+.bb-field:focus-within{background:#F7F9FD}
+.bb-field label{display:block;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--steel);margin-bottom:2px}
+.bb-field input,.bb-field select{border:0;padding:0;margin:0;min-height:30px;width:100%;background:none;
+  font:inherit;font-size:16.5px;font-weight:600;color:var(--ink)}
+.bb-field input:focus,.bb-field select:focus{outline:0}
+.bb-field input::placeholder{color:#9DA9BA;font-weight:400}
+.bb-go{border:0;background:var(--navy);color:#fff;font:inherit;font-weight:700;font-size:17px;
+  padding:0 clamp(20px,2.6vw,34px);min-height:74px;cursor:pointer;white-space:nowrap}
+.bb-go:hover{background:var(--deep)}
+.bb-note{margin:15px 2px 0;font-size:15.5px;color:var(--muted);max-width:68ch}
+.facts{padding-top:clamp(56px,5vw,72px)!important}
+@media(max-width:860px){
+  .bookbar{grid-template-columns:1fr 1fr}
+  .bb-field{border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .bb-field:nth-child(2n){border-right:0}
+  .bb-go{grid-column:1 / -1;min-height:60px}
+}
+@media(max-width:540px){
+  .bookbar{grid-template-columns:1fr}
+  .bb-field{border-right:0}
+}
+
 /* stat band */
 .band{background:var(--navy);color:#CFDBEF}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;text-align:center}
@@ -144,7 +173,11 @@ footer ul{list-style:none;display:grid;gap:6px}
 
 @media(max-width:900px){
   .hgrid,.two-col{grid-template-columns:1fr}
-  .hero .shot{order:-1}
+  /* booking first: headline, then the bar, then the photo */
+  .hero .hcopy{order:1}
+  .hero .barwrap{order:2}
+  .hero .shot{order:3}
+  .hero .lede{max-width:none}
   .cards,.steps,.fgrid,.trips{grid-template-columns:1fr 1fr}
   .stats{grid-template-columns:1fr 1fr;gap:26px}
 }
@@ -186,62 +219,86 @@ footer ul{list-style:none;display:grid;gap:6px}
 
 <main id="main"><a id="top"></a>
 
-<!-- HERO -->
+<!-- HERO + BOOKING BAR -->
 <section class="hero">
   <div class="wrap hgrid">
-    <div>
+    <div class="hcopy">
       <div class="kick">Lansing &middot; East Lansing &middot; Tri-county</div>
       <h1>Senior and wheelchair transportation <span>in Lansing.</span></h1>
-      <p class="lede">We take you to the appointment and bring you home. You stay in your own wheelchair the whole way.</p>
-      <div class="cta">
-        <a class="btn btn-pri" href="tel:+15178817499" data-cta="call" data-loc="hero">Call (517) 881-7499</a>
-        <a class="btn btn-ghost" href="#book">Book a ride</a>
-      </div>
-      <ul class="chips">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>Ramp van</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7 days, 5am&ndash;10pm</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10V20h13V10"/></svg>Door to door</li>
-      </ul>
+      <p class="lede">Rides to the doctor, to dialysis, and back home again. You stay in your own chair the whole way.</p>
     </div>
     <div class="shot">
       <img src="images/van-ramp.jpg" width="918" height="682" fetchpriority="high"
            alt="The H&amp;H wheelchair-accessible van in Lansing with its side ramp lowered to the driveway">
     </div>
+
+  <div class="barwrap">
+    <form class="bookbar" id="quickBar" novalidate aria-label="Start a ride request">
+      <div class="bb-field">
+        <label for="qFrom">Picking up from</label>
+        <input id="qFrom" placeholder="Home, or the hospital" autocomplete="street-address">
+      </div>
+      <div class="bb-field">
+        <label for="qTo">Going to</label>
+        <input id="qTo" placeholder="Clinic, dialysis, pharmacy">
+      </div>
+      <div class="bb-field">
+        <label for="qDate">Date</label>
+        <input id="qDate" type="date">
+      </div>
+      <div class="bb-field">
+        <label for="qTime">Appointment</label>
+        <input id="qTime" type="time">
+      </div>
+      <div class="bb-field">
+        <label for="qMob">Rider</label>
+        <select id="qMob">
+          <option>Walks to the van</option>
+          <option>Uses a walker</option>
+          <option>Wheelchair</option>
+          <option>Power chair or scooter</option>
+        </select>
+      </div>
+      <button class="bb-go" type="submit">Check availability</button>
+    </form>
+    <p class="bb-note">No account and no card. Tell us the trip, we call you back with a time and a price.
+      In a hurry? Ring <a href="tel:+15178817499" data-cta="call" data-loc="herobar">(517) 881-7499</a> instead.</p>
+    </div>
   </div>
 </section>
 
-<!-- STATS -->
-<section class="band" style="padding:clamp(34px,4vw,48px) 0">
+<!-- FACTS -->
+<section class="band facts" style="padding-bottom:clamp(34px,4vw,48px)">
   <div class="wrap stats">
-    <div class="stat"><b>7</b><span>days a week</span></div>
-    <div class="stat"><b>5<small style="font-size:.5em">am</small>&ndash;10<small style="font-size:.5em">pm</small></b><span>every day</span></div>
-    <div class="stat"><b>3</b><span>counties covered</span></div>
-    <div class="stat"><b>0</b><span>stairs to climb</span></div>
+    <div class="stat"><b>5am</b><span>earliest pickup</span></div>
+    <div class="stat"><b>10pm</b><span>latest drop-off</span></div>
+    <div class="stat"><b>7 days</b><span>weekends included</span></div>
+    <div class="stat"><b>19 towns</b><span>across 3 counties</span></div>
   </div>
 </section>
 
-<!-- WHO WE DRIVE -->
+<!-- RIDERS -->
 <section id="who">
   <div class="wrap">
     <div class="center">
-      <div class="kick">Who we drive</div>
-      <h2>Seniors and wheelchair riders across Lansing</h2>
+      <div class="kick">Riders</div>
+      <h2>Who rides with us</h2>
     </div>
     <div class="cards">
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="3"/><path d="M12 9v7"/><path d="M8 12h8"/><path d="m9 21 3-5 3 5"/></svg></div>
-        <h3>Seniors</h3>
-        <p>If Mom or Dad has stopped driving, we are the ride. Same driver, same van, every time.</p>
+        <h3>Seniors who have stopped driving</h3>
+        <p>Most of our work. You get the same van and the same face each week, which turns out to matter a lot when someone is getting forgetful.</p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 8v6h5"/><path d="M8.5 11.5A5.5 5.5 0 1 0 16 19.5"/></svg></div>
-        <h3>Wheelchair riders</h3>
-        <p>A side ramp and a four-point securement. You roll straight in and stay in your own chair.</p>
+        <h3>Wheelchair and scooter users</h3>
+        <p>No lifting, no transfer, no folding a chair into a trunk. You roll up the ramp and we strap the chair down at four points.</p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18"/><path d="M5 20V9l7-5 7 5v11"/><path d="M12 11v5M9.5 13.5h5"/></svg></div>
-        <h3>Coming out of hospital</h3>
-        <p>Call from the ward. We collect at the discharge door and get you settled inside at home.</p>
+        <h3>Anyone being discharged</h3>
+        <p>Call us from the ward.</p>
       </div>
     </div>
   </div>
@@ -271,8 +328,8 @@ footer ul{list-style:none;display:grid;gap:6px}
 <section id="trips">
   <div class="wrap">
     <div class="center">
-      <div class="kick">What we take you to</div>
-      <h2>Any appointment, anywhere in town</h2>
+      <div class="kick">Trips</div>
+      <h2>Where we take people</h2>
     </div>
     <ul class="trips">
       <li class="trip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3.5"/><path d="M4.5 21a7.5 7.5 0 0 1 15 0"/></svg>Doctor visits</li>
@@ -289,15 +346,15 @@ footer ul{list-style:none;display:grid;gap:6px}
 <section id="pays" class="alt">
   <div class="wrap">
     <div class="center">
-      <div class="kick">Who pays</div>
-      <h2>The question everybody asks first</h2>
-      <p class="lede" style="margin-top:12px;color:var(--body)">Here is the straight answer, before you call.</p>
+      <div class="kick">Paying</div>
+      <h2>Paying for your ride</h2>
+      <p class="lede" style="margin-top:12px;color:var(--body)">Nearly every first phone call starts here, so here it is up front.</p>
     </div>
     <div class="cards">
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 10h18"/><path d="M7 15h4"/></svg></div>
         <h3>Michigan Medicaid</h3>
-        <p>Covers rides to covered care. Your health plan books it through its transportation line &mdash; call us and we will tell you the number.</p>
+        <p>Covers rides to covered care. Your health plan books it through its own transportation line. Call us and we will tell you which number to ring.</p>
       </div>
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v5"/><circle cx="12" cy="16.2" r=".9" fill="currentColor"/></svg></div>
@@ -307,10 +364,10 @@ footer ul{list-style:none;display:grid;gap:6px}
       <div class="card">
         <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M16.5 7.5c0-1.9-2-3-4.5-3S7.5 5.6 7.5 7.5 9.5 10.5 12 10.5s4.5 1.1 4.5 3-2 3-4.5 3-4.5-1.1-4.5-3"/></svg></div>
         <h3>Paying yourself</h3>
-        <p>Simple and quick. Tell us where you are going and we will quote the trip on the phone, before you book.</p>
+        <p>Tell us where you are going and we quote it on the phone before you book. Price depends on the distance and whether you need the ramp.</p>
       </div>
     </div>
-    <p class="cap" style="margin-top:24px">Not sure which one is you? That is the normal place to start. Call and we will work it out together.</p>
+    <p class="cap" style="margin-top:24px">Not sure which of those you are? Ring us and we will work it out on the phone.</p>
   </div>
 </section>
 
@@ -319,12 +376,12 @@ footer ul{list-style:none;display:grid;gap:6px}
   <div class="wrap">
     <div class="center">
       <div class="kick">How it works</div>
-      <h2>One phone call</h2>
+      <h2>Booking a ride</h2>
     </div>
     <div class="steps">
-      <div class="step"><h3>Tell us the trip</h3><p>Date, appointment time, where to, and whether you use a wheelchair or a walker.</p></div>
-      <div class="step"><h3>We confirm</h3><p>Pick-up time and cost, up front. No surprises on the day.</p></div>
-      <div class="step"><h3>We take you both ways</h3><p>We arrive early, walk you in, and we are there when you are done.</p></div>
+      <div class="step"><h3>Tell us the trip</h3><p>Date, appointment time, where to, and whether you use a chair or a walker.</p></div>
+      <div class="step"><h3>We call you back</h3><p>With a pick-up time and what it will cost. Nothing changes on the day.</p></div>
+      <div class="step"><h3>We run the trip</h3><p>We turn up early, because clinics do not wait. Then we take you in, and we are outside again when you are finished.</p></div>
     </div>
   </div>
 </section>
@@ -334,8 +391,8 @@ footer ul{list-style:none;display:grid;gap:6px}
   <div class="wrap two-col" style="align-items:center">
     <div>
       <div class="kick" style="color:var(--soft)">Case managers &amp; discharge planners</div>
-      <h2 style="color:#fff">A Lansing van that answers the phone</h2>
-      <p style="margin-top:14px">Patient ready to go, transport not available until tomorrow. We are small and local, so you get a yes or a no on the spot.</p>
+      <h2 style="color:#fff">Booking on behalf of a patient</h2>
+      <p style="margin-top:14px">Patient ready to leave, and the transport cannot come until tomorrow. We are one van and a local phone number, so you get a yes or a no while you are still on the call.</p>
       <p style="margin-bottom:0"><strong style="color:#fff">Standing weekly runs welcome.</strong> Give us the schedule once and we keep it.</p>
       <div class="cta">
         <a class="btn btn-white" href="tel:+15178817499" data-cta="call" data-loc="partners">Call (517) 881-7499</a>
@@ -358,41 +415,41 @@ footer ul{list-style:none;display:grid;gap:6px}
 <!-- FAQ -->
 <section id="faq">
   <div class="wrap">
-    <div class="center"><div class="kick">Questions</div><h2>Asked and answered</h2></div>
+    <div class="center"><div class="kick">Good to know</div><h2>Questions</h2></div>
     <div class="faqs">
       <details class="faq" open>
         <summary>Is this an ambulance?</summary>
-        <p>No. This is for people who are medically stable and just need a safe, accessible ride. If someone needs treatment on the way, call 911.</p>
+        <p>No. We carry people who are medically stable and just need a safe way to get there. If someone needs treatment on the way, that is an ambulance. Call 911.</p>
       </details>
       <details class="faq">
         <summary>Does Medicare pay for my ride?</summary>
-        <p>Usually not. Original Medicare covers an ambulance when it is medically necessary, but not an ordinary ride to an appointment. Many Medicare Advantage plans do include a few trips a year &mdash; check the number on your card. Michigan Medicaid is different and does cover rides to covered care.</p>
+        <p>Usually not. Original Medicare covers an ambulance when it is medically necessary, but not an ordinary ride to an appointment. Some Medicare Advantage plans include a few trips a year, so it is worth checking the number on your card. Michigan Medicaid is different and does cover rides to covered care.</p>
       </details>
       <details class="faq">
         <summary>Can you take a power wheelchair?</summary>
-        <p>Yes. Tell us the type of chair when you book &mdash; standard, transport or power &mdash; so we allow enough time.</p>
+        <p>Yes. Tell us which kind of chair when you book, standard, transport or power, so we allow enough time.</p>
       </details>
       <details class="faq">
         <summary>How far ahead should I book?</summary>
         <!-- TODO(client): confirm the real notice window -->
-        <p>A day or two is ideal. Need a ride today? Call anyway. We will tell you straight away whether we can cover it.</p>
+        <p>A day or two is ideal, and standing weekly trips can be set up once and left alone. Need something today? Ring anyway. We will tell you honestly whether the van is free.</p>
       </details>
       <details class="faq">
         <summary>Can someone ride with me?</summary>
-        <p>Yes. A family member or caregiver rides free, as long as there is room. Just tell us when you book.</p>
+        <p>Yes, and there is no charge for them. Just say so when you book so we keep the seat.</p>
       </details>
       <details class="faq">
         <summary>Will the driver help me out of the house?</summary>
-        <p>Yes. That is the whole difference between us and a taxi. Door to door, and into the building at the other end.</p>
+        <p>Yes. We come to the door, not the curb, and we take you inside at the other end rather than leaving you in a parking lot.</p>
       </details>
       <details class="faq">
         <summary>Do you carry stretcher patients?</summary>
         <!-- TODO(client): confirm. Defaults to NO — a ramp van is not a stretcher van. -->
-        <p>Not at the moment. We carry walking riders, walker users and wheelchair riders. If you need a stretcher we will say so and help you find it.</p>
+        <p>No, not at the moment. We take walking riders, walker users and wheelchair riders. If a stretcher is what you need we will tell you straight away and point you somewhere that has one.</p>
       </details>
       <details class="faq">
         <summary>Where are you based?</summary>
-        <p>Greater Lansing. We cover Ingham, Eaton and Clinton counties, and we will go further for a specialist appointment in Ann Arbor, Detroit or Grand Rapids.</p>
+        <p>Greater Lansing. We cover Ingham, Eaton and Clinton counties, and we will drive further for a specialist appointment in Ann Arbor, Detroit or Grand Rapids.</p>
       </details>
     </div>
   </div>
@@ -402,9 +459,9 @@ footer ul{list-style:none;display:grid;gap:6px}
 <section id="book" class="alt">
   <div class="wrap two-col">
     <div>
-      <div class="kick">Book a ride</div>
-      <h2>Tell us where you need to be</h2>
-      <p style="margin-top:14px">Calling is fastest &mdash; we answer. Or write it down and we will call you back.</p>
+      <div class="kick">Step 2 of 2</div>
+      <h2>Finish your request</h2>
+      <p style="margin-top:14px">If you filled in the bar at the top, your trip is already carried down here. We just need a name and a number so we can ring you back.</p>
       <ul class="clist">
         <li>
           <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1.1 1A16 16 0 0 1 4 5.1 1 1 0 0 1 5 4Z"/></svg></div>
@@ -530,16 +587,74 @@ footer ul{list-style:none;display:grid;gap:6px}
 </script>
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-  {"@type":"Question","name":"Is this an ambulance?","acceptedAnswer":{"@type":"Answer","text":"No. This is for people who are medically stable and just need a safe, accessible ride. If someone needs treatment on the way, call 911."}},
-  {"@type":"Question","name":"Does Medicare pay for my ride?","acceptedAnswer":{"@type":"Answer","text":"Usually not. Original Medicare covers an ambulance when it is medically necessary, but not an ordinary ride to an appointment. Many Medicare Advantage plans do include a few trips a year — check the number on your card. Michigan Medicaid is different and does cover rides to covered care."}},
-  {"@type":"Question","name":"Can you take a power wheelchair?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tell us the type of chair when you book — standard, transport or power — so we allow enough time."}},
-  {"@type":"Question","name":"How far ahead should I book?","acceptedAnswer":{"@type":"Answer","text":"A day or two is ideal. Need a ride today? Call anyway. We will tell you straight away whether we can cover it."}},
-  {"@type":"Question","name":"Can someone ride with me?","acceptedAnswer":{"@type":"Answer","text":"Yes. A family member or caregiver rides free, as long as there is room. Just tell us when you book."}},
-  {"@type":"Question","name":"Will the driver help me out of the house?","acceptedAnswer":{"@type":"Answer","text":"Yes. That is the whole difference between us and a taxi. Door to door, and into the building at the other end."}},
-  {"@type":"Question","name":"Do you carry stretcher patients?","acceptedAnswer":{"@type":"Answer","text":"Not at the moment. We carry walking riders, walker users and wheelchair riders. If you need a stretcher we will say so and help you find it."}},
-  {"@type":"Question","name":"Where are you based?","acceptedAnswer":{"@type":"Answer","text":"Greater Lansing. We cover Ingham, Eaton and Clinton counties, and we will go further for a specialist appointment in Ann Arbor, Detroit or Grand Rapids."}}
-  ]
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "Is this an ambulance?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No. We carry people who are medically stable and just need a safe way to get there. If someone needs treatment on the way, that is an ambulance. Call 911."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Does Medicare pay for my ride?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Usually not. Original Medicare covers an ambulance when it is medically necessary, but not an ordinary ride to an appointment. Some Medicare Advantage plans include a few trips a year, so it is worth checking the number on your card. Michigan Medicaid is different and does cover rides to covered care."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can you take a power wheelchair?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. Tell us which kind of chair when you book, standard, transport or power, so we allow enough time."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How far ahead should I book?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "A day or two is ideal, and standing weekly trips can be set up once and left alone. Need something today? Ring anyway. We will tell you honestly whether the van is free."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can someone ride with me?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes, and there is no charge for them. Just say so when you book so we keep the seat."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Will the driver help me out of the house?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We come to the door, not the curb, and we take you inside at the other end rather than leaving you in a parking lot."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Do you carry stretcher patients?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "No, not at the moment. We take walking riders, walker users and wheelchair riders. If a stretcher is what you need we will tell you straight away and point you somewhere that has one."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Where are you based?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Greater Lansing. We cover Ingham, Eaton and Clinton counties, and we will drive further for a specialist appointment in Ann Arbor, Detroit or Grand Rapids."
+   }
+  }
+ ]
 }
 </script>
 
@@ -581,6 +696,27 @@ document.querySelectorAll('[data-cta="call"]').forEach(function(a){
         message:'A visitor tapped the call button (' + (a.dataset.loc||'page') + ') at ' + new Date().toLocaleString()})
     }).catch(function(){});
   });
+});
+
+/* the hero bar is step 1: carry what it collected into the full request and send the
+   visitor straight to the two fields we still need. One form still does the submitting. */
+var quick = document.getElementById('quickBar');
+quick.addEventListener('submit', function(e){
+  e.preventDefault();
+  var map = { qFrom:'from', qTo:'to', qDate:'date', qTime:'time' };
+  Object.keys(map).forEach(function(k){
+    var src = document.getElementById(k), dst = document.getElementById(map[k]);
+    if (src && dst && src.value) dst.value = src.value;
+  });
+  var mob = document.getElementById('mobility'), picked = document.getElementById('qMob').value;
+  for (var i = 0; i < mob.options.length; i++) {
+    if (mob.options[i].text.toLowerCase().indexOf(picked.split(' ')[0].toLowerCase()) === 0) { mob.selectedIndex = i; break; }
+  }
+  track('quote_start');
+  /* a hash jump rather than scrollIntoView: it is the one mechanism that always lands, it still
+     animates because html has scroll-behavior:smooth, and it leaves a back-button entry */
+  location.hash = '#book';
+  setTimeout(function(){ document.getElementById('name').focus({ preventScroll: true }); }, 450);
 });
 
 var form = document.getElementById('rideForm'), status = document.getElementById('status');
