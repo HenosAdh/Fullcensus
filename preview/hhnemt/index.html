@@ -86,7 +86,8 @@ nav a.nl:hover{background:var(--cream);color:var(--navy)}
 .ico svg{width:28px;height:28px}
 
 /* map */
-.mapwrap{margin-top:34px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.mapwrap{margin-top:34px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--cream)}
+.mapwrap iframe{display:block;width:100%;height:clamp(300px,42vw,500px);border:0}
 .towns{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:26px;list-style:none}
 .towns li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:7px 13px;font-size:15.5px;font-weight:600;color:var(--navy)}
 .cap{text-align:center;margin-top:14px;font-size:15.5px;color:var(--muted)}
@@ -148,9 +149,7 @@ footer ul{list-style:none;display:grid;gap:6px}
   .stats{grid-template-columns:1fr 1fr;gap:26px}
 }
 @media(max-width:760px){
-  /* the map's labels render ~6px wide on a phone — the town chips say the same thing, readable */
-  .mapwrap,.cap.mapcap{display:none}
-  .towns{margin-top:30px}
+  .towns{margin-top:26px}
   .towns li{font-size:16px;padding:9px 14px}
 }
 @media(max-width:700px){
@@ -256,54 +255,8 @@ footer ul{list-style:none;display:grid;gap:6px}
       <h2>All over greater Lansing</h2>
       <p class="lede" style="margin-top:12px;color:var(--body)">Ingham, Eaton and Clinton counties &mdash; and further for a specialist.</p>
     </div>
-    <div class="mapwrap"><svg class="map" viewBox="0 0 1000 640" role="img" aria-labelledby="mapttl">
-<title id="mapttl">Map of the greater Lansing area showing the towns H&amp;H drives to, with Lansing at the centre</title>
-<defs><radialGradient id="g1"><stop offset="0%" stop-color="#1D345E" stop-opacity=".14"/><stop offset="100%" stop-color="#1D345E" stop-opacity="0"/></radialGradient></defs>
-<rect width="1000" height="640" rx="18" fill="#F3F6FB"/>
-<circle cx="465" cy="341" r="332" fill="url(#g1)"/>
-<circle cx="465" cy="341" r="138" fill="none" stroke="#1D345E" stroke-opacity=".18" stroke-width="1.6" stroke-dasharray="7 8"/>
-<circle cx="465" cy="341" r="276" fill="none" stroke="#1D345E" stroke-opacity=".18" stroke-width="1.6" stroke-dasharray="7 8"/>
-<circle cx="465" cy="341" r="16" fill="#1D345E" fill-opacity=".2"/>
-<circle cx="465" cy="341" r="9" fill="#1D345E" stroke="#fff" stroke-width="3.5"/>
-<text x="459" y="307" text-anchor="middle" font-size="30" font-weight="800" fill="#132440">Lansing</text>
-<circle cx="515" cy="337" r="5.5" fill="#3C5B96"/>
-<text x="529" y="343" text-anchor="start" font-size="19" font-weight="600" fill="#3A4758">East Lansing</text>
-<circle cx="554" cy="351" r="5.5" fill="#3C5B96"/>
-<text x="562" y="377" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Okemos</text>
-<circle cx="572" cy="328" r="5.5" fill="#3C5B96"/>
-<text x="582" y="310" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Haslett</text>
-<circle cx="493" cy="429" r="5.5" fill="#3C5B96"/>
-<text x="493" y="456" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Holt</text>
-<circle cx="543" cy="488" r="5.5" fill="#3C5B96"/>
-<text x="543" y="515" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Mason</text>
-<circle cx="331" cy="321" r="5.5" fill="#3C5B96"/>
-<text x="319" y="303" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Grand Ledge</text>
-<circle cx="394" cy="360" r="5.5" fill="#3C5B96"/>
-<text x="380" y="387" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Delta Twp</text>
-<circle cx="455" cy="237" r="5.5" fill="#3C5B96"/>
-<text x="451" y="219" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">DeWitt</text>
-<circle cx="462" cy="86" r="5.5" fill="#3C5B96"/>
-<text x="462" y="68" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">St. Johns</text>
-<circle cx="655" cy="383" r="5.5" fill="#3C5B96"/>
-<text x="649" y="410" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Williamston</text>
-<circle cx="268" cy="502" r="5.5" fill="#3C5B96"/>
-<text x="268" y="529" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Charlotte</text>
-<circle cx="394" cy="554" r="5.5" fill="#3C5B96"/>
-<text x="394" y="581" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Eaton Rapids</text>
-<circle cx="401" cy="423" r="5.5" fill="#3C5B96"/>
-<text x="427" y="407" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Dimondale</text>
-<circle cx="541" cy="259" r="5.5" fill="#3C5B96"/>
-<text x="541" y="241" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Bath</text>
-<circle cx="607" cy="190" r="5.5" fill="#3C5B96"/>
-<text x="607" y="172" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Laingsburg</text>
-<circle cx="336" cy="440" r="5.5" fill="#3C5B96"/>
-<text x="322" y="467" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Potterville</text>
-<circle cx="700" cy="250" r="5.5" fill="#3C5B96"/>
-<text x="700" y="232" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Perry</text>
-<circle cx="732" cy="403" r="5.5" fill="#3C5B96"/>
-<text x="732" y="430" text-anchor="middle" font-size="19" font-weight="600" fill="#3A4758">Webberville</text>
-</svg></div>
-    <p class="cap mapcap">Rings are 10 and 20 miles from Lansing.</p>
+    <div class="mapwrap"><iframe title="Google map of the greater Lansing area served by H&amp;H Non Emergency Medical Transportation" src="https://www.google.com/maps?q=Lansing,+Michigan&amp;hl=en&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <p class="cap">Greater Lansing and the tri-county area. <a href="https://www.google.com/maps/place/Lansing,+MI/" target="_blank" rel="noopener">Open in Google Maps</a></p>
     <ul class="towns">
       <li>Lansing</li><li>East Lansing</li><li>Okemos</li><li>Haslett</li><li>Holt</li>
       <li>Mason</li><li>Delta Township</li><li>Grand Ledge</li><li>DeWitt</li><li>Dimondale</li>
