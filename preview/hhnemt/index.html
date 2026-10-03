@@ -65,10 +65,14 @@ nav a.nl:hover{background:var(--soft)}
 .burger span{display:block;width:18px;height:1.8px;background:var(--ink);box-shadow:0 -5px 0 var(--ink),0 5px 0 var(--ink)}
 
 .hero{padding:clamp(44px,5.4vw,82px) 0 clamp(40px,5vw,70px)}
-.hgrid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(34px,5vw,80px);align-items:start}
+.hgrid{display:grid;grid-template-columns:1.08fr .92fr;gap:clamp(34px,5vw,80px);align-items:start;
+  grid-template-areas:"copy card" "points card";align-content:start}
+.hcopy{grid-area:copy}
+.hpoints{grid-area:points;align-self:start}
+.reqcard{grid-area:card}
 .hero h1{margin-bottom:20px}
-.hero .sub{margin-bottom:26px}
-.hpoints{list-style:none;display:grid;gap:11px}
+.hero .sub{margin-bottom:0}
+.hpoints{list-style:none;display:grid;gap:11px;margin-top:26px}
 .hpoints li{display:flex;gap:11px;align-items:flex-start;font-size:16.5px;color:var(--ink);font-weight:500}
 .hpoints svg{width:19px;height:19px;flex:none;margin-top:2px}
 
@@ -165,8 +169,10 @@ footer ul{list-style:none;display:grid;gap:7px}
 .fld input,.fld select{min-width:0}
 
 @media(max-width:940px){
-  .hgrid,.lede-grid{grid-template-columns:1fr}
-  .hero .reqcard{order:-1}
+  .lede-grid{grid-template-columns:1fr}
+  /* phone: headline first, then the booking card, then the ticks */
+  .hgrid{grid-template-columns:1fr;grid-template-areas:"copy" "card" "points";gap:24px}
+  .hpoints{margin-top:0}
   .facts{grid-template-columns:1fr 1fr;gap:22px}
   .steps,.fgrid{grid-template-columns:1fr 1fr}
 }
@@ -210,15 +216,15 @@ footer ul{list-style:none;display:grid;gap:7px}
 
 <section class="hero">
   <div class="wrap hgrid">
-    <div>
+    <div class="hcopy">
       <h1>Senior and wheelchair transportation in Lansing</h1>
       <p class="sub">Rides to the doctor, to dialysis and back home again. You stay in your own chair the whole way.</p>
-      <ul class="hpoints">
+    </div>
+    <ul class="hpoints">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg>Side ramp, four-point securement, no lifting</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg>We come to the door, not the curb</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 12.5 5 5L20 6.5"/></svg>Seven days a week, 5am to 10pm</li>
-      </ul>
-    </div>
+    </ul>
 
     <div class="card reqcard">
       <h2>Check your trip</h2>
