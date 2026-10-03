@@ -13,7 +13,7 @@
 <meta property="og:title" content="Senior &amp; Wheelchair Transportation in Lansing, MI">
 <meta property="og:description" content="Wheelchair-accessible rides to the doctor, dialysis and home again, across Lansing and the tri-county area. 7 days a week.">
 <meta property="og:url" content="https://fullcensus.org/preview/hhnemt/">
-<meta property="og:image" content="https://fullcensus.org/preview/hhnemt/images/van-ramp.jpg">
+<meta property="og:image" content="https://fullcensus.org/preview/hhnemt/images/van-ramp-920.jpg">
 <meta property="og:locale" content="en_US">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%230B0D0E'/%3E%3Ctext x='32' y='43' font-family='Helvetica,Arial,sans-serif' font-size='29' font-weight='bold' fill='%23fff' text-anchor='middle'%3EH%26H%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,7 +94,10 @@ nav a.nl:hover{background:var(--soft)}
 .verdict svg{width:19px;height:19px;flex:none;margin-top:2px}
 .verdict b{display:block;font-weight:700}
 
-.band-img img{width:100%;height:clamp(250px,33vw,430px);object-fit:cover;object-position:center 62%}
+
+.shot{margin-top:28px;max-width:462px}
+.shot img{width:100%;height:auto;border-radius:12px;border:1px solid var(--line)}
+.shot figcaption{margin-top:11px;font-size:14.5px;line-height:1.5;color:var(--faint)}
 
 .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;padding:clamp(30px,3.4vw,42px) 0}
 .fact b{display:block;font-size:clamp(26px,3vw,34px);font-weight:800;color:var(--ink);letter-spacing:-.03em;line-height:1}
@@ -250,11 +253,6 @@ footer ul{list-style:none;display:grid;gap:7px}
   </div>
 </section>
 
-<div class="band-img">
-  <img src="images/van-ramp.jpg" width="918" height="682" fetchpriority="high"
-       alt="The H&amp;H wheelchair-accessible van in Lansing with its side ramp lowered to the driveway">
-</div>
-
 <div class="wrap">
   <div class="facts">
     <div class="fact"><b>5am</b><span>Earliest pick-up</span></div>
@@ -270,6 +268,14 @@ footer ul{list-style:none;display:grid;gap:7px}
     <div>
       <h2>Who rides with us</h2>
       <p class="sub" style="margin-top:14px">Most of our riders cannot use a taxi, a bus or a ride-share app. That is the whole reason the van exists.</p>
+      <figure class="shot">
+        <img src="images/van-ramp-460.jpg"
+             srcset="images/van-ramp-460.jpg 462w, images/van-ramp-920.jpg 924w"
+             sizes="(max-width:940px) calc(100vw - 40px), 462px"
+             width="462" height="344" fetchpriority="high"
+             alt="The H&amp;H wheelchair-accessible van on a Lansing driveway with its side ramp lowered">
+        <figcaption>The van, ramp down. One step from the kerb to the seat is one step too many for most of our riders.</figcaption>
+      </figure>
     </div>
     <div class="rows">
       <div class="row">
@@ -517,7 +523,7 @@ footer ul{list-style:none;display:grid;gap:7px}
   "url":"https://fullcensus.org/preview/hhnemt/",
   "telephone":"+1-517-881-7499",
   "email":"handhnemt@gmail.com",
-  "image":"https://fullcensus.org/preview/hhnemt/images/van-ramp.jpg",
+  "image":"https://fullcensus.org/preview/hhnemt/images/van-ramp-920.jpg",
   "logo":"https://fullcensus.org/preview/hhnemt/images/logo.png",
   "priceRange":"$$",
   "currenciesAccepted":"USD",
